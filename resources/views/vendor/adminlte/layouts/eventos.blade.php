@@ -63,11 +63,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     </time>
                                     <div class="info">
                                         <h2 class="title">Megatron's birthday</h2>
-                                        <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                                        <p style="font-size: 14px" class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
                                         <ul>
                                             <li style="width:32%;">
                                                 <a style="color: #0073B7;" href="#website"><span class="fa fa-info text-black"></span>
-                                                    Sitio web</a>
+                                                    Más información</a>
                                             </li>
                                             <li style="color: #0073B7; width:32%;"><span class="fa fa-money text-black"></span> $19.99</li>
                                             <li style="width:32%;">
@@ -120,7 +120,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     </time>
                                     <div class="info">
                                         <h2 class="title">Megatron's birthday</h2>
-                                        <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                                        <p style="font-size: 14px" class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
                                         <ul>
                                             <li style="color: #0073B7; width:32%;"><span class="fa fa-money text-black"></span> $19.99</li>
                                             <li style="width:32%;">
