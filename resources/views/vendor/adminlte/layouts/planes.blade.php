@@ -46,67 +46,67 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     </tr>
                     <tr>
                         <td class="text-uppercase">Publicación Web Básica:</td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Publicación Web Perfil:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Publicación Web Destacado *:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Interés de Usuarios:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Publicación Web Home:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Contratación:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>3 MESES / 6 MESES / 12 MESES</td>
                         <td>3 MESES / 6 MESES / 12 MESES</td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Precios **:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>$100 / $180 / $325</td>
                         <td>$160 / $290 / $520</td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Eventos Gratis ***:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>2 Eventos/4 Eventos/8 Eventos</td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Cursos Gratis ***:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>1 Curso / 2 Cursos / 2 Cursos</td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Posteos en FB y Twiter ****:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>  1 /  2 /  4</td>
                         <td>  2 /  4 /  8</td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Email a Suscriptores:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>X  /  1 /  2</td>
                         <td>1  /  2 /  4</td>
                     </tr>
@@ -174,55 +174,55 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     </tr>
                     <tr>
                         <td class="text-uppercase">Publicación Web Básica:</td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Publicación Web Perfil:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Publicación Web Destacado *:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Interés de Usuarios:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
+                        <td><span style="font-size: 30px" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Publicación Web Home:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
-                        <td><span style="font-size: 40px;" class="icon-yes glyphicon glyphicon-ok-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
+                        <td><span style="font-size: 30px;" class="icon-yes icon ion-checkmark"></span></td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Contratación:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>1 MES / 3 MESES / 6 MESES</td>
                         <td>1 MES / 3 MESES / 6 MESES</td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Precios **:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>$30 / $80 / $145</td>
                         <td>$50 / $135 / $245</td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Posteos en FB y Twiter ****:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>  1 /  2 /  4</td>
                         <td>  1 /  3 /  6</td>
                     </tr>
                     <tr>
                         <td class="text-uppercase">Email a Suscriptores:</td>
-                        <td><span style="font-size: 40px" class="icon-no glyphicon glyphicon-remove-circle"></span></td>
+                        <td><span style="font-size: 30px" class="icon-no icon ion-close"></span></td>
                         <td>X  /  1 /  2</td>
                         <td>1  /  2 /  4</td>
                     </tr>

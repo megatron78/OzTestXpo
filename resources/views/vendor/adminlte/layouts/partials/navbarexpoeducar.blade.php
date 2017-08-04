@@ -1,14 +1,25 @@
 <!-- NavBar posterior con logo -->
 <div style="background-color: #f2f2f2; border-bottom: #f2f2f2" id="navigationt"
-     class="navbar navbar-default navbar-fixed-top">
+     class="navbar navbar-default navbar-fixed-top .hidden-xs">
     <a style="height: 80px; padding-top: 0px" class="navbar-brand" href="{{ url('/') }}">
-        <img style="padding-left: 5%; height: 70px; width: auto;"
+        <img class="hidden-xs" style="padding-left: 5%; height: 70px; width: auto"
              src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
     </a>
 </div>
 <!-- Fixed navbar -->
 <div id="navigation" class="navbar navbar-default navbar-fixed-top col-lg-offset-1">
     <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            {{--<a class="navbar-brand" href="#"><b>ExpoEducar</b></a>--}}
+            {{--<a class="navbar-brand" href="#">
+                <img src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
+            </a>--}}
+        </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a style="font-size: 15px" href="{{ url('/') }}"

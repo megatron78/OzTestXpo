@@ -15,110 +15,114 @@ class CreateInstitutionsTable extends Migration
     {
         Schema::create('institutions', function (Blueprint $table) {
             $table->increments('id');
+            $table->char('activo')->default('1');
+
+            //Código de la institución ministerio de educación
+            $table->string('cod_institucion_mineduc');
 
             //Information
-            $table->string('name');
+            $table->string('nombre')->unique();
             $table->string('slug');
-            $table->boolean('preschool');
-            $table->boolean('school');
-            $table->boolean('bachelor');
+            $table->boolean('preescolar');
+            $table->boolean('escuela');
+            $table->boolean('colegio');
 
-            $table->text('trajectory');
-            $table->string('authority_name');
-            $table->string('address');
-            $table->boolean('laic');
-            $table->boolean('religious');
-            $table->boolean('all_male');
-            $table->boolean('all_female');
-            $table->boolean('male_female');
-            $table->boolean('public');
-            $table->boolean('private');
-            $table->boolean('public_private');
-            $table->float('avg_pay_school');
-            $table->float('avg_pay_college');
-            $table->string('languages');
-            $table->string('phone_number');
-            $table->string('whatsapp');
+            $table->text('trayectoria')->nullable();
+            $table->string('nombre_autoridad')->nullable();
+            $table->string('direccion');
+            $table->boolean('laico');
+            $table->boolean('religioso');
+            $table->boolean('masculino');
+            $table->boolean('femenino');
+            $table->boolean('mixto');
+            $table->boolean('fiscal');
+            $table->boolean('privado');
+            $table->boolean('fiscomisional');
+            $table->float('pago_promedio_escuela')->nullable();
+            $table->float('pago_promedio_colegio')->nullable();
+            $table->string('lenguajes')->nullable();
+            $table->string('telefono');
+            $table->string('celular')->nullable();
             $table->string('email');
-            $table->string('web');
-            $table->string('facebook');
-            $table->string('twitter');
+            $table->string('web')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
 
             //Description
-            $table->mediumText('description');
+            $table->mediumText('descripcion')->nullable();
 
             //Details
-            $table->integer('age_from'); //Preescolar
-            $table->integer('age_to'); //Preescolar
-            $table->boolean('extracurricular');
-            $table->boolean('extended_schedule');
-            $table->boolean('face_to_face_learning');
-            $table->boolean('semi_face_to_face_learning');
-            $table->boolean('online_learning');
-            $table->boolean('morning_schedule');
-            $table->boolean('afternoon_schedule');
-            $table->boolean('night_schedule');
-            $table->string('entrance_morning');
-            $table->string('entrance_afternoon');
-            $table->string('entrance_night');
-            $table->string('exit_morning');
-            $table->string('exit_afternoon');
-            $table->string('exit_night');
-            $table->string('exit_extended_schedule');
-            $table->boolean('feeding_yes');
-            $table->boolean('feeding_no');
-            $table->boolean('feeding_optional');
-            $table->boolean('international_hs');
-            $table->mediumText('extracurricular_activities');
-            $table->integer('native_teachers_percent');
+            $table->integer('edad_desde')->nullable(); //Preescolar
+            $table->integer('edad_hasta')->nullable(); //Preescolar
+            $table->boolean('extracurriculares')->nullable();
+            $table->boolean('horario_extendido')->nullable();
+            $table->boolean('presencial'); //Presencial
+            $table->boolean('semipresencial'); //Semipresencial
+            $table->boolean('distancia'); //Distancia
+            $table->boolean('matutino')->nullable();
+            $table->boolean('vespertino')->nullable();
+            $table->boolean('nocturno')->nullable();
+            $table->string('entrada_matutino')->nullable();
+            $table->string('entrada_vespertino')->nullable();
+            $table->string('entrada_nocturno')->nullable();
+            $table->string('salida_matutino')->nullable();
+            $table->string('salida_vespertino')->nullable();
+            $table->string('salida_nocturno')->nullable();
+            $table->string('salida_horario_extendido')->nullable();
+            $table->string('alimentacion')->nullable(); //S, N, O
+            $table->boolean('bachillerato_internacional')->nullable();
+            $table->mediumText('actividades_extracurriculares')->nullable();
+            $table->integer('porcentaje_profesores_nativos')->nullable();
 
             //Facilities
-            $table->integer('total_students');
-            $table->integer('max_students_per_class');
-            $table->integer('total_area');
-            $table->integer('sports_area');
-            $table->integer('green_fields_area');
-            $table->integer('pool_area');
-            $table->boolean('private_security');
-            $table->boolean('class_wifi');
-            $table->boolean('outside_wifi');
-            $table->mediumText('wifi_description');
-            $table->boolean('ip_entrance_cams');
-            $table->boolean('ip_classes_cams');
-            $table->integer('dinner_room_capacity');
-            $table->integer('indoor_soccer_fields');
-            $table->integer('soccer_fields');
-            $table->integer('basketball_fields');
-            $table->integer('tennis_fields');
-            $table->integer('tennis_tables');
-            $table->boolean('athletic_track');
-            $table->integer('computer_per_student');
-            $table->boolean('theatre');
-            $table->boolean('gym');
-            $table->mediumText('other_facilities');
+            $table->integer('total_estudiantes')->nullable();
+            $table->integer('max_estudiantes_x_clase')->nullable();
+            $table->integer('area_total')->nullable();
+            $table->integer('area_deportiva')->nullable();
+            $table->integer('area_espacios_verdes')->nullable();
+            $table->integer('area_piscina')->nullable();
+            $table->boolean('seguridad_privada')->nullable();
+            $table->boolean('wifi_interior')->nullable();
+            $table->boolean('wifi_exterior')->nullable();
+            $table->mediumText('wifi_otros')->nullable();
+            $table->boolean('camara_ip_entrada_salida')->nullable();
+            $table->boolean('camara_ip_aulas_espacios')->nullable();
+            $table->integer('capacidad_restaurantes')->nullable();
+            $table->integer('canchas_indoor')->nullable();
+            $table->integer('canchas_futbol')->nullable();
+            $table->integer('canchas_basket')->nullable();
+            $table->integer('canchas_tenis')->nullable();
+            $table->integer('mesas_tenis')->nullable();
+            $table->boolean('pista_atletica')->nullable();
+            $table->integer('computadoras_para_alumnos')->nullable();
+            $table->boolean('teatro')->nullable();
+            $table->boolean('gimnasio')->nullable();
+            $table->mediumText('otros')->nullable();
 
             //Certifications, achievements
-            $table->mediumText('achievements_certifications');
+            $table->mediumText('certificaciones_logros')->nullable();
 
             //Aditionals
-            $table->boolean('diurnal'); //Diurno
-            $table->boolean('evening'); //Vespertino
-            $table->boolean('nightly'); //Nocturno
-            $table->string('school_system'); //Costa, Sierra
-            $table->string('jurisdiction'); //Hispana, Bilingüe
+            $table->string('regimen')->nullable(); //Costa, Sierra
+            $table->string('jurisdiccion')->nullable(); //Hispana, Bilingüe
 
             //Images
+            $table->string('institution_picture_1')->nullable();
+            $table->string('institution_picture_2')->nullable();
+            $table->string('institution_picture_3')->nullable();
+            $table->string('institution_picture_4')->nullable();
+            $table->string('institution_picture_5')->nullable();
 
             //Google map
-            $table->float('lat');
-            $table->float('lng');
+            $table->float('lat')->nullable();
+            $table->float('lng')->nullable();
 
             //Invoice data
-            $table->string('ruc_invoice');
-            $table->string('social_name');
-            $table->string('email_invoice');
-            $table->string('phone_invoice');
-            $table->string('address_invoice');
+            $table->string('ruc_invoice')->nullable();
+            $table->string('razon_social_invoice')->nullable();
+            $table->string('email_invoice')->nullable();
+            $table->string('telefono_invoice')->nullable();
+            $table->string('direccion_invoice')->nullable();
 
             $table->timestamps();
         });

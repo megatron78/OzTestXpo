@@ -11,35 +11,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <!-- Fixed navbar -->
     @include('vendor.adminlte.layouts.partials.navbarexpoeducar')
 
+    <!-- Banner -->
+    @include('vendor.adminlte.layouts.partials.bannercategory')
+
     <section class="content" id="destacados" name="destacados">
         <!-- Modal -->
         @include('vendor.adminlte.layouts.partials.modalmeinteresa')
-
-        <div class="row centered">
-            <div class="col-lg-12 col-lg-offset-0">
-                <div id="carousel-example-generic" class="carousel slide">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img style="width: 100%;" src="{{ asset('/img/slide-01.png') }}" alt="">
-                        </div>
-                        <div class="item">
-                            <img style="width: 100%;" src="{{ asset('/img/slide-02.png') }}" alt="">
-                        </div>
-                        <div class="item">
-                            <img style="width: 100%;" src="{{ asset('/img/slide-03.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- INTRO WRAP -->
         <div style="width: 100%;" class="container">

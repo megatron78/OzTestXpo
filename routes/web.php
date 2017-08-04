@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['uses' => 'Home2Controller@showHome', 'as' => 'destacados',]);
 
 Route::get('preescolar', [
     'uses' => 'ListPreescolarController@listPreescolar',

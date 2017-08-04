@@ -17,31 +17,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         @include('vendor.adminlte.layouts.partials.modalmeinteresa')
 
         <!-- INTRO WRAP -->
-        <div class="row centered">
-            <div class="col-lg-12 col-lg-offset-0">
-                <div id="carousel-example-generic" class="carousel slide">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
+        <!-- Banner -->
+        @include('vendor.adminlte.layouts.partials.bannercategory')
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img style="width: 100%;" src="{{ asset('/img/bgu01.jpg') }}" alt="">
-                        </div>
-                        <div class="item">
-                            <img style="width: 100%;" src="{{ asset('/img/bgu02.jpg') }}" alt="">
-                        </div>
-                        <div class="item">
-                            <img style="width: 100%;" src="{{ asset('/img/bgu03.jpg') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div style="width: 100%" class="container">
             <br>
             <div class="row">
