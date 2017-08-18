@@ -14,16 +14,16 @@ class AddProvCantParrCityToInstTable extends Migration
     public function up()
     {
         Schema::table('institutions', function (Blueprint $table) {
-            $table->unsignedInteger('province_id');
+            $table->unsignedInteger('province_id')->nullable();
             $table->foreign('province_id')->references('id')->on('provinces');
 
-            $table->unsignedInteger('canton_id');
+            $table->unsignedInteger('canton_id')->nullable();
             $table->foreign('canton_id')->references('id')->on('cantons');
 
-            $table->unsignedInteger('parish_id');
+            $table->unsignedInteger('parish_id')->nullable();
             $table->foreign('parish_id')->references('id')->on('parishes');
 
-            $table->unsignedInteger('city_id');
+            $table->unsignedInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities');
         });
     }

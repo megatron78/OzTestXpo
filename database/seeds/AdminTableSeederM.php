@@ -13,9 +13,7 @@ class AdminTableSeederM extends Seeder
     public function run()
     {
         factory(User::class)->create([
-            'first_name' => 'Mauricio',
-            'last_name' => 'Molina',
-            'username' => 'megatron',
+            'name' => 'Mauricio Molina',
             'email' => 'megatronldu@gmail.com',
             'role' => 'admin',
         ]);

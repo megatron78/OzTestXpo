@@ -11,6 +11,8 @@
 |
 */
 
+use App\Institution;
+
 Route::get('/', ['uses' => 'Home2Controller@showHome', 'as' => 'destacados',]);
 
 Route::get('preescolar', [
@@ -47,6 +49,11 @@ Route::get('planes', [
     'uses' => 'ListPlanesController@listPlanes',
     'as' => 'planes.all',
 ]);
+
+Route::get('institutions/{institution}-{slug}', [
+    'as' => 'institutions.show',
+    'uses' => 'ShowInstitutionController',
+])->where('institution', '\d+');
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {

@@ -21,7 +21,7 @@
             </ol>
 
             <!-- Wrapper for slides -->
-            <div style="height: 325px" class="carousel-inner">
+            <div style="max-height: 325px" class="carousel-inner">
                 @if(!empty($bannerData[0]->photo1_url))
                     <div class="item active">
                         <img style="width: 100%;" src="{{ asset($bannerData[0]->photo1_url) }}" alt="">

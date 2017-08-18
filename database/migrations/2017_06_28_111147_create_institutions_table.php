@@ -17,11 +17,15 @@ class CreateInstitutionsTable extends Migration
             $table->increments('id');
             $table->char('activo')->default('1');
 
+            //Básico, Premium, Gold
+            $table->string('plan')->default('3B'); //3B (Básico), 2P (Premium), 1G (Gold)
+
             //Código de la institución ministerio de educación
             $table->string('cod_institucion_mineduc');
 
             //Information
             $table->string('nombre')->unique();
+            $table->string('nombre_corto')->unique();
             $table->string('slug');
             $table->boolean('preescolar');
             $table->boolean('escuela');
@@ -41,9 +45,9 @@ class CreateInstitutionsTable extends Migration
             $table->float('pago_promedio_escuela')->nullable();
             $table->float('pago_promedio_colegio')->nullable();
             $table->string('lenguajes')->nullable();
-            $table->string('telefono');
+            $table->string('telefono')->default('ND');
             $table->string('celular')->nullable();
-            $table->string('email');
+            $table->string('email')->default('ND');;
             $table->string('web')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
@@ -112,10 +116,17 @@ class CreateInstitutionsTable extends Migration
             $table->string('institution_picture_3')->nullable();
             $table->string('institution_picture_4')->nullable();
             $table->string('institution_picture_5')->nullable();
+            $table->string('institution_picture_6')->nullable();
+
+            //Images banner
+            $table->string('banner_inst_picture_1')->nullable();
+            $table->string('banner_inst_picture_2')->nullable();
+            $table->string('banner_inst_picture_3')->nullable();
+            $table->string('banner_inst_picture_4')->nullable();
+            $table->string('banner_inst_picture_5')->nullable();
 
             //Google map
-            $table->float('lat')->nullable();
-            $table->float('lng')->nullable();
+            $table->mediumText('mapa_url')->nullable();
 
             //Invoice data
             $table->string('ruc_invoice')->nullable();
