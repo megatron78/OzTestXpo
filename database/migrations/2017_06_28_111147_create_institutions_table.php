@@ -23,6 +23,9 @@ class CreateInstitutionsTable extends Migration
             //Código de la institución ministerio de educación
             $table->string('cod_institucion_mineduc');
 
+            //Palabras clave
+            $table->mediumText('palabras_clave');
+
             //Information
             $table->string('nombre')->unique();
             $table->string('nombre_corto')->unique();

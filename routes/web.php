@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Input;
 Route::get('/', ['uses' => 'Home2Controller@showHome', 'as' => 'destacados',]);
 
 Route::get('preescolar', [
-    'uses' => 'ListPreescolarController@listPreescolar',
+    'uses' => 'ListPreescolarController',
     'as' => 'preescolar.all',
 ]);
 
@@ -54,8 +54,8 @@ Route::get('planes', [
 ]);
 
 Route::get('institutions/{institution}-{slug}', [
-    'as' => 'institutions.show',
     'uses' => 'ShowInstitutionController',
+    'as' => 'institutions.show',
 ])->where('institution', '\d+');
 
 Route::get('/ajax-city/', function() {

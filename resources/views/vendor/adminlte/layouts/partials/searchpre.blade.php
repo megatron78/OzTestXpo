@@ -24,7 +24,7 @@
                 <div class="form-group">
                     &nbsp;&nbsp;
                     <label style="font-size: 14px; color: ghostwhite;" for="search_sector">Sector: &nbsp;</label>
-                    <select style="max-width: 140px" id="search_sector" class="form-control">
+                    <select style="max-width: 140px" id="search_sector" name="search_sector" class="form-control">
                         <option value="">...</option>
 
                     </select>
@@ -32,7 +32,7 @@
                 <div class="form-group">
                     &nbsp;&nbsp;
                     <label style="font-size: 14px; color: ghostwhite;" for="search_institution" class="control-label">Nombre: &nbsp;</label>
-                    <input type="text" id="search_institution" class="form-control mx-sm-2"
+                    <input type="text" id="search_institution" name="search_institution" class="form-control mx-sm-2"
                            placeholder="Nombre o palabra clave..." style="width: 350px">
                 </div>
                 <button type="submit" style="width: 120px;" class="btn btn-warning">BUSCAR</button>
@@ -44,63 +44,63 @@
             <div id="advancedSearch" class="box-body panel-collapse collapse">
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscal"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscal" name="advsearch_chkFiscal"
                                value="public">
                         Fiscal
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscomisional"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscomisional" name="advsearch_chkFiscomisional"
                                value="public_private">
                         Fiscomisional
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkParticular"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkParticular" name="advsearch_chkParticular"
                                value="private" checked>
                         Particular
                     </label>
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkLaico"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkLaico" name="advsearch_chkLaico"
                                value="laic">
                         Laico
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkReligious"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkReligioso" name="advsearch_chkReligioso"
                                value="religious">
                         Religioso
                     </label>
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkFemale"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkMujeres" name="advsearch_chkMujeres"
                                value="all_female">
                         Mujeres
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkMaleFemale"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkMixto" name="advsearch_chkMixto"
                                value="male_female" checked>
                         Mixto
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkMale"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkHombres" name="advsearch_chkHombres"
                                value="all_male">
                         Hombres
                     </label>
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkExtended"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkExtendido" name="advsearch_chkExtendido"
                                value="extended_schedule">
                         Horario Extendido
                     </label>
@@ -108,7 +108,7 @@
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;"  for="advsearch_costo">Pensión: <b>$ 0</b></label>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" value="" class="slider form-control"
+                    <input type="text" value="" class="slider form-control" id="advsearch_costo" name="advsearch_costo"
                            data-slider-min="0" data-slider-max="500" data-slider-step="50"
                            data-slider-value="[0,500]" data-slider-orientation="horizontal"
                            data-slider-selection="before" data-slider-tooltip="show"
