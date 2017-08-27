@@ -63,6 +63,8 @@ class Institution extends Model
 
     public function scopePago_promedio_escuela($query, $pago_promedio_escuela) {
         $pension = explode(',', $pago_promedio_escuela);
+        if($pension[1] == '0')
+            return $query->where('pago_promedio_escuela', '<', 500)->orWhereNull('pago_promedio_escuela');
         if($pension[1] == '500')
             return $query->where('pago_promedio_escuela', '>', $pension[1]);
         return $query->whereBetween('pago_promedio_escuela', $pension);
