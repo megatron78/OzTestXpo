@@ -110,10 +110,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab_1" data-toggle="tab">Información</a></li>
                             <li><a href="#tab_2" data-toggle="tab">Descripción</a></li>
-                            <li><a href="#tab_2" data-toggle="tab">Detalles</a></li>
-                            <li><a href="#tab_2" data-toggle="tab">Certificaciones y Logros</a></li>
-                            <li><a href="#tab_3" data-toggle="tab">Galería de Imágenes</a></li>
-                            <li><a href="#tab_4" data-toggle="tab">Mapa de Ubicación</a></li>
+                            <li><a href="#tab_3" data-toggle="tab">Detalles</a></li>
+                            <li><a href="#tab_4" data-toggle="tab">Certificaciones y Logros</a></li>
+                            <li><a href="#tab_5" data-toggle="tab">Galería de Imágenes</a></li>
+                            <li><a href="#tab_6" data-toggle="tab">Mapa de Ubicación</a></li>
                             {{--<li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     Acciones <span class="caret"></span>
@@ -128,249 +128,164 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         </ul>
                         <div style="font-size: 16px" class="tab-content">
                             <div class="tab-pane active" id="tab_1">
-                                <div class="box-body">
-                                    <dl class="dl-horizontal">
-                                        <dt>Niveles</dt>
-                                        @if($institution->preescolar)
-                                            <dd>Inicial</dd>
-                                        @elseif($institution->escuela)
-                                            <dd>Educación General Básica</dd>
-                                        @elseif($institution->colegio)
-                                            <dd>Colegio</dd>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <dl class="dl-horizontal">
+                                    <dt>Niveles</dt>
+                                    @if($institution->preescolar)
+                                        <dd>Inicial</dd>
+                                    @elseif($institution->escuela)
+                                        <dd>Educación General Básica</dd>
+                                    @elseif($institution->colegio)
+                                        <dd>Colegio</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Trayectoria</dt>
+                                    <dd>{{ $institution->trayectoria }}</dd>
+                                    <dt>Rector/Director</dt>
+                                    <dd>{{ $institution->nombre_autoridad }}</dd>
+                                    <dt>Ubicación</dt>
+                                    <dd>{{ $institution->province->name }} / {{ $institution->canton->name }}
+                                        / {{ $institution->parish->name }} {{ isset($institution->city->name) ? " / ".$institution->city->name : "" }}</dd>
+                                    <dt>Dirección</dt>
+                                    <dd>{{ $institution->direccion }}</dd>
+                                    <dt>Tipo Educación</dt>
+                                    @if($institution->religioso)
+                                        <dd>Religioso</dd>
+                                    @else
+                                        <dd>Laico</dd>
+                                    @endif
+                                    <dt>Género</dt>
+                                    @if($institution->masculino)
+                                        <dd>Maculino</dd>
+                                    @elseif($institution->femenino)
+                                        <dd>Femenino</dd>
+                                    @else
+                                        <dd>Mixto</dd>
+                                    @endif
+                                    <dt>Sostenimiento</dt>
+                                    @if($institution->fiscal)
+                                        <dd>Pública</dd>
+                                    @elseif($institution->fiscomisional)
+                                        <dd>Fiscomisional</dd>
+                                    @else
+                                        <dd>Privada</dd>
+                                    @endif
+                                    <dt>Régimen</dt>
+                                    @if(isset($institution->regimen))
+                                        <dd>{{ $institution->regimen }}</dd>
+                                    @else
+                                        <dd>Sierra</dd>
+                                    @endif
+                                    <dt>Pensión promedio</dt>
+                                    @if(isset($institution->pago_promedio_escuela))
+                                        <dd>Escuela: ${{ $institution->pago_promedio_escuela }}</dd>
+                                    @elseif(isset($institution->pago_promedio_colegio))
+                                        <dd>Colegio: ${{ $institution->pago_promedio_colegio }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Idiomas</dt>
+                                    @if(isset($institution->lenguajes))
+                                        <dd>{{ $institution->lenguajes }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Teléfonos</dt>
+                                    @if(isset($institution->telefono))
+                                        <dd>{{ $institution->telefono }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Celular</dt>
+                                    @if(isset($institution->celular))
+                                        <dd>{{ $institution->celular }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Email</dt>
+                                    @if(isset($institution->email))
+                                        <dd>{{ $institution->email }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Web</dt>
+                                    @if(isset($institution->web))
+                                        <dd>{{ $institution->web }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Redes Sociales</dt>
+                                    <dd>
+                                        @if(isset($institution->facebook))
+                                            <a href="{{ $institution->facebook }}"
+                                               class="btn btn-social-icon btn-facebook"><i
+                                                        class="fa fa-facebook"></i></a>
+                                        @elseif(isset($institution->twitter))
+                                            &nbsp;
+                                            <a href="{{ $institution->twitter }}"><i class="fa fa-twitter"></i></a>
                                         @else
                                             <dd></dd>
                                         @endif
-                                        <dt>Trayectoria</dt>
-                                        <dd>{{ $institution->trayectoria }}</dd>
-                                        <dt>Rector/Director</dt>
-                                        <dd>{{ $institution->nombre_autoridad }}</dd>
-                                        <dt>Ubicación</dt>
-                                        <dd>{{ $institution->province->name }} / {{ $institution->canton->name }}
-                                            / {{ $institution->parish->name }} {{ isset($institution->city->name) ? " / ".$institution->city->name : "" }}</dd>
-                                        <dt>Dirección</dt>
-                                        <dd>{{ $institution->direccion }}</dd>
-                                        <dt>Tipo Educación</dt>
-                                        @if($institution->religioso)
-                                            <dd>Religioso</dd>
-                                        @else
-                                            <dd>Laico</dd>
-                                        @endif
-                                        <dt>Género</dt>
-                                        @if($institution->masculino)
-                                            <dd>Maculino</dd>
-                                        @elseif($institution->femenino)
-                                            <dd>Femenino</dd>
-                                        @else
-                                            <dd>Mixto</dd>
-                                        @endif
-                                        <dt>Sostenimiento</dt>
-                                        @if($institution->fiscal)
-                                            <dd>Pública</dd>
-                                        @elseif($institution->fiscomisional)
-                                            <dd>Fiscomisional</dd>
-                                        @else
-                                            <dd>Privada</dd>
-                                        @endif
-                                        <dt>Régimen</dt>
-                                        @if(isset($institution->regimen))
-                                            <dd>{{ $institution->regimen }}</dd>
-                                        @else
-                                            <dd>Sierra</dd>
-                                        @endif
-                                        <dt>Pensión promedio</dt>
-                                        @if(isset($institution->pago_promedio_escuela))
-                                            <dd>Escuela: ${{ $institution->pago_promedio_escuela }}</dd>
-                                        @elseif(isset($institution->pago_promedio_colegio))
-                                            <dd>Colegio: ${{ $institution->pago_promedio_colegio }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Idiomas</dt>
-                                        @if(isset($institution->lenguajes))
-                                            <dd>{{ $institution->lenguajes }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Teléfonos</dt>
-                                        @if(isset($institution->telefono))
-                                            <dd>{{ $institution->telefono }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Celular</dt>
-                                        @if(isset($institution->celular))
-                                            <dd>{{ $institution->celular }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Email</dt>
-                                        @if(isset($institution->email))
-                                            <dd>{{ $institution->email }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Web</dt>
-                                        @if(isset($institution->web))
-                                            <dd>{{ $institution->web }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Redes Sociales</dt>
-                                        <dd>
-                                            @if(isset($institution->facebook))
-                                                <a href="{{ $institution->facebook }}"
-                                                   class="btn btn-social-icon btn-facebook"><i
-                                                            class="fa fa-facebook"></i></a>
-                                            @elseif(isset($institution->twitter))
-                                                &nbsp;
-                                                <a href="{{ $institution->twitter }}"><i class="fa fa-twitter"></i></a>
-                                        @else
-                                            <dd></dd>
-                                            @endif
-                                            </dd>
-                                            <dt>Descripción</dt>
-                                            @if(isset($institution->descripcion))
-                                                <dd>{{ $institution->descripcion }}</dd>
-                                            @else
-                                                <dd></dd>
-                                            @endif
-                                    </dl>
-                                </div>
-                                <!-- /.box-body -->
+                                    </dd>
+                                </dl>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <form class="form-horizontal" action="/">
+                                            <div class="box-body">
+                                                <div class="form-group">
+                                                    <label for="nombreApellido" class="col-sm-3 control-label">Nombre y Apellido *</label>
 
+                                                    <div class="col-sm-6">
+                                                        <input type="text" class="form-control" id="nombreApellido"
+                                                               placeholder="Nombre y Apellido" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="telefono" class="col-sm-3 control-label">Teléfono *</label>
+
+                                                    <div class="col-sm-6">
+                                                        <input type="email" class="form-control" id="telefono" placeholder="Correo electrónico" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
+
+                                                    <div class="col-sm-6">
+                                                        <input type="email" class="form-control" id="whatsapp" placeholder="Whatsapp">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
+
+                                                    <div class="col-sm-6">
+                                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Correo electrónico" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="interes" class="col-sm-3 control-label">Interés</label>
+
+                                                    <div class="col-sm-6">
+                                                        <input type="email" class="form-control" id="interes" placeholder="Estoy interesado en...">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-9" style="text-align: right;">
+                                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_2">
                                 <div class="box-body">
-                                    <dl class="dl-horizontal">
-                                        <dt>Edad desde</dt>
-                                        @if(isset($institution->edad_desde))
-                                            <dd>{{ $institution->edad_desde }} años</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Edad hasta</dt>
-                                        @if(isset($institution->edad_hasta))
-                                            <dd>{{ $institution->edad_hasta }} años</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Horario Extendido</dt>
-                                        @if($institution->horario_extendido)
-                                            <dd>SI</dd>
-                                        @else
-                                            <dd>NO</dd>
-                                        @endif
-                                        <dt>Horario Ingreso Diurno</dt>
-                                        @if(isset($institution->entrada_matutino))
-                                            <dd>{{ $institution->entrada_matutino }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Horario Salida Diurno</dt>
-                                        @if(isset($institution->salida_matutino))
-                                            <dd>{{ $institution->salida_matutino }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Horario Salida Extendido</dt>
-                                        @if(isset($institution->salida_horario_extendido))
-                                            <dd>{{ $institution->salida_horario_extendido }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Alimentación</dt>
-                                        @if(isset($institution->alimentacion))
-                                            @if($institution->alimentacion === "S")
-                                                <dd>SI</dd>
-                                            @elseif($institution->alimentacion === "O")
-                                                <dd>OPCIONAL</dd>
-                                            @else
-                                                <dd>NO</dd>
-                                            @endif
-                                        @else
-                                            <dd>NO</dd>
-                                        @endif
-                                    </dl>
-                                    <hr>
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
-                                        <dt>Total Alumnos</dt>
-                                        @if(isset($institution->total_estudiantes))
-                                            <dd>{{ $institution->total_estudiantes }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Máximo por Clase</dt>
-                                        @if(isset($institution->max_estudiantes_x_clase))
-                                            <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Área Total</dt>
-                                        @if(isset($institution->max_estudiantes_x_clase))
-                                            <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Área Canchas Deportivas</dt>
-                                        @if(isset($institution->area_deportiva))
-                                            <dd>{{ $institution->area_deportiva }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Área Espacios Verdes</dt>
-                                        @if(isset($institution->area_espacios_verdes))
-                                            <dd>{{ $institution->area_espacios_verdes }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Área Piscinas</dt>
-                                        @if(isset($institution->area_piscina))
-                                            <dd>{{ $institution->area_piscina }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Seguridad Privada</dt>
-                                        @if($institution->seguridad_privada)
-                                            <dd>SI</dd>
-                                        @else
-                                            <dd>NO</dd>
-                                        @endif
-                                        <dt>Wifi en aulas</dt>
-                                        @if($institution->wifi_interior)
-                                            <dd>SI</dd>
-                                        @else
-                                            <dd>NO</dd>
-                                        @endif
-                                        <dt>Wifi exterior</dt>
-                                        @if(isset($institution->wifi_otros))
-                                            <dd>{{ $institution->wifi_otros }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <dt>Cámara IP Entrada/Salida</dt>
-                                        @if($institution->wifi_interior)
-                                            <dd>SI</dd>
-                                        @else
-                                            <dd>NO</dd>
-                                        @endif
-                                        <dt>Cámara IP Aulas/Espacios</dt>
-                                        @if($institution->wifi_interior)
-                                            <dd>SI</dd>
-                                        @else
-                                            <dd>NO</dd>
-                                        @endif
-                                        <dt>Otros</dt>
-                                        @if(isset($institution->otros))
-                                            <dd>{{ $institution->otros }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                        <hr>
-                                        <dt>Certificaciones y Logros</dt>
-                                        @if(isset($institution->certificaciones_logros))
-                                            <dd>{{ $institution->certificaciones_logros }}</dd>
+                                        <dt>Descripción</dt>
+                                        @if(isset($institution->descripcion))
+                                            <dd>{{ $institution->descripcion }}</dd>
                                         @else
                                             <dd></dd>
                                         @endif
@@ -380,6 +295,141 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_3">
+                                <dl class="dl-horizontal">
+                                    <dt>Edad desde</dt>
+                                    @if(isset($institution->edad_desde))
+                                        <dd>{{ $institution->edad_desde }} años</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Edad hasta</dt>
+                                    @if(isset($institution->edad_hasta))
+                                        <dd>{{ $institution->edad_hasta }} años</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Horario Extendido</dt>
+                                    @if($institution->horario_extendido)
+                                        <dd>SI</dd>
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Horario Ingreso Diurno</dt>
+                                    @if(isset($institution->entrada_matutino))
+                                        <dd>{{ $institution->entrada_matutino }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Horario Salida Diurno</dt>
+                                    @if(isset($institution->salida_matutino))
+                                        <dd>{{ $institution->salida_matutino }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Horario Salida Extendido</dt>
+                                    @if(isset($institution->salida_horario_extendido))
+                                        <dd>{{ $institution->salida_horario_extendido }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Alimentación</dt>
+                                    @if(isset($institution->alimentacion))
+                                        @if($institution->alimentacion === "S")
+                                            <dd>SI</dd>
+                                        @elseif($institution->alimentacion === "O")
+                                            <dd>OPCIONAL</dd>
+                                        @else
+                                            <dd>NO</dd>
+                                        @endif
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Total Alumnos</dt>
+                                    @if(isset($institution->total_estudiantes))
+                                        <dd>{{ $institution->total_estudiantes }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Máximo por Clase</dt>
+                                    @if(isset($institution->max_estudiantes_x_clase))
+                                        <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Área Total</dt>
+                                    @if(isset($institution->max_estudiantes_x_clase))
+                                        <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Área Canchas Deportivas</dt>
+                                    @if(isset($institution->area_deportiva))
+                                        <dd>{{ $institution->area_deportiva }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Área Espacios Verdes</dt>
+                                    @if(isset($institution->area_espacios_verdes))
+                                        <dd>{{ $institution->area_espacios_verdes }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Área Piscinas</dt>
+                                    @if(isset($institution->area_piscina))
+                                        <dd>{{ $institution->area_piscina }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Seguridad Privada</dt>
+                                    @if($institution->seguridad_privada)
+                                        <dd>SI</dd>
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Wifi en aulas</dt>
+                                    @if($institution->wifi_interior)
+                                        <dd>SI</dd>
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Wifi exterior</dt>
+                                    @if(isset($institution->wifi_otros))
+                                        <dd>{{ $institution->wifi_otros }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Cámara IP Entrada/Salida</dt>
+                                    @if($institution->wifi_interior)
+                                        <dd>SI</dd>
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Cámara IP Aulas/Espacios</dt>
+                                    @if($institution->wifi_interior)
+                                        <dd>SI</dd>
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Otros</dt>
+                                    @if(isset($institution->otros))
+                                        <dd>{{ $institution->otros }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <hr>
+                                </dl>
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_4">
+                                <dt>Certificaciones y Logros</dt>
+                                @if(isset($institution->certificaciones_logros))
+                                    <dd>{{ $institution->certificaciones_logros }}</dd>
+                                @else
+                                    <dd></dd>
+                                @endif
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_5">
                                 <ul style="padding:0 0 0 0; margin:0 0 0 0;" class="row">
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
                                         <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
@@ -396,11 +446,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
                                         <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
                                     </li>
+                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
+                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
+                                    </li>
                                 </ul>
-
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_4">
+                            <div class="tab-pane" id="tab_6">
                                 @if(isset($institution->mapa_url) && !empty($institution->mapa_url))
                                     {!! $institution->mapa_url !!}
                                 @else

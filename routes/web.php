@@ -12,6 +12,9 @@
 */
 
 use App\Institution;
+use App\City;
+use App\Sector;
+use Illuminate\Support\Facades\Input;
 
 Route::get('/', ['uses' => 'Home2Controller@showHome', 'as' => 'destacados',]);
 
@@ -54,6 +57,25 @@ Route::get('institutions/{institution}-{slug}', [
     'as' => 'institutions.show',
     'uses' => 'ShowInstitutionController',
 ])->where('institution', '\d+');
+
+Route::get('/ajax-city/', function() {
+   $province_id = Input::get('province_id');
+
+   $cities = City::where('province_id', '=', $province_id)->orderBy('name')->get();
+
+   return $cities;
+});
+
+Route::get('/ajax-sector/', function() {
+    $city_id = Input::get('city_id');
+
+    $sectors = Sector::where('city_id', '=', $city_id)->orderBy('nombre')->get();
+    if(!count($sectors) > 0) {
+        $sectors = Sector::where('city_id', '=', null)->orderBy('nombre')->get();
+    }
+
+    return $sectors;
+});
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {

@@ -45,7 +45,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <ul>
                                             <li style="width:32%;">
                                                 <a style="color: #0073B7;" href="#website"><span class="fa fa-info text-black"></span>
-                                                    Más información</a>
+                                                    Ver más</a>
                                             </li>
                                             <li style="color: #0073B7; width:32%;"><span class="fa fa-money text-black"></span> $19.99</li>
                                             <li style="width:32%;">
