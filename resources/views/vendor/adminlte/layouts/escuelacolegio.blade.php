@@ -302,7 +302,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         $('#search_sector').empty();
         $('#search_city').append('<option value="">...</option>');
         //ajax
-        $.get('/ajax-city?province_id='+province_id, function(data) {
+        $.get('ajax-city?province_id='+province_id, function(data) {
             //success_data
             $.each(data, function(index, cityObj) {
                 $('#search_city').append('<option value="'+cityObj.id+'">'+cityObj.name+'</option>');
@@ -315,7 +315,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         $('#search_sector').empty();
         $('#search_sector').append('<option value="">...</option>');
         //ajax
-        $.get('/ajax-sector?city_id='+city_id, function(data) {
+        $.get('ajax-sector?city_id='+city_id, function(data) {
             //success_data
             $.each(data, function(index, sectorObj) {
                 $('#search_sector').append('<option value="'+sectorObj.id+'">'+sectorObj.nombre+'</option>');
