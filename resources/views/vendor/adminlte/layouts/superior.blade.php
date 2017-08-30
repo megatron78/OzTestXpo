@@ -239,7 +239,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         $('#search_city').empty();
         $('#search_city').append('<option value="">...</option>');
         //ajax
-        $.get('/ajax-city?province_id='+province_id, function(data) {
+        $.get('ajax-city?province_id='+province_id, function(data) {
             //success_data
             $.each(data, function(index, cityObj) {
                 $('#search_city').append('<option value="'+cityObj.id+'">'+cityObj.name+'</option>');
