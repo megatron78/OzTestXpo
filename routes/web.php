@@ -24,12 +24,12 @@ Route::get('preescolar', [
 ]);
 
 Route::get('escuela_colegio', [
-    'uses' => 'ListEscuelaColegioController@listEscuelaColegio',
+    'uses' => 'ListEscuelaColegioController',
     'as' => 'escuela_colegio.all',
 ]);
 
 Route::get('superior', [
-    'uses' => 'ListSuperiorController@listSuperior',
+    'uses' => 'ListSuperiorController',
     'as' => 'superior.all',
 ]);
 
@@ -53,9 +53,14 @@ Route::get('planes', [
     'as' => 'planes.all',
 ]);
 
-Route::get('institutions/{institution}-{slug}', [
+Route::get('preescolar/{institution}-{slug}', [
     'uses' => 'ShowInstitutionController',
-    'as' => 'institutions.show',
+    'as' => 'preescolar.show',
+])->where('institution', '\d+');
+
+Route::get('escuelacolegio/{institution}-{slug}', [
+    'uses' => 'ShowEscuelaColegioController',
+    'as' => 'escuelacolegio.show',
 ])->where('institution', '\d+');
 
 Route::get('/ajax-city/', function() {

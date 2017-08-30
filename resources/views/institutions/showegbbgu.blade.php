@@ -134,9 +134,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <dt>Niveles</dt>
                                     @if($institution->preescolar)
                                         <dd>Inicial</dd>
-                                    @elseif($institution->escuela)
+                                    @endif
+                                    @if($institution->escuela)
                                         <dd>Educación General Básica</dd>
-                                    @elseif($institution->colegio)
+                                    @endif
+                                    @if($institution->colegio)
                                         <dd>Colegio</dd>
                                     @else
                                         <dd></dd>
@@ -295,39 +297,75 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_3">
                                 <dl class="dl-horizontal">
-                                    <dt>Edad desde</dt>
-                                    @if(isset($institution->edad_desde))
-                                        <dd>{{ $institution->edad_desde }} años</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Edad hasta</dt>
-                                    @if(isset($institution->edad_hasta))
-                                        <dd>{{ $institution->edad_hasta }} años</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Extendido</dt>
-                                    @if($institution->horario_extendido)
-                                        <dd>SI</dd>
+                                    <dt>Actividades Extracurriculares</dt>
+                                    @if(isset($institution->extracurriculares))
+                                        @if($institution->extracurriculares)
+                                            <dd>SI</dd>
+                                            @if(isset($institution->actividades_extracurriculares))
+                                                <dd>{{$institution->actividades_extracurriculares}}</dd>
+                                            @endif
+                                        @else
+                                            <dd>NO</dd>
+                                        @endif
                                     @else
                                         <dd>NO</dd>
                                     @endif
-                                    <dt>Horario Ingreso Diurno</dt>
-                                    @if(isset($institution->entrada_matutino))
-                                        <dd>{{ $institution->entrada_matutino }}</dd>
+                                    <dt>Tenencia todo el día</dt>
+                                    @if($institution->horario_extendido)
+                                        <dd>SI</dd>
+                                        @if(isset($institution->salida_horario_extendido))
+                                            <dd>Horario salida: {{$institution->salida_horario_extendido}}</dd>
+                                        @endif
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Modalidad</dt>
+                                    @if($institution->presencial)
+                                        <dd>Presencial</dd>
                                     @else
                                         <dd></dd>
                                     @endif
-                                    <dt>Horario Salida Diurno</dt>
-                                    @if(isset($institution->salida_matutino))
-                                        <dd>{{ $institution->salida_matutino }}</dd>
+                                    @if($institution->semipresencial)
+                                        <dd>Semipresencial</dd>
                                     @else
                                         <dd></dd>
                                     @endif
-                                    <dt>Horario Salida Extendido</dt>
-                                    @if(isset($institution->salida_horario_extendido))
-                                        <dd>{{ $institution->salida_horario_extendido }}</dd>
+                                    @if($institution->distancia)
+                                        <dd>Distancia</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Horario</dt>
+                                    @if($institution->matutino)
+                                        <dd>Matutino</dd>
+                                        @if(isset($institution->entrada_matutino))
+                                            <dd>Entrada: {{$institution->entrada_matutino}}</dd>
+                                        @endif
+                                        @if(isset($institution->salida_matutino))
+                                            <dd>Salida: {{$institution->salida_matutino}}</dd>
+                                        @endif
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    @if($institution->vespertino)
+                                        <dd>Vespertino</dd>
+                                        @if(isset($institution->entrada_vespertino))
+                                            <dd>Entrada: {{$institution->entrada_vespertino}}</dd>
+                                        @endif
+                                        @if(isset($institution->salida_vespertino))
+                                            <dd>Salida: {{$institution->salida_vespertino}}</dd>
+                                        @endif
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    @if($institution->nocturno)
+                                        <dd>Nocturno</dd>
+                                        @if(isset($institution->entrada_nocturno))
+                                            <dd>Entrada: {{$institution->entrada_nocturno}}</dd>
+                                        @endif
+                                        @if(isset($institution->salida_nocturno))
+                                            <dd>Salida: {{$institution->salida_nocturno}}</dd>
+                                        @endif
                                     @else
                                         <dd></dd>
                                     @endif
@@ -340,6 +378,18 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         @else
                                             <dd>NO</dd>
                                         @endif
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>% Profesores Nativos Extranjeros</dt>
+                                    @if(isset($institution->porcentaje_profesores_nativos))
+                                        <dd>{{$institution->porcentaje_profesores_nativos}} %</dd>
+                                    @else
+                                        <dd>0%</dd>
+                                    @endif
+                                    <dt>Bachillerato Internacional</dt>
+                                    @if($institution->bachillerato_internacional)
+                                        <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
@@ -405,6 +455,66 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @endif
                                     <dt>Cámara IP Aulas/Espacios</dt>
                                     @if($institution->wifi_interior)
+                                        <dd>SI</dd>
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Capacidad en Restaurantes</dt>
+                                    @if(isset($institution->capacidad_restaurantes))
+                                        <dd>{{ $institution->capacidad_restaurantes }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Canchas Indoor Fútbol</dt>
+                                    @if(isset($institution->canchas_indoor))
+                                        <dd>{{ $institution->canchas_indoor }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Canchas Fútbol</dt>
+                                    @if(isset($institution->canchas_futbol))
+                                        <dd>{{ $institution->canchas_futbol }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Canchas Basket</dt>
+                                    @if(isset($institution->canchas_basket))
+                                        <dd>{{ $institution->canchas_basket }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Canchas Tenis</dt>
+                                    @if(isset($institution->canchas_tenis))
+                                        <dd>{{ $institution->canchas_tenis }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Mesas de Tenis de Mesa</dt>
+                                    @if(isset($institution->mesas_tenis))
+                                        <dd>{{ $institution->mesas_tenis }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Pista de Atletismo</dt>
+                                    @if($institution->pista_atletica)
+                                        <dd>SI</dd>
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Computadoras para Alumnos</dt>
+                                    @if(isset($institution->computadoras_para_alumnos))
+                                        <dd>{{ $institution->computadoras_para_alumnos }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Teatro</dt>
+                                    @if($institution->teatro)
+                                        <dd>SI</dd>
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Gimnasio</dt>
+                                    @if($institution->gimnasio)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>

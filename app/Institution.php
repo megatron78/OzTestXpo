@@ -38,7 +38,9 @@ class Institution extends Model
 
     public function getUrlAttribute()
     {
-        return route('institutions.show', [$this->id, $this->slug]);
+        if($this->escuela == 1 or $this->colegio == 1)
+            return route('escuelacolegio.show', [$this->id, $this->slug]);
+        return route('preescolar.show', [$this->id, $this->slug]);
     }
 
     public function scopeProvince($query, $province_id) {

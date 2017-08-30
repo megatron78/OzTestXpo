@@ -12,8 +12,9 @@ class ListPreescolarController extends Controller
 {
     public function __invoke(Request $request) {
         //dd($request->get('search_province')."-".$request->get('search_city'));
-        $instituciones = Institution::where('preescolar', '=', 1)
-            ->select('id','plan','nombre','nombre_corto','slug','masculino','femenino','mixto','preescolar',
+        $instituciones = Institution::where('preescolar', '=', 1)->where('escuela', '=', 0)
+            ->where('colegio', '=', 0)
+            ->select('id','plan','nombre','institution_bg_picture','nombre_corto','slug','masculino','femenino','mixto','preescolar',
                 'escuela','colegio','province_id','canton_id','parish_id','city_id','user_id',
                 'direccion','telefono','celular','email','facebook','twitter')
             ->scopes($this->getRouteScope($request))

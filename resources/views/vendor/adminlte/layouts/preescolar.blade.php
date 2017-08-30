@@ -4,24 +4,22 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 -->
 <html lang="es">
 @include('vendor.adminlte.layouts.partials.headexpoeducar');
-<!-- bootstrap slider -->
 
 <body data-spy="scroll" data-target="#navigation" data-offset="50">
 
 <div id="app" v-cloak>
     <!-- Fixed navbar -->
-@include('vendor.adminlte.layouts.partials.navbarexpoeducar')
-<!-- Banner -->
-@include('vendor.adminlte.layouts.partials.bannercategory')
+    @include('vendor.adminlte.layouts.partials.navbarexpoeducar')
+    <!-- Banner -->
+    @include('vendor.adminlte.layouts.partials.bannercategory')
 
-<!-- style="padding-top: 0px" -->
+    <!-- style="padding-top: 0px" -->
     <section class="content" id="ini" name="ini">
         <!-- Modal -->
         @include('vendor.adminlte.layouts.partials.modalmeinteresa')
         <div style="width: 100%" class="container">
-            <!-- Modal -->
+            <!-- Search panel -->
             @include('vendor.adminlte.layouts.partials.searchpre')
-            {{--@each('institutionIni.nombre', $institutionIni, 'institutionIni')--}}
             <?php $countPagado = 0; ?>
             <?php $countFree = 0; ?>
             @foreach($instituciones as $institucion)
@@ -36,7 +34,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <div class="box box-widget widget-user">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-black"
-                                         style="background: url('{{ asset('/img/st_charles_hs.jpg') }}') center center;">
+                                        @if(!empty($institution->institution_bg_picture))
+                                            style="background: url('{{ asset($institution->institution_bg_picture) }}') center center;">
+                                        @else
+                                            style="background: url('{{ asset('/img/st_charles_hs.jpg') }}') center center;">
+                                        @endif
                                     </div>
 
                                     <div class="box-footer">
@@ -65,9 +67,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     <span class="description-text">
                                                     @if($institucion->preescolar)
                                                             INICIAL</span>
-                                                    @elseif($institucion->escuela)
+                                                    @endif
+                                                    @if($institucion->escuela)
                                                         , EGB</span>
-                                                    @elseif($institucion->colegio)
+                                                    @endif
+                                                    @if($institucion->colegio)
                                                         , BGU</span>
                                                     @endif
                                                 </div>
@@ -166,9 +170,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <p>
                                             @if($institucion->preescolar)
                                                 INICIAL</span>
-                                            @elseif($institucion->escuela)
+                                            @endif
+                                            @if($institucion->escuela)
                                                 , EGB</span>
-                                            @elseif($institucion->colegio)
+                                            @endif
+                                            @if($institucion->colegio)
                                                 , BGU</span>
                                             @endif
                                         </p>
