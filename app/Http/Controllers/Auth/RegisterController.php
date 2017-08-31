@@ -66,6 +66,8 @@ class RegisterController extends Controller
             'username' => 'sometimes|required|max:255|unique:users',
             'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'telephone' => 'required|min:7|max:190|confirmed',
+            'contact_person' => 'min:5|max:190|confirmed',
             'terms'    => 'required',
         ]);
     }
@@ -81,6 +83,8 @@ class RegisterController extends Controller
         $fields = [
             'name'     => $data['name'],
             'email'    => $data['email'],
+            'telephone'    => $data['telephone'],
+            'contact_person'    => $data['contact_person'],
             'password' => bcrypt($data['password']),
         ];
         if (config('auth.providers.users.field','email') === 'username' && isset($data['username'])) {

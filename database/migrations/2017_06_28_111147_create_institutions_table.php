@@ -24,7 +24,7 @@ class CreateInstitutionsTable extends Migration
             $table->string('cod_institucion_mineduc');
 
             //Palabras clave
-            $table->mediumText('palabras_clave');
+            $table->mediumText('palabras_clave')->nullable();
 
             //Information
             $table->string('nombre')->unique();

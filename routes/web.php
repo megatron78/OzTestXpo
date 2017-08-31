@@ -34,17 +34,17 @@ Route::get('superior', [
 ]);
 
 Route::get('posgrado', [
-    'uses' => 'ListPosgradoController@listPosgrado',
+    'uses' => 'ListPosgradoController',
     'as' => 'posgrado.all',
 ]);
 
 Route::get('cursos_seminarios', [
-    'uses' => 'ListCursosSeminariosController@listCursosSeminarios',
+    'uses' => 'ListCursoSeminarioController',
     'as' => 'cursos_seminarios.all',
 ]);
 
 Route::get('eventos', [
-    'uses' => 'ListEventosController@listEventos',
+    'uses' => 'ListEventosController',
     'as' => 'eventos.all',
 ]);
 

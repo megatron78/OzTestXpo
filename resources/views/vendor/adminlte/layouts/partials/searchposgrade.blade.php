@@ -23,18 +23,8 @@
                 </div>
                 <div class="form-group">
                     &nbsp;&nbsp;
-                    <label style="font-size: 14px; color: ghostwhite;" for="search_tipo">Tipo: &nbsp;</label>
-                    <select style="max-width: 140px" id="search_tipo" name="search_tipo" class="form-control">
-                        <option value="">...</option>
-                        <option value="Universidad">Universidad</option>
-                        <option value="Instituto">Instituto</option>
-                        <option value="Academia">Academia</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    &nbsp;&nbsp;
-                    <label style="font-size: 14px; color: ghostwhite;" for="search_institution" class="control-label">Nombre: &nbsp;</label>
-                    <input type="text" id="search_institution" name="search_institution" class="form-control mx-sm-2"
+                    <label style="font-size: 14px; color: ghostwhite;" for="search_keywordtopic" class="control-label">Clave o Tópico: &nbsp;</label>
+                    <input type="text" id="search_keywordtopic" name="search_keywordtopic" class="form-control mx-sm-2"
                            placeholder="Nombre o palabra clave..." style="width: 350px">
                 </div>
                 <button type="submit" style="width: 120px;" class="btn btn-warning">BUSCAR</button>
@@ -45,25 +35,13 @@
             </div>
             <div id="advancedSearch" class="box-body panel-collapse collapse">
                 <div class="form-group">
-                    &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscal" name="advsearch_chkFiscal"
-                               value="public">
-                        Fiscal
-                    </label>
-                </div>&nbsp;&nbsp;
-                <div class="form-group">
-                    &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscomisional" name="advsearch_chkFiscomisional"
-                               value="public_private">
-                        Fiscomisional
-                    </label>
-                </div>&nbsp;&nbsp;
-                <div class="form-group">
-                    &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkParticular" name="advsearch_chkParticular"
-                               value="private" checked>
-                        Particular
-                    </label>
+                    &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" for="search_tipo">Tipo: &nbsp;</label>
+                    <select style="max-width: 140px" id="search_tipo" name="search_tipo" class="form-control">
+                        <option value="">...</option>
+                        <option value="Masterado">Masterado</option>
+                        <option value="Doctorado">Doctorado</option>
+                        <option value="PHD">PHD</option>
+                    </select>
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
@@ -87,10 +65,19 @@
                     </label>
                 </div>
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
-                    &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" for="search_carreras" class="control-label">Carrera: &nbsp;</label>
-                      <input type="text" id="search_carreras" name="search_carreras" class="form-control mx-sm-2"
-                               placeholder="Carrera..." style="width: 350px">
+                    &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" for="search_institucion" class="control-label">Institución: &nbsp;</label>
+                      <input type="text" id="search_institucion" name="search_institucion" class="form-control mx-sm-2"
+                               placeholder="Institución..." style="width: 350px">
                 </div>&nbsp;&nbsp;
+                <div style="border-left:1px solid whitesmoke;" class="form-group">
+                    &nbsp;&nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;"  for="advsearch_costo">Costo: <b>$ 0</b></label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" value="" class="slider form-control" id="advsearch_costo" name="advsearch_costo"
+                           data-slider-min="0" data-slider-max="11000" data-slider-step="1000"
+                           data-slider-value="[0,5000]" data-slider-orientation="horizontal"
+                           data-slider-selection="before" data-slider-tooltip="show"
+                           data-slider-id="blue_price_slider"/>&nbsp;<b style="font-size: 14px; color: ghostwhite;" >$ 11.000+</b>
+                </div>
             </div>
         </form>
     </div>

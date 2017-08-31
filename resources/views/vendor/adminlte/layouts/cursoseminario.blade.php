@@ -19,11 +19,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         @include('vendor.adminlte.layouts.partials.modalmeinteresa')
         <div style="width: 100%" class="container">
             <!-- Search panel -->
-            @include('vendor.adminlte.layouts.partials.searchposgrade')
+            @include('vendor.adminlte.layouts.partials.searchcursoseminario')
             <?php $countPagado = 0; ?>
             <?php $countFree = 0; ?>
-            @foreach($posgrades as $posgrado)
-                @if($posgrado->plan === "1G" || $posgrado->plan === "2P")
+            @foreach($cursoseminarios as $cursoseminario)
+                @if($cursoseminario->plan === "1G" || $cursoseminario->plan === "2P")
                     @if($countPagado === 0)
                         <div class="row">
                             @endif
@@ -35,39 +35,39 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <div style="padding: 1px" class="widget-user-header bg-blue-active">
                             <!-- /.widget-user-image -->
-                            <h2 style="color: white">{{ str_limit($posgrado->nombre, $limit=29, $end="...") }}</h2>
-                            <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $posgrado->institucion }}</h4>
+                            <h2 style="color: white">{{ str_limit($cursoseminario->nombre, $limit=29, $end="...") }}</h2>
+                            <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $cursoseminario->institucion }}</h4>
                         </div>
                         <div class="box-footer no-padding">
                             <div style="font-size: 16px" class="description-block">
-                                {{$posgrado->objetivo}}
+                                {{$cursoseminario->objetivo}}
                                 <br>
                                 <br>
                                 <br>
                             </div>
                             <div class="col-sm-4 centered">
-                                <a href="{{ $posgrado->url }}" target="_blank" class="btn-sm bg-navy">
+                                <a href="{{ $cursoseminario->url }}" target="_blank" class="btn-sm bg-navy">
                                     Más información
                                 </a>
                             </div>
                             <hr class="bg-blue-active">
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $posgrado->duracion }}</span>
+                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $cursoseminario->duracion }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $posgrado->fecha_inicio }}</span>
+                                    <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $cursoseminario->fecha_inicio }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $posgrado->costo }}</span>
+                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $cursoseminario->costo }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
@@ -75,11 +75,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
                                     <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>
-                                        @if($posgrado->presencial)
+                                        @if($cursoseminario->presencial)
                                             Presencial</span>
-                                        @elseif($posgrado->semipresencial)
+                                        @elseif($cursoseminario->semipresencial)
                                             Semipresencial</span>
-                                        @elseif($posgrado->distancia)
+                                        @elseif($cursoseminario->distancia)
                                             Distancia</span>
                                         @endif
                                 </div>
@@ -94,22 +94,22 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             @else
                                 @if($countPagado > 0 && $countFree === 0)
                         </div>
-                    @endif
-                    @if($countFree === 0)
-                        <div class="row">
-                    @endif
+                                @endif
+                        @if($countFree === 0)
+                            <div class="row">
+                        @endif
                             <div class="col-md-4">
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user-2">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div style="padding: 1px" class="widget-user-header bg-blue-active">
                                         <!-- /.widget-user-image -->
-                                        <h2 style="color: white">{{ str_limit($posgrado->nombre, $limit=29, $end="...") }}</h2>
-                                        <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $posgrado->institucion }}</h4>
+                                        <h2 style="color: white">{{ str_limit($cursoseminario->nombre, $limit=29, $end="...") }}</h2>
+                                        <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $cursoseminario->institucion }}</h4>
                                     </div>
                                     <div class="box-footer no-padding">
                                         <div style="font-size: 16px" class="description-block">
-                                            {{$posgrado->objetivo}}
+                                            {{$cursoseminario->objetivo}}
                                             <br>
                                             <br>
                                             <br>
@@ -117,21 +117,21 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <hr class="bg-blue-active">
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $posgrado->duracion }}</span>
+                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $cursoseminario->duracion }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $posgrado->fecha_inicio }}</span>
+                                                <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $cursoseminario->fecha_inicio }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $posgrado->costo }}</span>
+                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $cursoseminario->costo }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
@@ -139,11 +139,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
                                     <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>
-                                        @if($posgrado->presencial)
+                                        @if($cursoseminario->presencial)
                                             Presencial</span>
-                                                @elseif($posgrado->semipresencial)
+                                                @elseif($cursoseminario->semipresencial)
                                                     Semipresencial</span>
-                                                @elseif($posgrado->distancia)
+                                                @elseif($cursoseminario->distancia)
                                                     Distancia</span>
                                                 @endif
                                             </div>
@@ -159,7 +159,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             @endforeach
                         </div>
             <div class="row">
-                {{ $posgrades->render() }}
+                {{ $cursoseminarios->render() }}
             </div>
             <br>
             <br>

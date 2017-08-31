@@ -7,13 +7,14 @@ use App\Province;
 use App\PosgradeCourseSeminar;
 use Illuminate\Http\Request;
 
-class ListPosgradoController extends Controller
+class ListCursoSeminarioController extends Controller
 {
     public function __invoke(Request $request) {
         //dd($request->get('search_province')."-".$request->get('search_city'));
-        $posgrades = PosgradeCourseSeminar::orWhere('tipo', '=', 'Masterado')
-            ->orWhere('tipo', '=', 'Doctorado')
-            ->orWhere('tipo', '=', 'PHD')
+        $cursoseminarios = PosgradeCourseSeminar::orWhere('tipo', '=', 'Curso Específico')
+            ->orWhere('tipo', '=', 'Curso por Niveles')
+            ->orWhere('tipo', '=', 'Seminario')
+            ->orWhere('tipo', '=', 'Taller')
             ->select('id','plan','nombre','institution','nombre_corto','slug','province_id','city_id','user_id',
                 'objetivo','duracion','fecha_inicio','costo','presencial','semipresencial','distancia',
                 'direccion','telefono','celular','email','facebook','twitter')
@@ -22,13 +23,13 @@ class ListPosgradoController extends Controller
             ->orderBy('nombre')
             ->paginate(14);
 
-        $bannerData = BannerCategory::where('category_id','=','5')
+        $bannerData = BannerCategory::where('category_id','=','6')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
             ->get();
 
         $provinces = Province::all(['name','code']);
 
-        return view('vendor.adminlte.layouts.posgrado', compact('posgrades','provinces', 'bannerData'));
+        return view('vendor.adminlte.layouts.cursoseminario', compact('cursoseminarios','provinces', 'bannerData'));
     }
 
     protected function getRouteScope(Request $request) {

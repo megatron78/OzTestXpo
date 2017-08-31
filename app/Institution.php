@@ -56,7 +56,7 @@ class Institution extends Model
     }
 
     public function scopeNombreKeyword($query, $name) {
-        return $query->where('nombre', 'LIKE', "%$name%");
+        return $query->where('nombre', 'LIKE', "%$name%")->orWhere('palabras_clave', 'LIKE', "%$name%");
     }
 
     public function scopeHorario_extendido($query, $horario_extendido) {

@@ -60,6 +60,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('telephone') ? ' has-error' : '' }}">
+                            <label for="telephone" class="col-md-4 control-label">Teléfono</label>
+
+                            <div class="col-md-6">
+                                <input id="telephone" type="text" class="form-control" name="telephone" value="{{ old('telephone') }}" required autofocus>
+
+                                @if ($errors->has('telephone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('telephone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('contact_person') ? ' has-error' : '' }}">
+                            <label for="contact_person" class="col-md-4 control-label">Contacto</label>
+
+                            <div class="col-md-6">
+                                <input id="contact_person" type="text" class="form-control" name="contact_person" value="{{ old('contact_person') }}" required autofocus>
+
+                                @if ($errors->has('contact_person'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('contact_person') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

@@ -22,7 +22,7 @@ class CreatePregradeTable extends Migration
             $table->string('plan')->default('3B'); //3B (Básico), 2P (Premium), 1G (Gold)
 
             //Palabras clave
-            $table->mediumText('palabras_clave');
+            $table->mediumText('palabras_clave')->nullable();
 
             //Information
             $table->string('nombre')->unique();
@@ -30,6 +30,11 @@ class CreatePregradeTable extends Migration
             $table->string('slug');
             $table->string('tipo')->default('Universidad');
             $table->string('pregrade_bg_picture')->nullable();
+            $table->string('categoria')->nullable();
+
+            //Institutos y conservatorios
+            $table->string('cod_instituto')->nullable();
+            $table->string('estado_legal')->default('Vigente');
 
             $table->text('trayectoria')->nullable();
             $table->string('nombre_autoridad')->nullable();
@@ -39,7 +44,8 @@ class CreatePregradeTable extends Migration
             $table->boolean('fiscomisional');
             $table->string('telefono')->default('ND');
             $table->string('celular')->nullable();
-            $table->string('email')->default('ND');;
+            $table->string('email')->default('ND');
+            $table->string('email_adicional')->default('ND');
             $table->string('web')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
