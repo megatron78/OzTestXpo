@@ -49,6 +49,9 @@ class CreateEventsTable extends Migration
             $table->string('telefono_invoice')->nullable();
             $table->string('direccion_invoice')->nullable();
 
+            $table->date('plan_desde')->nullable();
+            $table->date('plan_hasta')->nullable();
+
             $table->timestamps();
         });
     }

@@ -7,8 +7,7 @@
 
 namespace App\Http\Controllers;
 
-use App\BannerCategory;
-use App\Http\Requests;
+use App\{InstitutionsView};
 use Illuminate\Http\Request;
 
 /**
@@ -29,11 +28,69 @@ class HomeController extends Controller
 
     /**
      * Show the application dashboard.
-     *
-     * @return Response
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('adminlte::home');
+        $instituciones = InstitutionsView::where('activo', '=', 1)
+            ->orWhere('activo', '=', 0)
+            ->select('id'
+                ,'activo'
+                ,'tipo'
+                ,'plan'
+                ,'nombre'
+                ,'institution_bg_picture'
+                ,'institution'
+                ,'nombre_corto'
+                ,'slug'
+                ,'carreras'
+                ,'masculino'
+                ,'femenino'
+                ,'mixto'
+                ,'preescolar'
+                ,'escuela'
+                ,'colegio'
+                ,'province_id'
+                ,'city_id'
+                ,'sector_id'
+                ,'user_id'
+                ,'costo'
+                ,'fecha_evento'
+                ,'hora_evento'
+                ,'objetivo'
+                ,'duracion'
+                ,'fecha_inicio'
+                ,'presencial'
+                ,'semipresencial'
+                ,'distancia'
+                ,'direccion'
+                ,'telefono'
+                ,'celular'
+                ,'email'
+                ,'web'
+                ,'facebook'
+                ,'twitter'
+                ,'linkedin'
+                ,'province_name'
+                ,'city_name'
+                ,'sector_name')
+            ->scopes($this->getRouteScope($request))
+            ->orderBy('plan')
+            ->orderBy('nombre')
+            ->paginate(14);
+
+        return view('adminlte::home', compact('instituciones'));
+    }
+
+    protected function getRouteScope(Request $request) {
+        $scopes = [];
+        if(!is_null($request->get('search_user')))
+            $scopes = array_add($scopes, 'user', $request->get('search_user'));
+        if(!is_null($request->get('search_nombre')))
+            $scopes = array_add($scopes, 'nombre', $request->get('search_nombre'));
+
+        return isset($scopes) ? $scopes : [];
+        //return [];
     }
 }

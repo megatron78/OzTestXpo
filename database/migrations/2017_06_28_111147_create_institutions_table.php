@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
 
 class CreateInstitutionsTable extends Migration
 {
@@ -138,6 +139,9 @@ class CreateInstitutionsTable extends Migration
             $table->string('email_invoice')->nullable();
             $table->string('telefono_invoice')->nullable();
             $table->string('direccion_invoice')->nullable();
+
+            $table->date('plan_desde')->nullable();
+            $table->date('plan_hasta')->nullable();
 
             $table->timestamps();
         });

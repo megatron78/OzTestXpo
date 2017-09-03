@@ -11,7 +11,8 @@ class ListCursoSeminarioController extends Controller
 {
     public function __invoke(Request $request) {
         //dd($request->get('search_province')."-".$request->get('search_city'));
-        $cursoseminarios = PosgradeCourseSeminar::orWhere('tipo', '=', 'Curso Específico')
+        $cursoseminarios = PosgradeCourseSeminar::where('activo', '=', 1)
+            ->orWhere('tipo', '=', 'Curso Específico')
             ->orWhere('tipo', '=', 'Curso por Niveles')
             ->orWhere('tipo', '=', 'Seminario')
             ->orWhere('tipo', '=', 'Taller')

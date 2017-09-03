@@ -11,7 +11,8 @@ class ListPosgradoController extends Controller
 {
     public function __invoke(Request $request) {
         //dd($request->get('search_province')."-".$request->get('search_city'));
-        $posgrades = PosgradeCourseSeminar::orWhere('tipo', '=', 'Masterado')
+        $posgrades = PosgradeCourseSeminar::where('activo', '=', 1)
+            ->orWhere('tipo', '=', 'Masterado')
             ->orWhere('tipo', '=', 'Doctorado')
             ->orWhere('tipo', '=', 'PHD')
             ->select('id','plan','nombre','institution','nombre_corto','slug','province_id','city_id','user_id',

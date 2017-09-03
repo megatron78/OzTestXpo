@@ -11,9 +11,10 @@ class ListEscuelaColegioController extends Controller
 {
     public function __invoke(Request $request) {
         //dd($request->get('search_province')."-".$request->get('search_city'));
-        $instituciones = Institution::where('escuela', '=', 1)->orWhere('colegio', '=', 1)
+        $instituciones = Institution::where('activo', '=', 1)
+            ->where('escuela', '=', 1)->orWhere('colegio', '=', 1)
             ->select('id','plan','nombre','nombre_corto','slug','masculino','femenino','mixto','preescolar',
-                'escuela','colegio','province_id','canton_id','parish_id','city_id','user_id',
+                'escuela','colegio','province_id','canton_id','parish_id','city_id','sector_id','user_id',
                 'direccion','telefono','celular','email','facebook','twitter')
             ->scopes($this->getRouteScope($request))
             ->orderBy('plan')

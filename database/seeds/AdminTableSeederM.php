@@ -15,6 +15,7 @@ class AdminTableSeederM extends Seeder
         factory(User::class)->create([
             'name' => 'Mauricio Molina',
             'email' => 'megatronldu@gmail.com',
+            'contact_person' => 'Mauricio Molina',
             'role' => 'admin',
         ]);
     }
