@@ -172,7 +172,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Yajra\DataTables\DataTablesServiceProvider::class,
+        yajra\DataTables\DataTablesServiceProvider::class,
 
         /*
          * Application Service Providers...
