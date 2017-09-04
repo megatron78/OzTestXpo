@@ -83,6 +83,10 @@ Route::get('/ajax-sector/', function() {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('institutions', [
+        'uses' => 'HomeController@getInstitutions',
+        'as' => 'institutions.all',
+    ]);
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });

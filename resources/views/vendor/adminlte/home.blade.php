@@ -16,7 +16,20 @@
 				<div class="box">
 					<div class="box-header with-border">
 						<h3 class="box-title">Instituciones</h3>
-
+						<br>
+						<br>
+						<table id="institucionesTable" class="table table-hover table-responsive">
+							<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nombre</th>
+								<th>Categoría</th>
+								<th>Estado</th>
+								<th>Plan desde</th>
+								<th>Plan hasta</th>
+							</tr>
+							</thead>
+						</table>
 						{{--<div class="box-tools pull-right">
 							<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
 								<i class="fa fa-minus"></i></button>
@@ -25,7 +38,7 @@
 						</div>--}}
 					</div>
 					<div class="box-body">
-						{{ trans('adminlte_lang::message.logged') }}. Start creating your amazing application!
+						{{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
 					</div>
 					<!-- /.box-body -->
 				</div>
