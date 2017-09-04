@@ -73,34 +73,34 @@ class Institution extends Model
     }
 
     public function scopeFiscal($query, $fiscal) {
-        return $query->orWhere('fiscal', 1);
+        return $query->where('fiscal', 1);
     }
 
     public function scopePrivado($query, $privado) {
-        return $query->orWhere('privado', 1);
+        return $query->where('privado', 1);
     }
 
     public function scopeFiscomisional($query, $fiscomisional) {
-        return $query->orWhere('fiscomisional', 1);
+        return $query->where('fiscomisional', 1);
     }
 
     public function scopeLaico($query, $laico) {
-        return $query->orWhere('laico', 1);
+        return $query->where('laico', 1);
     }
 
     public function scopeReligioso($query, $religioso) {
-        return $query->orWhere('religioso', 1);
+        return $query->where('religioso', 1);
     }
 
     public function scopeFemenino($query, $femenino) {
-        return $query->orWhere('femenino', 1);
+        return $query->where('femenino', 1);
     }
 
     public function scopeMixto($query, $mixto) {
-        return $query->orWhere('mixto', 1);
+        return $query->where('mixto', 1);
     }
 
     public function scopeMasculino($query, $masculino) {
-        return $query->orWhere('masculino', 1);
+        return $query->where('masculino', 1);
     }
 }

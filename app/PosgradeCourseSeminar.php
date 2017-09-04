@@ -60,8 +60,8 @@ class PosgradeCourseSeminar extends Model
     public function scopeCosto_promedio($query, $costo) {
         $costoP = explode(',', $costo);
         if($costoP[1] == '0')
-            return $query->where('costo', '<', 500)->orWhereNull('costo');
-        if($costoP[1] == '500')
+            return $query->where('costo', '<', 600)->orWhereNull('costo');
+        if($costoP[1] == '600')
             return $query->where('costo', '>', $costoP[1]);
         return $query->whereBetween('costo', $costoP);
     }

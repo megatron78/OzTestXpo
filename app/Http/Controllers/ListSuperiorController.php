@@ -35,18 +35,30 @@ class ListSuperiorController extends Controller
             $scopes = array_add($scopes, 'city', $request->get('search_city'));
         if(!is_null($request->get('search_institution')))
             $scopes = array_add($scopes, 'nombreKeyword', $request->get('search_institution'));
-        if(!is_null($request->get('advsearch_chkFiscal')))
-            $scopes = array_add($scopes, 'fiscal', $request->get('advsearch_chkFiscal'));
-        if(!is_null($request->get('advsearch_chkFiscomisional')))
-            $scopes = array_add($scopes, 'fiscomisional', $request->get('advsearch_chkFiscomisional'));
-        if(!is_null($request->get('advsearch_chkParticular')))
-            $scopes = array_add($scopes, 'privado', $request->get('advsearch_chkParticular'));
+        if(!is_null($request->get('advsearch_sostenimiento')))
+            switch ($request->get('advsearch_sostenimiento')){
+                case "public":
+                    $scopes = array_add($scopes, 'fiscal', 1);
+                    break;
+                case "private":
+                    $scopes = array_add($scopes, 'privado', 1);
+                    break;
+                case "public_private":
+                    $scopes = array_add($scopes, 'fiscomisional', 1);
+                    break;
+            }
         if(!is_null($request->get('advsearch_chkPresencial')))
-            $scopes = array_add($scopes, 'presencial', $request->get('advsearch_chkPresencial'));
-        if(!is_null($request->get('advsearch_chkSemipresencial')))
-            $scopes = array_add($scopes, 'semipresencial', $request->get('advsearch_chkSemipresencial'));
-        if(!is_null($request->get('advsearch_chkDistancia')))
-            $scopes = array_add($scopes, 'distancia', $request->get('advsearch_chkDistancia'));
+            switch ($request->get('advsearch_chkPresencial')){
+                case "presencial":
+                    $scopes = array_add($scopes, 'presencial', 1);
+                    break;
+                case "semipresencial":
+                    $scopes = array_add($scopes, 'semipresencial', 1);
+                    break;
+                case "distancia":
+                    $scopes = array_add($scopes, 'distancia', 1);
+                    break;
+            }
         if(!is_null($request->get('search_carreras')))
             $scopes = array_add($scopes, 'carreras', $request->get('search_carreras'));
 
