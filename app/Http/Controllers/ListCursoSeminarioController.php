@@ -52,7 +52,7 @@ class ListCursoSeminarioController extends Controller
         if(!is_null($request->get('search_tipo')))
             $scopes = array_add($scopes, 'tipo', $request->get('search_tipo'));
         if(!is_null($request->get('advsearch_costo'))) {
-            $scopes = array_add($scopes, 'costo_promedio', $request->get('advsearch_costo'), 2);
+            $scopes = array_add($scopes, 'costo_promedio_cursos', $request->get('advsearch_costo'));
         }
 
         return isset($scopes) ? $scopes : [];
