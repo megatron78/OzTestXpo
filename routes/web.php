@@ -63,7 +63,7 @@ Route::get('escuelacolegio/{institution}-{slug}', [
     'as' => 'escuelacolegio.show',
 ])->where('institution', '\d+');
 
-Route::get('/ajax-city/', function() {
+Route::get('ajax-city/', function() {
    $province_id = Input::get('province_id');
 
    $cities = City::where('province_id', '=', $province_id)->orderBy('name')->get();
@@ -71,7 +71,7 @@ Route::get('/ajax-city/', function() {
    return $cities;
 });
 
-Route::get('/ajax-sector/', function() {
+Route::get('ajax-sector/', function() {
     $city_id = Input::get('city_id');
 
     $sectors = Sector::where('city_id', '=', $city_id)->orderBy('nombre')->get();
