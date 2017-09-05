@@ -9,7 +9,7 @@
                     <select style="max-width: 120px" name="search_province" id="search_province" class="form-control">
                         <option value="">...</option>
                         @foreach($provinces as $province)
-                            <option value="{{ $province->code}}">{{ $province->name}}</option>
+                            <option value="{{ $province->id}}">{{ $province->name}}</option>
                         @endforeach
                     </select>
                 </div>

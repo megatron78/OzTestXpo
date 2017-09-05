@@ -18,7 +18,7 @@ class ListSuperiorController extends Controller
             ->orderBy('nombre')
             ->paginate(14);
 
-        $provinces = Province::all(['name','code']);
+        $provinces = Province::all(['name','id']);
 
         $bannerData = BannerCategory::where('category_id','=','4')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
