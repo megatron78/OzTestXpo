@@ -41,17 +41,11 @@ class ListPosgradoController extends Controller
         if(!is_null($request->get('search_keywordtopic')))
             $scopes = array_add($scopes, 'keywordtopic', $request->get('search_keywordtopic'));
         if(!is_null($request->get('advsearch_chkPresencial')))
-            switch ($request->get('advsearch_chkPresencial')){
-                case "presencial":
-                    $scopes = array_add($scopes, 'presencial', 1);
-                    break;
-                case "semipresencial":
-                    $scopes = array_add($scopes, 'semipresencial', 1);
-                    break;
-                case "distancia":
-                    $scopes = array_add($scopes, 'distancia', 1);
-                    break;
-            }
+            $scopes = array_add($scopes, 'presencial', $request->get('advsearch_chkPresencial'));
+        if(!is_null($request->get('advsearch_chkSemipresencial')))
+            $scopes = array_add($scopes, 'semipresencial', $request->get('advsearch_chkSemipresencial'));
+        if(!is_null($request->get('advsearch_chkDistancia')))
+            $scopes = array_add($scopes, 'distancia', $request->get('advsearch_chkDistancia'));
         if(!is_null($request->get('search_institucion')))
             $scopes = array_add($scopes, 'institucion', $request->get('search_institucion'));
         if(!is_null($request->get('search_tipo')))

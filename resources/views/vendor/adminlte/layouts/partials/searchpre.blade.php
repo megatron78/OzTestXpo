@@ -44,56 +44,56 @@
             <div id="advancedSearch" class="box-body panel-collapse collapse">
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="form-check-input" id="advsearch_chkFiscal" name="advsearch_sostenimiento"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscal" name="advsearch_chkFiscal"
                                value="public">
                         Fiscal
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="form-check-input" id="advsearch_chkFiscomisional" name="advsearch_sostenimiento"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscomisional" name="advsearch_chkFiscomisional"
                                value="public_private">
                         Fiscomisional
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkParticular" name="advsearch_sostenimiento"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkParticular" name="advsearch_chkParticular"
                                value="private" checked>
                         Particular
                     </label>
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkLaico" name="advsearch_chkLaico"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkLaico" name="advsearch_chkLaico"
                                value="laic">
                         Laico
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkReligioso" name="advsearch_chkLaico"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkReligioso" name="advsearch_chkReligioso"
                                value="religious">
                         Religioso
                     </label>
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkMujeres" name="advsearch_sexo"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkMujeres" name="advsearch_chkMujeres"
                                value="all_female">
                         Mujeres
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkMixto" name="advsearch_sexo"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkMixto" name="advsearch_chkMixto"
                                value="male_female" checked>
                         Mixto
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="form-check-input" id="advsearch_chkHombres" name="advsearch_sexo"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkHombres" name="advsearch_chkHombres"
                                value="all_male">
                         Hombres
                     </label>

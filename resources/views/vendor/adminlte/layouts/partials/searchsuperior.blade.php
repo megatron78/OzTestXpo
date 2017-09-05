@@ -46,42 +46,42 @@
             <div id="advancedSearch" class="box-body panel-collapse collapse">
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkFiscal" name="advsearch_sostenimiento"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscal" name="advsearch_chkFiscal"
                                value="public">
                         Fiscal
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkFiscomisional" name="advsearch_sostenimiento"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkFiscomisional" name="advsearch_chkFiscomisional"
                                value="public_private">
                         Fiscomisional
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkParticular" name="advsearch_sostenimiento"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkParticular" name="advsearch_chkParticular"
                                value="private" checked>
                         Particular
                     </label>
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkPresencial" name="advsearch_chkPresencial"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkPresencial" name="advsearch_chkPresencial"
                                value="presencial">
                         Presencial
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkSemipresencial" name="advsearch_chkPresencial"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkSemipresencial" name="advsearch_chkSemipresencial"
                                value="semipresencial">
                         Semipresencial
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkDistancia" name="advsearch_chkPresencial"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkDistancia" name="advsearch_chkDistancia"
                                value="distancia">
                         Distancia
                     </label>

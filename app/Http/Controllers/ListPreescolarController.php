@@ -42,39 +42,22 @@ class ListPreescolarController extends Controller
             $scopes = array_add($scopes, 'sector', $request->get('search_sector'));
         if(!is_null($request->get('search_institution')))
             $scopes = array_add($scopes, 'nombreKeyword', $request->get('search_institution'));
-        if(!is_null($request->get('advsearch_sostenimiento')))
-            switch ($request->get('advsearch_sostenimiento')){
-                case "public":
-                    $scopes = array_add($scopes, 'fiscal', 1);
-                    break;
-                case "private":
-                    $scopes = array_add($scopes, 'privado', 1);
-                    break;
-                case "public_private":
-                    $scopes = array_add($scopes, 'fiscomisional', 1);
-                    break;
-            }
+        if(!is_null($request->get('advsearch_chkFiscal')))
+            $scopes = array_add($scopes, 'fiscal', $request->get('advsearch_chkFiscal'));
+        if(!is_null($request->get('advsearch_chkFiscomisional')))
+            $scopes = array_add($scopes, 'fiscomisional', $request->get('advsearch_chkFiscomisional'));
+        if(!is_null($request->get('advsearch_chkParticular')))
+            $scopes = array_add($scopes, 'privado', $request->get('advsearch_chkParticular'));
         if(!is_null($request->get('advsearch_chkLaico')))
-            switch ($request->get('advsearch_chkLaico')){
-                case "laic":
-                    $scopes = array_add($scopes, 'laico', 1);
-                    break;
-                case "religious":
-                    $scopes = array_add($scopes, 'religioso', 1);
-                    break;
-            }
-        if(!is_null($request->get('advsearch_sexo')))
-            switch ($request->get('advsearch_sexo')){
-                case "all_female":
-                    $scopes = array_add($scopes, 'femenino', 1);
-                    break;
-                case "male_female":
-                    $scopes = array_add($scopes, 'mixto', 1);
-                    break;
-                case "all_male":
-                    $scopes = array_add($scopes, 'masculino', 1);
-                    break;
-            }
+            $scopes = array_add($scopes, 'laico', $request->get('advsearch_chkLaico'));
+        if(!is_null($request->get('advsearch_chkReligioso')))
+            $scopes = array_add($scopes, 'religioso', $request->get('advsearch_chkReligioso'));
+        if(!is_null($request->get('advsearch_chkMujeres')))
+            $scopes = array_add($scopes, 'femenino', $request->get('advsearch_chkMujeres'));
+        if(!is_null($request->get('advsearch_chkMixto')))
+            $scopes = array_add($scopes, 'mixto', $request->get('advsearch_chkMixto'));
+        if(!is_null($request->get('advsearch_chkHombres')))
+            $scopes = array_add($scopes, 'masculino', $request->get('advsearch_chkHombres'));
         if(!is_null($request->get('advsearch_chkExtendido')))
             $scopes = array_add($scopes, 'horario_extendido', $request->get('advsearch_chkExtendido'));
         if(!is_null($request->get('advsearch_costo'))) {

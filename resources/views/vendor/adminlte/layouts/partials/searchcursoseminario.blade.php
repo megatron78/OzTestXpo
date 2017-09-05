@@ -46,21 +46,21 @@
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkPresencial" name="advsearch_chkPresencial"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkPresencial" name="advsearch_chkPresencial"
                                value="presencial">
                         Presencial
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkSemipresencial" name="advsearch_chkPresencial"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkSemipresencial" name="advsearch_chkSemipresencial"
                                value="semipresencial">
                         Semipresencial
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="radio" class="radio" id="advsearch_chkDistancia" name="advsearch_chkPresencial"
+                        <input type="checkbox" class="form-check-input" id="advsearch_chkDistancia" name="advsearch_chkDistancia"
                                value="distancia">
                         Distancia
                     </label>
