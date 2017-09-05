@@ -65,42 +65,42 @@ class Institution extends Model
 
     public function scopePago_promedio_escuela($query, $pago_promedio_escuela) {
         $pension = explode(',', $pago_promedio_escuela);
-        if($pension[1] == '0')
+        if($pension[0] == '0' and $pension[1] == '500')
             return $query->where('pago_promedio_escuela', '<', 500)->orWhereNull('pago_promedio_escuela');
-        if($pension[1] == '500')
+        if($pension[0] == '500' and $pension[1] == '500')
             return $query->where('pago_promedio_escuela', '>', $pension[1]);
         return $query->whereBetween('pago_promedio_escuela', $pension);
     }
 
     public function scopeFiscal($query, $fiscal) {
-        return $query->where('fiscal', 1);
+        return $query->orWhere('fiscal', 1);
     }
 
     public function scopePrivado($query, $privado) {
-        return $query->where('privado', 1);
+        return $query->orWhere('privado', 1);
     }
 
     public function scopeFiscomisional($query, $fiscomisional) {
-        return $query->where('fiscomisional', 1);
+        return $query->orWhere('fiscomisional', 1);
     }
 
     public function scopeLaico($query, $laico) {
-        return $query->where('laico', 1);
+        return $query->orWhere('laico', 1);
     }
 
     public function scopeReligioso($query, $religioso) {
-        return $query->where('religioso', 1);
+        return $query->orWhere('religioso', 1);
     }
 
     public function scopeFemenino($query, $femenino) {
-        return $query->where('femenino', 1);
+        return $query->orWhere('femenino', 1);
     }
 
     public function scopeMixto($query, $mixto) {
-        return $query->where('mixto', 1);
+        return $query->orWhere('mixto', 1);
     }
 
     public function scopeMasculino($query, $masculino) {
-        return $query->where('masculino', 1);
+        return $query->orWhere('masculino', 1);
     }
 }

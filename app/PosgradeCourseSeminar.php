@@ -42,27 +42,37 @@ class PosgradeCourseSeminar extends Model
     }
 
     public function scopePresencial($query, $presencial) {
-        return $query->where('presencial', 1);
+        return $query->orWhere('presencial', 1);
     }
 
     public function scopeSemipresencial($query, $semipresencial) {
-        return $query->where('semipresencial', 1);
+        return $query->orWhere('semipresencial', 1);
     }
 
     public function scopeDistancia($query, $distancia) {
-        return $query->where('distancia', 1);
+        return $query->orWhere('distancia', 1);
     }
 
     public function scopeInstitucion($query, $institucion) {
-        return $query->where('institucion', $institucion);
+        return $query->orWhere('institucion', $institucion);
     }
 
-    public function scopeCosto_promedio($query, $costo) {
+    public function scopeCosto_promedio($query, $costo, $identifier) {
         $costoP = explode(',', $costo);
-        if($costoP[1] == '0')
-            return $query->where('costo', '<', 600)->orWhereNull('costo');
-        if($costoP[1] == '600')
-            return $query->where('costo', '>', $costoP[1]);
-        return $query->whereBetween('costo', $costoP);
+
+        if($identifier == 1) {
+            if ($costoP[0] == '0' and $costoP[1] == '11000')
+                return $query->where('costo', '<', 600)->orWhereNull('costo');
+            if ($costoP[0] == '11000' and $costoP[1] == '11000')
+                return $query->where('costo', '>', $costoP[1]);
+            return $query->whereBetween('costo', $costo);
+        }
+        else {
+            if ($costoP[0] == '0' and $costoP[1] == '600')
+                return $query->where('costo', '<', 600)->orWhereNull('costo');
+            if ($costoP[0] == '600' and $costoP[1] == '600')
+                return $query->where('costo', '>', $costoP[1]);
+            return $query->whereBetween('costo', $costo);
+        }
     }
 }
