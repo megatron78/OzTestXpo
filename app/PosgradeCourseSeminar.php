@@ -38,6 +38,11 @@ class PosgradeCourseSeminar extends Model
         return route('posgrado.show', [$this->id, $this->slug]);
     }
 
+    public function scopeCountry($query, $country_id)
+    {
+        return $query->where('country_id', $country_id);
+    }
+
     public function scopeProvince($query, $province_id)
     {
         return $query->where('province_id', $province_id);

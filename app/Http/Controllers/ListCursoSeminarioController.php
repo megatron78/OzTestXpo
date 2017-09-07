@@ -37,6 +37,8 @@ class ListCursoSeminarioController extends Controller
 
     protected function getRouteScope(Request $request) {
         $scopes = [];
+        if(!is_null($request->get('search_country')))
+            $scopes = array_add($scopes, 'country', $request->get('search_country'));
         if(!is_null($request->get('search_province')))
             $scopes = array_add($scopes, 'province', $request->get('search_province'));
         if(!is_null($request->get('search_city')))
