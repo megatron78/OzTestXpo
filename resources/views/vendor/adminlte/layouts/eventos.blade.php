@@ -52,7 +52,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     <p style="font-size: 14px" class="desc">{{ $evento->informacion }}</p>
                                                     <ul>
                                                         <li style="width:32%;">
-                                                            <a style="color: #0073B7;" href="{{ $evento->web }}"><span class="fa fa-info text-black"></span>
+                                                            <a style="color: #0073B7;" href="{{ $evento->web }}" target="_blank"><span class="fa fa-info text-black"></span>
                                                                 Ver más</a>
                                                         </li>
                                                         <li style="color: #0073B7; width:32%;"><span class="fa fa-money text-black"></span> {{ $evento->costo }}</li>

@@ -31,48 +31,50 @@ class CreatePosgradeCourseSeminarsTable extends Migration
             $table->string('clasificacion')->default('Posgrado'); //Curso
             //Masterado, Doctorado, PHD, Curso Específico, Curso por Niveles, Seminario, Taller
             $table->string('tipo')->default('Masterado');
-            $table->string('campo');
+            $table->string('campo')->nullable();
             $table->string('institucion');
-            $table->double('costo');
-            $table->mediumText('instructores');
+            $table->double('costo')->nullable();
+            $table->mediumText('instructores')->nullable();
 
             $table->string('telefono')->default('ND');
             $table->string('celular')->nullable();
-            $table->string('email')->default('ND');;
+            $table->string('email')->default('ND');
             $table->string('web')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
 
             //Details
-            $table->boolean('presencial'); //Presencial
-            $table->boolean('semipresencial'); //Semipresencial
-            $table->boolean('distancia'); //Distancia
-            $table->integer('cupos');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
+            $table->boolean('presencial')->default(1); //Presencial
+            $table->boolean('semipresencial')->default(1); //Semipresencial
+            $table->boolean('distancia')->default(1); //Distancia
+            $table->integer('cupos')->nullable();
+            $table->date('fecha_inicio')->nullable();
+            $table->date('fecha_fin')->nullable();
             $table->string('duracion');
-            $table->string('hora_ingreso');
-            $table->string('hora_salida');
-            $table->string('lugar');
+            $table->string('hora_ingreso')->nullable();
+            $table->string('hora_salida')->nullable();
+            $table->string('lugar')->nullable();
 
-            $table->mediumText('objetivo');
-            $table->mediumText('temario');
-            $table->longText('instructores_detalle');
-            $table->mediumText('incluye');
+            $table->mediumText('objetivo')->nullable();
+            $table->mediumText('temario')->nullable();
+            $table->longText('instructores_detalle')->nullable();
+            $table->mediumText('incluye')->nullable();
 
             //Google map
             $table->mediumText('mapa_url')->nullable();
 
-            $table->string('documento_pdf1');
-            $table->string('documento_pdf2');
-            $table->string('documento_pdf3');
+            $table->string('documento_pdf1')->nullable();
+            $table->string('documento_pdf2')->nullable();
+            $table->string('documento_pdf3')->nullable();
+
+            $table->mediumText('otros_posgrados_cursos')->nullable();
 
             //Cursos por niveles
-            $table->integer('max_alumnos_x_nivel');
-            $table->string('meses_inicio');
-            $table->string('duracion_nivel');
-            $table->string('horarios');
+            $table->integer('max_alumnos_x_nivel')->nullable();
+            $table->string('meses_inicio')->nullable();
+            $table->string('duracion_nivel')->nullable();
+            $table->string('horarios')->nullable();
 
             //Invoice data
             $table->string('ruc_invoice')->nullable();

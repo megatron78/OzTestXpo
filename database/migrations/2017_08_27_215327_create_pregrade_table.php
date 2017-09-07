@@ -39,9 +39,9 @@ class CreatePregradeTable extends Migration
             $table->text('trayectoria')->nullable();
             $table->string('nombre_autoridad')->nullable();
             $table->string('direccion');
-            $table->boolean('fiscal');
-            $table->boolean('privado');
-            $table->boolean('fiscomisional');
+            $table->boolean('fiscal')->default('0');
+            $table->boolean('privado')->default('0');
+            $table->boolean('fiscomisional')->default('0');
             $table->string('telefono')->default('ND');
             $table->string('celular')->nullable();
             $table->string('email')->default('ND');
@@ -55,15 +55,15 @@ class CreatePregradeTable extends Migration
             $table->mediumText('descripcion')->nullable();
 
             //Details
-            $table->boolean('presencial'); //Presencial
-            $table->boolean('semipresencial'); //Semipresencial
-            $table->boolean('distancia'); //Distancia
+            $table->boolean('presencial')->default('0'); //Presencial
+            $table->boolean('semipresencial')->default('0'); //Semipresencial
+            $table->boolean('distancia')->default('0'); //Distancia
             $table->boolean('matutino')->nullable();
             $table->boolean('vespertino')->nullable();
             $table->boolean('nocturno')->nullable();
 
             //Carreras
-            $table->longText('carreras');
+            $table->longText('carreras')->nullable();
 
             //Facilities
             $table->integer('area_total')->nullable();

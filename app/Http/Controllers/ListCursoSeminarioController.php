@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BannerCategory;
 use App\Province;
+use App\Country;
 use App\PosgradeCourseSeminar;
 use Illuminate\Http\Request;
 
@@ -28,9 +29,10 @@ class ListCursoSeminarioController extends Controller
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
             ->get();
 
+        $countries = Country::all(['printable_name','id']);
         $provinces = Province::all(['name','id']);
 
-        return view('vendor.adminlte.layouts.cursoseminario', compact('cursoseminarios','provinces', 'bannerData'));
+        return view('vendor.adminlte.layouts.cursoseminario', compact('cursoseminarios','provinces', 'bannerData', 'countries'));
     }
 
     protected function getRouteScope(Request $request) {

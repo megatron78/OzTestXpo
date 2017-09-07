@@ -171,6 +171,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             <dt>Lugar</dt>
                                             <dd>{{ $posgrade->lugar }}</dd>
                                             <dt>Ubicación</dt>
+                                            <dd>{{ isset($posgrade->country->printable_name) ? " / ".$posgrade->country->printable_name : "" }} </dd>
                                             <dd>{{ $posgrade->province->name }} {{ isset($posgrade->city->name) ? " / ".$posgrade->city->name : "" }} </dd>
                                             <dt>Teléfonos</dt>
                                             @if(isset($posgrade->telefono))
@@ -271,9 +272,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <div class="box-body">
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
-                                        <dt>Descripción</dt>
-                                        @if(isset($posgrade->descripcion))
-                                            <dd>{{ $posgrade->descripcion }}</dd>
+                                        <dt>Objetivo</dt>
+                                        @if(isset($posgrade->objetivo))
+                                            <dd>{{ $posgrade->objetivo }}</dd>
                                         @else
                                             <dd></dd>
                                         @endif
@@ -286,9 +287,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <div class="box-body">
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
-                                        <dt>Carreras</dt>
-                                        @if(isset($posgrade->carreras))
-                                            <dd>{{ $posgrade->carreras }}</dd>
+                                        <dt>Temario</dt>
+                                        @if(isset($posgrade->temario))
+                                            <dd>{{ $posgrade->temario }}</dd>
                                         @else
                                             <dd></dd>
                                         @endif
@@ -299,105 +300,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_4">
                                 <dl class="dl-horizontal">
-                                    <dt>Área Total</dt>
-                                    @if(isset($posgrade->max_estudiantes_x_clase))
-                                        <dd>{{ $posgrade->max_estudiantes_x_clase }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Canchas Deportivas</dt>
-                                    @if(isset($posgrade->area_deportiva))
-                                        <dd>{{ $posgrade->area_deportiva }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Espacios Verdes</dt>
-                                    @if(isset($posgrade->area_espacios_verdes))
-                                        <dd>{{ $posgrade->area_espacios_verdes }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Piscinas</dt>
-                                    @if(isset($posgrade->area_piscina))
-                                        <dd>{{ $posgrade->area_piscina }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Seguridad Privada</dt>
-                                    @if($posgrade->seguridad_privada)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Wifi en aulas</dt>
-                                    @if($posgrade->wifi_interior)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Wifi exterior</dt>
-                                    @if(isset($posgrade->wifi_otros))
-                                        <dd>{{ $posgrade->wifi_otros }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Capacidad en Restaurantes</dt>
-                                    @if(isset($posgrade->capacidad_restaurantes))
-                                        <dd>{{ $posgrade->capacidad_restaurantes }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Canchas Indoor Fútbol</dt>
-                                    @if(isset($posgrade->canchas_indoor))
-                                        <dd>{{ $posgrade->canchas_indoor }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Canchas Fútbol</dt>
-                                    @if(isset($posgrade->canchas_futbol))
-                                        <dd>{{ $posgrade->canchas_futbol }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Canchas Basket</dt>
-                                    @if(isset($posgrade->canchas_basket))
-                                        <dd>{{ $posgrade->canchas_basket }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Canchas Tenis</dt>
-                                    @if(isset($posgrade->canchas_tenis))
-                                        <dd>{{ $posgrade->canchas_tenis }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Mesas de Tenis de Mesa</dt>
-                                    @if(isset($posgrade->mesas_tenis))
-                                        <dd>{{ $posgrade->mesas_tenis }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Pista de Atletismo</dt>
-                                    @if($posgrade->pista_atletica)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Teatro</dt>
-                                    @if($posgrade->teatro)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Gimnasio</dt>
-                                    @if($posgrade->gimnasio)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Otros</dt>
-                                    @if(isset($posgrade->otros))
-                                        <dd>{{ $posgrade->otros }}</dd>
+                                    <dt>Instructores</dt>
+                                    @if(isset($posgrade->instructores_detalle))
+                                        <dd>{{ $posgrade->instructores_detalle }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
@@ -406,42 +311,34 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_5">
-                                <dt>Certificaciones y Logros</dt>
-                                @if(isset($posgrade->certificaciones_logros))
-                                    <dd>{{ $posgrade->certificaciones_logros }}</dd>
+                                <dt>Incluye</dt>
+                                @if(isset($posgrade->incluye))
+                                    <dd>{{ $posgrade->incluye }}</dd>
                                 @else
                                     <dd></dd>
                                 @endif
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_6">
-                                <ul style="padding:0 0 0 0; margin:0 0 0 0;" class="row">
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_7">
                                 @if(isset($posgrade->mapa_url) && !empty($posgrade->mapa_url))
                                     {!! $posgrade->mapa_url !!}
                                 @else
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7911908314577!2d-78.41692168566942!3d-0.21129163545664972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5913090093377%3A0x6df39dd58f481a13!2sOV+Constructora!5e0!3m2!1ses!2sec!4v1502305609923" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                @endif
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_7">
+                                <dt>Documentos</dt>
+                                @if(isset($posgrade->documento_pdf1))
+                                    <dd>{{ $posgrade->documento_pdf1 }}</dd>
+                                @endif
+                                @if(isset($posgrade->documento_pdf2))
+                                    <dd>{{ $posgrade->documento_pdf2 }}</dd>
+                                @endif
+                                @if(isset($posgrade->documento_pdf3))
+                                    <dd>{{ $posgrade->documento_pdf3 }}</dd>
+                                @else
+                                    <dd></dd>
                                 @endif
                             </div>
                             <!-- /.tab-pane -->

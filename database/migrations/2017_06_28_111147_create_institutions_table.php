@@ -31,21 +31,21 @@ class CreateInstitutionsTable extends Migration
             $table->string('nombre')->unique();
             $table->string('nombre_corto')->unique();
             $table->string('slug');
-            $table->boolean('preescolar');
-            $table->boolean('escuela');
-            $table->boolean('colegio');
+            $table->boolean('preescolar')->default('0');
+            $table->boolean('escuela')->default('0');
+            $table->boolean('colegio')->default('0');
             $table->string('institution_bg_picture')->nullable();
 
             $table->text('trayectoria')->nullable();
             $table->string('nombre_autoridad')->nullable();
             $table->string('direccion');
-            $table->boolean('laico');
-            $table->boolean('religioso');
-            $table->boolean('masculino');
-            $table->boolean('femenino');
-            $table->boolean('mixto');
-            $table->boolean('fiscal');
-            $table->boolean('privado');
+            $table->boolean('laico')->default('0');
+            $table->boolean('religioso')->default('0');
+            $table->boolean('masculino')->default('0');
+            $table->boolean('femenino')->default('0');
+            $table->boolean('mixto')->default('0');
+            $table->boolean('fiscal')->default('0');
+            $table->boolean('privado')->default('0');
             $table->boolean('fiscomisional');
             $table->float('pago_promedio_escuela')->nullable();
             $table->float('pago_promedio_colegio')->nullable();
@@ -65,9 +65,9 @@ class CreateInstitutionsTable extends Migration
             $table->integer('edad_hasta')->nullable(); //Preescolar
             $table->boolean('extracurriculares')->nullable();
             $table->boolean('horario_extendido')->nullable();
-            $table->boolean('presencial'); //Presencial
-            $table->boolean('semipresencial'); //Semipresencial
-            $table->boolean('distancia'); //Distancia
+            $table->boolean('presencial')->default('0'); //Presencial
+            $table->boolean('semipresencial')->default('0'); //Semipresencial
+            $table->boolean('distancia')->default('0'); //Distancia
             $table->boolean('matutino')->nullable();
             $table->boolean('vespertino')->nullable();
             $table->boolean('nocturno')->nullable();

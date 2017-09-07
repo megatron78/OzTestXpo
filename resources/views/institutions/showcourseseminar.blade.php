@@ -107,360 +107,428 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <div class="row">
                 <div class="col-md-12">
                     <div style="font-size: 20px" class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab_1" data-toggle="tab">Información</a></li>
-                            <li><a href="#tab_2" data-toggle="tab">Descripción</a></li>
-                            <li><a href="#tab_3" data-toggle="tab">Detalles</a></li>
-                            <li><a href="#tab_4" data-toggle="tab">Certificaciones y Logros</a></li>
-                            <li><a href="#tab_5" data-toggle="tab">Galería de Imágenes</a></li>
-                            <li><a href="#tab_6" data-toggle="tab">Mapa de Ubicación</a></li>
-                            {{--<li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    Acciones <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                                    --}}{{--<li role="presentation" class="divider"></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>--}}{{--
-                                </ul>
-                            </li>--}}
-                            {{--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--}}
-                        </ul>
-                        <div style="font-size: 16px" class="tab-content">
-                            <div class="tab-pane active" id="tab_1">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <dl class="dl-horizontal">
-                                    <dt>Niveles</dt>
-                                    @if($courseseminar->preescolar)
-                                        <dd>Inicial</dd>
-                                    @elseif($courseseminar->escuela)
-                                        <dd>Educación General Básica</dd>
-                                    @elseif($courseseminar->colegio)
-                                        <dd>Colegio</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Trayectoria</dt>
-                                    <dd>{{ $courseseminar->trayectoria }}</dd>
-                                    <dt>Rector/Director</dt>
-                                    <dd>{{ $courseseminar->nombre_autoridad }}</dd>
-                                    <dt>Ubicación</dt>
-                                    <dd>{{ $courseseminar->province->name }} {{ isset($courseseminar->city->name) ? " / ".$courseseminar->city->name : "" }}  {{ isset($courseseminar->sector->nombre) ? " / ".$courseseminar->sector->nombre : "" }}</dd>
-                                    <dt>Dirección</dt>
-                                    <dd>{{ $courseseminar->direccion }}</dd>
-                                    <dt>Tipo Educación</dt>
-                                    @if($courseseminar->religioso)
-                                        <dd>Religioso</dd>
-                                    @else
-                                        <dd>Laico</dd>
-                                    @endif
-                                    <dt>Género</dt>
-                                    @if($courseseminar->masculino)
-                                        <dd>Maculino</dd>
-                                    @elseif($courseseminar->femenino)
-                                        <dd>Femenino</dd>
-                                    @else
-                                        <dd>Mixto</dd>
-                                    @endif
-                                    <dt>Sostenimiento</dt>
-                                    @if($courseseminar->fiscal)
-                                        <dd>Pública</dd>
-                                    @elseif($courseseminar->fiscomisional)
-                                        <dd>Fiscomisional</dd>
-                                    @else
-                                        <dd>Privada</dd>
-                                    @endif
-                                    <dt>Régimen</dt>
-                                    @if(isset($courseseminar->regimen))
-                                        <dd>{{ $courseseminar->regimen }}</dd>
-                                    @else
-                                        <dd>Sierra</dd>
-                                    @endif
-                                    <dt>Pensión promedio</dt>
-                                    @if(isset($courseseminar->pago_promedio_escuela))
-                                        <dd>Escuela: ${{ $courseseminar->pago_promedio_escuela }}</dd>
-                                    @elseif(isset($courseseminar->pago_promedio_colegio))
-                                        <dd>Colegio: ${{ $courseseminar->pago_promedio_colegio }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Idiomas</dt>
-                                    @if(isset($courseseminar->lenguajes))
-                                        <dd>{{ $courseseminar->lenguajes }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Teléfonos</dt>
-                                    @if(isset($courseseminar->telefono))
-                                        <dd>{{ $courseseminar->telefono }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Celular</dt>
-                                    @if(isset($courseseminar->celular))
-                                        <dd>{{ $courseseminar->celular }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Email</dt>
-                                    @if(isset($courseseminar->email))
-                                        <dd>{{ $courseseminar->email }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Web</dt>
-                                    @if(isset($courseseminar->web))
-                                        <dd>{{ $courseseminar->web }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Redes Sociales</dt>
-                                    <dd>
-                                        @if(isset($courseseminar->facebook))
-                                            <a href="{{ $courseseminar->facebook }}"
-                                               class="btn btn-social-icon btn-facebook"><i
-                                                        class="fa fa-facebook"></i></a>
-                                        @elseif(isset($courseseminar->twitter))
-                                            &nbsp;
-                                            <a href="{{ $courseseminar->twitter }}"><i class="fa fa-twitter"></i></a>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                    </dd>
-                                </dl>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <form class="form-horizontal" action="/">
-                                            <div class="box-body">
-                                                <div class="form-group">
-                                                    <label for="nombreApellido" class="col-sm-3 control-label">Nombre y Apellido *</label>
+                        @if($courseseminar->tipo == "Curso por Niveles")
+                            <ul class="nav nav-tabs">
+                                <li><a href="#tab_1" data-toggle="tab">Cursos por Niveles</a></li>
+                                {{--<li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Acciones <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
+                                        --}}{{--<li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>--}}{{--
+                                    </ul>
+                                </li>--}}
+                                {{--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--}}
+                            </ul>
+                            <div style="font-size: 16px" class="tab-content">
+                                <div class="tab-pane active" id="tab_1">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <dl class="dl-horizontal">
+                                                <dt>Tipo</dt>
+                                                @if(isset($courseseminar->tipo))
+                                                    <dd>{{ $courseseminar->tipo }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Institución que imparte</dt>
+                                                <dd>{{ $courseseminar->institucion }}</dd>
+                                                <dt>Modalidades</dt>
+                                                @if($pregrade->presencial)
+                                                    <dd>Presencial</dd>
+                                                @endif
+                                                @if($pregrade->semipresencial)
+                                                    <dd>Semipresencial</dd>
+                                                @endif
+                                                @if($pregrade->distancia)
+                                                    <dd>Distancia</dd>
+                                                @endif
+                                                <dt>Alumnos máximo por Nivel</dt>
+                                                @if(isset($courseseminar->max_alumnos_x_nivel))
+                                                    <dd>{{ $courseseminar->max_alumnos_x_nivel }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Meses de Inicio</dt>
+                                                @if(isset($courseseminar->meses_inicio))
+                                                    <dd>{{ $courseseminar->meses_inicio }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Duración por Nivel</dt>
+                                                @if(isset($courseseminar->duracion_nivel))
+                                                    <dd>{{ $courseseminar->duracion_nivel }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Horarios</dt>
+                                                @if(isset($courseseminar->horarios))
+                                                    <dd>{{ $courseseminar->horarios }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Lugar</dt>
+                                                @if(isset($courseseminar->lugar))
+                                                    <dd>{{ $courseseminar->lugar }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Ubicación</dt>
+                                                <dd>{{ isset($courseseminar->country->printable_name) ? " / ".$courseseminar->country->printable_name : "" }} </dd>
+                                                <dd>{{ $courseseminar->province->name }} {{ isset($courseseminar->city->name) ? " / ".$courseseminar->city->name : "" }} </dd>
+                                                <dt>Teléfonos</dt>
+                                                @if(isset($courseseminar->telefono))
+                                                    <dd>{{ $courseseminar->telefono }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Celular</dt>
+                                                @if(isset($courseseminar->celular))
+                                                    <dd>{{ $courseseminar->celular }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Email</dt>
+                                                @if(isset($courseseminar->email))
+                                                    <dd>{{ $courseseminar->email }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Web</dt>
+                                                @if(isset($courseseminar->web))
+                                                    <dd>{{ $courseseminar->web }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Redes Sociales</dt>
+                                                <dd>
+                                                    @if(isset($courseseminar->facebook))
+                                                        <a href="{{ $courseseminar->facebook }}"
+                                                           class="btn btn-social-icon btn-facebook"><i
+                                                                    class="fa fa-facebook"></i></a>
+                                                    @endif
+                                                    @if(isset($courseseminar->twitter))
+                                                        &nbsp
+                                                        <a href="{{ $pregrado->twitter }}"
+                                                           class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                                                    @endif
+                                                    @if(isset($courseseminar->linkedin))
+                                                        &nbsp
+                                                        <a href="{{ $pregrado->linkedin }}"
+                                                           class="btn btn-social-icon btn-linkedin"><i
+                                                                    class="fa fa-linkedin"></i></a>
+                                                    @else
+                                                        <dd></dd>
+                                                    @endif
+                                                    </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <form class="form-horizontal" action="/">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label for="nombreApellido" class="col-sm-3 control-label">Nombre y Apellido *</label>
 
-                                                    <div class="col-sm-6">
-                                                        <input type="text" class="form-control" id="nombreApellido"
-                                                               placeholder="Nombre y Apellido" required>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="nombreApellido"
+                                                                   placeholder="Nombre y Apellido" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="telefono" class="col-sm-3 control-label">Teléfono *</label>
+
+                                                        <div class="col-sm-6">
+                                                            <input type="email" class="form-control" id="telefono" placeholder="Correo electrónico" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
+
+                                                        <div class="col-sm-6">
+                                                            <input type="email" class="form-control" id="whatsapp" placeholder="Whatsapp">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
+
+                                                        <div class="col-sm-6">
+                                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Correo electrónico" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="interes" class="col-sm-3 control-label">Interés</label>
+
+                                                        <div class="col-sm-6">
+                                                            <input type="email" class="form-control" id="interes" placeholder="Estoy interesado en...">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-9" style="text-align: right;">
+                                                        <button type="submit" class="btn btn-primary">Enviar</button>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="telefono" class="col-sm-3 control-label">Teléfono *</label>
-
-                                                    <div class="col-sm-6">
-                                                        <input type="email" class="form-control" id="telefono" placeholder="Correo electrónico" required>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
-
-                                                    <div class="col-sm-6">
-                                                        <input type="email" class="form-control" id="whatsapp" placeholder="Whatsapp">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
-
-                                                    <div class="col-sm-6">
-                                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Correo electrónico" required>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="interes" class="col-sm-3 control-label">Interés</label>
-
-                                                    <div class="col-sm-6">
-                                                        <input type="email" class="form-control" id="interes" placeholder="Estoy interesado en...">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-9" style="text-align: right;">
-                                                    <button type="submit" class="btn btn-primary">Enviar</button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- /.tab-pane -->
                             </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_2">
-                                <div class="box-body">
-                                    {{--<b class="text-blue">Instalaciones</b>--}}
+                            <!-- /.tab-content -->
+                        @else
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab_1" data-toggle="tab">Información</a></li>
+                                <li><a href="#tab_2" data-toggle="tab">Objetivo</a></li>
+                                <li><a href="#tab_3" data-toggle="tab">Temario</a></li>
+                                <li><a href="#tab_4" data-toggle="tab">Información Instructores</a></li>
+                                <li><a href="#tab_5" data-toggle="tab">Incluye</a></li>
+                                <li><a href="#tab_6" data-toggle="tab">Galería de Imágenes</a></li>
+                                <li><a href="#tab_7" data-toggle="tab">Documentos PDF</a></li>
+                                <li><a href="#tab_8" data-toggle="tab">Cursos por Niveles</a></li>
+                                {{--<li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Acciones <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
+                                        --}}{{--<li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>--}}{{--
+                                    </ul>
+                                </li>--}}
+                                {{--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--}}
+                            </ul>
+                            <div style="font-size: 16px" class="tab-content">
+                                <div class="tab-pane active" id="tab_1">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <dl class="dl-horizontal">
+                                                <dt>Tipo</dt>
+                                                @if(isset($courseseminar->tipo))
+                                                    <dd>{{ $courseseminar->tipo }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Campo</dt>
+                                                <dd>{{ $courseseminar->campo }}</dd>
+                                                <dt>Institución que imparte</dt>
+                                                <dd>{{ $courseseminar->institucion }}</dd>
+                                                <dt>Costo</dt>
+                                                <dd>{{ $courseseminar->costo }}</dd>
+                                                <dt>Instructor(es)</dt>
+                                                <dd>{{ $courseseminar->instructores }}</dd>
+                                                <dt>Modalidades</dt>
+                                                @if($pregrade->presencial)
+                                                    <dd>Presencial</dd>
+                                                @endif
+                                                @if($pregrade->semipresencial)
+                                                    <dd>Semipresencial</dd>
+                                                @endif
+                                                @if($pregrade->distancia)
+                                                    <dd>Distancia</dd>
+                                                @endif
+                                                <dt>Cupos</dt>
+                                                <dd>{{ $courseseminar->cupo }}</dd>
+                                                <dt>Fecha de Inicio</dt>
+                                                <dd>{{ $courseseminar->fecha_inicio }}</dd>
+                                                <dt>Fecha de Finalización</dt>
+                                                <dd>{{ $courseseminar->fecha_fin }}</dd>
+                                                <dt>Duración (horas)</dt>
+                                                <dd>{{ $courseseminar->duracion }}</dd>
+                                                <dt>Hora ingreso</dt>
+                                                <dd>{{ $courseseminar->hora_ingreso }}</dd>
+                                                <dt>Hora salida</dt>
+                                                <dd>{{ $courseseminar->hora_salida }}</dd>
+                                                <dt>Lugar</dt>
+                                                <dd>{{ $courseseminar->lugar }}</dd>
+                                                <dt>Ubicación</dt>
+                                                <dd>{{ $courseseminar->province->name }} {{ isset($courseseminar->city->name) ? " / ".$courseseminar->city->name : "" }} </dd>
+                                                <dt>Teléfonos</dt>
+                                                @if(isset($courseseminar->telefono))
+                                                    <dd>{{ $courseseminar->telefono }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Celular</dt>
+                                                @if(isset($courseseminar->celular))
+                                                    <dd>{{ $courseseminar->celular }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Email</dt>
+                                                @if(isset($courseseminar->email))
+                                                    <dd>{{ $courseseminar->email }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Web</dt>
+                                                @if(isset($courseseminar->web))
+                                                    <dd>{{ $courseseminar->web }}</dd>
+                                                @else
+                                                    <dd></dd>
+                                                @endif
+                                                <dt>Redes Sociales</dt>
+                                                <dd>
+                                                    @if(isset($courseseminar->facebook))
+                                                        <a href="{{ $courseseminar->facebook }}"
+                                                           class="btn btn-social-icon btn-facebook"><i
+                                                                    class="fa fa-facebook"></i></a>
+                                                    @endif
+                                                    @if(isset($courseseminar->twitter))
+                                                        &nbsp
+                                                        <a href="{{ $pregrado->twitter }}"
+                                                           class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                                                    @endif
+                                                    @if(isset($courseseminar->linkedin))
+                                                        &nbsp
+                                                        <a href="{{ $pregrado->linkedin }}"
+                                                           class="btn btn-social-icon btn-linkedin"><i
+                                                                    class="fa fa-linkedin"></i></a>
+                                                @else
+                                                    <dd></dd>
+                                                    @endif
+                                                    </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <form class="form-horizontal" action="/">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label for="nombreApellido" class="col-sm-3 control-label">Nombre y Apellido *</label>
+
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="nombreApellido"
+                                                                   placeholder="Nombre y Apellido" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="telefono" class="col-sm-3 control-label">Teléfono *</label>
+
+                                                        <div class="col-sm-6">
+                                                            <input type="email" class="form-control" id="telefono" placeholder="Correo electrónico" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
+
+                                                        <div class="col-sm-6">
+                                                            <input type="email" class="form-control" id="whatsapp" placeholder="Whatsapp">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
+
+                                                        <div class="col-sm-6">
+                                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Correo electrónico" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="interes" class="col-sm-3 control-label">Interés</label>
+
+                                                        <div class="col-sm-6">
+                                                            <input type="email" class="form-control" id="interes" placeholder="Estoy interesado en...">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-9" style="text-align: right;">
+                                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_2">
+                                    <div class="box-body">
+                                        {{--<b class="text-blue">Instalaciones</b>--}}
+                                        <dl class="dl-horizontal">
+                                            <dt>Objetivo</dt>
+                                            @if(isset($courseseminar->objetivo))
+                                                <dd>{{ $courseseminar->objetivo }}</dd>
+                                            @else
+                                                <dd></dd>
+                                            @endif
+                                        </dl>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_3">
+                                    <div class="box-body">
+                                        {{--<b class="text-blue">Instalaciones</b>--}}
+                                        <dl class="dl-horizontal">
+                                            <dt>Temario</dt>
+                                            @if(isset($courseseminar->temario))
+                                                <dd>{{ $courseseminar->temario }}</dd>
+                                            @else
+                                                <dd></dd>
+                                            @endif
+                                        </dl>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_4">
                                     <dl class="dl-horizontal">
-                                        <dt>Descripción</dt>
-                                        @if(isset($courseseminar->descripcion))
-                                            <dd>{{ $courseseminar->descripcion }}</dd>
+                                        <dt>Instructores</dt>
+                                        @if(isset($courseseminar->instructores_detalle))
+                                            <dd>{{ $courseseminar->instructores_detalle }}</dd>
                                         @else
                                             <dd></dd>
                                         @endif
+                                        <hr>
                                     </dl>
                                 </div>
-                                <!-- /.box-body -->
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_5">
+                                    <dt>Incluye</dt>
+                                    @if(isset($courseseminar->incluye))
+                                        <dd>{{ $courseseminar->incluye }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_6">
+                                    @if(isset($courseseminar->mapa_url) && !empty($courseseminar->mapa_url))
+                                        {!! $courseseminar->mapa_url !!}
+                                    @else
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7911908314577!2d-78.41692168566942!3d-0.21129163545664972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5913090093377%3A0x6df39dd58f481a13!2sOV+Constructora!5e0!3m2!1ses!2sec!4v1502305609923" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                    @endif
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_7">
+                                    <dt>Documentos</dt>
+                                    @if(isset($courseseminar->documento_pdf1))
+                                        <dd>{{ $courseseminar->documento_pdf1 }}</dd>
+                                    @endif
+                                    @if(isset($courseseminar->documento_pdf2))
+                                        <dd>{{ $courseseminar->documento_pdf2 }}</dd>
+                                    @endif
+                                    @if(isset($courseseminar->documento_pdf3))
+                                        <dd>{{ $courseseminar->documento_pdf3 }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_8">
+                                    <dt>Tipo</dt>
+                                    @if(isset($courseseminar->tipo))
+                                        <dd>{{ $courseseminar->tipo }}</dd>
+                                    @endif
+                                    @if(isset($courseseminar->documento_pdf2))
+                                        <dd>{{ $courseseminar->documento_pdf2 }}</dd>
+                                    @endif
+                                    @if(isset($courseseminar->documento_pdf3))
+                                        <dd>{{ $courseseminar->documento_pdf3 }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                </div>
+                                <!-- /.tab-pane -->
                             </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_3">
-                                <dl class="dl-horizontal">
-                                    <dt>Edad desde</dt>
-                                    @if(isset($courseseminar->edad_desde))
-                                        <dd>{{ $courseseminar->edad_desde }} años</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Edad hasta</dt>
-                                    @if(isset($courseseminar->edad_hasta))
-                                        <dd>{{ $courseseminar->edad_hasta }} años</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Extendido</dt>
-                                    @if($courseseminar->horario_extendido)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Horario Ingreso Diurno</dt>
-                                    @if(isset($courseseminar->entrada_matutino))
-                                        <dd>{{ $courseseminar->entrada_matutino }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Salida Diurno</dt>
-                                    @if(isset($courseseminar->salida_matutino))
-                                        <dd>{{ $courseseminar->salida_matutino }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Salida Extendido</dt>
-                                    @if(isset($courseseminar->salida_horario_extendido))
-                                        <dd>{{ $courseseminar->salida_horario_extendido }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Alimentación</dt>
-                                    @if(isset($courseseminar->alimentacion))
-                                        @if($courseseminar->alimentacion === "S")
-                                            <dd>SI</dd>
-                                        @elseif($courseseminar->alimentacion === "O")
-                                            <dd>OPCIONAL</dd>
-                                        @else
-                                            <dd>NO</dd>
-                                        @endif
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Total Alumnos</dt>
-                                    @if(isset($courseseminar->total_estudiantes))
-                                        <dd>{{ $courseseminar->total_estudiantes }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Máximo por Clase</dt>
-                                    @if(isset($courseseminar->max_estudiantes_x_clase))
-                                        <dd>{{ $courseseminar->max_estudiantes_x_clase }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Total</dt>
-                                    @if(isset($courseseminar->max_estudiantes_x_clase))
-                                        <dd>{{ $courseseminar->max_estudiantes_x_clase }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Canchas Deportivas</dt>
-                                    @if(isset($courseseminar->area_deportiva))
-                                        <dd>{{ $courseseminar->area_deportiva }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Espacios Verdes</dt>
-                                    @if(isset($courseseminar->area_espacios_verdes))
-                                        <dd>{{ $courseseminar->area_espacios_verdes }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Piscinas</dt>
-                                    @if(isset($courseseminar->area_piscina))
-                                        <dd>{{ $courseseminar->area_piscina }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Seguridad Privada</dt>
-                                    @if($courseseminar->seguridad_privada)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Wifi en aulas</dt>
-                                    @if($courseseminar->wifi_interior)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Wifi exterior</dt>
-                                    @if(isset($courseseminar->wifi_otros))
-                                        <dd>{{ $courseseminar->wifi_otros }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Cámara IP Entrada/Salida</dt>
-                                    @if($courseseminar->wifi_interior)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Cámara IP Aulas/Espacios</dt>
-                                    @if($courseseminar->wifi_interior)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Otros</dt>
-                                    @if(isset($courseseminar->otros))
-                                        <dd>{{ $courseseminar->otros }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <hr>
-                                </dl>
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_4">
-                                <dt>Certificaciones y Logros</dt>
-                                @if(isset($courseseminar->certificaciones_logros))
-                                    <dd>{{ $courseseminar->certificaciones_logros }}</dd>
-                                @else
-                                    <dd></dd>
-                                @endif
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_5">
-                                <ul style="padding:0 0 0 0; margin:0 0 0 0;" class="row">
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_6">
-                                @if(isset($courseseminar->mapa_url) && !empty($courseseminar->mapa_url))
-                                    {!! $courseseminar->mapa_url !!}
-                                @else
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7911908314577!2d-78.41692168566942!3d-0.21129163545664972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5913090093377%3A0x6df39dd58f481a13!2sOV+Constructora!5e0!3m2!1ses!2sec!4v1502305609923" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                @endif
-                            </div>
-                            <!-- /.tab-pane -->
-                        </div>
-                        <!-- /.tab-content -->
+                            <!-- /.tab-content -->
+                        @endif
                     </div>
                 </div>
             </div>

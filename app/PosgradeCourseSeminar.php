@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class PosgradeCourseSeminar extends Model
 {
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
     public function province()
     {
         return $this->belongsTo(Province::class);

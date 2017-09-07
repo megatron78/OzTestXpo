@@ -5,6 +5,15 @@
                 {{--<span style="font-size: 18px;color: ghostwhite;" class="glyphicon glyphicon glyphicon-search"></span>
                 &nbsp;&nbsp;&nbsp;--}}
                 <div class="form-group">
+                    <label style="font-size: 14px; color: ghostwhite;" for="search_country">País: &nbsp;</label>
+                    <select style="max-width: 120px" name="search_country" id="search_country" class="form-control">
+                        <option value="">...</option>
+                        @foreach($countries as $country)
+                            <option value="{{ $country->id}}">{{ $country->printable_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label style="font-size: 14px; color: ghostwhite;" for="search_province">Provincia: &nbsp;</label>
                     <select style="max-width: 120px" name="search_province" id="search_province" class="form-control">
                         <option value="">...</option>
