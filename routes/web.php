@@ -63,6 +63,26 @@ Route::get('escuelacolegio/{institution}-{slug}', [
     'as' => 'escuelacolegio.show',
 ])->where('institution', '\d+');
 
+Route::get('superior/{pregrade}-{slug}', [
+    'uses' => 'ShowSuperiorController',
+    'as' => 'superior.show',
+])->where('pregrade', '\d+');
+
+Route::get('posgrado/{posgradecourseseminar}-{slug}', [
+    'uses' => 'ShowPosgradeController',
+    'as' => 'posgrado.show',
+])->where('posgradecourseseminar', '\d+');
+
+Route::get('cursoseminario/{posgradecourseseminar}-{slug}', [
+    'uses' => 'ShowCourseSeminarController',
+    'as' => 'cursoseminario.show',
+])->where('posgradecourseseminar', '\d+');
+
+Route::get('evento/{event}-{slug}', [
+    'uses' => 'ShowEventController',
+    'as' => 'evento.show',
+])->where('event', '\d+');
+
 Route::get('ajax-city/', function() {
    $province_id = Input::get('province_id');
 

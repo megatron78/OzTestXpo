@@ -21,28 +21,28 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <div id="carousel-example-generic" class="carousel slide">
                             <!-- Indicators -->
                             <ol class="hidden-xs carousel-indicators">
-                                @if(!empty($institution->banner_inst_picture_1))
+                                @if(!empty($event->banner_inst_picture_1))
                                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_2))
+                                @if(!empty($event->banner_inst_picture_2))
                                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_3))
+                                @if(!empty($event->banner_inst_picture_3))
                                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_4))
+                                @if(!empty($event->banner_inst_picture_4))
                                     <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_5))
+                                @if(!empty($event->banner_inst_picture_5))
                                     <li data-target="#carousel-example-generic" data-slide-to="4"></li>
                                 @endif
 
                                 {{-- Put default pics on empty carousel --}}
-                                @if(empty($institution->banner_inst_picture_1)
-                                && empty($institution->banner_inst_picture_2)
-                                && empty($institution->banner_inst_picture_3)
-                                && empty($institution->banner_inst_picture_4)
-                                && empty($institution->banner_inst_picture_5))
+                                @if(empty($event->banner_inst_picture_1)
+                                && empty($event->banner_inst_picture_2)
+                                && empty($event->banner_inst_picture_3)
+                                && empty($event->banner_inst_picture_4)
+                                && empty($event->banner_inst_picture_5))
                                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
@@ -52,42 +52,42 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 
                             <!-- Wrapper for slides -->
                             <div style="max-height: 325px" class="carousel-inner">
-                                @if(!empty($institution->banner_inst_picture_1))
+                                @if(!empty($event->banner_inst_picture_1))
                                     <div class="item active">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_1) }}"
+                                        <img style="width: 100%;" src="{{ asset($event->banner_inst_picture_1) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_2))
+                                @if(!empty($event->banner_inst_picture_2))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_2) }}"
+                                        <img style="width: 100%;" src="{{ asset($event->banner_inst_picture_2) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_3))
+                                @if(!empty($event->banner_inst_picture_3))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_3) }}"
+                                        <img style="width: 100%;" src="{{ asset($event->banner_inst_picture_3) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_4))
+                                @if(!empty($event->banner_inst_picture_4))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_4) }}"
+                                        <img style="width: 100%;" src="{{ asset($event->banner_inst_picture_4) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_5))
+                                @if(!empty($event->banner_inst_picture_5))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_5) }}"
+                                        <img style="width: 100%;" src="{{ asset($event->banner_inst_picture_5) }}"
                                              alt="">
                                     </div>
                                 @endif
                                 {{-- Put default pics on empty carousel --}}
-                                @if(empty($institution->banner_inst_picture_1)
-                                && empty($institution->banner_inst_picture_2)
-                                && empty($institution->banner_inst_picture_3)
-                                && empty($institution->banner_inst_picture_4)
-                                && empty($institution->banner_inst_picture_5))
+                                @if(empty($event->banner_inst_picture_1)
+                                && empty($event->banner_inst_picture_2)
+                                && empty($event->banner_inst_picture_3)
+                                && empty($event->banner_inst_picture_4)
+                                && empty($event->banner_inst_picture_5))
                                     <div class="item active">
                                         <img style="width: 100%;" src="{{ asset('/img/slide-01.png') }}" alt="">
                                     </div>
@@ -103,7 +103,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     </div>
                 </div> <!--/ .carousel -->
             </div> <!-- banner -->
-            <h1 class="text-blue">{{ $institution->nombre }}</h1>
+            <h1 class="text-blue">{{ $event->nombre }}</h1>
             <div class="row">
                 <div class="col-md-12">
                     <div style="font-size: 20px" class="nav-tabs-custom">
@@ -132,100 +132,98 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <div class="col-md-5">
                                         <dl class="dl-horizontal">
                                     <dt>Niveles</dt>
-                                    @if($institution->preescolar)
+                                    @if($event->preescolar)
                                         <dd>Inicial</dd>
-                                    @elseif($institution->escuela)
+                                    @elseif($event->escuela)
                                         <dd>Educación General Básica</dd>
-                                    @elseif($institution->colegio)
+                                    @elseif($event->colegio)
                                         <dd>Colegio</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Trayectoria</dt>
-                                    <dd>{{ $institution->trayectoria }}</dd>
+                                    <dd>{{ $event->trayectoria }}</dd>
                                     <dt>Rector/Director</dt>
-                                    <dd>{{ $institution->nombre_autoridad }}</dd>
+                                    <dd>{{ $event->nombre_autoridad }}</dd>
                                     <dt>Ubicación</dt>
-                                    <dd>{{ $institution->province->name }} {{ isset($institution->city->name) ? " / ".$institution->city->name : "" }}  {{ isset($institution->sector->nombre) ? " / ".$institution->sector->nombre : "" }}</dd>
+                                    <dd>{{ $event->province->name }} {{ isset($event->city->name) ? " / ".$event->city->name : "" }}  {{ isset($event->sector->nombre) ? " / ".$event->sector->nombre : "" }}</dd>
                                     <dt>Dirección</dt>
-                                    <dd>{{ $institution->direccion }}</dd>
+                                    <dd>{{ $event->direccion }}</dd>
                                     <dt>Tipo Educación</dt>
-                                    @if($institution->religioso)
+                                    @if($event->religioso)
                                         <dd>Religioso</dd>
                                     @else
                                         <dd>Laico</dd>
                                     @endif
                                     <dt>Género</dt>
-                                    @if($institution->masculino)
+                                    @if($event->masculino)
                                         <dd>Maculino</dd>
-                                    @elseif($institution->femenino)
+                                    @elseif($event->femenino)
                                         <dd>Femenino</dd>
                                     @else
                                         <dd>Mixto</dd>
                                     @endif
                                     <dt>Sostenimiento</dt>
-                                    @if($institution->fiscal)
+                                    @if($event->fiscal)
                                         <dd>Pública</dd>
-                                    @elseif($institution->fiscomisional)
+                                    @elseif($event->fiscomisional)
                                         <dd>Fiscomisional</dd>
                                     @else
                                         <dd>Privada</dd>
                                     @endif
                                     <dt>Régimen</dt>
-                                    @if(isset($institution->regimen))
-                                        <dd>{{ $institution->regimen }}</dd>
+                                    @if(isset($event->regimen))
+                                        <dd>{{ $event->regimen }}</dd>
                                     @else
                                         <dd>Sierra</dd>
                                     @endif
                                     <dt>Pensión promedio</dt>
-                                    @if(isset($institution->pago_promedio_escuela))
-                                        <dd>Escuela: ${{ $institution->pago_promedio_escuela }}</dd>
-                                    @elseif(isset($institution->pago_promedio_colegio))
-                                        <dd>Colegio: ${{ $institution->pago_promedio_colegio }}</dd>
+                                    @if(isset($event->pago_promedio_escuela))
+                                        <dd>Escuela: ${{ $event->pago_promedio_escuela }}</dd>
+                                    @elseif(isset($event->pago_promedio_colegio))
+                                        <dd>Colegio: ${{ $event->pago_promedio_colegio }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Idiomas</dt>
-                                    @if(isset($institution->lenguajes))
-                                        <dd>{{ $institution->lenguajes }}</dd>
+                                    @if(isset($event->lenguajes))
+                                        <dd>{{ $event->lenguajes }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Teléfonos</dt>
-                                    @if(isset($institution->telefono))
-                                        <dd>{{ $institution->telefono }}</dd>
+                                    @if(isset($event->telefono))
+                                        <dd>{{ $event->telefono }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Celular</dt>
-                                    @if(isset($institution->celular))
-                                        <dd>{{ $institution->celular }}</dd>
+                                    @if(isset($event->celular))
+                                        <dd>{{ $event->celular }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Email</dt>
-                                    @if(isset($institution->email))
-                                        <dd>{{ $institution->email }}</dd>
+                                    @if(isset($event->email))
+                                        <dd>{{ $event->email }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Web</dt>
-                                    @if(isset($institution->web))
-                                        <dd>{{ $institution->web }}</dd>
+                                    @if(isset($event->web))
+                                        <dd>{{ $event->web }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Redes Sociales</dt>
                                     <dd>
-                                        @if(isset($pregrade->facebook))
-                                            <a href="{{ $pregrade->facebook }}"
+                                        @if(isset($event->facebook))
+                                            <a href="{{ $event->facebook }}"
                                                class="btn btn-social-icon btn-facebook"><i
                                                         class="fa fa-facebook"></i></a>
-                                        @endif
-                                        @if(isset($pregrade->twitter))
-                                            &nbsp
-                                            <a href="{{ $pregrado->twitter }}"
-                                               class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                                        @elseif(isset($event->twitter))
+                                            &nbsp;
+                                            <a href="{{ $event->twitter }}"><i class="fa fa-twitter"></i></a>
                                         @else
                                             <dd></dd>
                                         @endif
@@ -285,8 +283,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
                                         <dt>Descripción</dt>
-                                        @if(isset($institution->descripcion))
-                                            <dd>{{ $institution->descripcion }}</dd>
+                                        @if(isset($event->descripcion))
+                                            <dd>{{ $event->descripcion }}</dd>
                                         @else
                                             <dd></dd>
                                         @endif
@@ -298,46 +296,46 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_3">
                                 <dl class="dl-horizontal">
                                     <dt>Edad desde</dt>
-                                    @if(isset($institution->edad_desde))
-                                        <dd>{{ $institution->edad_desde }} años</dd>
+                                    @if(isset($event->edad_desde))
+                                        <dd>{{ $event->edad_desde }} años</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Edad hasta</dt>
-                                    @if(isset($institution->edad_hasta))
-                                        <dd>{{ $institution->edad_hasta }} años</dd>
+                                    @if(isset($event->edad_hasta))
+                                        <dd>{{ $event->edad_hasta }} años</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Horario Extendido</dt>
-                                    @if($institution->horario_extendido)
+                                    @if($event->horario_extendido)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Horario Ingreso Diurno</dt>
-                                    @if(isset($institution->entrada_matutino))
-                                        <dd>{{ $institution->entrada_matutino }}</dd>
+                                    @if(isset($event->entrada_matutino))
+                                        <dd>{{ $event->entrada_matutino }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Horario Salida Diurno</dt>
-                                    @if(isset($institution->salida_matutino))
-                                        <dd>{{ $institution->salida_matutino }}</dd>
+                                    @if(isset($event->salida_matutino))
+                                        <dd>{{ $event->salida_matutino }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Horario Salida Extendido</dt>
-                                    @if(isset($institution->salida_horario_extendido))
-                                        <dd>{{ $institution->salida_horario_extendido }}</dd>
+                                    @if(isset($event->salida_horario_extendido))
+                                        <dd>{{ $event->salida_horario_extendido }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Alimentación</dt>
-                                    @if(isset($institution->alimentacion))
-                                        @if($institution->alimentacion === "S")
+                                    @if(isset($event->alimentacion))
+                                        @if($event->alimentacion === "S")
                                             <dd>SI</dd>
-                                        @elseif($institution->alimentacion === "O")
+                                        @elseif($event->alimentacion === "O")
                                             <dd>OPCIONAL</dd>
                                         @else
                                             <dd>NO</dd>
@@ -346,74 +344,74 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Total Alumnos</dt>
-                                    @if(isset($institution->total_estudiantes))
-                                        <dd>{{ $institution->total_estudiantes }}</dd>
+                                    @if(isset($event->total_estudiantes))
+                                        <dd>{{ $event->total_estudiantes }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Máximo por Clase</dt>
-                                    @if(isset($institution->max_estudiantes_x_clase))
-                                        <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
+                                    @if(isset($event->max_estudiantes_x_clase))
+                                        <dd>{{ $event->max_estudiantes_x_clase }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Área Total</dt>
-                                    @if(isset($institution->max_estudiantes_x_clase))
-                                        <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
+                                    @if(isset($event->max_estudiantes_x_clase))
+                                        <dd>{{ $event->max_estudiantes_x_clase }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Área Canchas Deportivas</dt>
-                                    @if(isset($institution->area_deportiva))
-                                        <dd>{{ $institution->area_deportiva }}</dd>
+                                    @if(isset($event->area_deportiva))
+                                        <dd>{{ $event->area_deportiva }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Área Espacios Verdes</dt>
-                                    @if(isset($institution->area_espacios_verdes))
-                                        <dd>{{ $institution->area_espacios_verdes }}</dd>
+                                    @if(isset($event->area_espacios_verdes))
+                                        <dd>{{ $event->area_espacios_verdes }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Área Piscinas</dt>
-                                    @if(isset($institution->area_piscina))
-                                        <dd>{{ $institution->area_piscina }}</dd>
+                                    @if(isset($event->area_piscina))
+                                        <dd>{{ $event->area_piscina }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Seguridad Privada</dt>
-                                    @if($institution->seguridad_privada)
+                                    @if($event->seguridad_privada)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Wifi en aulas</dt>
-                                    @if($institution->wifi_interior)
+                                    @if($event->wifi_interior)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Wifi exterior</dt>
-                                    @if(isset($institution->wifi_otros))
-                                        <dd>{{ $institution->wifi_otros }}</dd>
+                                    @if(isset($event->wifi_otros))
+                                        <dd>{{ $event->wifi_otros }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Cámara IP Entrada/Salida</dt>
-                                    @if($institution->wifi_interior)
+                                    @if($event->wifi_interior)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Cámara IP Aulas/Espacios</dt>
-                                    @if($institution->wifi_interior)
+                                    @if($event->wifi_interior)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Otros</dt>
-                                    @if(isset($institution->otros))
-                                        <dd>{{ $institution->otros }}</dd>
+                                    @if(isset($event->otros))
+                                        <dd>{{ $event->otros }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
@@ -423,8 +421,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_4">
                                 <dt>Certificaciones y Logros</dt>
-                                @if(isset($institution->certificaciones_logros))
-                                    <dd>{{ $institution->certificaciones_logros }}</dd>
+                                @if(isset($event->certificaciones_logros))
+                                    <dd>{{ $event->certificaciones_logros }}</dd>
                                 @else
                                     <dd></dd>
                                 @endif
@@ -454,8 +452,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_6">
-                                @if(isset($institution->mapa_url) && !empty($institution->mapa_url))
-                                    {!! $institution->mapa_url !!}
+                                @if(isset($event->mapa_url) && !empty($event->mapa_url))
+                                    {!! $event->mapa_url !!}
                                 @else
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7911908314577!2d-78.41692168566942!3d-0.21129163545664972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5913090093377%3A0x6df39dd58f481a13!2sOV+Constructora!5e0!3m2!1ses!2sec!4v1502305609923" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
                                 @endif

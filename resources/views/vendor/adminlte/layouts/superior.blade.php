@@ -28,7 +28,6 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <div class="row">
                     @endif
                         {{-- Gold y Premium --}}
-                        <br>
                         <div class="col-md-4"
                              onmouseleave="if($('#collapse{{ $pregrado->id }}').attr('aria-expanded') === 'true'){ $('#collapse{{ $pregrado->id }}').collapse('toggle');}">
                             <!-- Widget: user widget style 1 -->
@@ -70,11 +69,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     </div>
                                     <div class="centered">
                                         <a class="btn-sm bg-green" data-toggle="collapse" data-parent="#accordion"
-                                           href="#collapseOne">
+                                           href="#collapse{{ $pregrado->id }}">
                                             Contactos...
                                         </a>
                                     </div>
-                                    <div id="collapseOne" class="panel-collapse collapse">
+                                    <div id="collapse{{ $pregrado->id }}" class="panel-collapse collapse">
                                         <br>
                                         <div class="box-body">
                                             <i class="fa  fa-map margin-r-5"></i> {{ $pregrado->direccion }}<br>
@@ -119,10 +118,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             , {{ isset($pregrado->city->name) ? $pregrado->city->name : "ND" }}</p>
                                         <hr>
                                         <a class="btn-sm bg-green" data-toggle="collapse" data-parent="#accordion"
-                                           href="#collapseEdu01">
+                                           href="#collapse{{ $pregrado->id }}">
                                             Contactos...
                                         </a>
-                                        <div id="collapseEdu01" class="panel-collapse collapse">
+                                        <div id="collapse{{ $pregrado->id }}" class="panel-collapse collapse">
                                             <div class="box-body">
                                                 <i class="fa  fa-map margin-r-5"></i> {{ $pregrado->direccion }}<br>
                                                 <i class="fa fa-phone margin-r-5"></i> {{ $pregrado->telefono }}

@@ -219,13 +219,15 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @endif
                                     <dt>Redes Sociales</dt>
                                     <dd>
-                                        @if(isset($institution->facebook))
-                                            <a href="{{ $institution->facebook }}"
+                                        @if(isset($pregrade->facebook))
+                                            <a href="{{ $pregrade->facebook }}"
                                                class="btn btn-social-icon btn-facebook"><i
                                                         class="fa fa-facebook"></i></a>
-                                        @elseif(isset($institution->twitter))
-                                            &nbsp;
-                                            <a href="{{ $institution->twitter }}"><i class="fa fa-twitter"></i></a>
+                                        @endif
+                                        @if(isset($pregrade->twitter))
+                                            &nbsp
+                                            <a href="{{ $pregrado->twitter }}"
+                                               class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                         @else
                                             <dd></dd>
                                         @endif

@@ -21,28 +21,28 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <div id="carousel-example-generic" class="carousel slide">
                             <!-- Indicators -->
                             <ol class="hidden-xs carousel-indicators">
-                                @if(!empty($institution->banner_inst_picture_1))
+                                @if(!empty($pregrade->banner_inst_picture_1))
                                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_2))
+                                @if(!empty($pregrade->banner_inst_picture_2))
                                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_3))
+                                @if(!empty($pregrade->banner_inst_picture_3))
                                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_4))
+                                @if(!empty($pregrade->banner_inst_picture_4))
                                     <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_5))
+                                @if(!empty($pregrade->banner_inst_picture_5))
                                     <li data-target="#carousel-example-generic" data-slide-to="4"></li>
                                 @endif
 
                                 {{-- Put default pics on empty carousel --}}
-                                @if(empty($institution->banner_inst_picture_1)
-                                && empty($institution->banner_inst_picture_2)
-                                && empty($institution->banner_inst_picture_3)
-                                && empty($institution->banner_inst_picture_4)
-                                && empty($institution->banner_inst_picture_5))
+                                @if(empty($pregrade->banner_inst_picture_1)
+                                && empty($pregrade->banner_inst_picture_2)
+                                && empty($pregrade->banner_inst_picture_3)
+                                && empty($pregrade->banner_inst_picture_4)
+                                && empty($pregrade->banner_inst_picture_5))
                                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
@@ -52,42 +52,42 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 
                             <!-- Wrapper for slides -->
                             <div style="max-height: 325px" class="carousel-inner">
-                                @if(!empty($institution->banner_inst_picture_1))
+                                @if(!empty($pregrade->banner_inst_picture_1))
                                     <div class="item active">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_1) }}"
+                                        <img style="width: 100%;" src="{{ asset($pregrade->banner_inst_picture_1) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_2))
+                                @if(!empty($pregrade->banner_inst_picture_2))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_2) }}"
+                                        <img style="width: 100%;" src="{{ asset($pregrade->banner_inst_picture_2) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_3))
+                                @if(!empty($pregrade->banner_inst_picture_3))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_3) }}"
+                                        <img style="width: 100%;" src="{{ asset($pregrade->banner_inst_picture_3) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_4))
+                                @if(!empty($pregrade->banner_inst_picture_4))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_4) }}"
+                                        <img style="width: 100%;" src="{{ asset($pregrade->banner_inst_picture_4) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($institution->banner_inst_picture_5))
+                                @if(!empty($pregrade->banner_inst_picture_5))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($institution->banner_inst_picture_5) }}"
+                                        <img style="width: 100%;" src="{{ asset($pregrade->banner_inst_picture_5) }}"
                                              alt="">
                                     </div>
                                 @endif
                                 {{-- Put default pics on empty carousel --}}
-                                @if(empty($institution->banner_inst_picture_1)
-                                && empty($institution->banner_inst_picture_2)
-                                && empty($institution->banner_inst_picture_3)
-                                && empty($institution->banner_inst_picture_4)
-                                && empty($institution->banner_inst_picture_5))
+                                @if(empty($pregrade->banner_inst_picture_1)
+                                && empty($pregrade->banner_inst_picture_2)
+                                && empty($pregrade->banner_inst_picture_3)
+                                && empty($pregrade->banner_inst_picture_4)
+                                && empty($pregrade->banner_inst_picture_5))
                                     <div class="item active">
                                         <img style="width: 100%;" src="{{ asset('/img/slide-01.png') }}" alt="">
                                     </div>
@@ -103,17 +103,18 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     </div>
                 </div> <!--/ .carousel -->
             </div> <!-- banner -->
-            <h1 class="text-blue">{{ $institution->nombre }}</h1>
+            <h1 class="text-blue">{{ $pregrade->nombre }}</h1>
             <div class="row">
                 <div class="col-md-12">
                     <div style="font-size: 20px" class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab_1" data-toggle="tab">Información</a></li>
                             <li><a href="#tab_2" data-toggle="tab">Descripción</a></li>
-                            <li><a href="#tab_3" data-toggle="tab">Detalles</a></li>
-                            <li><a href="#tab_4" data-toggle="tab">Certificaciones y Logros</a></li>
-                            <li><a href="#tab_5" data-toggle="tab">Galería de Imágenes</a></li>
-                            <li><a href="#tab_6" data-toggle="tab">Mapa de Ubicación</a></li>
+                            <li><a href="#tab_3" data-toggle="tab">Carreras</a></li>
+                            <li><a href="#tab_4" data-toggle="tab">Instalaciones</a></li>
+                            <li><a href="#tab_5" data-toggle="tab">Certificaciones y Logros</a></li>
+                            <li><a href="#tab_6" data-toggle="tab">Galería de Imágenes</a></li>
+                            <li><a href="#tab_7" data-toggle="tab">Mapa de Ubicación</a></li>
                             {{--<li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     Acciones <span class="caret"></span>
@@ -131,87 +132,69 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <div class="row">
                                     <div class="col-md-5">
                                         <dl class="dl-horizontal">
-                                    <dt>Niveles</dt>
-                                    @if($institution->preescolar)
-                                        <dd>Inicial</dd>
-                                    @elseif($institution->escuela)
-                                        <dd>Educación General Básica</dd>
-                                    @elseif($institution->colegio)
-                                        <dd>Colegio</dd>
+                                    <dt>Tipo</dt>
+                                    @if(isset($pregrade->tipo))
+                                        <dd>{{ $pregrade->tipo }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Trayectoria</dt>
-                                    <dd>{{ $institution->trayectoria }}</dd>
+                                    <dd>{{ $pregrade->trayectoria }}</dd>
                                     <dt>Rector/Director</dt>
-                                    <dd>{{ $institution->nombre_autoridad }}</dd>
+                                    <dd>{{ $pregrade->nombre_autoridad }}</dd>
                                     <dt>Ubicación</dt>
-                                    <dd>{{ $institution->province->name }} {{ isset($institution->city->name) ? " / ".$institution->city->name : "" }}  {{ isset($institution->sector->nombre) ? " / ".$institution->sector->nombre : "" }}</dd>
+                                    <dd>{{ $pregrade->province->name }} {{ isset($pregrade->city->name) ? " / ".$pregrade->city->name : "" }} </dd>
                                     <dt>Dirección</dt>
-                                    <dd>{{ $institution->direccion }}</dd>
-                                    <dt>Tipo Educación</dt>
-                                    @if($institution->religioso)
-                                        <dd>Religioso</dd>
-                                    @else
-                                        <dd>Laico</dd>
-                                    @endif
-                                    <dt>Género</dt>
-                                    @if($institution->masculino)
-                                        <dd>Maculino</dd>
-                                    @elseif($institution->femenino)
-                                        <dd>Femenino</dd>
-                                    @else
-                                        <dd>Mixto</dd>
-                                    @endif
+                                    <dd>{{ $pregrade->direccion }}</dd>
                                     <dt>Sostenimiento</dt>
-                                    @if($institution->fiscal)
+                                    @if($pregrade->fiscal)
                                         <dd>Pública</dd>
-                                    @elseif($institution->fiscomisional)
+                                    @elseif($pregrade->fiscomisional)
                                         <dd>Fiscomisional</dd>
                                     @else
                                         <dd>Privada</dd>
                                     @endif
-                                    <dt>Régimen</dt>
-                                    @if(isset($institution->regimen))
-                                        <dd>{{ $institution->regimen }}</dd>
-                                    @else
-                                        <dd>Sierra</dd>
+                                    <dt>Modalidades</dt>
+                                    @if($pregrade->presencial)
+                                        <dd>Presencial</dd>
                                     @endif
-                                    <dt>Pensión promedio</dt>
-                                    @if(isset($institution->pago_promedio_escuela))
-                                        <dd>Escuela: ${{ $institution->pago_promedio_escuela }}</dd>
-                                    @elseif(isset($institution->pago_promedio_colegio))
-                                        <dd>Colegio: ${{ $institution->pago_promedio_colegio }}</dd>
-                                    @else
-                                        <dd></dd>
+                                    @if($pregrade->semipresencial)
+                                        <dd>Semipresencial</dd>
                                     @endif
-                                    <dt>Idiomas</dt>
-                                    @if(isset($institution->lenguajes))
-                                        <dd>{{ $institution->lenguajes }}</dd>
-                                    @else
-                                        <dd></dd>
+                                    @if($pregrade->distancia)
+                                        <dd>Distancia</dd>
+                                    @endif
+                                    <dt>Horarios</dt>
+                                    @if($pregrade->matutino)
+                                        <dd>Matutino</dd>
+                                    @endif
+                                    @if($pregrade->vespertino)
+                                        <dd>Vespertino</dd>
+                                    @endif
+                                    @if($pregrade->nocturno)
+                                        <dd>Nocturno</dd>
                                     @endif
                                     <dt>Teléfonos</dt>
-                                    @if(isset($institution->telefono))
-                                        <dd>{{ $institution->telefono }}</dd>
+                                    @if(isset($pregrade->telefono))
+                                        <dd>{{ $pregrade->telefono }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Celular</dt>
-                                    @if(isset($institution->celular))
-                                        <dd>{{ $institution->celular }}</dd>
+                                    @if(isset($pregrade->celular))
+                                        <dd>{{ $pregrade->celular }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Email</dt>
-                                    @if(isset($institution->email))
-                                        <dd>{{ $institution->email }}</dd>
+                                    @if(isset($pregrade->email))
+                                        <dd>{{ $pregrade->email }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Web</dt>
-                                    @if(isset($institution->web))
-                                        <dd>{{ $institution->web }}</dd>
+                                    @if(isset($pregrade->web))
+                                        <dd>{{ $pregrade->web }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
@@ -226,6 +209,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             &nbsp
                                             <a href="{{ $pregrado->twitter }}"
                                                class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                                        @endif
+                                        @if(isset($pregrade->linkedin))
+                                            &nbsp
+                                                <a href="{{ $pregrado->linkedin }}"
+                                                   class="btn btn-social-icon btn-linkedin"><i
+                                                            class="fa fa-linkedin"></i></a>
                                         @else
                                             <dd></dd>
                                         @endif
@@ -285,8 +274,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
                                         <dt>Descripción</dt>
-                                        @if(isset($institution->descripcion))
-                                            <dd>{{ $institution->descripcion }}</dd>
+                                        @if(isset($pregrade->descripcion))
+                                            <dd>{{ $pregrade->descripcion }}</dd>
                                         @else
                                             <dd></dd>
                                         @endif
@@ -296,124 +285,121 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_3">
-                                <dl class="dl-horizontal">
-                                    <dt>Edad desde</dt>
-                                    @if(isset($institution->edad_desde))
-                                        <dd>{{ $institution->edad_desde }} años</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Edad hasta</dt>
-                                    @if(isset($institution->edad_hasta))
-                                        <dd>{{ $institution->edad_hasta }} años</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Extendido</dt>
-                                    @if($institution->horario_extendido)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Horario Ingreso Diurno</dt>
-                                    @if(isset($institution->entrada_matutino))
-                                        <dd>{{ $institution->entrada_matutino }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Salida Diurno</dt>
-                                    @if(isset($institution->salida_matutino))
-                                        <dd>{{ $institution->salida_matutino }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Salida Extendido</dt>
-                                    @if(isset($institution->salida_horario_extendido))
-                                        <dd>{{ $institution->salida_horario_extendido }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Alimentación</dt>
-                                    @if(isset($institution->alimentacion))
-                                        @if($institution->alimentacion === "S")
-                                            <dd>SI</dd>
-                                        @elseif($institution->alimentacion === "O")
-                                            <dd>OPCIONAL</dd>
+                                <div class="box-body">
+                                    {{--<b class="text-blue">Instalaciones</b>--}}
+                                    <dl class="dl-horizontal">
+                                        <dt>Carreras</dt>
+                                        @if(isset($pregrade->carreras))
+                                            <dd>{{ $pregrade->carreras }}</dd>
                                         @else
-                                            <dd>NO</dd>
+                                            <dd></dd>
                                         @endif
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Total Alumnos</dt>
-                                    @if(isset($institution->total_estudiantes))
-                                        <dd>{{ $institution->total_estudiantes }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Máximo por Clase</dt>
-                                    @if(isset($institution->max_estudiantes_x_clase))
-                                        <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
+                                    </dl>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_4">
+                                <dl class="dl-horizontal">
                                     <dt>Área Total</dt>
-                                    @if(isset($institution->max_estudiantes_x_clase))
-                                        <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
+                                    @if(isset($pregrade->max_estudiantes_x_clase))
+                                        <dd>{{ $pregrade->max_estudiantes_x_clase }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Área Canchas Deportivas</dt>
-                                    @if(isset($institution->area_deportiva))
-                                        <dd>{{ $institution->area_deportiva }}</dd>
+                                    @if(isset($pregrade->area_deportiva))
+                                        <dd>{{ $pregrade->area_deportiva }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Área Espacios Verdes</dt>
-                                    @if(isset($institution->area_espacios_verdes))
-                                        <dd>{{ $institution->area_espacios_verdes }}</dd>
+                                    @if(isset($pregrade->area_espacios_verdes))
+                                        <dd>{{ $pregrade->area_espacios_verdes }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Área Piscinas</dt>
-                                    @if(isset($institution->area_piscina))
-                                        <dd>{{ $institution->area_piscina }}</dd>
+                                    @if(isset($pregrade->area_piscina))
+                                        <dd>{{ $pregrade->area_piscina }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Seguridad Privada</dt>
-                                    @if($institution->seguridad_privada)
+                                    @if($pregrade->seguridad_privada)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Wifi en aulas</dt>
-                                    @if($institution->wifi_interior)
+                                    @if($pregrade->wifi_interior)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Wifi exterior</dt>
-                                    @if(isset($institution->wifi_otros))
-                                        <dd>{{ $institution->wifi_otros }}</dd>
+                                    @if(isset($pregrade->wifi_otros))
+                                        <dd>{{ $pregrade->wifi_otros }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
-                                    <dt>Cámara IP Entrada/Salida</dt>
-                                    @if($institution->wifi_interior)
+                                    <dt>Capacidad en Restaurantes</dt>
+                                    @if(isset($pregrade->capacidad_restaurantes))
+                                        <dd>{{ $pregrade->capacidad_restaurantes }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Canchas Indoor Fútbol</dt>
+                                    @if(isset($pregrade->canchas_indoor))
+                                        <dd>{{ $pregrade->canchas_indoor }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Canchas Fútbol</dt>
+                                    @if(isset($pregrade->canchas_futbol))
+                                        <dd>{{ $pregrade->canchas_futbol }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Canchas Basket</dt>
+                                    @if(isset($pregrade->canchas_basket))
+                                        <dd>{{ $pregrade->canchas_basket }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Canchas Tenis</dt>
+                                    @if(isset($pregrade->canchas_tenis))
+                                        <dd>{{ $pregrade->canchas_tenis }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Mesas de Tenis de Mesa</dt>
+                                    @if(isset($pregrade->mesas_tenis))
+                                        <dd>{{ $pregrade->mesas_tenis }}</dd>
+                                    @else
+                                        <dd></dd>
+                                    @endif
+                                    <dt>Pista de Atletismo</dt>
+                                    @if($pregrade->pista_atletica)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
-                                    <dt>Cámara IP Aulas/Espacios</dt>
-                                    @if($institution->wifi_interior)
+                                    <dt>Teatro</dt>
+                                    @if($pregrade->teatro)
+                                        <dd>SI</dd>
+                                    @else
+                                        <dd>NO</dd>
+                                    @endif
+                                    <dt>Gimnasio</dt>
+                                    @if($pregrade->gimnasio)
                                         <dd>SI</dd>
                                     @else
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Otros</dt>
-                                    @if(isset($institution->otros))
-                                        <dd>{{ $institution->otros }}</dd>
+                                    @if(isset($pregrade->otros))
+                                        <dd>{{ $pregrade->otros }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
@@ -421,16 +407,16 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 </dl>
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_4">
+                            <div class="tab-pane" id="tab_5">
                                 <dt>Certificaciones y Logros</dt>
-                                @if(isset($institution->certificaciones_logros))
-                                    <dd>{{ $institution->certificaciones_logros }}</dd>
+                                @if(isset($pregrade->certificaciones_logros))
+                                    <dd>{{ $pregrade->certificaciones_logros }}</dd>
                                 @else
                                     <dd></dd>
                                 @endif
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_5">
+                            <div class="tab-pane" id="tab_6">
                                 <ul style="padding:0 0 0 0; margin:0 0 0 0;" class="row">
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
                                         <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
@@ -453,9 +439,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 </ul>
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_6">
-                                @if(isset($institution->mapa_url) && !empty($institution->mapa_url))
-                                    {!! $institution->mapa_url !!}
+                            <div class="tab-pane" id="tab_7">
+                                @if(isset($pregrade->mapa_url) && !empty($pregrade->mapa_url))
+                                    {!! $pregrade->mapa_url !!}
                                 @else
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7911908314577!2d-78.41692168566942!3d-0.21129163545664972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5913090093377%3A0x6df39dd58f481a13!2sOV+Constructora!5e0!3m2!1ses!2sec!4v1502305609923" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
                                 @endif
