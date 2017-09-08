@@ -74,6 +74,22 @@ desired effect
             ]
         });
     });
+
+    $(document).ready(function() {
+        oTable = $('#institucionesTable').DataTable({
+            "processing": true,
+            "serverSide": false,
+            "ajax": "{{ route('institutions.all') }}",
+            "columns": [
+                {data: 'id', name: 'id'},
+                {data: 'nombre', name: 'nombre'},
+                {data: 'tipo', name: 'tipo'},
+                {data: 'activo', name: 'activo'},
+                {data: 'plan_desde', name: 'plan_desde'},
+                {data: 'plan_hasta', name: 'plan_hasta'},
+            ]
+        });
+    });
 </script>
 </body>
 </html>
