@@ -11,7 +11,7 @@
 @section('main-content')
 	<div class="container-fluid spark-screen">
 		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
+			<div class="col-md-12 col-md-offset-0">
 				<!-- Default box -->
 				<div class="box">
 					<div class="box-header with-border">
@@ -22,6 +22,7 @@
 							<thead>
 							<tr>
 								<th>Id</th>
+								<th>Slug</th>
 								<th>Nombre</th>
 								<th>Categoría</th>
 								<th>Estado</th>

@@ -25,7 +25,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 @foreach($instituciones_view as $institucionview)
                     @if($institucionview->tipo == 1)
                         <div class="col-md-4"
-                             onmouseleave="if($('#collapse{{ $institucionview->id }}').attr('aria-expanded') === 'true'){ $('#collapse{{ $institucionview->id }}').collapse('toggle');}">
+                             onmouseleave="if($('#1collapse{{ $institucionview->id }}').attr('aria-expanded') === 'true'){ $('#1collapse{{ $institucionview->id }}').collapse('toggle');}">
                             <!-- Widget: user widget style 1 -->
                             <div class="box box-widget widget-user">
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -104,11 +104,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     </div>
                                     <div class="centered">
                                         <a class="btn-sm bg-green" data-toggle="collapse" data-parent="#accordion"
-                                           href="#collapse{{ $institucionview->id }}">
+                                           href="#1collapse{{ $institucionview->id }}">
                                             Contactos...
                                         </a>
                                     </div>
-                                    <div id="collapse{{ $institucionview->id }}" class="panel-collapse collapse">
+                                    <div id="1collapse{{ $institucionview->id }}" class="panel-collapse collapse">
                                         <br>
                                         <div class="box-body">
                                             <i class="fa  fa-map margin-r-5"></i> {{ $institucionview->direccion }}<br>
@@ -134,7 +134,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     @endif
                     @if($institucionview->tipo == 2)
                         <div class="col-md-4"
-                                 onmouseleave="if($('#collapse{{ $institucionview->id }}').attr('aria-expanded') === 'true'){ $('#collapse{{ $institucionview->id }}').collapse('toggle');}">
+                                 onmouseleave="if($('#2collapse{{ $institucionview->id }}').attr('aria-expanded') === 'true'){ $('#2collapse{{ $institucionview->id }}').collapse('toggle');}">
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -172,11 +172,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         </div>
                                         <div class="centered">
                                             <a class="btn-sm bg-green" data-toggle="collapse" data-parent="#accordion"
-                                               href="#collapse{{ $institucionview->id }}">
+                                               href="#2collapse{{ $institucionview->id }}">
                                                 Contactos...
                                             </a>
                                         </div>
-                                        <div id="collapse{{ $institucionview->id }}" class="panel-collapse collapse">
+                                        <div id="2collapse{{ $institucionview->id }}" class="panel-collapse collapse">
                                             <br>
                                             <div class="box-body">
                                                 <i class="fa  fa-map margin-r-5"></i> {{ $institucionview->direccion }}<br>
@@ -329,7 +329,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         @endif
                     @endif
                     @if($institucionview->tipo == 4)
-                            <div class="col-md-4" onmouseleave="if($('#collapse{{ $institucionview->id }}').attr('aria-expanded') === 'true'){ $('#collapse{{ $institucionview->id }}').collapse('toggle');}">
+                            <div class="col-md-4" onmouseleave="if($('#4collapse{{ $institucionview->id }}').attr('aria-expanded') === 'true'){ $('#4collapse{{ $institucionview->id }}').collapse('toggle');}">
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -360,7 +360,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                         </li>
                                                         <li style="color: #0073B7; width:32%;"><span class="fa fa-money text-black"></span> {{ $institucionview->costo }}</li>
                                                         <li style="width:32%;">
-                                                            <a style="color: #0073B7;" data-toggle="collapse" data-parent="#accordion" href="#collapseD1">
+                                                            <a style="color: #0073B7;" data-toggle="collapse" data-parent="#accordion" href="#4collapse{{ $institucionview->id }}">
                                                                 <span class="fa fa-globe text-black"></span>
                                                                 Contactos...
                                                             </a>
@@ -378,7 +378,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             </li>
                                         </ul>
                                     </div>
-                                    <div id="collapseD1" class="panel-collapse collapse">
+                                    <div id="#4collapse{{ $institucionview->id }}" class="panel-collapse collapse">
                                         <div class="box-body">
                                             <i class="fa  fa-map margin-r-5"></i> {{ $institucionview->direccion }}<br>
                                             <i class="fa fa-phone margin-r-5"></i> {{ $institucionview->telefono }} <br>

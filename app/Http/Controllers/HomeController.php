@@ -99,7 +99,7 @@ class HomeController extends Controller
         //return [];
     }
 
-    protected function getInstitutions() {
+    protected function getInstitutionsByAuthUser() {
         $instituciones = InstitutionsView::where('activo', '=', 1)
             ->where('user_id', '=', auth()->id())
             ->orWhere('activo', '=', 0)

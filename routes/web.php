@@ -104,7 +104,7 @@ Route::get('ajax-sector/', function() {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('institutions', [
-        'uses' => 'HomeController@getInstitutions',
+        'uses' => 'HomeController@getInstitutionsByAuthUser',
         'as' => 'institutions.all',
     ]);
     //    Route::get('/link1', function ()    {

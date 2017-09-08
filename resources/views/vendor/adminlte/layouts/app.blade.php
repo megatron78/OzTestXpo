@@ -66,27 +66,48 @@ desired effect
             "ajax": "{{ route('institutions.all') }}",
             "columns": [
                 {data: 'id', name: 'id'},
+                {data: 'slug', name: 'slug'},
                 {data: 'nombre', name: 'nombre'},
                 {data: 'tipo', name: 'tipo'},
                 {data: 'activo', name: 'activo'},
                 {data: 'plan_desde', name: 'plan_desde'},
                 {data: 'plan_hasta', name: 'plan_hasta'},
-            ]
-        });
-    });
+            ],
+            "columnDefs" : [
+                {
+                    "targets": [0,1],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": [2],
+                    render: function ( data, type, row, meta ) {
+                        if(type === 'display'){
+                            var url;
+                            if(row['tipo'] == 1) {
+                                if(row['preescolar'] == 1 && row['escuela'] == 0 && row['colegio'] == 0)
+                                    url = '{{route('preescolar.show', [":id", ":slug"])}}';
+                                else
+                                    url = '{{route('escuelacolegio.show', [":id", ":slug"])}}';
+                            }
+                            if(row['tipo'] == 2)
+                                url = '{{route('superior.show', [":id", ":slug"])}}';
+                            if(row['tipo'] == 3)
+                                if(row['categoria'] == 'Posgrado')
+                                    url = '{{route('posgrado.show', [":id", ":slug"])}}';
+                                else
+                                    url = '{{route('cursoseminario.show', [":id", ":slug"])}}';
+                            if(row['tipo'] == 4)
+                                url=row['web'];
 
-    $(document).ready(function() {
-        oTable = $('#institucionesTable').DataTable({
-            "processing": true,
-            "serverSide": false,
-            "ajax": "{{ route('institutions.all') }}",
-            "columns": [
-                {data: 'id', name: 'id'},
-                {data: 'nombre', name: 'nombre'},
-                {data: 'tipo', name: 'tipo'},
-                {data: 'activo', name: 'activo'},
-                {data: 'plan_desde', name: 'plan_desde'},
-                {data: 'plan_hasta', name: 'plan_hasta'},
+                            url = url.replace(':id', row['id']);
+                            url = url.replace(':slug', row['slug']);
+                            data = '<a href="'+url+'">'+ data + '</a>';
+                        }
+
+                        return data;
+                    }
+                },
             ]
         });
     });
