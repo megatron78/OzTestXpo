@@ -87,7 +87,7 @@ desired effect
                             var url;
                             if(row['tipo'] == 1) {
                                 if(row['preescolar'] == 1 && row['escuela'] == 0 && row['colegio'] == 0)
-                                    url = '{{route('preescolar.show', [":id", ":slug"])}}';
+                                    url = '{{route('preescolar.edit', [":id"])}}';
                                 else
                                     url = '{{route('escuelacolegio.show', [":id", ":slug"])}}';
                             }
