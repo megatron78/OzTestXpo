@@ -26,6 +26,7 @@
 								<th>Nombre</th>
 								<th>Categoría</th>
 								<th>Estado</th>
+								<th>Plan</th>
 								<th>Plan desde</th>
 								<th>Plan hasta</th>
 							</tr>

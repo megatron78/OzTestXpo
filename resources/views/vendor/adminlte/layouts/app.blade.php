@@ -70,6 +70,7 @@ desired effect
                 {data: 'nombre', name: 'nombre'},
                 {data: 'tipo', name: 'tipo'},
                 {data: 'activo', name: 'activo'},
+                {data: 'plan', name: 'plan'},
                 {data: 'plan_desde', name: 'plan_desde'},
                 {data: 'plan_hasta', name: 'plan_hasta'},
             ],
@@ -105,6 +106,60 @@ desired effect
                             data = '<a href="'+url+'">'+ data + '</a>';
                         }
 
+                        return data;
+                    }
+                },
+                {
+                    "targets": [3],
+                    render: function ( data, type, row, meta ) {
+                        if(type === 'display'){
+                            if(row['tipo'] == 1) {
+                                if (row['preescolar'] == 1 && row['escuela'] == 0 && row['colegio'] == 0)
+                                    data = 'Preescolar';
+                                else
+                                    data = 'Escuela/Colegio';
+                            }
+                            else if(row['tipo'] == 2)
+                                data = 'Superior';
+                            else if(row['tipo'] == 3) {
+                                if(row['categoria'] == 'Posgrado')
+                                    data = 'Posgrado';
+                                else
+                                    data = 'Curso/Seminario';
+                            }
+                            else if(row['tipo'] == 4)
+                                data = 'Evento';
+                            else
+                                data = 'ND';
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "targets": [4],
+                    render: function (data, type, row, meta) {
+                        if (type === 'display') {
+                            if(row['activo'] == 1)
+                                data = 'Activo';
+                            else
+                                data = 'Inactivo';
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "targets": [5],
+                    render: function (data, type, row, meta) {
+                        if (type === 'display') {
+                            if(row['plan'] == '3B')
+                                data = 'Básico';
+                            else if(row['plan'] == '2P')
+                                data = 'Platinum';
+                            else if(row['plan'] == '1G')
+                                data = 'Gold';
+                            else
+                                data = 'ND';
+                        }
                         return data;
                     }
                 },
