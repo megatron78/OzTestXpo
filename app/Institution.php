@@ -108,6 +108,7 @@ class Institution extends Model
         'parish_id',
         'city_id',
         'sector_id',
+        'user_id',
     ];
 
     public function province() {

@@ -134,6 +134,10 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'InstitutionController@update',
         'as' => 'preescolar.update',
     ]);
+    Route::post('preescolar/store', [
+        'uses' => 'InstitutionController@store',
+        'as' => 'preescolar.store',
+    ]);
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });

@@ -14,6 +14,83 @@ class InstitutionController extends Controller
         return view('institutions.createpreescolar', compact('provinces'));
     }
 
+    public function store(Request $request) {
+        $this->validate($request, [
+            'nombre' => 'required',
+            'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_3' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_4' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_5' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_6' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_3' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_4' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_5' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+        ]);
+
+        $input = $request->all();
+
+        if(isset($request->institution_bg_picture)) {
+            $fileName = $request->institution_bg_picture->store('public/institution_bg');
+            $input['institution_bg_picture'] = Storage::url($fileName);
+        }
+        if(isset($request->institution_picture_1)) {
+            $fileName = $request->institution_picture_1->store('public/institution_pic');
+            $input['institution_picture_1'] = Storage::url($fileName);
+        }
+        if(isset($request->institution_picture_2)) {
+            $fileName = $request->institution_picture_2->store('public/institution_pic');
+            $input['institution_picture_2'] = Storage::url($fileName);
+        }
+        if(isset($request->institution_picture_3)) {
+            $fileName = $request->institution_picture_3->store('public/institution_pic');
+            $input['institution_picture_3'] = Storage::url($fileName);
+        }
+        if(isset($request->institution_picture_4)) {
+            $fileName = $request->institution_picture_4->store('public/institution_pic');
+            $input['institution_picture_4'] = Storage::url($fileName);
+        }
+        if(isset($request->institution_picture_5)) {
+            $fileName = $request->institution_picture_5->store('public/institution_pic');
+            $input['institution_picture_5'] = Storage::url($fileName);
+        }
+        if(isset($request->institution_picture_6)) {
+            $fileName = $request->institution_picture_6->store('public/institution_pic');
+            $input['institution_picture_6'] = Storage::url($fileName);
+        }
+        if(isset($request->banner_inst_picture_1)) {
+            $fileName = $request->banner_inst_picture_1->store('public/institution_ban');
+            $input['banner_inst_picture_1'] = Storage::url($fileName);
+        }
+        if(isset($request->banner_inst_picture_2)) {
+            $fileName = $request->banner_inst_picture_2->store('public/institution_ban');
+            $input['banner_inst_picture_2'] = Storage::url($fileName);
+        }
+        if(isset($request->banner_inst_picture_3)) {
+            $fileName = $request->banner_inst_picture_3->store('public/institution_ban');
+            $input['banner_inst_picture_3'] = Storage::url($fileName);
+        }
+        if(isset($request->banner_inst_picture_4)) {
+            $fileName = $request->banner_inst_picture_4->store('public/institution_ban');
+            $input['banner_inst_picture_4'] = Storage::url($fileName);
+        }
+        if(isset($request->banner_inst_picture_5)) {
+            $fileName = $request->banner_inst_picture_5->store('public/institution_ban');
+            $input['banner_inst_picture_5'] = Storage::url($fileName);
+        }
+
+        $input['user_id'] = $request->user()->id;
+
+        Institution::create($input);
+
+        Session::flash('flash_message', 'Registro creado correctamente.');
+
+        return redirect()->back();
+    }
+
     public function edit($id) {
         $institution = Institution::findOrFail($id);
         $provinces = Province::all(['name','id']);
@@ -35,7 +112,18 @@ class InstitutionController extends Controller
 
         $this->validate($request, [
             'nombre' => 'required',
-            'institution_bg_picture' => 'image|mimes:jpeg,bmp,png|max:500'
+            'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_3' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_4' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_5' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'institution_picture_6' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_3' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_4' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
+            'banner_inst_picture_5' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
         ]);
 
         $input = $request->all();

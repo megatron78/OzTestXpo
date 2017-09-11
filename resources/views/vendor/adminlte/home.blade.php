@@ -25,7 +25,7 @@
 								<span class="sr-only">Toggle Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ route('preescolar.create') }}">Preescolar</a></li>
+								<li><a href="{{ route('preescolar.create') }}" target="_blank">Preescolar</a></li>
 								<li><a href="#">Escuela/Colegio</a></li>
 								<li><a href="#">Edu. Superior</a></li>
 								<li><a href="#">Posgrados</a></li>

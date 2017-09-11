@@ -22,7 +22,7 @@ class CreateInstitutionsTable extends Migration
             $table->string('plan')->default('3B'); //3B (Básico), 2P (Premium), 1G (Gold)
 
             //Código de la institución ministerio de educación
-            $table->string('cod_institucion_mineduc');
+            $table->string('cod_institucion_mineduc')->nullable();
 
             //Palabras clave
             $table->mediumText('palabras_clave')->nullable();
