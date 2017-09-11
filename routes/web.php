@@ -122,6 +122,7 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'HomeController@getInstitutionsByAuthUser',
         'as' => 'institutions.all',
     ]);
+    //Routes Preescolar
     Route::get('preescolar/add', [
         'uses' => 'InstitutionController@createPreescolar',
         'as' => 'preescolar.create',
@@ -138,6 +139,25 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'InstitutionController@store',
         'as' => 'preescolar.store',
     ]);
+
+    //Routes Escuela/Colegio
+    Route::get('escuelacolegio/add', [
+        'uses' => 'InstitutionController@createEscuelacolegio',
+        'as' => 'escuelacolegio.create',
+    ]);
+    Route::get('escuelacolegio/{institution}/edit', [
+        'uses' => 'InstitutionController@editEscuelacolegio',
+        'as' => 'escuelacolegio.edit',
+    ]);
+    Route::post('escuelacolegio/{institution}/edit', [
+        'uses' => 'InstitutionController@updateEscuelacolegio',
+        'as' => 'escuelacolegio.update',
+    ]);
+    Route::post('escuelacolegio/store', [
+        'uses' => 'InstitutionController@storeEsuelacolegio',
+        'as' => 'escuelacolegio.store',
+    ]);
+
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
