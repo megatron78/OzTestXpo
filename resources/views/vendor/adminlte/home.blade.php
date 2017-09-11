@@ -18,6 +18,23 @@
 						<h3 class="box-title">Instituciones</h3>
 						<br>
 						<br>
+						<div class="btn-group">
+							<button type="button" class="btn btn-warning btn-flat">Nuevo</button>
+							<button type="button" class="btn btn-warning btn-flat dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="{{ route('preescolar.create') }}">Preescolar</a></li>
+								<li><a href="#">Escuela/Colegio</a></li>
+								<li><a href="#">Edu. Superior</a></li>
+								<li><a href="#">Posgrados</a></li>
+								<li><a href="#">Cursos y Seminarios</a></li>
+								<li><a href="#">Eventos</a></li>
+							</ul>
+						</div>
+						<br>
+						<br>
 						<table id="institucionesTable" class="table table-hover table-responsive">
 							<thead>
 							<tr>

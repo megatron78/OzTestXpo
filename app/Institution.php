@@ -3,9 +3,113 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Institution extends Model
 {
+    protected $fillable = [
+        'nombre',
+        'plan',
+        'palabras_clave',
+        'nombre_corto',
+        'preescolar',
+        'escuela',
+        'colegio',
+        'institution_bg_picture',
+        'trayectoria',
+        'nombre_autoridad',
+        'direccion',
+        'laico',
+        'religioso',
+        'masculino',
+        'femenino',
+        'mixto',
+        'fiscal',
+        'privado',
+        'fiscomisional',
+        'pago_promedio_escuela',
+        'pago_promedio_colegio',
+        'lenguajes',
+        'telefono',
+        'celular',
+        'email',
+        'web',
+        'facebook',
+        'twitter',
+        'descripcion',
+        'edad_desde',
+        'edad_hasta',
+        'extracurriculares',
+        'horario_extendido',
+        'presencial',
+        'semipresencial',
+        'distancia',
+        'matutino',
+        'vespertino',
+        'nocturno',
+        'entrada_matutino',
+        'entrada_vespertino',
+        'entrada_nocturno',
+        'salida_matutino',
+        'salida_vespertino',
+        'salida_nocturno',
+        'salida_horario_extendido',
+        'alimentacion',
+        'bachillerato_internacional',
+        'actividades_extracurriculares',
+        'porcentaje_profesores_nativos',
+        'total_estudiantes',
+        'max_estudiantes_x_clase',
+        'area_total',
+        'area_deportiva',
+        'area_espacios_verdes',
+        'area_piscina',
+        'seguridad_privada',
+        'wifi_interior',
+        'wifi_exterior',
+        'wifi_otros',
+        'camara_ip_entrada_salida',
+        'camara_ip_aulas_espacios',
+        'capacidad_restaurantes',
+        'canchas_indoor',
+        'canchas_futbol',
+        'canchas_basket',
+        'canchas_tenis',
+        'mesas_tenis',
+        'pista_atletica',
+        'computadoras_para_alumnos',
+        'teatro',
+        'gimnasio',
+        'otros',
+        'certificaciones_logros',
+        'regimen',
+        'jurisdiccion',
+        'institution_picture_1',
+        'institution_picture_2',
+        'institution_picture_3',
+        'institution_picture_4',
+        'institution_picture_5',
+        'institution_picture_6',
+        'banner_inst_picture_1',
+        'banner_inst_picture_2',
+        'banner_inst_picture_3',
+        'banner_inst_picture_4',
+        'banner_inst_picture_5',
+        'mapa_url',
+        'ruc_invoice',
+        'razon_social_invoice',
+        'email_invoice',
+        'telefono_invoice',
+        'direccion_invoice',
+        'plan_desde',
+        'plan_hasta',
+        'province_id',
+        'canton_id',
+        'parish_id',
+        'city_id',
+        'sector_id',
+    ];
+
     public function province() {
         return $this->belongsTo(Province::class);
     }
@@ -30,8 +134,8 @@ class Institution extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function setNameAttribute($value) {
-        $this->attributes['name'] = $value;
+    public function setNombreAttribute($value) {
+        $this->attributes['nombre'] = $value;
 
         $this->attributes['slug'] = Str::slug($value);
     }

@@ -167,5 +167,56 @@ desired effect
         });
     });
 </script>
+<script>
+    $(document).ready(function() {
+        $('#province_id').on('change', function (e) {
+            var province_id = e.target.value;
+            $('#city_id').empty();
+            $('#sector_id').empty();
+            $('#canton_id').empty();
+            $('#parish_id').empty();
+            $('#city_id').append('<option value="">...</option>');
+            $('#canton_id').append('<option value="">...</option>');
+            //ajax
+            $.get('/ajax-city?province_id=' + province_id, function (data) {
+                //success_data
+                $.each(data, function (index, cityObj) {
+                    $('#city_id').append('<option value="' + cityObj.id + '">' + cityObj.name + '</option>');
+                });
+            });
+            $.get('/ajax-canton?province_id=' + province_id, function (data) {
+                //success_data
+                $.each(data, function (index, cantonObj) {
+                    $('#canton_id').append('<option value="' + cantonObj.id + '">' + cantonObj.name + '</option>');
+                });
+            });
+        });
+
+        $('#canton_id').on('change', function (e) {
+            var canton_id = e.target.value;
+            $('#parish_id').empty();
+            //ajax
+            $.get('/ajax-parish?canton_id=' + canton_id, function (data) {
+                //success_data
+                $.each(data, function (index, parishObj) {
+                    $('#parish_id').append('<option value="' + parishObj.id + '">' + parishObj.name + '</option>');
+                });
+            });
+        });
+
+        $('#city_id').on('change', function (e) {
+            var city_id = e.target.value;
+            $('#sector_id').empty();
+            $('#sector_id').append('<option value="">...</option>');
+            //ajax
+            $.get('/ajax-sector?city_id=' + city_id, function (data) {
+                //success_data
+                $.each(data, function (index, sectorObj) {
+                    $('#sector_id').append('<option value="' + sectorObj.id + '">' + sectorObj.nombre + '</option>');
+                });
+            });
+        });
+    });
+</script>
 </body>
 </html>

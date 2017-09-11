@@ -15,10 +15,10 @@
                 <!-- Default box -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Instituciones</h3>
+                        <h3 class="box-title">Crear Preescolar</h3>
                         <br>
                         <br>
-                        {!! Form::model($institution, ['action' => 'InstitutionController@store']) !!}
+                        {!! Form::open(['route', 'preescolar.store']) !!}
                         {!! Form::close() !!}
                         {{--<div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">

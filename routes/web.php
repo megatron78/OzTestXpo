@@ -12,8 +12,7 @@
 */
 
 use App\Institution;
-use App\City;
-use App\Sector;
+use App\{City,Canton,Parish,Sector};
 use Illuminate\Support\Facades\Input;
 
 Route::get('/', ['uses' => 'Home2Controller@showHome', 'as' => 'destacados',]);
@@ -102,10 +101,30 @@ Route::get('ajax-sector/', function() {
     return $sectors;
 });
 
+Route::get('ajax-canton/', function() {
+    $province_id = Input::get('province_id');
+
+    $cantons = Canton::where('province_id', '=', $province_id)->orderBy('name')->get();
+
+    return $cantons;
+});
+
+Route::get('ajax-parish/', function() {
+    $canton_id = Input::get('canton_id');
+
+    $parishes = Parish::where('canton_id', '=', $canton_id)->orderBy('name')->get();
+
+    return $parishes;
+});
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('institutions', [
         'uses' => 'HomeController@getInstitutionsByAuthUser',
         'as' => 'institutions.all',
+    ]);
+    Route::get('preescolar/add', [
+        'uses' => 'InstitutionController@createPreescolar',
+        'as' => 'preescolar.create',
     ]);
     Route::get('preescolar/{institution}/edit', [
         'uses' => 'InstitutionController@edit',
