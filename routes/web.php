@@ -158,6 +158,42 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'escuelacolegio.store',
     ]);
 
+    //Routes Superior
+    Route::get('superior/add', [
+        'uses' => 'SuperiorController@create',
+        'as' => 'superior.create',
+    ]);
+    Route::get('superior/{pregrade}/edit', [
+        'uses' => 'SuperiorController@edit',
+        'as' => 'superior.edit',
+    ]);
+    Route::post('superior/{pregrade}/edit', [
+        'uses' => 'SuperiorController@update',
+        'as' => 'superior.update',
+    ]);
+    Route::post('superior/store', [
+        'uses' => 'SuperiorController@store',
+        'as' => 'superior.store',
+    ]);
+
+    //Routes Posgrados
+    Route::get('posgrados/add', [
+        'uses' => 'PosgradosController@create',
+        'as' => 'posgrados.create',
+    ]);
+    Route::get('posgrados/{posgrado}/edit', [
+        'uses' => 'PosgradosController@edit',
+        'as' => 'posgrados.edit',
+    ]);
+    Route::post('posgrados/{posgrado}/edit', [
+        'uses' => 'PosgradosController@update',
+        'as' => 'posgrados.update',
+    ]);
+    Route::post('posgrados/store', [
+        'uses' => 'PosgradosController@store',
+        'as' => 'posgrados.store',
+    ]);
+
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });

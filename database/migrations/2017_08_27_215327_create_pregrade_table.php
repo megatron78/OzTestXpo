@@ -34,7 +34,7 @@ class CreatePregradeTable extends Migration
 
             //Institutos y conservatorios
             $table->string('cod_instituto')->nullable();
-            $table->string('estado_legal')->default('Vigente');
+            $table->string('estado_legal')->default('Vigente')->nullable();
 
             $table->text('trayectoria')->nullable();
             $table->string('nombre_autoridad')->nullable();

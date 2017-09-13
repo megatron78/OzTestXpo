@@ -6,6 +6,63 @@ use Illuminate\Database\Eloquent\Model;
 
 class PosgradeCourseSeminar extends Model
 {
+    protected $fillable = [
+        'nombre',
+        'activo',
+        'plan',
+        'palabras_clave',
+        'nombre_corto',
+        'clasificacion',
+        'tipo',
+        'campo',
+        'institucion',
+        'costo',
+        'instructores',
+        'telefono',
+        'celular',
+        'email',
+        'web',
+        'facebook',
+        'twitter',
+        'linkedin',
+        'presencial',
+        'semipresencial',
+        'distancia',
+        'cupos',
+        'fecha_inicio',
+        'fecha_fin',
+        'duracion',
+        'hora_ingreso',
+        'hora_salida',
+        'lugar',
+        'objetivo',
+        'temario',
+        'instructores_detalle',
+        'incluye',
+        'mapa_url',
+        'documento_pdf1',
+        'documento_pdf1',
+        'documento_pdf1',
+        'otros_posgrados_cursos',
+
+        'max_alumnos_x_nivel',
+        'meses_inicio',
+        'duracion_nivel',
+        'horarios',
+
+        'ruc_invoice',
+        'razon_social_invoice',
+        'email_invoice',
+        'telefono_invoice',
+        'direccion_invoice',
+        'plan_desde',
+        'plan_hasta',
+        'country_id',
+        'province_id',
+        'city_id',
+        'user_id',
+    ];
+
     public function country()
     {
         return $this->belongsTo(Country::class);
@@ -26,9 +83,8 @@ class PosgradeCourseSeminar extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function setNameAttribute($value)
-    {
-        $this->attributes['name'] = $value;
+    public function setNombreAttribute($value) {
+        $this->attributes['nombre'] = $value;
 
         $this->attributes['slug'] = Str::slug($value);
     }

@@ -207,12 +207,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         @endif
                                         @if(isset($pregrade->twitter))
                                             &nbsp
-                                            <a href="{{ $pregrado->twitter }}"
+                                            <a href="{{ $pregrade->twitter }}"
                                                class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                         @endif
                                         @if(isset($pregrade->linkedin))
                                             &nbsp
-                                                <a href="{{ $pregrado->linkedin }}"
+                                                <a href="{{ $pregrade->linkedin }}"
                                                    class="btn btn-social-icon btn-linkedin"><i
                                                             class="fa fa-linkedin"></i></a>
                                         @else
@@ -290,7 +290,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <dl class="dl-horizontal">
                                         <dt>Carreras</dt>
                                         @if(isset($pregrade->carreras))
-                                            <dd>{{ $pregrade->carreras }}</dd>
+                                            <dd>{!! $pregrade->carreras !!}</dd>
                                         @else
                                             <dd></dd>
                                         @endif

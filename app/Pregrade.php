@@ -3,9 +3,89 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Pregrade extends Model
 {
+    protected $fillable = [
+        'nombre',
+        'activo',
+        'plan',
+        'palabras_clave',
+        'nombre_corto',
+        'tipo',
+        'pregrade_bg_picture',
+        'categoria',
+        'cod_instituto',
+        'estado_legal',
+        'trayectoria',
+        'nombre_autoridad',
+        'direccion',
+        'fiscal',
+        'privado',
+        'fiscomisional',
+        'telefono',
+        'celular',
+        'email',
+        'email_adicional',
+        'web',
+        'facebook',
+        'twitter',
+        'linkedin',
+        'descripcion',
+        'presencial',
+        'semipresencial',
+        'distancia',
+        'matutino',
+        'vespertino',
+        'nocturno',
+        'carreras',
+        'area_total',
+        'area_deportiva',
+        'area_espacios_verdes',
+        'area_piscina',
+        'seguridad_privada',
+        'wifi_interior',
+        'wifi_exterior',
+        'wifi_otros',
+        'capacidad_restaurantes',
+        'canchas_indoor',
+        'canchas_futbol',
+        'canchas_basket',
+        'canchas_tenis',
+        'mesas_tenis',
+        'pista_atletica',
+        'teatro',
+        'gimnasio',
+        'otros',
+        'certificaciones_logros',
+        'institution_picture_1',
+        'institution_picture_2',
+        'institution_picture_3',
+        'institution_picture_4',
+        'institution_picture_5',
+        'institution_picture_6',
+        'banner_inst_picture_1',
+        'banner_inst_picture_2',
+        'banner_inst_picture_3',
+        'banner_inst_picture_4',
+        'banner_inst_picture_5',
+        'mapa_url',
+        'ruc_invoice',
+        'razon_social_invoice',
+        'email_invoice',
+        'telefono_invoice',
+        'direccion_invoice',
+        'plan_desde',
+        'plan_hasta',
+        'province_id',
+        'canton_id',
+        'parish_id',
+        'city_id',
+        'sector_id',
+        'user_id',
+    ];
+
     public function province() {
         return $this->belongsTo(Province::class);
     }
@@ -18,8 +98,8 @@ class Pregrade extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function setNameAttribute($value) {
-        $this->attributes['name'] = $value;
+    public function setNombreAttribute($value) {
+        $this->attributes['nombre'] = $value;
 
         $this->attributes['slug'] = Str::slug($value);
     }
