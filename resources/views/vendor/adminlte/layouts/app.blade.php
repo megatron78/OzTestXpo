@@ -92,12 +92,12 @@ desired effect
                                     url = '{{route('escuelacolegio.edit', [":id"])}}';
                             }
                             if(row['tipo'] == 2)
-                                url = '{{route('superior.edit', [":id", ":slug"])}}';
+                                url = '{{route('superior.edit', [":id"])}}';
                             if(row['tipo'] == 3)
-                                if(row['categoria'] == 'Posgrado')
-                                    url = '{{route('posgrado.show', [":id", ":slug"])}}';
+                                if(row['clasificacion'] == 'Posgrado')
+                                    url = '{{route('posgrados.edit', [":id"])}}';
                                 else
-                                    url = '{{route('cursoseminario.show', [":id", ":slug"])}}';
+                                    url = '{{route('cursoseminario.edit', [":id", ":slug"])}}';
                             if(row['tipo'] == 4)
                                 url=row['web'];
 
@@ -122,7 +122,7 @@ desired effect
                             else if(row['tipo'] == 2)
                                 data = 'Superior';
                             else if(row['tipo'] == 3) {
-                                if(row['categoria'] == 'Posgrado')
+                                if(row['clasificacion'] == "Posgrado")
                                     data = 'Posgrado';
                                 else
                                     data = 'Curso/Seminario';
@@ -221,10 +221,19 @@ desired effect
 <!-- CK Editor -->
 <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script>
-    $(function () {
+    $(document).ready(function() {
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
-        CKEDITOR.replace('carreras');
+        //CKEDITOR.replace('carreras');
+        if(document.getElementsByName("carreras").length > 0) {
+            CKEDITOR.replace('carreras');
+        }
+        if(document.getElementsByName("temario").length > 0) {
+            CKEDITOR.replace("temario");
+        }
+        if(document.getElementsByName("instructores_detalle").length > 0) {
+            CKEDITOR.replace('instructores_detalle');
+        }
         //bootstrap WYSIHTML5 - text editor
         //$(".textarea").wysihtml5();
     });

@@ -142,10 +142,14 @@
                             {{ Form::hidden('nocturno',0)}}
                             {{ Form::checkbox('nocturno') }}
                             <br>
+                            {{ Form::label('carreras_corto', 'Carreras (lista separada por comas)') }}
+                            <br>
+                            {{ Form::text('carreras_corto') }}
+                            <br>
                             <div class="box">
                                 <div class="box-header">
                                     <h3 class="box-title">Carreras
-                                        <small>Carreras Ofrecidas</small>
+                                        <small>Facultades, Carreras</small>
                                     </h3>
                                     <!-- tools box -->
                                     <div class="pull-right box-tools">

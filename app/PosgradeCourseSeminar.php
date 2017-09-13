@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class PosgradeCourseSeminar extends Model
 {
@@ -41,8 +42,8 @@ class PosgradeCourseSeminar extends Model
         'incluye',
         'mapa_url',
         'documento_pdf1',
-        'documento_pdf1',
-        'documento_pdf1',
+        'documento_pdf2',
+        'documento_pdf3',
         'otros_posgrados_cursos',
 
         'max_alumnos_x_nivel',

@@ -40,6 +40,7 @@ class Pregrade extends Model
         'vespertino',
         'nocturno',
         'carreras',
+        'carreras_corto',
         'area_total',
         'area_deportiva',
         'area_espacios_verdes',

@@ -28,7 +28,7 @@ class CreatePosgradeCourseSeminarsTable extends Migration
             $table->string('nombre')->unique();
             $table->string('nombre_corto')->unique();
             $table->string('slug');
-            $table->string('clasificacion')->default('Posgrado'); //Curso
+            $table->string('clasificacion')->default('Posgrado');//Cursos
             //Masterado, Doctorado, PHD, Curso Específico, Curso por Niveles, Seminario, Taller
             $table->string('tipo')->default('Masterado');
             $table->string('campo')->nullable();

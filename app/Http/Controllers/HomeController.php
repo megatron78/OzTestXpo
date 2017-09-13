@@ -106,6 +106,7 @@ class HomeController extends Controller
             ->select('id'
                 ,'activo'
                 ,'tipo'
+                ,'clasificacion'
                 ,'plan'
                 ,'nombre'
                 ,'institution_bg_picture'

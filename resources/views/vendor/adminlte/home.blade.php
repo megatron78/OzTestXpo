@@ -28,8 +28,8 @@
 								<li><a href="{{ route('preescolar.create') }}" target="_blank">Preescolar</a></li>
 								<li><a href="{{ route('escuelacolegio.create') }}" target="_blank">Escuela/Colegio</a></li>
 								<li><a href="{{ route('superior.create') }}" target="_blank">Edu. Superior</a></li>
-								<li><a href="#">Posgrados</a></li>
-								<li><a href="#">Cursos y Seminarios</a></li>
+								<li><a href="{{ route('posgrados.create') }}" target="_blank">Posgrados</a></li>
+								<li><a href="{{ route('cursoseminario.create') }}" target="_blank">Cursos y Seminarios</a></li>
 								<li><a href="#">Eventos</a></li>
 							</ul>
 						</div>

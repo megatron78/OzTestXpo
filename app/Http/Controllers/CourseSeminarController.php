@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\{PosgradeCourseSeminar,Province,City,Country};
 
-class PosgradosController extends Controller
+class CourseSeminarController extends Controller
 {
     public function create() {
         $countries = Country::all(['name','id']);
         $provinces = Province::all(['name','id']);
-        return view('institutions.createposgrade', compact('provinces', 'countries'));
+        return view('institutions.createcursoseminario', compact('provinces', 'countries'));
     }
 
     public function store(Request $request) {
@@ -48,19 +48,19 @@ class PosgradosController extends Controller
     }
 
     public function edit($id) {
-        $posgrade = PosgradeCourseSeminar::findOrFail($id);
+        $courseseminar = PosgradeCourseSeminar::findOrFail($id);
         $countries = Country::all(['name','id']);
         $provinces = Province::all(['name','id']);
 
-        $cities = City::where('province_id','=',$posgrade->province_id)
+        $cities = City::where('province_id','=',$courseseminar->province_id)
             ->select('name','id')->get();
 
-        return view('institutions.editposgrade',
-            compact('countries','provinces','cities'))->withPosgrade($posgrade);
+        return view('institutions.editcursoseminario',
+            compact('countries','provinces','cities'))->withCourseseminar($courseseminar);
     }
 
     public function update($id, Request $request) {
-        $posgrade = PosgradeCourseSeminar::findOrFail($id);
+        $courseseminar = PosgradeCourseSeminar::findOrFail($id);
 
         $this->validate($request, [
             'nombre' => 'required',
@@ -84,8 +84,8 @@ class PosgradosController extends Controller
             $input['documento_pdf3'] = Storage::url($fileName);
         }
 
-        $posgrade->fill($input);
-        $posgrade->save();
+        $courseseminar->fill($input);
+        $courseseminar->save();
 
         Session::flash('flash_message', 'Registro actualizado correctamente.');
 

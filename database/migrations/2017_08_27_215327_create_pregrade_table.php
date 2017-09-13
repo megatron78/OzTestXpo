@@ -64,6 +64,7 @@ class CreatePregradeTable extends Migration
 
             //Carreras
             $table->longText('carreras')->nullable();
+            $table->longText('carreras_corto')->nullable();
 
             //Facilities
             $table->integer('area_total')->nullable();

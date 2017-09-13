@@ -194,6 +194,24 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'posgrados.store',
     ]);
 
+    //Routes Cursos/Seminarios
+    Route::get('cursoseminario/add', [
+        'uses' => 'CourseSeminarController@create',
+        'as' => 'cursoseminario.create',
+    ]);
+    Route::get('cursoseminario/{cursoseminario}/edit', [
+        'uses' => 'CourseSeminarController@edit',
+        'as' => 'cursoseminario.edit',
+    ]);
+    Route::post('cursoseminario/{cursoseminario}/edit', [
+        'uses' => 'CourseSeminarController@update',
+        'as' => 'cursoseminario.update',
+    ]);
+    Route::post('cursoseminario/store', [
+        'uses' => 'CourseSeminarController@store',
+        'as' => 'cursoseminario.store',
+    ]);
+
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
