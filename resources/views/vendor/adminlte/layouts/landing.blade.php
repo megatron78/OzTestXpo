@@ -151,7 +151,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             class="widget-user-username">{{ str_limit($institucionview->nombre_corto, $limit=29, $end="...") }}</h3>
                                         <div class="row">
                                             <div class="centered">
-                                                <div class="description-block">
+                                                <div style="min-height: 15px; max-height: 15px" class="description-block">
                                                     <h5 class="description-header">Carreras</h5>
                                                     <span class="description-text">{{ str_limit($institucionview->carreras, $limit=29, $end="...") }}</span>
                                                 </div>
@@ -203,67 +203,65 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     @endif
                     @if($institucionview->tipo == 3)
                         @if($institucionview->clasificacion === "Posgrado")
-                            <div class="col-md-4">
-                                <!-- Widget: user widget style 1 -->
-                                <div class="box box-widget widget-user-2">
-                                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                                    <div style="padding: 1px" class="widget-user-header bg-blue-active">
-                                        <!-- /.widget-user-image -->
-                                        <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=29, $end="...") }}</h2>
-                                        <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $institucionview->institucion }}</h4>
-                                    </div>
-                                    <div class="box-footer no-padding">
-                                        <div style="font-size: 16px" class="description-block">
-                                            {{$institucionview->objetivo}}
-                                            <br>
-                                            <br>
-                                            <br>
+                                <div class="col-md-4">
+                                    <!-- Widget: user widget style 1 -->
+                                    <div class="box box-widget widget-user-2">
+                                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                                        <div style="padding: 1px" class="widget-user-header bg-blue-active">
+                                            <!-- /.widget-user-image -->
+                                            <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=29, $end="...") }}</h2>
+                                            <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $institucionview->institution }}</h4>
                                         </div>
-                                        <div class="col-sm-4 centered">
-                                            <a href="{{ route('posgrado.show', [$institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
-                                                Más información
-                                            </a>
-                                        </div>
-                                        <hr class="bg-blue-active">
-                                        <div class="col-sm-6">
-                                            <div class="description-block pull-left">
-                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $institucionview->duracion }}</span>
+                                        <div class="box-footer no-padding">
+                                            <div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
+                                                {{ str_limit($institucionview->objetivo, $limit=50, $end="...") }}
                                             </div>
-                                            <!-- /.description-block -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col-sm-6">
-                                            <div class="description-block pull-left">
-                                                <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $institucionview->fecha_inicio }}</span>
+                                            <div class="col-sm-4 centered">
+                                                <a href="{{ route('posgrado.show', [$institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
+                                                    Más información
+                                                </a>
                                             </div>
-                                            <!-- /.description-block -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col-sm-6">
-                                            <div class="description-block pull-left">
-                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $institucionview->costo }}</span>
+                                            <br>
+                                            <hr class="bg-blue-active">
+                                            <div class="col-sm-6">
+                                                <div class="description-block pull-left">
+                                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $institucionview->duracion }}</span>
+                                                </div>
+                                                <!-- /.description-block -->
                                             </div>
-                                            <!-- /.description-block -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col-sm-6">
-                                            <div class="description-block pull-left">
+                                            <!-- /.col -->
+                                            <div class="col-sm-6">
+                                                <div class="description-block pull-left">
+                                                    <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $institucionview->fecha_inicio }}</span>
+                                                </div>
+                                                <!-- /.description-block -->
+                                            </div>
+                                            <!-- /.col -->
+                                            <div class="col-sm-6">
+                                                <div class="description-block pull-left">
+                                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $institucionview->costo }}</span>
+                                                </div>
+                                                <!-- /.description-block -->
+                                            </div>
+                                            <!-- /.col -->
+                                            <div class="col-sm-6">
+                                                <div class="description-block pull-left">
                             <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>
                                 @if($institucionview->presencial)
                                     Presencial</span>
-                                                @elseif($institucionview->semipresencial)
-                                                    Semipresencial</span>
-                                                @elseif($institucionview->distancia)
-                                                    Distancia</span>
-                                                @endif
+                                                    @elseif($institucionview->semipresencial)
+                                                        Semipresencial</span>
+                                                    @elseif($institucionview->distancia)
+                                                        Distancia</span>
+                                                    @endif
+                                                </div>
+                                                <!-- /.description-block -->
                                             </div>
-                                            <!-- /.description-block -->
+                                            <!-- /.col -->
                                         </div>
-                                        <!-- /.col -->
                                     </div>
+                                    <!-- /.widget-user -->
                                 </div>
-                                <!-- /.widget-user -->
-                            </div>
                         @else
                             <div class="col-md-4">
                                 <!-- Widget: user widget style 1 -->
@@ -277,9 +275,6 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <div class="box-footer no-padding">
                                         <div style="font-size: 16px" class="description-block">
                                             {{$institucionview->objetivo}}
-                                            <br>
-                                            <br>
-                                            <br>
                                         </div>
                                         <div class="col-sm-4 centered">
                                             <a href="{{ route('cursoseminario.show', [$institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">

@@ -67,15 +67,15 @@ Route::get('superior/{pregrade}-{slug}', [
     'as' => 'superior.show',
 ])->where('pregrade', '\d+');
 
-Route::get('posgrado/{posgradecourseseminar}-{slug}', [
+Route::get('posgrado/{posgrado}-{slug}', [
     'uses' => 'ShowPosgradeController',
     'as' => 'posgrado.show',
-])->where('posgradecourseseminar', '\d+');
+])->where('posgrado', '\d+');
 
-Route::get('cursoseminario/{posgradecourseseminar}-{slug}', [
+Route::get('cursoseminario/{cursoseminario}-{slug}', [
     'uses' => 'ShowCourseSeminarController',
     'as' => 'cursoseminario.show',
-])->where('posgradecourseseminar', '\d+');
+])->where('cursoseminario', '\d+');
 
 Route::get('evento/{event}-{slug}', [
     'uses' => 'ShowEventController',
@@ -211,6 +211,9 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'CourseSeminarController@store',
         'as' => 'cursoseminario.store',
     ]);
+
+    //Routes Events
+
 
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware

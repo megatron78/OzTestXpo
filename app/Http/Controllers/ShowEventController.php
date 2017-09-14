@@ -11,6 +11,7 @@ class ShowEventController extends Controller
         if($event->slug != $slug) {
             return redirect($event->url, 301);
         }
-        return view('institutions.', compact('event'));
+        //TODO: Eventos no tiene página de detalle, url direcciona al propio url del evento
+        return view('vendor.adminlte.layouts.eventos.', compact('event'));
     }
 }

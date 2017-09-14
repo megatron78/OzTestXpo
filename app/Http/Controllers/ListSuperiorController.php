@@ -11,7 +11,7 @@ class ListSuperiorController extends Controller
 {
     public function __invoke(Request $request) {
         $superiors = Pregrade::where('activo', '=', 1)
-            ->select('id','plan','nombre','pregrade_bg_picture','nombre_corto','slug','carreras',
+            ->select('id','plan','nombre','pregrade_bg_picture','nombre_corto','slug','carreras','carreras_corto',
                 'province_id','city_id','user_id','direccion','telefono','celular','email','facebook','twitter','linkedin')
             ->scopes($this->getRouteScope($request))
             ->orderBy('plan')

@@ -17,9 +17,9 @@ class ListCursoSeminarioController extends Controller
             ->orWhere('tipo', '=', 'Curso por Niveles')
             ->orWhere('tipo', '=', 'Seminario')
             ->orWhere('tipo', '=', 'Taller')
-            ->select('id','plan','nombre','institution','nombre_corto','slug','province_id','city_id','user_id',
+            ->select('id','plan','nombre','institucion','nombre_corto','slug','province_id','city_id','user_id',
                 'objetivo','duracion','fecha_inicio','costo','presencial','semipresencial','distancia',
-                'direccion','telefono','celular','email','facebook','twitter')
+                'telefono','celular','email','facebook','twitter')
             ->scopes($this->getRouteScope($request))
             ->orderBy('plan')
             ->orderBy('nombre')

@@ -15,7 +15,7 @@
                 <!-- Default box -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Crear Curso/Seminario</h3>
+                        <h3 class="box-title">Crear Evento</h3>
                         <br>
                         <br>
                         @include('vendor.adminlte.layouts.partials.errors')
@@ -42,25 +42,24 @@
                         <br>
                         {{ Form::label('clasificacion', 'Clasificación') }}
                         <br>
-                        {{ Form::select('clasificacion', ['Cursos' => 'Cursos y Seminarios'], 'clasificacion') }}
+                        {{ Form::select('clasificacion', ['Posgrado' => 'Posgrado'], 'clasificacion') }}
                         <br>
                         {{ Form::label('tipo', 'Tipo') }}
                         <br>
-                        {{ Form::select('tipo', ['Curso Específico' => 'Curso Específico',
-                        'Curso por Niveles' => 'Curso por Niveles', 'Seminario' => 'Seminario',
-                        'Taller' => 'Taller'], 'Curso Específico') }}
+                        {{ Form::select('tipo', ['Masterado' => 'Masterado', 'Doctorado' => 'Doctorado',
+                        'PHD' => 'PHD'], 'Masterado') }}
                         <br>
                         {{ Form::label('plan', 'Plan') }}
                         <br>
                         {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '3G' => 'Gold'], '3B') }}
                         <br>
-                        {{ Form::text('campo') }}
-                        <br>
                         {{ Form::label('campo', 'Campo') }}
                         <br>
-                        {{ Form::text('institucion') }}
+                        {{ Form::text('campo') }}
                         <br>
                         {{ Form::label('institucion', 'Institución') }}
+                        <br>
+                        {{ Form::text('institucion') }}
                         <br>
                         {{ Form::label('palabras_clave', 'Palabras Clave') }}
                         <br>
@@ -74,13 +73,11 @@
                         <br>
                         {{ Form::text('instructores') }}
                         <br>
-                        {{ Form::label('instructores', 'Instructores') }}
-                        <br>
                         {{ Form::label('country_id', 'País') }}
                         {{ Form::select('country_id', $countries->pluck('name','id')->all(), null, ['class' => 'form-control']) }}
                         <br>
                         {{ Form::label('province_id', 'Provincia') }}
-                        {{ Form::select('province_id', $provinces->pluck('name','id')->all(), null, ['class' => 'form-control']) }}
+                        {{ Form::select('province_id', [null=>'...'] + $provinces->pluck('name','id')->all(), null, ['class' => 'form-control']) }}
                         <br>
                         {{ Form::label('city_id', 'Ciudad') }}
                         {{ Form::select('city_id', [null=>'...'], ['class' => 'form-control']) }}
@@ -249,8 +246,8 @@
                         {{ Form::label('Archivos PDF') }}
                         <br>
                         {{ Form::file('documento_pdf1') }}
-                        {{ Form::file('documento_pdf1') }}
-                        {{ Form::file('documento_pdf1') }}
+                        {{ Form::file('documento_pdf2') }}
+                        {{ Form::file('documento_pdf3') }}
                         <br>
                         <br>
                         <br>

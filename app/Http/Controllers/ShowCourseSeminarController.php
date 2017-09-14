@@ -6,11 +6,11 @@ use App\PosgradeCourseSeminar;
 
 class ShowCourseSeminarController extends Controller
 {
-    public function __invoke(PosgradeCourseSeminar $courseseminar, $slug) {
+    public function __invoke(PosgradeCourseSeminar $cursoseminario, $slug) {
         //abort_unless($post->slug == $slug, 404);
-        if($courseseminar->slug != $slug) {
-            return redirect($courseseminar->url, 301);
+        if($cursoseminario->slug != $slug) {
+            return redirect($cursoseminario->url, 301);
         }
-        return view('institutions.showcourseseminar', compact('courseseminar'));
+        return view('institutions.showcourseseminar', compact('cursoseminario'));
     }
 }

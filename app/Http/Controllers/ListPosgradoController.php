@@ -16,9 +16,9 @@ class ListPosgradoController extends Controller
             ->orWhere('tipo', '=', 'Masterado')
             ->orWhere('tipo', '=', 'Doctorado')
             ->orWhere('tipo', '=', 'PHD')
-            ->select('id','plan','nombre','institution','nombre_corto','slug','province_id','city_id','user_id',
+            ->select('id','plan','nombre','institucion','nombre_corto','slug','province_id','city_id','user_id','country_id',
                 'objetivo','duracion','fecha_inicio','costo','presencial','semipresencial','distancia',
-                'direccion','telefono','celular','email','facebook','twitter')
+                'telefono','celular','email','facebook','twitter')
             ->scopes($this->getRouteScope($request))
             ->orderBy('plan')
             ->orderBy('nombre')
@@ -30,7 +30,6 @@ class ListPosgradoController extends Controller
 
         $countries = Country::all(['printable_name','id']);
         $provinces = Province::all(['name','id']);
-
         return view('vendor.adminlte.layouts.posgrado', compact('posgrades','provinces', 'bannerData', 'countries'));
     }
 

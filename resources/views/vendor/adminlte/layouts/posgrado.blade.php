@@ -39,17 +39,15 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $posgrado->institucion }}</h4>
                         </div>
                         <div class="box-footer no-padding">
-                            <div style="font-size: 16px" class="description-block">
-                                {{$posgrado->objetivo}}
-                                <br>
-                                <br>
-                                <br>
+                            <div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
+                                {{ str_limit($posgrado->objetivo, $limit=50, $end="...") }}
                             </div>
                             <div class="col-sm-4 centered">
                                 <a href="{{ $posgrado->url }}" target="_blank" class="btn-sm bg-navy">
                                     Más información
                                 </a>
                             </div>
+                            <br>
                             <hr class="bg-blue-active">
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
@@ -108,11 +106,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $posgrado->institucion }}</h4>
                                     </div>
                                     <div class="box-footer no-padding">
-                                        <div style="font-size: 16px" class="description-block">
-                                            {{$posgrado->objetivo}}
-                                            <br>
-                                            <br>
-                                            <br>
+                                        <div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
+                                            {{ str_limit($posgrado->objetivo, $limit=50, $end="...") }}
                                         </div>
                                         <hr class="bg-blue-active">
                                         <div class="col-sm-6">

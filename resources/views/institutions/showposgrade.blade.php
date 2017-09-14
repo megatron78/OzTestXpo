@@ -21,28 +21,28 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <div id="carousel-example-generic" class="carousel slide">
                             <!-- Indicators -->
                             <ol class="hidden-xs carousel-indicators">
-                                @if(!empty($posgrade->banner_inst_picture_1))
+                                @if(!empty($posgrado->banner_inst_picture_1))
                                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                                 @endif
-                                @if(!empty($posgrade->banner_inst_picture_2))
+                                @if(!empty($posgrado->banner_inst_picture_2))
                                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                 @endif
-                                @if(!empty($posgrade->banner_inst_picture_3))
+                                @if(!empty($posgrado->banner_inst_picture_3))
                                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                                 @endif
-                                @if(!empty($posgrade->banner_inst_picture_4))
+                                @if(!empty($posgrado->banner_inst_picture_4))
                                     <li data-target="#carousel-example-generic" data-slide-to="3"></li>
                                 @endif
-                                @if(!empty($posgrade->banner_inst_picture_5))
+                                @if(!empty($posgrado->banner_inst_picture_5))
                                     <li data-target="#carousel-example-generic" data-slide-to="4"></li>
                                 @endif
 
                                 {{-- Put default pics on empty carousel --}}
-                                @if(empty($posgrade->banner_inst_picture_1)
-                                && empty($posgrade->banner_inst_picture_2)
-                                && empty($posgrade->banner_inst_picture_3)
-                                && empty($posgrade->banner_inst_picture_4)
-                                && empty($posgrade->banner_inst_picture_5))
+                                @if(empty($posgrado->banner_inst_picture_1)
+                                && empty($posgrado->banner_inst_picture_2)
+                                && empty($posgrado->banner_inst_picture_3)
+                                && empty($posgrado->banner_inst_picture_4)
+                                && empty($posgrado->banner_inst_picture_5))
                                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
@@ -52,42 +52,42 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 
                             <!-- Wrapper for slides -->
                             <div style="max-height: 325px" class="carousel-inner">
-                                @if(!empty($posgrade->banner_inst_picture_1))
+                                @if(!empty($posgrado->banner_inst_picture_1))
                                     <div class="item active">
-                                        <img style="width: 100%;" src="{{ asset($posgrade->banner_inst_picture_1) }}"
+                                        <img style="width: 100%;" src="{{ asset($posgrado->banner_inst_picture_1) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($posgrade->banner_inst_picture_2))
+                                @if(!empty($posgrado->banner_inst_picture_2))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($posgrade->banner_inst_picture_2) }}"
+                                        <img style="width: 100%;" src="{{ asset($posgrado->banner_inst_picture_2) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($posgrade->banner_inst_picture_3))
+                                @if(!empty($posgrado->banner_inst_picture_3))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($posgrade->banner_inst_picture_3) }}"
+                                        <img style="width: 100%;" src="{{ asset($posgrado->banner_inst_picture_3) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($posgrade->banner_inst_picture_4))
+                                @if(!empty($posgrado->banner_inst_picture_4))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($posgrade->banner_inst_picture_4) }}"
+                                        <img style="width: 100%;" src="{{ asset($posgrado->banner_inst_picture_4) }}"
                                              alt="">
                                     </div>
                                 @endif
-                                @if(!empty($posgrade->banner_inst_picture_5))
+                                @if(!empty($posgrado->banner_inst_picture_5))
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset($posgrade->banner_inst_picture_5) }}"
+                                        <img style="width: 100%;" src="{{ asset($posgrado->banner_inst_picture_5) }}"
                                              alt="">
                                     </div>
                                 @endif
                                 {{-- Put default pics on empty carousel --}}
-                                @if(empty($posgrade->banner_inst_picture_1)
-                                && empty($posgrade->banner_inst_picture_2)
-                                && empty($posgrade->banner_inst_picture_3)
-                                && empty($posgrade->banner_inst_picture_4)
-                                && empty($posgrade->banner_inst_picture_5))
+                                @if(empty($posgrado->banner_inst_picture_1)
+                                && empty($posgrado->banner_inst_picture_2)
+                                && empty($posgrado->banner_inst_picture_3)
+                                && empty($posgrado->banner_inst_picture_4)
+                                && empty($posgrado->banner_inst_picture_5))
                                     <div class="item active">
                                         <img style="width: 100%;" src="{{ asset('/img/slide-01.png') }}" alt="">
                                     </div>
@@ -103,7 +103,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     </div>
                 </div> <!--/ .carousel -->
             </div> <!-- banner -->
-            <h1 class="text-blue">{{ $posgrade->nombre }}</h1>
+            <h1 class="text-blue">{{ $posgrado->nombre }}</h1>
             <div class="row">
                 <div class="col-md-12">
                     <div style="font-size: 20px" class="nav-tabs-custom">
@@ -133,85 +133,85 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <div class="col-md-5">
                                         <dl class="dl-horizontal">
                                             <dt>Tipo</dt>
-                                            @if(isset($posgrade->tipo))
-                                                <dd>{{ $posgrade->tipo }}</dd>
+                                            @if(isset($posgrado->tipo))
+                                                <dd>{{ $posgrado->tipo }}</dd>
                                             @else
                                                 <dd></dd>
                                             @endif
                                             <dt>Campo</dt>
-                                            <dd>{{ $posgrade->campo }}</dd>
+                                            <dd>{{ $posgrado->campo }}</dd>
                                             <dt>Institución que imparte</dt>
-                                            <dd>{{ $posgrade->institucion }}</dd>
+                                            <dd>{{ $posgrado->institucion }}</dd>
                                             <dt>Costo</dt>
-                                            <dd>{{ $posgrade->costo }}</dd>
+                                            <dd>{{ $posgrado->costo }}</dd>
                                             <dt>Instructor(es)</dt>
-                                            <dd>{{ $posgrade->instructores }}</dd>
+                                            <dd>{{ $posgrado->instructores }}</dd>
                                             <dt>Modalidades</dt>
-                                            @if($pregrade->presencial)
+                                            @if($posgrado->presencial)
                                                 <dd>Presencial</dd>
                                             @endif
-                                            @if($pregrade->semipresencial)
+                                            @if($posgrado->semipresencial)
                                                 <dd>Semipresencial</dd>
                                             @endif
-                                            @if($pregrade->distancia)
+                                            @if($posgrado->distancia)
                                                 <dd>Distancia</dd>
                                             @endif
                                             <dt>Cupos</dt>
-                                            <dd>{{ $posgrade->cupo }}</dd>
+                                            <dd>{{ $posgrado->cupo }}</dd>
                                             <dt>Fecha de Inicio</dt>
-                                            <dd>{{ $posgrade->fecha_inicio }}</dd>
+                                            <dd>{{ $posgrado->fecha_inicio }}</dd>
                                             <dt>Fecha de Finalización</dt>
-                                            <dd>{{ $posgrade->fecha_fin }}</dd>
+                                            <dd>{{ $posgrado->fecha_fin }}</dd>
                                             <dt>Duración (horas)</dt>
-                                            <dd>{{ $posgrade->duracion }}</dd>
+                                            <dd>{{ $posgrado->duracion }}</dd>
                                             <dt>Hora ingreso</dt>
-                                            <dd>{{ $posgrade->hora_ingreso }}</dd>
+                                            <dd>{{ $posgrado->hora_ingreso }}</dd>
                                             <dt>Hora salida</dt>
-                                            <dd>{{ $posgrade->hora_salida }}</dd>
+                                            <dd>{{ $posgrado->hora_salida }}</dd>
                                             <dt>Lugar</dt>
-                                            <dd>{{ $posgrade->lugar }}</dd>
+                                            <dd>{{ $posgrado->lugar }}</dd>
                                             <dt>Ubicación</dt>
-                                            <dd>{{ isset($posgrade->country->printable_name) ? " / ".$posgrade->country->printable_name : "" }} </dd>
-                                            <dd>{{ $posgrade->province->name }} {{ isset($posgrade->city->name) ? " / ".$posgrade->city->name : "" }} </dd>
+                                            <dd>{{ isset($posgrado->country->printable_name) ? " / ".$posgrado->country->printable_name : "" }} </dd>
+                                            <dd>{{ $posgrado->province->name }} {{ isset($posgrado->city->name) ? " / ".$posgrado->city->name : "" }} </dd>
                                             <dt>Teléfonos</dt>
-                                            @if(isset($posgrade->telefono))
-                                                <dd>{{ $posgrade->telefono }}</dd>
+                                            @if(isset($posgrado->telefono))
+                                                <dd>{{ $posgrado->telefono }}</dd>
                                             @else
                                                 <dd></dd>
                                             @endif
                                             <dt>Celular</dt>
-                                            @if(isset($posgrade->celular))
-                                                <dd>{{ $posgrade->celular }}</dd>
+                                            @if(isset($posgrado->celular))
+                                                <dd>{{ $posgrado->celular }}</dd>
                                             @else
                                                 <dd></dd>
                                             @endif
                                             <dt>Email</dt>
-                                            @if(isset($posgrade->email))
-                                                <dd>{{ $posgrade->email }}</dd>
+                                            @if(isset($posgrado->email))
+                                                <dd>{{ $posgrado->email }}</dd>
                                             @else
                                                 <dd></dd>
                                             @endif
                                             <dt>Web</dt>
-                                            @if(isset($posgrade->web))
-                                                <dd>{{ $posgrade->web }}</dd>
+                                            @if(isset($posgrado->web))
+                                                <dd>{{ $posgrado->web }}</dd>
                                             @else
                                                 <dd></dd>
                                             @endif
                                             <dt>Redes Sociales</dt>
                                             <dd>
-                                                @if(isset($posgrade->facebook))
-                                                    <a href="{{ $posgrade->facebook }}"
+                                                @if(isset($posgrado->facebook))
+                                                    <a href="{{ $posgrado->facebook }}"
                                                        class="btn btn-social-icon btn-facebook"><i
                                                                 class="fa fa-facebook"></i></a>
                                                 @endif
-                                                @if(isset($posgrade->twitter))
+                                                @if(isset($posgrado->twitter))
                                                     &nbsp
-                                                    <a href="{{ $pregrado->twitter }}"
+                                                    <a href="{{ $posgrado->twitter }}"
                                                        class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                                 @endif
-                                                @if(isset($posgrade->linkedin))
+                                                @if(isset($posgrado->linkedin))
                                                     &nbsp
-                                                    <a href="{{ $pregrado->linkedin }}"
+                                                    <a href="{{ $posgrado->linkedin }}"
                                                        class="btn btn-social-icon btn-linkedin"><i
                                                                 class="fa fa-linkedin"></i></a>
                                             @else
@@ -273,8 +273,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
                                         <dt>Objetivo</dt>
-                                        @if(isset($posgrade->objetivo))
-                                            <dd>{{ $posgrade->objetivo }}</dd>
+                                        @if(isset($posgrado->objetivo))
+                                            <dd>{{ $posgrado->objetivo }}</dd>
                                         @else
                                             <dd></dd>
                                         @endif
@@ -288,8 +288,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
                                         <dt>Temario</dt>
-                                        @if(isset($posgrade->temario))
-                                            <dd>{{ $posgrade->temario }}</dd>
+                                        @if(isset($posgrado->temario))
+                                            <dd>{!! $posgrado->temario !!}</dd>
                                         @else
                                             <dd></dd>
                                         @endif
@@ -301,8 +301,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_4">
                                 <dl class="dl-horizontal">
                                     <dt>Instructores</dt>
-                                    @if(isset($posgrade->instructores_detalle))
-                                        <dd>{{ $posgrade->instructores_detalle }}</dd>
+                                    @if(isset($posgrado->instructores_detalle))
+                                        <dd>{!! $posgrado->instructores_detalle  !!}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
@@ -312,16 +312,16 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_5">
                                 <dt>Incluye</dt>
-                                @if(isset($posgrade->incluye))
-                                    <dd>{{ $posgrade->incluye }}</dd>
+                                @if(isset($posgrado->incluye))
+                                    <dd>{{ $posgrado->incluye }}</dd>
                                 @else
                                     <dd></dd>
                                 @endif
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_6">
-                                @if(isset($posgrade->mapa_url) && !empty($posgrade->mapa_url))
-                                    {!! $posgrade->mapa_url !!}
+                                @if(isset($posgrado->mapa_url) && !empty($posgrado->mapa_url))
+                                    {!! $posgrado->mapa_url !!}
                                 @else
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7911908314577!2d-78.41692168566942!3d-0.21129163545664972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5913090093377%3A0x6df39dd58f481a13!2sOV+Constructora!5e0!3m2!1ses!2sec!4v1502305609923" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
                                 @endif
@@ -329,14 +329,14 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_7">
                                 <dt>Documentos</dt>
-                                @if(isset($posgrade->documento_pdf1))
-                                    <dd>{{ $posgrade->documento_pdf1 }}</dd>
+                                @if(isset($posgrado->documento_pdf1))
+                                    <dd>{{ $posgrado->documento_pdf1 }}</dd>
                                 @endif
-                                @if(isset($posgrade->documento_pdf2))
-                                    <dd>{{ $posgrade->documento_pdf2 }}</dd>
+                                @if(isset($posgrado->documento_pdf2))
+                                    <dd>{{ $posgrado->documento_pdf2 }}</dd>
                                 @endif
-                                @if(isset($posgrade->documento_pdf3))
-                                    <dd>{{ $posgrade->documento_pdf3 }}</dd>
+                                @if(isset($posgrado->documento_pdf3))
+                                    <dd>{{ $posgrado->documento_pdf3 }}</dd>
                                 @else
                                     <dd></dd>
                                 @endif
