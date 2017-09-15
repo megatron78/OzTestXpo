@@ -213,7 +213,22 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
 
     //Routes Events
-
+    Route::get('eventos/add', [
+        'uses' => 'EventosController@create',
+        'as' => 'eventos.create',
+    ]);
+    Route::get('eventos/{evento}/edit', [
+        'uses' => 'EventosController@edit',
+        'as' => 'eventos.edit',
+    ]);
+    Route::post('eventos/{evento}/edit', [
+        'uses' => 'EventosController@update',
+        'as' => 'eventos.update',
+    ]);
+    Route::post('eventos/store', [
+        'uses' => 'EventosController@store',
+        'as' => 'eventos.store',
+    ]);
 
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware

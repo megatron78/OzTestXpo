@@ -16,7 +16,7 @@
                 <!-- Default box -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{$posgrade->nombre}}</h3>
+                        <h3 class="box-title">{{$evento->nombre}}</h3>
                         <br>
                         <br>
                         @include('vendor.adminlte.layouts.partials.errors')
@@ -27,7 +27,7 @@
                             </div>
                         @endif
 
-                        {!! Form::model($posgrade, array('files' => true, 'route' => array('posgrados.edit', $posgrade->id))) !!}
+                        {!! Form::model($evento, array('files' => true, 'route' => array('eventos.edit', $evento->id))) !!}
                             <br>
                             {{ Form::label('activo', 'Activo') }}
                             {{ Form::hidden('activo',0)}}
@@ -37,56 +37,25 @@
                             <br>
                             {{ Form::text('nombre') }}
                             <br>
-                            {{ Form::label('nombre_corto', 'Nombre corto') }}
-                            <br>
-                            {{ Form::text('nombre_corto') }}
-                            <br>
-                            {{ Form::label('clasificacion', 'Clasificación') }}
-                            <br>
-                            {{ Form::select('clasificacion', ['Posgrado' => 'Posgrado', 'Cursos' => 'Cursos y Seminarios'],
-                            $posgrade->clasificacion) }}
-                            <br>
-                            {{ Form::label('tipo', 'Tipo') }}
-                            <br>
-                            {{ Form::select('tipo', ['Masterado' => 'Masterado', 'Doctorado' => 'Doctorado',
-                            'PHD' => 'PHD', 'Curso Específico' => 'Curso Específico',
-                            'Curso por Niveles' => 'Curso por Niveles', 'Seminario' => 'Seminario',
-                            'Taller' => 'Taller'], $posgrade->tipo) }}
-                            <br>
                             {{ Form::label('plan', 'Plan') }}
                             <br>
-                            {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '3G' => 'Gold'], $posgrade->plan) }}
+                            {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '3G' => 'Gold'], $evento->plan) }}
                             <br>
-                            {{ Form::text('campo') }}
+                            {{ Form::label('informacion', 'Información') }}
                             <br>
-                            {{ Form::label('campo', 'Campo') }}
+                            {{ Form::text('informacion') }}
                             <br>
-                            {{ Form::text('institucion') }}
+                            {{ Form::label('costo', 'Costo') }}
                             <br>
-                            {{ Form::label('institucion', 'Institución') }}
+                            {{ Form::number('costo', $evento->costo) }}
+                            <br>
+                            {{ Form::label('fecha_evento', 'Fecha Evento') }}
+                            <br>
+                            {{ Form::date('fecha_evento', $evento->fecha_evento) }}
                             <br>
                             {{ Form::label('palabras_clave', 'Palabras Clave') }}
                             <br>
                             {{ Form::text('palabras_clave') }}
-                            <br>
-                            {{ Form::label('costo', 'Costo') }}
-                            <br>
-                            {{ Form::number('costo', $posgrade->costo) }}
-                            <br>
-                            {{ Form::label('instructores', 'Instructores') }}
-                            <br>
-                            {{ Form::text('instructores') }}
-                            <br>
-                            {{ Form::label('instructores', 'Instructores') }}
-                            <br>
-                            {{ Form::label('country_id', 'País') }}
-                            {{ Form::select('country_id', $countries->pluck('name','id')->all(), $posgrade->country_id, ['class' => 'form-control']) }}
-                            <br>
-                            {{ Form::label('province_id', 'Provincia') }}
-                            {{ Form::select('province_id', $provinces->pluck('name','id')->all(), $posgrade->province_id, ['class' => 'form-control']) }}
-                            <br>
-                            {{ Form::label('city_id', 'Ciudad') }}
-                            {{ Form::select('city_id', $cities->pluck('name','id')->all(), $posgrade->city_id, ['class' => 'form-control']) }}
                             <br>
                             {{ Form::label('telefono', 'Telefono') }}
                             <br>
@@ -112,114 +81,6 @@
                             <br>
                             {{ Form::text('twitter') }}
                             <br>
-                            {{ Form::label('linkedin', 'Linkedin') }}
-                            <br>
-                            {{ Form::text('linkedin') }}
-                            <br>
-                            {{ Form::label('presencial', 'Presencial') }}
-                            {{ Form::hidden('presencial',0)}}
-                            {{ Form::checkbox('presencial') }}
-                            {{ Form::label('semipresencial', 'Semipresencial') }}
-                            {{ Form::hidden('semipresencial',0)}}
-                            {{ Form::checkbox('semipresencial') }}
-                            {{ Form::label('distancia', 'Distancia') }}
-                            {{ Form::hidden('distancia',0)}}
-                            {{ Form::checkbox('distancia') }}
-                            <br>
-                            {{ Form::label('cupos', 'Cupos') }}
-                            <br>
-                            {{ Form::number('cupos', $posgrade->cupos) }}
-                            <br>
-                            {{ Form::label('fecha_inicio', 'Fecha Inicio') }}
-                            <br>
-                            {{ Form::date('fecha_inicio', \Carbon\Carbon::now()) }}
-                            <br>
-                            {{ Form::label('fecha_fin', 'Fecha Fin') }}
-                            <br>
-                            {{ Form::date('fecha_fin') }}
-                            <br>
-                            {{ Form::label('duracion', 'Duración') }}
-                            <br>
-                            {{ Form::text('duracion') }}
-                            <br>
-                            {{ Form::label('hora_ingreso', 'Hora Ingreso') }}
-                            <br>
-                            {{ Form::text('hora_ingreso') }}
-                            <br>
-                            {{ Form::label('hora_salida', 'Hora Salida') }}
-                            <br>
-                            {{ Form::text('hora_salida') }}
-                            <br>
-                            {{ Form::label('lugar', 'Lugar') }}
-                            <br>
-                            {{ Form::text('lugar') }}
-                            <br>
-                            {{ Form::label('objetivo', 'Objetivo') }}
-                            <br>
-                            {{ Form::textArea('objetivo', $posgrade->objetivo, ['class' => 'textarea']) }}
-                            <br>
-                            <div class="box">
-                                <div class="box-header">
-                                    <h3 class="box-title">Temario
-                                        <small></small>
-                                    </h3>
-                                    <!-- tools box -->
-                                    <div class="pull-right box-tools">
-                                        <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
-                                                data-toggle="tooltip" title="Collapse">
-                                            <i class="fa fa-minus"></i></button>
-                                    </div>
-                                    <!-- /. tools -->
-                                </div>
-                                <!-- /.box-header -->
-                                <div class="box-body pad">
-                                    {{ Form::textArea('temario', $posgrade->temario, ['class' => 'textarea']) }}
-                                </div>
-                            </div>
-                            <br>
-                            <div class="box">
-                                <div class="box-header">
-                                    <h3 class="box-title">Detalle de Instructores
-                                        <small></small>
-                                    </h3>
-                                    <!-- tools box -->
-                                    <div class="pull-right box-tools">
-                                        <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
-                                                data-toggle="tooltip" title="Collapse">
-                                            <i class="fa fa-minus"></i></button>
-                                    </div>
-                                    <!-- /. tools -->
-                                </div>
-                                <!-- /.box-header -->
-                                <div class="box-body pad">
-                                    {{ Form::textArea('instructores_detalle', $posgrade->instructores_detalle, ['class' => 'textarea']) }}
-                                </div>
-                            </div>
-                            <br>
-                            {{ Form::label('incluye', 'Incluye') }}
-                            <br>
-                            {{ Form::textArea('incluye', $posgrade->incluye, ['class' => 'textarea']) }}
-                            <br>
-                            {{ Form::label('mapa_url', 'Mapa URL') }}
-                            <br>
-                            {{ Form::text('mapa_url') }}
-                            <br>
-                            {{ Form::label('max_alumnos_x_nivel', 'Máximo Alumnos por Nivel') }}
-                            <br>
-                            {{ Form::number('max_alumnos_x_nivel', $posgrade->max_alumnos_x_nivel) }}
-                            <br>
-                            {{ Form::label('meses_inicio', 'Meses Inicio') }}
-                            <br>
-                            {{ Form::text('meses_inicio') }}
-                            <br>
-                            {{ Form::label('duracion_nivel', 'Duración Nivel') }}
-                            <br>
-                            {{ Form::text('duracion_nivel') }}
-                            <br>
-                            {{ Form::label('horarios', 'Horarios') }}
-                            <br>
-                            {{ Form::text('horarios') }}
-                            <br>
                             {{ Form::label('ruc_invoice', 'Ruc para Factura') }}
                             <br>
                             {{ Form::text('ruc_invoice') }}
@@ -242,18 +103,11 @@
                             <br>
                             {{ Form::label('plan_desde', 'Plan Desde') }}
                             <br>
-                            {{ Form::date('plan_desde', \Carbon\Carbon::now()) }}
+                            {{ Form::date('plan_desde', $evento->plan_desde) }}
                             <br>
                             {{ Form::label('plan_hasta', 'Plan Hasta') }}
                             <br>
-                            {{ Form::date('plan_hasta') }}
-                            <br>
-                            <br>
-                            {{ Form::label('Archivos PDF') }}
-                            <br>
-                            {{ Form::file('documento_pdf1') }}
-                            {{ Form::file('documento_pdf2') }}
-                            {{ Form::file('documento_pdf3') }}
+                            {{ Form::date('plan_hasta', $evento->plan_hasta) }}
                             <br>
                             <br>
                             <br>

@@ -30,6 +30,7 @@ class CreateEventsTable extends Migration
             $table->string('slug');
             $table->mediumText('informacion');
             $table->string('costo');
+            $table->date('fecha_evento');
             $table->string('dia_evento');
             $table->string('mes_evento');
             $table->string('year_evento');
