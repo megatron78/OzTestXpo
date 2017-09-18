@@ -27,9 +27,10 @@
                         @endif
 
                         {!! Form::model($institution, array('files' => true, 'route' => array('preescolar.update', $institution->id))) !!}
-                            {{ Form::label('nombre', 'Nombre') }}
-                            <br>
-                            {{ Form::text('nombre') }}
+                            <div class="form-group">
+                                {{ Form::label('nombre', 'Nombre') }}
+                                {{ Form::text('nombre') }}
+                            <div>
                             <br>
                             {{ Form::label('nombre_corto', 'Nombre corto') }}
                             <br>

@@ -26,7 +26,7 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['method' => 'POST', 'route' => 'eventos.store']) !!}
+                        {!! Form::open(['files' => true, 'method' => 'POST', 'route' => 'eventos.store']) !!}
                             <br>
                             {{ Form::label('activo', 'Activo') }}
                             {{ Form::hidden('activo',0)}}
@@ -38,19 +38,23 @@
                             <br>
                             {{ Form::label('plan', 'Plan') }}
                             <br>
-                            {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '3G' => 'Gold'], $evento->plan) }}
+                            {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '3G' => 'Gold'], '3B') }}
                             <br>
                             {{ Form::label('informacion', 'Información') }}
                             <br>
                             {{ Form::text('informacion') }}
                             <br>
+                            {{ Form::label('Foto del evento') }}
+                            <br>
+                            {{ Form::file('evento_bg_picture') }}
+                            <br>
                             {{ Form::label('costo', 'Costo') }}
                             <br>
-                            {{ Form::number('costo', $evento->costo) }}
+                            {{ Form::number('costo') }}
                             <br>
                             {{ Form::label('fecha_evento', 'Fecha Evento') }}
                             <br>
-                            {{ Form::date('fecha_evento', $evento->fecha_evento) }}
+                            {{ Form::date('fecha_evento') }}
                             <br>
                             {{ Form::label('palabras_clave', 'Palabras Clave') }}
                             <br>
@@ -102,15 +106,15 @@
                             <br>
                             {{ Form::label('plan_desde', 'Plan Desde') }}
                             <br>
-                            {{ Form::date('plan_desde', $evento->plan_desde) }}
+                            {{ Form::date('plan_desde', Carbon\Carbon::now()) }}
                             <br>
                             {{ Form::label('plan_hasta', 'Plan Hasta') }}
                             <br>
-                            {{ Form::date('plan_hasta', $evento->plan_hasta) }}
+                            {{ Form::date('plan_hasta') }}
                             <br>
                             <br>
                             <br>
-                        {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit('Crear Registro', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
                         {{--<div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">

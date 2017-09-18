@@ -16,6 +16,7 @@ class AdminTableSeederM extends Seeder
             'name' => 'Mauricio Molina',
             'email' => 'megatronldu@gmail.com',
             'contact_person' => 'Mauricio Molina',
+            'verified' => 1,
             'role' => 'admin',
         ]);
     }

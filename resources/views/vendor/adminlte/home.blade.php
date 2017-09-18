@@ -30,7 +30,7 @@
 								<li><a href="{{ route('superior.create') }}" target="_blank">Edu. Superior</a></li>
 								<li><a href="{{ route('posgrados.create') }}" target="_blank">Posgrados</a></li>
 								<li><a href="{{ route('cursoseminario.create') }}" target="_blank">Cursos y Seminarios</a></li>
-								<li><a href="#">Eventos</a></li>
+								<li><a href="{{ route('eventos.create') }}" target="_blank">Eventos</a></li>
 							</ul>
 						</div>
 						<br>

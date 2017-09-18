@@ -27,6 +27,9 @@ class EventosController extends Controller
         }
 
         $input['user_id'] = $request->user()->id;
+        $input['dia_evento'] = $request->fecha_evento->day;
+        $input['mes_evento'] = $request->fecha_evento->format('F');
+        $input['year_evento'] = $request->fecha_evento->year;
 
         Event::create($input);
 

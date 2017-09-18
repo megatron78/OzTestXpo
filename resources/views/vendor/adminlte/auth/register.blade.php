@@ -6,11 +6,11 @@
 
 @section('content')
 
-    <body class="hold-transition register-page">
+    <body style="background-image: url('{{ asset('/img/expoeducar_login_bg.png') }}'); background-size: contain; background-repeat: no-repeat; background-position: center center;" class="hold-transition register-page">
     <div id="app" v-cloak>
         <div class="register-box">
             <div class="register-logo">
-                <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+                <a href="{{ url('/home') }}"><b>Expo</b>Educar</a>
             </div>
 
             @if (count($errors) > 0)
@@ -24,7 +24,7 @@
                 </div>
             @endif
 
-            <div class="register-box-body">
+            <div style="background-color: rgba(255, 255, 255, 0.1);" class="register-box-body">
                 <p class="login-box-msg">{{ trans('adminlte_lang::message.registermember') }}</p>
                 <form action="{{ url('/register') }}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -71,7 +71,7 @@
                         </div><!-- /.col -->
                         <div class="col-xs-6">
                             <div class="form-group">
-                                <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">{{ trans('adminlte_lang::message.conditions') }}</button>
+                                <button type="button" style="width: 170px" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">{{ trans('adminlte_lang::message.conditions') }}</button>
                             </div>
                         </div><!-- /.col -->
                         <div class="col-xs-4 col-xs-push-1">

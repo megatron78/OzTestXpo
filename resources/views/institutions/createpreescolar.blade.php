@@ -27,11 +27,12 @@
                         @endif
 
                         {!! Form::open(['files' => true, 'method' => 'POST', 'route' => 'preescolar.store']) !!}
-                        {{ Form::label('nombre', 'Nombre') }}
+                        <div class="form-group">
+                        {{ Form::label('nombre', 'Nombre', array('class' => 'col-sm-2 control-label')) }}
                         {{ Form::hidden('user_id',0)}}
+                        {{ Form::text('nombre', null, ['class' => 'col-sm-4 control-label']) }}
                         <br>
-                        {{ Form::text('nombre') }}
-                        <br>
+                        </div>
                         {{ Form::label('nombre_corto', 'Nombre corto') }}
                         <br>
                         {{ Form::text('nombre_corto') }}

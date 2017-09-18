@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use App\Jobs\SendVerificationEmail;
 
 /**
  * Class RegisterController
@@ -86,10 +89,30 @@ class RegisterController extends Controller
             'telephone'    => $data['telephone'],
             'contact_person'    => $data['contact_person'],
             'password' => bcrypt($data['password']),
+            'email_token' => base64_encode($data['email']),
         ];
         if (config('auth.providers.users.field','email') === 'username' && isset($data['username'])) {
             $fields['username'] = $data['username'];
         }
         return User::create($fields);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function register(Request $request) {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        $this->dispatch(new SendVerificationEmail($user));
+        return view('verification');
+    }
+
+    public function verify($token) {
+        $user = User::where('email_token', $token)->first();
+        $user->verified = 1;
+        if($user->save()) {
+            return view('emailconfirm', ['user' => $user]);
+        }
     }
 }

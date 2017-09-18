@@ -117,6 +117,8 @@ Route::get('ajax-parish/', function() {
     return $parishes;
 });
 
+Route::get('verifyemail/{token}', 'Auth\RegisterController@verify');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('institutions', [
         'uses' => 'HomeController@getInstitutionsByAuthUser',

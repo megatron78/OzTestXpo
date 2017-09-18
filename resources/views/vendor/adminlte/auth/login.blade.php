@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-<body class="hold-transition login-page">
+<body style="background-image: url('{{ asset('/img/expoeducar_login_bg.png') }}'); background-size: contain; background-repeat: no-repeat; background-position: center center;" class="hold-transition login-page">
     <div id="app" v-cloak>
-        <div class="login-box">
+        <div  class="login-box">
             <div class="login-logo">
                 <a href="{{ url('/home') }}"><b>EXPO</b>Educar</a>
             </div><!-- /.login-logo -->
@@ -23,23 +23,22 @@
             </div>
         @endif
 
-        <div class="login-box-body">
-        <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
+        <div style="background-color: rgba(255, 255, 255, 0.1);" class="login-box-body">
+            <p style="" class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
 
-        <login-form name="{{ config('auth.providers.users.field','email') }}"
-                    domain="{{ config('auth.defaults.domain','') }}"></login-form>
+            <login-form name="{{ config('auth.providers.users.field','email') }}"
+                        domain="{{ config('auth.defaults.domain','') }}"></login-form>
 
-        {{--@include('adminlte::auth.partials.social_login')--}}
+            {{--@include('adminlte::auth.partials.social_login')--}}
 
-        <a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
-        <a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a>
+            <a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
+            <a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a>
 
-    </div>
+        </div>
 
-    </div>
+        </div>
     </div>
     @include('adminlte::layouts.partials.scripts_auth')
-
     <script>
         $(function () {
             $('input').iCheck({

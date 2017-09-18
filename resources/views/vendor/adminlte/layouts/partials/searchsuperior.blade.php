@@ -5,9 +5,8 @@
                 {{--<span style="font-size: 18px;color: ghostwhite;" class="glyphicon glyphicon glyphicon-search"></span>
                 &nbsp;&nbsp;&nbsp;--}}
                 <div class="form-group">
-                    <label style="font-size: 14px; color: ghostwhite;" for="search_province">Provincia: &nbsp;</label>
-                    <select style="max-width: 120px" name="search_province" id="search_province" class="form-control">
-                        <option value="">...</option>
+                    <select style="min-width: 200px; max-width: 200px" name="search_province" id="search_province" class="form-control">
+                        <option value="">Provincia</option>
                         @foreach($provinces as $province)
                             <option value="{{ $province->id}}">{{ $province->name}}</option>
                         @endforeach
@@ -15,17 +14,15 @@
                 </div>
                 <div class="form-group">
                     &nbsp;&nbsp;
-                    <label style="font-size: 14px; color: ghostwhite;" for="search_city">Ciudad: &nbsp;</label>
-                    <select style="max-width: 120px" id="search_city" name="search_city" class="form-control">
-                        <option value="">...</option>
+                    <select style="min-width: 200px; max-width: 200px" id="search_city" name="search_city" class="form-control">
+                        <option value="">Ciudad</option>
 
                     </select>
                 </div>
                 <div class="form-group">
                     &nbsp;&nbsp;
-                    <label style="font-size: 14px; color: ghostwhite;" for="search_tipo">Tipo: &nbsp;</label>
-                    <select style="max-width: 140px" id="search_tipo" name="search_tipo" class="form-control">
-                        <option value="">...</option>
+                    <select style="min-width: 200px; max-width: 200px" id="search_tipo" name="search_tipo" class="form-control">
+                        <option value="">Tipo</option>
                         <option value="Universidad">Universidad</option>
                         <option value="Instituto">Instituto</option>
                         <option value="Academia">Academia</option>
@@ -33,9 +30,8 @@
                 </div>
                 <div class="form-group">
                     &nbsp;&nbsp;
-                    <label style="font-size: 14px; color: ghostwhite;" for="search_institution" class="control-label">Nombre: &nbsp;</label>
                     <input type="text" id="search_institution" name="search_institution" class="form-control mx-sm-2"
-                           placeholder="Nombre o palabra clave..." style="width: 350px">
+                           placeholder="Nombre o palabra clave..." style="min-width: 400px; max-width: 400px">
                 </div>
                 <button type="submit" style="width: 120px;" class="btn btn-warning">BUSCAR</button>
                 <a style="font-size: 14px" data-toggle="collapse" data-parent="#accordion"
@@ -87,9 +83,9 @@
                     </label>
                 </div>
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
-                    &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" for="search_carreras" class="control-label">Carrera: &nbsp;</label>
+                    &nbsp;&nbsp;
                       <input type="text" id="search_carreras" name="search_carreras" class="form-control mx-sm-2"
-                               placeholder="Carrera..." style="width: 350px">
+                               placeholder="Carrera..." style="min-width: 400px; max-width: 400px">
                 </div>&nbsp;&nbsp;
             </div>
         </form>

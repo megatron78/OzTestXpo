@@ -26,7 +26,7 @@ class CreateEventsTable extends Migration
 
             //Information
             $table->string('nombre');
-            $table->string('evento_bg_picture');
+            $table->string('evento_bg_picture')->nullable();
             $table->string('slug');
             $table->mediumText('informacion');
             $table->string('costo');
