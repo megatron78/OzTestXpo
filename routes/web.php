@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Input;
 
 Route::get('/', ['uses' => 'Home2Controller@showHome', 'as' => 'destacados',]);
 
+Route::get('comparepreescolar', [
+    'uses' => 'InstitutionsViewController@getComparisonView',
+    'as' => 'compare.preescolar',
+]);
+
 Route::get('preescolar', [
     'uses' => 'ListPreescolarController',
     'as' => 'preescolar.all',
