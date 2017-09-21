@@ -1,0 +1,63 @@
+<!-- Modal compare preescolar -->
+<div class="modal fad" id="comparePreescolar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Comparar Preescolar</h4>
+            </div>
+            <div class="modal-body">
+                <div id="app" v-cloak>
+                    <section class="content" id="ini" name="ini">
+                        <div style="width: 100%" class="container">
+                            <div class="col-md-12 col-md-offset-0">
+                                <!-- Default box -->
+                                <div class="box">
+                                    <div class="box-header with-border">
+                                        <h1 class="box-title">Comparación Preescolar</h1>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body no-padding">
+                                        <table class="table table-bordered">
+                                            <?php $countTR = 0; ?>
+                                            @foreach($transposedpre as $row)
+                                                <?php $countTD = 0; ?>
+                                                <tr>
+                                                    @foreach($row as $cell)
+                                                        @if($countTR === 0)
+                                                            <th>{{ $cell }}</th>
+                                                        @else
+                                                            @if($countTD === 0)
+                                                                <td class="text-bold">{{ $cell }}</td>
+                                                            @else
+                                                                <td>{{ $cell }}</td>
+                                                            @endif
+                                                        @endif
+                                                        <?php $countTD += 1; ?>
+                                                    @endforeach
+                                                </tr>
+                                                <?php $countTR += 1; ?>
+                                            @endforeach
+                                        </table>
+                                    </div>
+                                    <div class="box-body">
+                                        {{--{{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.--}}
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

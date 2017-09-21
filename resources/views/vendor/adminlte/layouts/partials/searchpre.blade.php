@@ -29,12 +29,15 @@
                 <div class="form-group">
                     &nbsp;&nbsp;
                     <input type="text" id="search_institution" name="search_institution" class="form-control mx-sm-2"
-                           placeholder="Nombre o palabra clave..." style="min-width: 400px; max-width: 400px">
+                           placeholder="Nombre o palabra clave..." style="min-width: 370px; max-width: 370px">
                 </div>
                 <button type="submit" style="width: 120px;" class="btn btn-warning">BUSCAR</button>
                 <a style="font-size: 14px" data-toggle="collapse" data-parent="#accordion"
                    href="#advancedSearch">&nbsp;&nbsp;
                     <strong> Avanzada <i class="fa fa-search-plus margin-r-5"></i></strong>
+                </a>
+                <a style="appearance: button; cursor: default;" class="btn-xs btn-warning" onclick="compare()">
+                    Comparar
                 </a>
             </div>
             <div id="advancedSearch" class="box-body panel-collapse collapse">

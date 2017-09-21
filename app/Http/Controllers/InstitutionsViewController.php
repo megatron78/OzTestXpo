@@ -6,11 +6,11 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\InstitutionsView;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class InstitutionsViewController extends Controller
 {
     public function __invoke(Request $request) {
-
     }
 
     protected function getPaidInstitutionsView() {
@@ -26,8 +26,10 @@ class InstitutionsViewController extends Controller
     }
 
     protected function getComparisonView() {
-        $ids = [305,306,307,308,309,310];
-        $bindingsString = implode(',', array_fill(0, count($ids), '?'));
+        $inputs = Input::all();
+        $integerIDs = array_map('intval', explode(',', $inputs["params"]));
+
+        $bindingsString = implode(',', array_fill(0, count($integerIDs), '?'));
 
         $sqlQuery = "SELECT '', 'Sostenimiento', 'Promedio Pensión', 
                         'Religión', 'Género', 'Horario Extendido', 'Total Estudiantes', 'Máximo Estudiantes por Clase', 
@@ -82,7 +84,7 @@ class InstitutionsViewController extends Controller
                         CASE WHEN camara_ip_aulas_espacios = 1 THEN 'SI' ELSE 'NO' END AS `Cámara IP Aulas/Espacios`
                         FROM `institutions_views` where id in ({$bindingsString})";
 
-        $tagsMM = DB::select($sqlQuery, $ids);
+        $tagsMM = DB::select($sqlQuery, $integerIDs);
 
         $comparepreescolar =  $tagsMM;
         foreach($comparepreescolar as $key => $row) {

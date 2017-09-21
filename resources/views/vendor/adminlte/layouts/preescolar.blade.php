@@ -17,14 +17,14 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <section class="content" id="ini" name="ini">
         <!-- Modal -->
         @include('vendor.adminlte.layouts.partials.modalmeinteresa')
+
         <div style="width: 100%" class="container">
             <!-- Search panel -->
             @include('vendor.adminlte.layouts.partials.searchpre')
+
             <?php $countPagado = 0; ?>
             <?php $countFree = 0; ?>
-            {{--<a class="btn-sm bg-green" onclick="submit()">
-               Comparar
-            </a>--}}
+
             @foreach($instituciones as $institucion)
                 @if($institucion->plan === "1G" || $institucion->plan === "2P")
                     @if($countPagado === 0)
@@ -235,13 +235,18 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Bootstrap slider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.js"></script>
 <script>
-    function submit() {
+    function compare() {
         var checked = [];
         $('input:checkbox:checked').each(function() {
-            // For each checkbox, find the following <a>. Add the text of that element to the "checked" array.
-            checked.push( $(this) );
+            // For each checked checkbox, find comparison elements
+            if($(this).attr("id").startsWith("compare-"))
+                checked.push( $(this).attr("id").split("-")[1] );
         });
-        alert(checked.join());
+        if (typeof checked !== 'undefined' && checked.length > 1) {
+            window.open('/comparepreescolar?params=' + checked, '_blank');
+        }
+        else
+            alert('Por favor seleccione al menos dos instituciones para comparar.');
     };
     $(function () {
         /* BOOTSTRAP SLIDER */
