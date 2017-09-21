@@ -51,7 +51,7 @@
                         <br>
                         {{ Form::label('plan', 'Plan') }}
                         <br>
-                        {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '3G' => 'Gold'], '3B') }}
+                        {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], '3B') }}
                         <br>
                         {{ Form::label('campo', 'Campo') }}
                         <br>

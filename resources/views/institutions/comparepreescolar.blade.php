@@ -1,62 +1,52 @@
-
-    <div class="container-fluid spark-screen">
-        <div class="row">
-            <div class="col-md-12 col-md-offset-0">
-                <!-- Default box -->
-                <div class="box">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Comparación Preescolar</h3>
-                        <br>
-                        <br>
-                        <table>
-                            <tr>
-                                <th>Parámetro</th>
-                            @foreach($columns as $column)
-                                <th>{{ $column }}</th>
-                            @endforeach
-                            </tr>
-                            <tr>
-                                <td>Pública</td>
-                                @foreach($transpose as $row)
-                                    @foreach($row as $cell)
-                                        @foreach($cell as $data)
-                                            <td>{{ $data }}</td>
+<!DOCTYPE html>
+<!--
+Landing page based on Pratt: http://blacktie.co/demo/pratt/
+-->
+<html lang="es">
+@include('vendor.adminlte.layouts.partials.headexpoeducar');
+    <body data-spy="scroll" data-target="#navigation" data-offset="50">
+        <div id="app" v-cloak>
+            <section class="content" id="ini" name="ini">
+                <div style="width: 100%" class="container">
+                        <div class="col-md-12 col-md-offset-0">
+                            <!-- Default box -->
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h1 class="box-title">Comparación Preescolar</h1>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body no-padding">
+                                    <table class="table table-bordered">
+                                        <?php $countTR = 0; ?>
+                                        @foreach($transposedpre as $row)
+                                            <?php $countTD = 0; ?>
+                                            <tr>
+                                                @foreach($row as $cell)
+                                                    @if($countTR === 0)
+                                                        <th>{{ $cell }}</th>
+                                                    @else
+                                                        @if($countTD === 0)
+                                                            <td class="text-bold">{{ $cell }}</td>
+                                                        @else
+                                                            <td>{{ $cell }}</td>
+                                                        @endif
+                                                    @endif
+                                                    <?php $countTD += 1; ?>
+                                                @endforeach
+                                            </tr>
+                                            <?php $countTR += 1; ?>
                                         @endforeach
-                                    @endforeach
-                                @endforeach
-                            </tr>
-
-
-                        </table>
-                        {{--<table id="institucionesTable" class="table table-hover table-responsive">
-                            <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Slug</th>
-                                <th>Nombre</th>
-                                <th>Categoría</th>
-                                <th>Estado</th>
-                                <th>Plan</th>
-                                <th>Plan desde</th>
-                                <th>Plan hasta</th>
-                            </tr>
-                            </thead>
-                        </table>--}}
-                        {{--<div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                <i class="fa fa-minus"></i></button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                                <i class="fa fa-times"></i></button>
-                        </div>--}}
-                    </div>
-                    <div class="box-body">
-                        {{--{{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.--}}
-                    </div>
-                    <!-- /.box-body -->
+                                    </table>
+                                </div>
+                                <div class="box-body">
+                                    {{--{{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.--}}
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
                 </div>
-                <!-- /.box -->
-
-            </div>
+            </section>
         </div>
-    </div>
-
+    </body>
+</html>

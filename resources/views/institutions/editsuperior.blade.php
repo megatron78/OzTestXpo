@@ -37,7 +37,7 @@
                         <br>
                         {{ Form::label('plan', 'Plan') }}
                         <br>
-                        {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '3G' => 'Gold'], $pregrade->plan) }}
+                        {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $pregrade->plan) }}
                         <br>
                         {{ Form::label('activo', 'Activo') }}
                         {{ Form::hidden('activo',0)}}

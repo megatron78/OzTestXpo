@@ -22,6 +22,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             @include('vendor.adminlte.layouts.partials.searchpre')
             <?php $countPagado = 0; ?>
             <?php $countFree = 0; ?>
+            {{--<a class="btn-sm bg-green" onclick="submit()">
+               Comparar
+            </a>--}}
             @foreach($instituciones as $institucion)
                 @if($institucion->plan === "1G" || $institucion->plan === "2P")
                     @if($countPagado === 0)
@@ -32,6 +35,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                  onmouseleave="if($('#collapse{{ $institucion->id }}').attr('aria-expanded') === 'true'){ $('#collapse{{ $institucion->id }}').collapse('toggle');}">
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user">
+                                    <input style="position: absolute; bottom: 0px; right: 0px;" type="checkbox" class="checkbox"
+                                           id="compare-{{ $institucion->id }}" />
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-black"
                                         @if(!empty($institucion->institution_bg_picture))
@@ -230,6 +235,14 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Bootstrap slider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.js"></script>
 <script>
+    function submit() {
+        var checked = [];
+        $('input:checkbox:checked').each(function() {
+            // For each checkbox, find the following <a>. Add the text of that element to the "checked" array.
+            checked.push( $(this) );
+        });
+        alert(checked.join());
+    };
     $(function () {
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();
