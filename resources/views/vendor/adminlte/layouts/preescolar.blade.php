@@ -17,6 +17,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <section class="content" id="ini" name="ini">
         <!-- Modal -->
         @include('vendor.adminlte.layouts.partials.modalmeinteresa')
+        @include('vendor.adminlte.layouts.partials.modalcomparepreescolar')
 
         <div style="width: 100%" class="container">
             <!-- Search panel -->
@@ -235,19 +236,28 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Bootstrap slider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.js"></script>
 <script>
-    function compare() {
+    $('.load-ajax-modal').click(function(e){
         var checked = [];
         $('input:checkbox:checked').each(function() {
             // For each checked checkbox, find comparison elements
             if($(this).attr("id").startsWith("compare-"))
                 checked.push( $(this).attr("id").split("-")[1] );
         });
-        if (typeof checked !== 'undefined' && checked.length > 1) {
-            window.open('/comparepreescolar?params=' + checked, '_blank');
-        }
-        else
+        if (typeof checked === 'undefined' || checked.length <= 1) {
+            e.stopPropagation();
             alert('Por favor seleccione al menos dos instituciones para comparar.');
-    };
+            return null;
+        }
+        $.ajax({
+            type : 'GET',
+            url : $(this).data('path')+'?params='+checked,
+
+            success: function(result) {
+                $('#comparePreescolar div.modal-body').html(result);
+            }
+        });
+    });
+
     $(function () {
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();

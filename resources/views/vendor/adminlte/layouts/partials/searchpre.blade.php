@@ -36,9 +36,12 @@
                    href="#advancedSearch">&nbsp;&nbsp;
                     <strong> Avanzada <i class="fa fa-search-plus margin-r-5"></i></strong>
                 </a>
-                <a style="appearance: button; cursor: default;" class="btn-xs btn-warning" onclick="compare()">
+                <button type="button" data-path="{{ route('compare.preescolar') }}"
+                        class="btn btn-warning btn-xs load-ajax-modal"
+                        role="button"
+                        data-toggle="modal" data-target="#comparePreescolar">
                     Comparar
-                </a>
+                </button>
             </div>
             <div id="advancedSearch" class="box-body panel-collapse collapse">
                 <div class="form-group">

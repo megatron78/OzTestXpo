@@ -27,6 +27,8 @@ class InstitutionsViewController extends Controller
 
     protected function getComparisonView() {
         $inputs = Input::all();
+        if(!isset($inputs["params"]))
+            return;
         $integerIDs = array_map('intval', explode(',', $inputs["params"]));
 
         $bindingsString = implode(',', array_fill(0, count($integerIDs), '?'));
