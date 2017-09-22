@@ -17,7 +17,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <section class="content" id="ini" name="ini">
         <!-- Modal -->
         @include('vendor.adminlte.layouts.partials.modalmeinteresa')
-        @include('vendor.adminlte.layouts.partials.modalcomparepreescolar')
+        @include('vendor.adminlte.layouts.partials.modalcomparetable')
 
         <div style="width: 100%" class="container">
             <!-- Search panel -->
@@ -253,7 +253,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             url : $(this).data('path')+'?params='+checked,
 
             success: function(result) {
-                $('#comparePreescolar div.modal-body').html(result);
+                $('#compareTableModal div.modal-body').html(result);
             }
         });
     });

@@ -17,6 +17,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <section class="content" id="egb" name="egb">
         <!-- Modal -->
         @include('vendor.adminlte.layouts.partials.modalmeinteresa')
+        @include('vendor.adminlte.layouts.partials.modalcomparetable')
+
         <div style="width: 100%" class="container">
             <!-- Search panel -->
             @include('vendor.adminlte.layouts.partials.searchpre')
@@ -33,6 +35,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                  onmouseleave="if($('#collapse{{ $institucion->id }}').attr('aria-expanded') === 'true'){ $('#collapse{{ $institucion->id }}').collapse('toggle');}">
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user">
+                                    <input style="position: absolute; bottom: 0px; right: 0px;" type="checkbox" class="checkbox"
+                                           id="compare-{{ $institucion->id }}" />
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-black"
                                         @if(!empty($institution->institution_bg_picture))
@@ -231,6 +235,28 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Bootstrap slider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.js"></script>
 <script>
+    $('.load-ajax-modal').click(function(e){
+        var checked = [];
+        $('input:checkbox:checked').each(function() {
+            // For each checked checkbox, find comparison elements
+            if($(this).attr("id").startsWith("compare-"))
+                checked.push( $(this).attr("id").split("-")[1] );
+        });
+        if (typeof checked === 'undefined' || checked.length <= 1) {
+            e.stopPropagation();
+            alert('Por favor seleccione al menos dos instituciones para comparar.');
+            return null;
+        }
+        $.ajax({
+            type : 'GET',
+            url : $(this).data('path')+'?params='+checked,
+
+            success: function(result) {
+                $('#compareTableModal div.modal-body').html(result);
+            }
+        });
+    });
+
     $(function () {
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();

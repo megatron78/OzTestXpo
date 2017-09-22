@@ -36,10 +36,15 @@
                    href="#advancedSearch">&nbsp;&nbsp;
                     <strong> Avanzada <i class="fa fa-search-plus margin-r-5"></i></strong>
                 </a>
-                <button type="button" data-path="{{ route('compare.preescolar') }}"
+
+                @if( Route::currentRouteName() == 'preescolar.all')
+                    <button type="button" data-path="{{ route('compare.preescolar') }}"
+                @else
+                    <button type="button" data-path="{{ route('compare.escuelacolegio') }}"
+                @endif
                         class="btn btn-warning btn-xs load-ajax-modal"
                         role="button"
-                        data-toggle="modal" data-target="#comparePreescolar">
+                        data-toggle="modal" data-target="#compareTableModal">
                     Comparar
                 </button>
             </div>

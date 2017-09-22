@@ -22,6 +22,11 @@ Route::get('comparepreescolar', [
     'as' => 'compare.preescolar',
 ]);
 
+Route::get('compareescuelacolegio', [
+    'uses' => 'InstitutionsViewController@getComparisonECView',
+    'as' => 'compare.escuelacolegio',
+]);
+
 Route::get('preescolar', [
     'uses' => 'ListPreescolarController',
     'as' => 'preescolar.all',
