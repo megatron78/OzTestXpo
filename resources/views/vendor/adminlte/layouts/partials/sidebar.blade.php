@@ -40,13 +40,13 @@
         <ul class="sidebar-menu">
             <li class="header">{{ trans('adminlte_lang::message.adm_header') }}</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.adm_mis_instituciones') }}</span></a></li>
+            <li class="{{ Request::is('home*') ? 'active' : '' }}"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.adm_mis_instituciones') }}</span></a></li>
             {{--<li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>--}}
-            <li class="treeview">
+            <li class="treeview {{ Request::is('adm*') ? 'active' : '' }}">
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.adm_administracion') }}</span>
                     <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('userslist') }}">{{ trans('adminlte_lang::message.adm_usuarios') }}</a></li>
+                    <li class="{{ Request::is('admuser*') ? 'active' : '' }}"><a href="{{ url('admuserslist') }}">{{ trans('adminlte_lang::message.adm_usuarios') }}</a></li>
                     <li><a href="#">{{ trans('adminlte_lang::message.adm_publicidad') }}</a></li>
                     <li><a href="#">{{ trans('adminlte_lang::message.adm_banners') }}</a></li>
                     <li><a href="#">{{ trans('adminlte_lang::message.adm_activaciones') }}</a></li>

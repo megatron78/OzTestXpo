@@ -136,7 +136,7 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
 
     //Routes User
-    Route::get('userslist', [
+    Route::get('admuserslist', [
         'uses' => 'ListUserController@listUsers',
         'as' => 'users.list',
     ]);
@@ -146,12 +146,12 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'users.datatable',
     ]);
 
-    Route::get('user/{user}/edit', [
+    Route::get('admuser/{user}/edit', [
         'uses' => 'UserController@edit',
         'as' => 'user.edit',
     ]);
 
-    Route::post('user/{user}/edit', [
+    Route::post('admuser/{user}/edit', [
         'uses' => 'UserController@update',
         'as' => 'user.update',
     ]);
