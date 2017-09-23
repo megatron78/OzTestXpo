@@ -134,6 +134,28 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'HomeController@getInstitutionsByAuthUser',
         'as' => 'institutions.all',
     ]);
+
+    //Routes User
+    Route::get('userslist', [
+        'uses' => 'ListUserController@listUsers',
+        'as' => 'users.list',
+    ]);
+
+    Route::get('users', [
+        'uses' => 'ListUserController@getUsers',
+        'as' => 'users.datatable',
+    ]);
+
+    Route::get('user/{user}/edit', [
+        'uses' => 'UserController@edit',
+        'as' => 'user.edit',
+    ]);
+
+    Route::post('user/{user}/edit', [
+        'uses' => 'UserController@update',
+        'as' => 'user.update',
+    ]);
+
     //Routes Preescolar
     Route::get('preescolar/add', [
         'uses' => 'InstitutionController@createPreescolar',

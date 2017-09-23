@@ -167,6 +167,63 @@ desired effect
         });
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        oTable = $('#usersTable').DataTable({
+            "processing": true,
+            "serverSide": false,
+            "ajax": "{{ route('users.datatable') }}",
+            "columns": [
+                {data: 'id', name: 'id'},
+                {data: 'name', name: 'name'},
+                {data: 'email', name: 'email'},
+                {data: 'telephone', name: 'telephone'},
+                {data: 'contact_person', name: 'contact_person'},
+                {data: 'verified', name: 'verified'},
+                {data: 'role', name: 'role'},
+            ],
+            "columnDefs" : [
+                {
+                    "targets": [5],
+                    render: function ( data, type, row, meta ) {
+                        if(type === 'display'){
+                            if(row['verified'] == 1)
+                                data = 'Verificado/Activo';
+                            else
+                                data = 'Inactivo';
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "targets": [6],
+                    render: function ( data, type, row, meta ) {
+                        if(type === 'display'){
+                            if(row['role'] == 1)
+                                data = 'Administrador';
+                            else
+                                data = 'Usuario';
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "targets": [1],
+                    render: function ( data, type, row, meta ) {
+                        if(type === 'display'){
+                            var url = '{{route('user.edit', [":id"])}}';
+
+                            url = url.replace(':id', row['id']);
+                            data = '<a href="'+url+'">'+ data + '</a>';
+                        }
+
+                        return data;
+                    }
+                },
+            ]
+        });
+    });
+</script>
 <script>
     $(document).ready(function() {
         $('#province_id').on('change', function (e) {

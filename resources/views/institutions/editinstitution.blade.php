@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 {{ Form::label('nombre', 'Nombre') }}
                                 {{ Form::text('nombre') }}
-                            <div>
+                            </div>
                             <br>
                             {{ Form::label('nombre_corto', 'Nombre corto') }}
                             <br>

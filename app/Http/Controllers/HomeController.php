@@ -34,57 +34,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        /*$instituciones = InstitutionsView::where('activo', '=', 1)
-            ->where('user_id', '=', auth()->id())
-            ->orWhere('activo', '=', 0)
-            ->select('id'
-                ,'activo'
-                ,'tipo'
-                ,'plan'
-                ,'nombre'
-                ,'institution_bg_picture'
-                ,'institution'
-                ,'nombre_corto'
-                ,'slug'
-                ,'carreras'
-                ,'masculino'
-                ,'femenino'
-                ,'mixto'
-                ,'preescolar'
-                ,'escuela'
-                ,'colegio'
-                ,'province_id'
-                ,'city_id'
-                ,'sector_id'
-                ,'user_id'
-                ,'costo'
-                ,'fecha_evento'
-                ,'hora_evento'
-                ,'objetivo'
-                ,'duracion'
-                ,'fecha_inicio'
-                ,'presencial'
-                ,'semipresencial'
-                ,'distancia'
-                ,'direccion'
-                ,'telefono'
-                ,'celular'
-                ,'email'
-                ,'web'
-                ,'facebook'
-                ,'twitter'
-                ,'linkedin'
-                ,'province_name'
-                ,'city_name'
-                ,'sector_name'
-                ,'plan_desde'
-                ,'plan_hasta')
-            ->scopes($this->getRouteScope($request))
-            ->orderBy('plan')
-            ->orderBy('nombre')
-            ->paginate(14);*/
-
-//        return view('adminlte::home', compact('instituciones'));
         return view('adminlte::home');
     }
 
