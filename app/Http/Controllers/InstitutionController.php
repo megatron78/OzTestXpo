@@ -3,12 +3,72 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\{Institution,Province,Canton,Parish,City,Sector};
+use App\{Institution,InstitutionsView,Province,Canton,Parish,City,Sector};
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\DataTables;
+use App\Jobs\SendAlertaVentaEmail;
+use Illuminate\Auth\Events\Registered;
 
 class InstitutionController extends Controller
 {
+    //List for activations
+    public function activationList() {
+        return view('vendor.adminlte.activations');
+    }
+
+    protected function getActivations() {
+        $instituciones = InstitutionsView::where('activo', '=', 0)
+            ->where('user_id', '=', auth()->id())
+            ->select('id'
+                ,'activo'
+                ,'tipo'
+                ,'clasificacion'
+                ,'plan'
+                ,'nombre'
+                ,'institution_bg_picture'
+                ,'institution'
+                ,'nombre_corto'
+                ,'slug'
+                ,'carreras'
+                ,'masculino'
+                ,'femenino'
+                ,'mixto'
+                ,'preescolar'
+                ,'escuela'
+                ,'colegio'
+                ,'province_id'
+                ,'city_id'
+                ,'sector_id'
+                ,'user_id'
+                ,'costo'
+                ,'fecha_evento'
+                ,'hora_evento'
+                ,'objetivo'
+                ,'duracion'
+                ,'fecha_inicio'
+                ,'presencial'
+                ,'semipresencial'
+                ,'distancia'
+                ,'direccion'
+                ,'telefono'
+                ,'celular'
+                ,'email'
+                ,'web'
+                ,'facebook'
+                ,'twitter'
+                ,'linkedin'
+                ,'province_name'
+                ,'city_name'
+                ,'sector_name'
+                ,'plan_desde'
+                ,'plan_hasta')
+            ->orderBy('plan')
+            ->orderBy('nombre');
+
+        return DataTables::of($instituciones)->make(true);
+    }
+
     //Preescolar
     public function createPreescolar() {
         $provinces = Province::all(['name','id']);
@@ -85,7 +145,16 @@ class InstitutionController extends Controller
 
         $input['user_id'] = $request->user()->id;
 
-        Institution::create($input);
+        if($input['plan'] != '3B') {
+            $input['activo'] = 0;
+        }
+
+        if($input['plan'] != '3B') {
+            event(new Registered($institution = $this->create($input)));
+            $this->dispatch(new SendAlertaVentaEmail($request->user(), $institution));
+        }
+        else
+            Institution::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 

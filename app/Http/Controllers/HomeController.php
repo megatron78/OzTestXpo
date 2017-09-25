@@ -51,7 +51,6 @@ class HomeController extends Controller
     protected function getInstitutionsByAuthUser() {
         $instituciones = InstitutionsView::where('activo', '=', 1)
             ->where('user_id', '=', auth()->id())
-            ->orWhere('activo', '=', 0)
             ->select('id'
                 ,'activo'
                 ,'tipo'

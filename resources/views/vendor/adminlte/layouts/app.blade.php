@@ -169,6 +169,115 @@ desired effect
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
+        oTable = $('#activacionesTable').DataTable({
+            "processing": true,
+            "serverSide": false,
+            "ajax": "{{ route('activate.get') }}",
+            "columns": [
+                {data: 'id', name: 'id'},
+                {data: 'slug', name: 'slug'},
+                {data: 'nombre', name: 'nombre'},
+                {data: 'tipo', name: 'tipo'},
+                {data: 'activo', name: 'activo'},
+                {data: 'plan', name: 'plan'},
+                {data: 'plan_desde', name: 'plan_desde'},
+                {data: 'plan_hasta', name: 'plan_hasta'},
+            ],
+            "columnDefs" : [
+                {
+                    "targets": [0,1],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": [2],
+                    render: function ( data, type, row, meta ) {
+                        if(type === 'display'){
+                            var url;
+                            if(row['tipo'] == 1) {
+                                if(row['preescolar'] == 1 && row['escuela'] == 0 && row['colegio'] == 0)
+                                    url = '{{route('preescolar.edit', [":id"])}}';
+                                else
+                                    url = '{{route('escuelacolegio.edit', [":id"])}}';
+                            }
+                            if(row['tipo'] == 2)
+                                url = '{{route('superior.edit', [":id"])}}';
+                            if(row['tipo'] == 3)
+                                if(row['clasificacion'] == 'Posgrado')
+                                    url = '{{route('posgrados.edit', [":id"])}}';
+                                else
+                                    url = '{{route('cursoseminario.edit', [":id", ":slug"])}}';
+                            if(row['tipo'] == 4)
+                                url=row['web'];
+
+                            url = url.replace(':id', row['id']);
+                            url = url.replace(':slug', row['slug']);
+                            data = '<a href="'+url+'">'+ data + '</a>';
+                        }
+
+                        return data;
+                    }
+                },
+                {
+                    "targets": [3],
+                    render: function ( data, type, row, meta ) {
+                        if(type === 'display'){
+                            if(row['tipo'] == 1) {
+                                if (row['preescolar'] == 1 && row['escuela'] == 0 && row['colegio'] == 0)
+                                    data = 'Preescolar';
+                                else
+                                    data = 'Escuela/Colegio';
+                            }
+                            else if(row['tipo'] == 2)
+                                data = 'Superior';
+                            else if(row['tipo'] == 3) {
+                                if(row['clasificacion'] == "Posgrado")
+                                    data = 'Posgrado';
+                                else
+                                    data = 'Curso/Seminario';
+                            }
+                            else if(row['tipo'] == 4)
+                                data = 'Evento';
+                            else
+                                data = 'ND';
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "targets": [4],
+                    render: function (data, type, row, meta) {
+                        if (type === 'display') {
+                            if(row['activo'] == 1)
+                                data = 'Activo';
+                            else
+                                data = 'Inactivo';
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "targets": [5],
+                    render: function (data, type, row, meta) {
+                        if (type === 'display') {
+                            if(row['plan'] == '3B')
+                                data = 'Básico';
+                            else if(row['plan'] == '2P')
+                                data = 'Platinum';
+                            else if(row['plan'] == '1G')
+                                data = 'Gold';
+                            else
+                                data = 'ND';
+                        }
+                        return data;
+                    }
+                },
+            ]
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
         oTable = $('#usersTable').DataTable({
             "processing": true,
             "serverSide": false,

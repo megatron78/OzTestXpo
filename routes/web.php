@@ -92,6 +92,10 @@ Route::get('evento/{event}-{slug}', [
     'as' => 'evento.show',
 ])->where('event', '\d+');
 
+Route::get('prueba/', function() {
+    return view('emailconfirm');
+});
+
 Route::get('ajax-city/', function() {
    $province_id = Input::get('province_id');
 
@@ -133,6 +137,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('institutions', [
         'uses' => 'HomeController@getInstitutionsByAuthUser',
         'as' => 'institutions.all',
+    ]);
+
+    //Route Activations
+    Route::get('admactivation', [
+        'uses' => 'InstitutionController@activationList',
+        'as' => 'activate.list',
+    ]);
+    Route::get('activations', [
+        'uses' => 'InstitutionController@getActivations',
+        'as' => 'activate.get',
+    ]);
+
+    Route::get('users', [
+        'uses' => 'ListUserController@getUsers',
+        'as' => 'users.datatable',
     ]);
 
     //Routes User

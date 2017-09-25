@@ -1,3 +1,6 @@
-<h1>Haga clic en el enlace para verificar su correo.</h1>
+<h2>Haga clic en el enlace para verificar su correo.</h2>
+<form action="{{url('/verifyemail/'.$email_token)}}">
+    <input type="submit" value="Validar Correo" />
+</form>
 
-Por favor, haga clic en el siguiente enlace para verificar su correo: {{url('/verifyemail/'.$email_token)}}
+Si no puede ser redireccionado, por favor copie y pegue el siguiente enlace en el navegador: {{url('/verifyemail/'.$email_token)}}
