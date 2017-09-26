@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('contentheader_title')
-	{{ trans('adminlte_lang::message.home') }}
+	{{ trans('adminlte_lang::message.activaciones') }}
 @endsection
 
 @section('contentheader_description')
-	{{ trans('adminlte_lang::message.home_description') }}
+	{{ trans('adminlte_lang::message.activaciones_description') }}
 @endsection
 
 @section('main-content')

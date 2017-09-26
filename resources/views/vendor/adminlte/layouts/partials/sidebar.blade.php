@@ -47,7 +47,7 @@
                     <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li class="{{ Request::is('admuser*') ? 'active' : '' }}"><a href="{{ url('admuserslist') }}">{{ trans('adminlte_lang::message.adm_usuarios') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.adm_publicidad') }}</a></li>
+                    <li class="{{ Request::is('admads*') ? 'active' : '' }}"><a href="{{ url('admads') }}">{{ trans('adminlte_lang::message.adm_publicidad') }}</a></li>
                     <li><a href="#">{{ trans('adminlte_lang::message.adm_banners') }}</a></li>
                     <li class="{{ Request::is('admactivation*') ? 'active' : '' }}"><a href="{{ url('admactivation') }}">{{ trans('adminlte_lang::message.adm_activaciones') }}</a></li>
                 </ul>

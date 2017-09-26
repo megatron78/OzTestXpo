@@ -19,6 +19,7 @@ class CreateInstitucionesAdsTable extends Migration
             $table->integer('orden_presentacion');
             $table->integer('categoria');
             $table->unsignedInteger('object_id');
+            $table->string('nombre_corto');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
 

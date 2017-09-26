@@ -133,6 +133,11 @@ Route::get('ajax-parish/', function() {
 
 Route::get('verifyemail/{token}', 'Auth\RegisterController@verify');
 
+Route::post('sendmoreinfo', [
+    'uses' => 'SendMeInteresaController@sendMeInteresa',
+    'as' => 'send.moreinfo',
+]);
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('institutions', [
         'uses' => 'HomeController@getInstitutionsByAuthUser',
@@ -149,10 +154,6 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'activate.get',
     ]);
 
-    Route::get('users', [
-        'uses' => 'ListUserController@getUsers',
-        'as' => 'users.datatable',
-    ]);
 
     //Routes User
     Route::get('admuserslist', [
@@ -173,6 +174,37 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admuser/{user}/edit', [
         'uses' => 'UserController@update',
         'as' => 'user.update',
+    ]);
+
+    //Routes Ads
+    Route::get('admads', [
+        'uses' => 'InstitucionesAdsController@listAds',
+        'as' => 'ads.list',
+    ]);
+
+    Route::get('ads', [
+        'uses' => 'InstitucionesAdsController@getAds',
+        'as' => 'ads.datatable',
+    ]);
+
+    Route::get('admads/add', [
+        'uses' => 'InstitucionesAdsController@create',
+        'as' => 'ads.create',
+    ]);
+
+    Route::get('admads/{ad}/edit', [
+        'uses' => 'InstitucionesAdsController@edit',
+        'as' => 'ads.edit',
+    ]);
+
+    Route::post('admads/{ad}/edit', [
+        'uses' => 'InstitucionesAdsController@update',
+        'as' => 'ads.update',
+    ]);
+
+    Route::post('admads/store', [
+        'uses' => 'InstitucionesAdsController@store',
+        'as' => 'ads.store',
     ]);
 
     //Routes Preescolar

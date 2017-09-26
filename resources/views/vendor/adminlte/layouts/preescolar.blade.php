@@ -96,6 +96,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         </div>
                                         <div class="col-sm-4 centered">
                                             <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
+                                               data-email="{{ $institucion->email }}"
                                                href="#meInteresa">
                                                 Me interesa
                                             </a>
@@ -230,12 +231,17 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         interval: 3500
     })
 </script>
-
 <!-- Ion Slider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js"></script>
 <!-- Bootstrap slider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.js"></script>
 <script>
+    $('#meInteresa').on('show.bs.modal', function(e) {
+        var $modal = $(this);
+        var email = $(e.relatedTarget).attr('data-email');
+        $modal.find("#email").val(email);
+        alert(email);
+    });
     $('.load-ajax-modal').click(function(e){
         var checked = [];
         $('input:checkbox:checked').each(function() {

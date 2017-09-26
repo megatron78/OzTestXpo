@@ -333,6 +333,24 @@ desired effect
         });
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        oTable = $('#institucionesAds').DataTable({
+            "processing": true,
+            "serverSide": false,
+            "ajax": "{{ route('ads.datatable') }}",
+            "columns": [
+                {data: 'id', name: 'id'},
+                {data: 'orden_presentacion', name: 'orden_presentacion'},
+                {data: 'categoria', name: 'categoria'},
+                {data: 'object_id', name: 'object_id'},
+                {data: 'nombre_corto', name: 'nombre_corto'},
+                {data: 'fecha_inicio', name: 'fecha_inicio'},
+                {data: 'fecha_fin', name: 'fecha_fin'},
+            ],
+        });
+    });
+</script>
 <script>
     $(document).ready(function() {
         $('#province_id').on('change', function (e) {

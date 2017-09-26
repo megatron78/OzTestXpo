@@ -12,13 +12,13 @@
             </div>
             <div class="modal-body">
                 <!-- form start -->
-                <form class="form-horizontal" action="/">
+                {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
                     <div class="box-body">
                         <div class="form-group">
                             <label for="nombreApellido" class="col-sm-3 control-label">Nombre y Apellido *</label>
 
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="nombreApellido"
+                                <input type="text" class="form-control" id="nombreApellido" name="nombreApellido"
                                        placeholder="Nombre y Apellido" required>
                             </div>
                         </div>
@@ -26,28 +26,29 @@
                             <label for="telefono" class="col-sm-3 control-label">Teléfono *</label>
 
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="telefono" placeholder="Correo electrónico" required>
+                                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
 
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="whatsapp" placeholder="Whatsapp">
+                                <input type="text" class="form-control" id="whatsapp" name="telefono" placeholder="Whatsapp">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
 
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Correo electrónico" required>
+                                <input type="hidden" id="email" name="email">
+                                <input type="email" class="form-control" id="inputEmail3" name="inputEmail3" placeholder="Correo electrónico" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="interes" class="col-sm-3 control-label">Interés</label>
 
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="interes" placeholder="Estoy interesado en...">
+                                <input type="text" class="form-control" id="interes" name="interes" placeholder="Estoy interesado en...">
                             </div>
                         </div>
 
@@ -57,7 +58,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </div>
-                </form>
+                {!! Form::close() !!}
             </div>
 
         </div>

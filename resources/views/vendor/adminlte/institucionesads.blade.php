@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('contentheader_title')
-	{{ trans('adminlte_lang::message.usuarios') }}
+	{{ trans('adminlte_lang::message.publicidad') }}
 @endsection
 
 @section('contentheader_description')
-	{{ trans('adminlte_lang::message.usuarios_description') }}
+	{{ trans('adminlte_lang::message.publicidad_description') }}
 @endsection
 
 @section('main-content')
@@ -15,19 +15,24 @@
 				<!-- Default box -->
 				<div class="box">
 					<div class="box-header with-border">
-						<h3 class="box-title">Usuarios ExpoEducar</h3>
+						<h3 class="box-title">Publicidad ExpoEducar</h3>
 						<br>
 						<br>
-						<table id="usersTable" class="table table-hover table-responsive">
+						<div class="btn-group">
+                            <a href="{{ route('ads.create') }}" class="btn btn-block btn-warning">Nuevo Registro</a>
+						</div>
+						<br>
+						<br>
+						<table id="institucionesAds" class="table table-hover table-responsive">
 							<thead>
 							<tr>
-								<th>Id</th>
+								<th>ID</th>
+                                <th>Orden Presentación</th>
+                                <th>Categoría</th>
+                                <th>Object ID</th>
 								<th>Nombre</th>
-								<th>Email</th>
-								<th>Teléfono</th>
-								<th>Contacto</th>
-								<th>Activo</th>
-								<th>Rol</th>
+								<th>Fecha Inicio</th>
+								<th>Fecha Fin</th>
 							</tr>
 							</thead>
 						</table>
