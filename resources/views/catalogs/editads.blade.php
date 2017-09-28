@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('contentheader_title')
-    {{ trans('adminlte_lang::message.admuser') }}
+    {{ trans('adminlte_lang::message.publicidad') }}
 @endsection
 
 @section('contentheader_description')
-    {{ trans('adminlte_lang::message.admuser_description') }}
+    {{ trans('adminlte_lang::message.publicidad_description') }}
 @endsection
 
 @section('main-content')
@@ -15,7 +15,6 @@
                 <!-- Default box -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{$ads->nombre}}</h3>
                         @include('vendor.adminlte.layouts.partials.errors')
 
                         @if(Session::has('flash_message'))
@@ -25,34 +24,26 @@
                         @endif
 
                         <div class="col-md-6 col-md-offset-0">
-                        {!! Form::model($ads, array('route' => array('user.update', $ads->id))) !!}
+                            {!! Form::model($ads, array('route' => array('ads.update', $ads->id))) !!}
                             <div class="form-group">
-                                {{ Form::label('name', 'Nombre') }}
-                                {{ Form::text('name', null, ['class' => 'form-control']) }}
+                                {{ Form::label('object_id', 'Institución') }}
+                                {{ Form::select('object_id', $adsCombo->pluck('nombre_corto','id')->all(), $ads->object_id, ['class' => 'form-control select2']) }}
+                                {{ Form::hidden('ads_nombre_corto', $ads->nombre_corto, array('id' => 'ads_nombre_corto')) }}
                             </div>
                             <div class="form-group">
-                            {{ Form::label('password', 'Clave de Acceso') }}
-                            {{ Form::hidden('pwd', $ads->password) }}
-                            {{ Form::password('password', ['class' => 'form-control']) }}
+                                {{ Form::label('orden_presentacion', 'Orden Presentación') }}
+                                {{ Form::text('orden_presentacion', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('telephone', 'Teléfono') }}
-                                {{ Form::text('telephone', null, ['class' => 'form-control']) }}
+                                {{ Form::label('fecha_inicio', 'Fecha Inicio') }}
+                                {{ Form::date('fecha_inicio', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('contact_person', 'Persona de Contacto') }}
-                                {{ Form::text('contact_person', null, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('role', 'Rol') }}
-                                {{ Form::select('role', ['admin' => 'Administrador', 'user' => 'Usuario'], $ads->role, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('verified', 'Activo') }}
-                                {{ Form::select('verified', [1 => 'Activo', 0 => 'Inactivo'], $ads->verified, ['class' => 'form-control']) }}
+                                {{ Form::label('fecha_fin', 'Fecha Fin') }}
+                                {{ Form::date('fecha_fin', null, ['class' => 'form-control']) }}
                             </div>
                             {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
-                        {!! Form::close() !!}
+                            {!! Form::close() !!}
                         </div>
                         {{--<div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">

@@ -341,12 +341,50 @@ desired effect
             "ajax": "{{ route('ads.datatable') }}",
             "columns": [
                 {data: 'id', name: 'id'},
+                {data: 'nombre_corto', name: 'nombre_corto'},
                 {data: 'orden_presentacion', name: 'orden_presentacion'},
                 {data: 'categoria', name: 'categoria'},
                 {data: 'object_id', name: 'object_id'},
-                {data: 'nombre_corto', name: 'nombre_corto'},
                 {data: 'fecha_inicio', name: 'fecha_inicio'},
                 {data: 'fecha_fin', name: 'fecha_fin'},
+            ],
+            "columnDefs" : [
+                {
+                    "targets": [0,4],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": [3],
+                    render: function ( data, type, row, meta ) {
+                        if(type === 'display'){
+                            if(row['categoria'] == 1)
+                                    data = 'Preescolar/Escuela/Colegio';
+                            else if(row['categoria'] == 2)
+                                data = 'Superior';
+                            else if(row['categoria'] == 3)
+                                data = 'Posgrado/Curso/Seminario';
+                            else if(row['categoria'] == 4)
+                                data = 'Evento';
+                            else
+                                data = 'ND';
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "targets": [1],
+                    render: function ( data, type, row, meta ) {
+                        if(type === 'display'){
+                            var url = '{{route('ads.edit', [":id"])}}';
+
+                            url = url.replace(':id', row['id']);
+                            data = '<a href="'+url+'">'+ data + '</a>';
+                        }
+
+                        return data;
+                    }
+                },
             ],
         });
     });
@@ -420,6 +458,19 @@ desired effect
         }
         //bootstrap WYSIHTML5 - text editor
         //$(".textarea").wysihtml5();
+    });
+</script>
+<script type='text/javascript'>
+    $(function() {
+        $('#object_id').change(function() {
+            // if changed to, for example, the last option, then
+            // $(this).find('option:selected').text() == D
+            // $(this).val() == 4
+            // get whatever value you want into a variable
+            var x = $(this).find('option:selected').text()
+            // and update the hidden input's value
+            $('#ads_nombre_corto').val(x);
+        });
     });
 </script>
 </body>

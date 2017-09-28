@@ -27,10 +27,10 @@
 							<thead>
 							<tr>
 								<th>ID</th>
+                                <th>Nombre</th>
                                 <th>Orden Presentación</th>
                                 <th>Categoría</th>
                                 <th>Object ID</th>
-								<th>Nombre</th>
 								<th>Fecha Inicio</th>
 								<th>Fecha Fin</th>
 							</tr>

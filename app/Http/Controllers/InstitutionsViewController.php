@@ -15,7 +15,7 @@ class InstitutionsViewController extends Controller
 
     protected function getPaidInstitutionsView() {
         $paidInstitutions = InstitutionsView::where('activo','=',1)
-            ->where('categoria', '<>', '3B')
+            ->where('plan', '<>', '3B')
             ->where('plan_hasta', '<=', Carbon::now())
             ->select('*')
             ->orderBy('nombre_corto')

@@ -42,7 +42,7 @@
                 @else
                     <button type="button" data-path="{{ route('compare.escuelacolegio') }}"
                 @endif
-                        class="btn btn-warning btn-xs load-ajax-modal"
+                        class="btn btn-warning load-ajax-modal"
                         role="button"
                         data-toggle="modal" data-target="#compareTableModal">
                     Comparar

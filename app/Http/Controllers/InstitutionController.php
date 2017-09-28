@@ -19,7 +19,6 @@ class InstitutionController extends Controller
 
     protected function getActivations() {
         $instituciones = InstitutionsView::where('activo', '=', 0)
-            ->where('user_id', '=', auth()->id())
             ->select('id'
                 ,'activo'
                 ,'tipo'
