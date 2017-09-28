@@ -16,8 +16,8 @@
 				<div class="box">
 					<div class="box-header with-border">
 						<h3 class="box-title">Usuarios ExpoEducar</h3>
-						<br>
-						<br>
+					</div>
+					<div class="box-body with-border">
 						<table id="usersTable" class="table table-hover table-responsive">
 							<thead>
 							<tr>
@@ -38,10 +38,11 @@
 								<i class="fa fa-times"></i></button>
 						</div>--}}
 					</div>
-					<div class="box-body">
+					<!-- /.box-body -->
+					<div class="box-footer">
 						{{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
 					</div>
-					<!-- /.box-body -->
+					<!-- /.box-footer -->
 				</div>
 				<!-- /.box -->
 

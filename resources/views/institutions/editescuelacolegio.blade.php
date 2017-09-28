@@ -16,8 +16,6 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title">{{$institution->nombre}}</h3>
-                        <br>
-                        <br>
                         @include('vendor.adminlte.layouts.partials.errors')
 
                         @if(Session::has('flash_message'))
@@ -25,7 +23,9 @@
                                 {{ Session::get('flash_message') }}
                             </div>
                         @endif
-
+                    </div>
+                    <div class="box-body with-border">
+                        <div class="col-md-6 col-md-offset-0">
                         {!! Form::model($institution, array('files' => true, 'route' => array('escuelacolegio.update', $institution->id))) !!}
                             {{ Form::label('nombre', 'Nombre') }}
                             <br>
@@ -386,6 +386,7 @@
                             <br>
                             {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
+                        </div>
                         {{--<div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                                 <i class="fa fa-minus"></i></button>
@@ -393,10 +394,11 @@
                                 <i class="fa fa-times"></i></button>
                         </div>--}}
                     </div>
-                    <div class="box-body">
+                    <!-- /.box-body -->
+                    <div class="box-footer">
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
                     </div>
-                    <!-- /.box-body -->
+                    <!-- /.box-footer -->
                 </div>
                 <!-- /.box -->
 
