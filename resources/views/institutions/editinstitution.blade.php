@@ -35,10 +35,12 @@
                                 {{ Form::label('nombre_corto', 'Nombre corto') }}
                                 {{ Form::text('nombre_corto', null, ['class' => 'form-control']) }}
                             </div>
-                            <div class="form-group">
-                                {{ Form::label('plan', 'Plan') }}
-                                {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $institution->plan, ['class' => 'form-control select2']) }}
-                            </div>
+                            @if(auth()->user()->isAdmin())
+                                <div class="form-group">
+                                    {{ Form::label('plan', 'Plan') }}
+                                    {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $institution->plan, ['class' => 'form-control select2']) }}
+                                </div>
+                            @endif
                             <div class="form-group">
                                 {{ Form::label('palabras_clave', 'Palabras Clave') }}
                                 {{ Form::text('palabras_clave', null, ['class' => 'form-control']) }}
@@ -122,13 +124,13 @@
                                 {{ Form::checkbox('fiscomisional') }}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('pago_promedio_escuela', 'Pago Promedio Escuela') }}
+                                {{ Form::label('pago_promedio_escuela', 'Costo Promedio Pensión') }}
                                 {{ Form::number('pago_promedio_escuela', $institution->pago_promedio_escuela, ['class' => 'form-control']) }}
                             </div>
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 {{ Form::label('pago_promedio_colegio', 'Pago Promedio Colegio') }}
                                 {{ Form::number('pago_promedio_colegio', $institution->pago_promedio_colegio, ['class' => 'form-control']) }}
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 {{ Form::label('lenguajes', 'Lenguajes') }}
                                 {{ Form::text('lenguajes', null, ['class' => 'form-control']) }}
@@ -169,17 +171,17 @@
                                 {{ Form::label('edad_hasta', 'Edad Hasta') }}
                                 {{ Form::number('edad_hasta', $institution->edad_hasta, ['class' => 'form-control']) }}
                             </div>
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 {{ Form::label('extracurriculares', 'Extracurriculares') }}
                                 {{ Form::hidden('extracurriculares',0)}}
                                 {{ Form::checkbox('extracurriculares') }}
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 {{ Form::label('horario_extendido', 'Horario Extendido') }}
                                 {{ Form::hidden('horario_extendido',0)}}
                                 {{ Form::checkbox('horario_extendido') }}
                             </div>
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 {{ Form::label('presencial', 'Presencial') }}
                                 {{ Form::hidden('presencial',0)}}
                                 {{ Form::checkbox('presencial') }}
@@ -200,31 +202,31 @@
                                 {{ Form::label('nocturno', 'Nocturno') }}
                                 {{ Form::hidden('nocturno',0)}}
                                 {{ Form::checkbox('nocturno') }}
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 {{ Form::label('entrada_matutino', 'Entrada Matutino') }}
                                 {{ Form::text('entrada_matutino', null, ['class' => 'form-control']) }}
                             </div>
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 {{ Form::label('entrada_vespertino', 'Entrada Vespertino') }}
                                 {{ Form::text('entrada_vespertino', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('entrada_nocturno', 'Entrada Nocturno') }}
                                 {{ Form::text('entrada_nocturno', null, ['class' => 'form-control']) }}
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 {{ Form::label('salida_matutino', 'Salida Matutino') }}
                                 {{ Form::text('salida_matutino', null, ['class' => 'form-control']) }}
                             </div>
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 {{ Form::label('salida_vespertino', 'Salida Vespertino') }}
                                 {{ Form::text('salida_vespertino', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('salida_nocturno', 'Salida Nocturno') }}
                                 {{ Form::text('salida_nocturno', null, ['class' => 'form-control']) }}
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 {{ Form::label('salida_horario_extendido', 'Salida Horario Extendido') }}
                                 {{ Form::text('salida_horario_extendido', null, ['class' => 'form-control']) }}
@@ -233,7 +235,7 @@
                                 {{ Form::label('alimentacion', 'Alimentación') }}
                                 {{ Form::select('alimentacion', ['S' => 'Si', 'N' => 'No', 'O' => 'Opcional'], $institution->alimentacion, ['class' => 'form-control']) }}
                             </div>
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 {{ Form::label('bachillerato_internacional', 'Bachillerato Internacional') }}
                                 {{ Form::hidden('bachillerato_internacional',0)}}
                                 {{ Form::checkbox('bachillerato_internacional') }}
@@ -245,7 +247,7 @@
                             <div class="form-group">
                                 {{ Form::label('porcentaje_profesores_nativos', 'Porcentaje Profesores Nativos') }}
                                 {{ Form::number('porcentaje_profesores_nativos', $institution->porcentaje_profesores_nativos, ['class' => 'form-control']) }}
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 {{ Form::label('total_estudiantes', 'Total Estudiantes') }}
                                 {{ Form::number('total_estudiantes', $institution->total_estudiantes, ['class' => 'form-control']) }}
@@ -293,13 +295,12 @@
                                 {{ Form::hidden('camara_ip_aulas_espacios',0)}}
                                 {{ Form::checkbox('camara_ip_aulas_espacios') }}
                             </div>
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 {{ Form::label('capacidad_restaurantes', 'Capacidad Restaurantes') }}
                                 {{ Form::number('capacidad_restaurantes', $institution->capacidad_restaurantes, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('canchas_indoor', 'Canchas de Indoor') }}
-                                <br>
                                 {{ Form::number('canchas_indoor', $institution->canchas_indoor, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
@@ -336,23 +337,23 @@
                                 {{ Form::label('gimnasio', 'Gimnasio') }}
                                 {{ Form::hidden('gimnasio',0)}}
                                 {{ Form::checkbox('gimnasio') }}
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 {{ Form::label('otros', 'Otras Áreas') }}
                                 {{ Form::textArea('otros', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('certificaciones_logros', 'Certificaciones y Logros') }}
-                                {{ Form::text('certificaciones_logros') }}
+                                {{ Form::text('certificaciones_logros', null, ['class' => 'form-control']) }}
                             </div>
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 {{ Form::label('regimen', 'Régimen') }}
                                 {{ Form::select('regimen', ['Costa' => 'Costa', 'Sierra' => 'Sierra', 'Costa y Sierra' => 'Costa y Sierra'], $institution->regimen, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('jurisdiccion', 'Jurisdicción') }}
                                 {{ Form::text('jurisdiccion', null, ['class' => 'form-control']) }}
-                            </div>
+                            </div>--}}
                             <div class="form-group">
                                 {{ Form::label('mapa_url', 'Mapa URL') }}
                                 {{ Form::text('mapa_url', null, ['class' => 'form-control']) }}
