@@ -207,6 +207,22 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'ads.store',
     ]);
 
+    //Routes Banners
+    Route::get('admbanners', [
+        'uses' => 'BannerCategoryController@listBanners',
+        'as' => 'banners.list',
+    ]);
+
+    Route::get('admbanners/{ban}/edit', [
+        'uses' => 'BannerCategoryController@edit',
+        'as' => 'banners.edit',
+    ]);
+
+    Route::post('admbanners/{ban}/edit', [
+        'uses' => 'BannerCategoryController@update',
+        'as' => 'banners.update',
+    ]);
+
     //Routes Preescolar
     Route::get('preescolar/add', [
         'uses' => 'InstitutionController@createPreescolar',
