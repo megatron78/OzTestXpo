@@ -273,7 +273,7 @@
                             </div>
                             <div class="form-group">
                                 {{ Form::label('email_invoice', 'Mail para Factura') }}
-                                {{ Form::text('email_invoice, null, ['class' => 'form-control']') }}
+                                {{ Form::text('email_invoice', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('telefono_invoice', 'Teléfono para Factura') }}
