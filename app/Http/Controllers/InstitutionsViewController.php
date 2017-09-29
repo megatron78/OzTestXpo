@@ -25,10 +25,11 @@ class InstitutionsViewController extends Controller
         return $paidInstitutions;
     }
 
-    protected function getComparisonView() {
+    protected function getComparisonViewPre() {
         $inputs = Input::all();
         if(!isset($inputs["params"]))
             return;
+
         $integerIDs = array_map('intval', explode(',', $inputs["params"]));
 
         $bindingsString = implode(',', array_fill(0, count($integerIDs), '?'));
@@ -84,7 +85,7 @@ class InstitutionsViewController extends Controller
 								coalesce(area_piscina, 0) as `Área Piscina`,
 								CASE WHEN camara_ip_entrada_salida = 1 THEN 'SI' ELSE 'NO' END AS `Cámara IP Entrada/Salida`,
                         CASE WHEN camara_ip_aulas_espacios = 1 THEN 'SI' ELSE 'NO' END AS `Cámara IP Aulas/Espacios`
-                        FROM `institutions_views` where id in ({$bindingsString})";
+                        FROM `institutions_views` where tipo = 1 and id in ({$bindingsString})";
 
         $tagsMM = DB::select($sqlQuery, $integerIDs);
 
@@ -163,7 +164,7 @@ class InstitutionsViewController extends Controller
 								CASE WHEN camara_ip_entrada_salida = 1 THEN 'SI' ELSE 'NO' END AS `Cámara IP Entrada/Salida`,
                         CASE WHEN camara_ip_aulas_espacios = 1 THEN 'SI' ELSE 'NO' END AS `Cámara IP Aulas/Espacios`,
                         porcentaje_profesores_nativos
-                        FROM `institutions_views` where id in ({$bindingsString})";
+                        FROM `institutions_views` where tipo = 1 and id in ({$bindingsString})";
 
         $tagsMM = DB::select($sqlQuery, $integerIDs);
 

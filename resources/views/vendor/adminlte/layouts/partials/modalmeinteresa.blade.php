@@ -41,6 +41,7 @@
 
                             <div class="col-sm-9">
                                 <input type="hidden" id="email" name="email">
+                                <input type="hidden" id="tipo" name="tipo">
                                 <input type="email" class="form-control" id="inputEmail3" name="inputEmail3" placeholder="Correo electrónico" required>
                             </div>
                         </div>

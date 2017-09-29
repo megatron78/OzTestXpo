@@ -39,7 +39,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 
                                 <div class="box-footer">
                                     <h3 style="color:black"
-                                        class="widget-user-username">{{ str_limit($institucionview->nombre_corto, $limit=29, $end="...") }}</h3>
+                                        class="widget-user-username">{{ str_limit($institucionview->nombre_corto, $limit=24, $end="...") }}</h3>
                                     <div class="row">
                                         <div class="col-sm-4 border-right centered">
                                             <div class="description-block">
@@ -148,12 +148,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 
                                     <div class="box-footer">
                                         <h3 style="color:black"
-                                            class="widget-user-username">{{ str_limit($institucionview->nombre_corto, $limit=29, $end="...") }}</h3>
+                                            class="widget-user-username">{{ str_limit($institucionview->nombre_corto, $limit=24, $end="...") }}</h3>
                                         <div class="row">
                                             <div class="centered">
                                                 <div style="min-height: 15px; max-height: 15px" class="description-block">
                                                     <h5 class="description-header">Carreras</h5>
-                                                    <span class="description-text">{{ str_limit($institucionview->carreras, $limit=29, $end="...") }}</span>
+                                                    <span class="description-text">{{ str_limit($institucionview->carreras, $limit=24, $end="...") }}</span>
                                                 </div>
                                                 <!-- /.description-block -->
                                             </div>
@@ -209,7 +209,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <!-- Add the bg color to the header using any of the bg-* classes -->
                                         <div style="padding: 1px" class="widget-user-header bg-blue-active">
                                             <!-- /.widget-user-image -->
-                                            <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=29, $end="...") }}</h2>
+                                            <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=24, $end="...") }}</h2>
                                             <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $institucionview->institution }}</h4>
                                         </div>
                                         <div class="box-footer no-padding">
@@ -269,7 +269,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div style="padding: 1px" class="widget-user-header bg-blue-active">
                                         <!-- /.widget-user-image -->
-                                        <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=29, $end="...") }}</h2>
+                                        <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=24, $end="...") }}</h2>
                                         <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $institucionview->institucion }}</h4>
                                     </div>
                                     <div class="box-footer no-padding">

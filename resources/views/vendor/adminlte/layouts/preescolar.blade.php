@@ -240,7 +240,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         var $modal = $(this);
         var email = $(e.relatedTarget).attr('data-email');
         $modal.find("#email").val(email);
-        alert(email);
+        $modal.find("#tipo").val("1");
     });
     $('.load-ajax-modal').click(function(e){
         var checked = [];

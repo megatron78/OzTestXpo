@@ -35,6 +35,8 @@ class ListSuperiorController extends Controller
             $scopes = array_add($scopes, 'city', $request->get('search_city'));
         if(!is_null($request->get('search_institution')))
             $scopes = array_add($scopes, 'nombreKeyword', $request->get('search_institution'));
+        if(!is_null($request->get('search_tipo')))
+            $scopes = array_add($scopes, 'tipo', $request->get('search_tipo'));
         if(!is_null($request->get('advsearch_sostenimiento')))
             switch ($request->get('advsearch_sostenimiento')){
                 case "public":

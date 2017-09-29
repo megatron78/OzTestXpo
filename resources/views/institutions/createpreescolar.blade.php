@@ -41,6 +41,13 @@
                                     {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], null, ['class' => 'form-control select2']) }}
                                 </div>
                             @endif
+                            @if(auth()->user()->isAdmin())
+                                <div class="form-group">
+                                    {{ Form::label('activo', 'Activo') }}
+                                    {{ Form::hidden('activo',0)}}
+                                    {{ Form::checkbox('activo') }}
+                                </div>
+                            @endif
                             <div class="form-group">
                                 {{ Form::label('palabras_clave', 'Palabras Clave') }}
                                 {{ Form::text('palabras_clave', null, ['class' => 'form-control']) }}

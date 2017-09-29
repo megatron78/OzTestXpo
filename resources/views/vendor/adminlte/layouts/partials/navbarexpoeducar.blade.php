@@ -55,12 +55,12 @@
                 @else
                     <li><a href="/home">{{ Auth::user()->name }}</a></li>
                 @endif
-                <li><a href="https://www.facebook.com/Expoeducar-685682501640613"
+                <li><a href="https://www.facebook.com/Expoeducar-685682501640613" target="_blank"
                        style="font-size: 10px; height: 30px;width: 30px" class="btn btn-social-icon btn-facebook"><i
                                 class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/expoeducar" style="font-size: 10px; height: 30px;width: 30px"
+                <li><a href="https://twitter.com/expoeducar" style="font-size: 10px; height: 30px;width: 30px" target="_blank"
                        class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/expo-educar-547944135"
+                <li><a href="https://www.linkedin.com/in/expo-educar-547944135" target="_blank"
                        style="font-size: 10px; height: 30px;width: 30px" class="btn btn-social-icon btn-linkedin"><i
                                 class="fa fa-linkedin"></i></a></li>
             </ul>

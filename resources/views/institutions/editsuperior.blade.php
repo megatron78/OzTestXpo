@@ -36,25 +36,33 @@
                                 {{ Form::text('nombre_corto', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('plan', 'Plan') }}
-                                {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $pregrade->plan, ['class' => 'form-control select2']) }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('activo', 'Activo') }}
-                                {{ Form::hidden('activo',0)}}
-                                {{ Form::checkbox('activo') }}
-                            </div>
-                            <div class="form-group">
                                 {{ Form::label('tipo', 'Tipo') }}
                                 {{ Form::select('tipo', ['Universidad' => 'Universidad', 'Instituto' => 'Instituto', 'Academia' => 'Academia'], $pregrade->tipo, ['class' => 'form-control select2']) }}
+                            </div>
+                            @if(auth()->user()->isAdmin())
+                                <div class="form-group">
+                                    {{ Form::label('plan', 'Plan') }}
+                                    {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $pregrade->plan, ['class' => 'form-control select2']) }}
+                                </div>
+                            @endif
+                            @if(auth()->user()->isAdmin())
+                                <div class="form-group">
+                                    {{ Form::label('activo', 'Activo') }}
+                                    {{ Form::hidden('activo',0)}}
+                                    {{ Form::checkbox('activo') }}
+                                </div>
+                            @endif
+                            <div class="form-group">
+                                {{ Form::label('palabras_clave', 'Palabras Clave') }}
+                                {{ Form::text('palabras_clave', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label('trayectoria', 'Trayectoria') }}
+                                {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('categoria', 'Categoría') }}
                                 {{ Form::text('categoria', null, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('palabras_clave', 'Palabras Clave') }}
-                                {{ Form::text('palabras_clave', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('pregrade_bg_picture','Foto de fondo') }}
@@ -62,16 +70,8 @@
                                 <p class="help-block">Las imágenes deben ser de tamaño 600x390 y 500K.</p>
                             </div>
                             <div class="form-group">
-                                {{ Form::label('trayectoria', 'Trayectoria') }}
-                                {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group">
                                 {{ Form::label('nombre_autoridad', 'Nombre Autoridad') }}
                                 {{ Form::text('nombre_autoridad', null, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('direccion', 'Dirección') }}
-                                {{ Form::text('direccion', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('province_id', 'Provincia') }}
@@ -82,19 +82,41 @@
                                 {{ Form::select('city_id', $cities->pluck('name','id')->all(), $pregrade->city_id, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
+                                {{ Form::label('direccion', 'Dirección') }}
+                                {{ Form::text('direccion', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="form-group">
                                 {{ Form::label('fiscal', 'Fiscal') }}
                                 {{ Form::hidden('fiscal',0)}}
                                 {{ Form::checkbox('fiscal') }}
-                            </div>
-                            <div class="form-group">
                                 {{ Form::label('privado', 'Privado') }}
                                 {{ Form::hidden('privado',0)}}
                                 {{ Form::checkbox('privado') }}
-                            </div>
-                            <div class="form-group">
                                 {{ Form::label('fiscomisional', 'Fiscomisional') }}
                                 {{ Form::hidden('fiscomisional',0)}}
                                 {{ Form::checkbox('fiscomisional') }}
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label('presencial', 'Presencial') }}
+                                {{ Form::hidden('presencial',0)}}
+                                {{ Form::checkbox('presencial') }}
+                                {{ Form::label('semipresencial', 'Semipresencial') }}
+                                {{ Form::hidden('semipresencial',0)}}
+                                {{ Form::checkbox('semipresencial') }}
+                                {{ Form::label('distancia', 'Distancia') }}
+                                {{ Form::hidden('distancia',0)}}
+                                {{ Form::checkbox('distancia') }}
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label('matutino', 'Matutino') }}
+                                {{ Form::hidden('matutino',0)}}
+                                {{ Form::checkbox('matutino') }}
+                                {{ Form::label('vespertino', 'Vespertino') }}
+                                {{ Form::hidden('vespertino',0)}}
+                                {{ Form::checkbox('vespertino') }}
+                                {{ Form::label('nocturno', 'Nocturno') }}
+                                {{ Form::hidden('nocturno',0)}}
+                                {{ Form::checkbox('nocturno') }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('telefono', 'Telefono') }}
@@ -131,28 +153,6 @@
                             <div class="form-group">
                                 {{ Form::label('descripcion', 'Descripcion') }}
                                 {{ Form::text('descripcion', null, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('presencial', 'Presencial') }}
-                                {{ Form::hidden('presencial',0)}}
-                                {{ Form::checkbox('presencial') }}
-                                {{ Form::label('semipresencial', 'Semipresencial') }}
-                                {{ Form::hidden('semipresencial',0)}}
-                                {{ Form::checkbox('semipresencial') }}
-                                {{ Form::label('distancia', 'Distancia') }}
-                                {{ Form::hidden('distancia',0)}}
-                                {{ Form::checkbox('distancia') }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('matutino', 'Matutino') }}
-                                {{ Form::hidden('matutino',0)}}
-                                {{ Form::checkbox('matutino') }}
-                                {{ Form::label('vespertino', 'Vespertino') }}
-                                {{ Form::hidden('vespertino',0)}}
-                                {{ Form::checkbox('vespertino') }}
-                                {{ Form::label('nocturno', 'Nocturno') }}
-                                {{ Form::hidden('nocturno',0)}}
-                                {{ Form::checkbox('nocturno') }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('carreras_corto', 'Carreras (lista separada por comas)') }}
@@ -202,8 +202,6 @@
                                 {{ Form::label('wifi_interior', 'Wifi Interior') }}
                                 {{ Form::hidden('wifi_interior',0)}}
                                 {{ Form::checkbox('wifi_interior') }}
-                            </div>
-                            <div class="form-group">
                                 {{ Form::label('wifi_exterior', 'Wifi Exterior') }}
                                 {{ Form::hidden('wifi_exterior',0)}}
                                 {{ Form::checkbox('wifi_exterior') }}
@@ -253,15 +251,32 @@
                             </div>
                             <div class="form-group">
                                 {{ Form::label('otros', 'Otras Áreas') }}
-                                {{ Form::textArea('otros') }}
+                                {{ Form::textArea('otros', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('certificaciones_logros', 'Certificaciones y Logros') }}
-                                {{ Form::text('certificaciones_logros') }}
+                                {{ Form::text('certificaciones_logros', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('mapa_url', 'Mapa URL') }}
                                 {{ Form::text('mapa_url', null, ['class' => 'form-control']) }}
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label('Fotos para el Banner') }}
+                                {{ Form::file('banner_inst_picture_1') }}
+                                {{ Form::file('banner_inst_picture_2') }}
+                                {{ Form::file('banner_inst_picture_3') }}
+                                <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label('Fotos para la Galería') }}
+                                {{ Form::file('institution_picture_1') }}
+                                {{ Form::file('institution_picture_2') }}
+                                {{ Form::file('institution_picture_3') }}
+                                {{ Form::file('institution_picture_4') }}
+                                {{ Form::file('institution_picture_5') }}
+                                {{ Form::file('institution_picture_6') }}
+                                <p class="help-block">Las imágenes deben ser de tamaño 600x390 y 500K.</p>
                             </div>
                             <div class="form-group">
                                 {{ Form::label('ruc_invoice', 'Ruc para Factura') }}
@@ -290,23 +305,6 @@
                             <div class="form-group">
                                 {{ Form::label('plan_hasta', 'Plan Hasta') }}
                                 {{ Form::date('plan_hasta', null, ['class' => 'form-control']) }}
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('Fotos para el Banner') }}
-                                {{ Form::file('banner_inst_picture_1') }}
-                                {{ Form::file('banner_inst_picture_2') }}
-                                {{ Form::file('banner_inst_picture_3') }}
-                                <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
-                            </div>
-                            <div class="form-group">
-                                {{ Form::label('Fotos para la Galería') }}
-                                {{ Form::file('institution_picture_1') }}
-                                {{ Form::file('institution_picture_2') }}
-                                {{ Form::file('institution_picture_3') }}
-                                {{ Form::file('institution_picture_4') }}
-                                {{ Form::file('institution_picture_5') }}
-                                {{ Form::file('institution_picture_6') }}
-                                <p class="help-block">Las imágenes deben ser de tamaño 600x390 y 500K.</p>
                             </div>
                             {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
                             {!! Form::close() !!}

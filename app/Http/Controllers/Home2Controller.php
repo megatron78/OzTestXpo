@@ -27,11 +27,15 @@ class Home2Controller extends Controller
             ->whereIn('id', $inst_plucked->all())
             ->get();*/
 
-        $instituciones_view = InstitutionsView::whereIn('id', function($query) {
+        /*$instituciones_view = InstitutionsView::whereIn('id', function($query) {
             $query->select('object_id')
             ->from(with(new Instituciones_ad)->getTable())
                 ->where('fecha_fin', '>=', Carbon::now())
                 ->orderBy('orden_presentacion');
+        })->get();*/
+        $instituciones_view = InstitutionsView::join('instituciones_ads', function ($join) {
+            $join->on('institutions_views.id', '=', 'instituciones_ads.object_id');
+            $join->on('institutions_views.tipo', '=', 'instituciones_ads.categoria');
         })->get();
 
         $bannerData = BannerCategory::where('category_id','=','1')

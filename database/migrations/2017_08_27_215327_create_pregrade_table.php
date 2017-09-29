@@ -45,7 +45,7 @@ class CreatePregradeTable extends Migration
             $table->string('telefono')->default('ND');
             $table->string('celular')->nullable();
             $table->string('email')->default('ND');
-            $table->string('email_adicional')->default('ND');
+            $table->string('email_adicional')->nullable()->default('ND');
             $table->string('web')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();

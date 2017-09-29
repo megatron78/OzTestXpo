@@ -123,30 +123,34 @@ class Pregrade extends Model
     }
 
     public function scopeFiscal($query, $fiscal) {
-        return $query->orWhere('fiscal', 1);
+        return $query->where('fiscal', 1);
     }
 
     public function scopePrivado($query, $privado) {
-        return $query->orWhere('privado', 1);
+        return $query->where('privado', 1);
     }
 
     public function scopeFiscomisional($query, $fiscomisional) {
-        return $query->orWhere('fiscomisional', 1);
+        return $query->where('fiscomisional', 1);
     }
 
     public function scopePresencial($query, $presencial) {
-        return $query->orWhere('presencial', 1);
+        return $query->where('presencial', 1);
     }
 
     public function scopeSemipresencial($query, $semipresencial) {
-        return $query->orWhere('semipresencial', 1);
+        return $query->where('semipresencial', 1);
     }
 
     public function scopeDistancia($query, $distancia) {
-        return $query->orWhere('distancia', 1);
+        return $query->where('distancia', 1);
     }
 
     public function scopeCarreras($query, $carreras) {
-        return $query->orWhere('carreras', 'LIKE', "%$carreras%");
+        return $query->where('carreras', 'LIKE', "%$carreras%");
+    }
+
+    public function scopeTipo($query, $tipo) {
+        return $query->where('tipo', '=', "$tipo");
     }
 }
