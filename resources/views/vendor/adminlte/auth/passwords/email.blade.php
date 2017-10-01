@@ -11,7 +11,7 @@
 
         <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+            <a href="{{ url('/home') }}"><b>EXPO</b>Educar</a>
         </div><!-- /.login-logo -->
 
         @if (session('status'))
@@ -32,7 +32,7 @@
         @endif
 
         <div class="login-box-body">
-            <p class="login-box-msg">Reset Password</p>
+            <p class="login-box-msg">Restablecer Contraseña</p>
 
             <email-reset-password-form></email-reset-password-form>
 
