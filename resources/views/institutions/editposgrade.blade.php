@@ -207,7 +207,8 @@
                                 {{ Form::label('mapa_url', 'Mapa URL') }}
                                 {{ Form::text('mapa_url', null, ['class' => 'form-control']) }}
                             </div>
-                            <div class="form-group">
+
+                            {{--<div class="form-group">
                                 {{ Form::label('max_alumnos_x_nivel', 'Máximo Alumnos por Nivel') }}
                                 {{ Form::number('max_alumnos_x_nivel', $posgrade->max_alumnos_x_nivel, ['class' => 'form-control']) }}
                             </div>
@@ -222,7 +223,8 @@
                             <div class="form-group">
                                 {{ Form::label('horarios', 'Horarios') }}
                                 {{ Form::text('horarios', null, ['class' => 'form-control']) }}
-                            </div>
+                            </div>--}}
+
                             <div class="form-group">
                                 {{ Form::label('ruc_invoice', 'Ruc para Factura') }}
                                 {{ Form::text('ruc_invoice', null, ['class' => 'form-control']) }}

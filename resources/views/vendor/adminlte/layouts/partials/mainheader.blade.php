@@ -120,7 +120,7 @@
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         </a>
-                        <ul style="max-width: 180px" class="dropdown-menu">
+                        <ul style="max-width: 150px" class="dropdown-menu">
                             <!-- The user image in the menu -->
                             {{--<li class="user-header">
                                 --}}{{--<img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image" />--}}{{--
