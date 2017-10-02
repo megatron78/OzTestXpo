@@ -12,7 +12,10 @@
 */
 
 use App\Institution;
-use App\{City,Canton,Parish,Sector};
+use App\City;
+use App\Canton;
+use App\Parish;
+use App\Sector;
 use Illuminate\Support\Facades\Input;
 
 Route::get('/', ['uses' => 'Home2Controller@showHome', 'as' => 'destacados',]);
