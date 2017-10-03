@@ -106,7 +106,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <h1 class="text-blue">{{ $institution->nombre }}</h1>
             <div class="row">
                 <div class="col-md-12">
-                    <div style="font-size: 20px" class="nav-tabs-custom">
+                    <div style="font-size: 20px;" class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab_1" data-toggle="tab">Información</a></li>
                             <li><a href="#tab_2" data-toggle="tab">Descripción</a></li>
