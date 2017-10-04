@@ -30,11 +30,11 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group has-feedback">
                     <input style="outline: solid 1px #057EA2" type="email" class="form-control" placeholder="{{ trans('adminlte_lang::message.email') }}" name="email"/>
-                    <span class="fa fa-envelope form-control-feedback"></span>
+                    <span class="fa fa-envelope aria-hidden=true form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                         <input style="outline: solid 1px #057EA2" type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.password') }}" name="password"/>
-                        <span class="fa fa-lock form-control-feedback"></span>
+                        <span class="fa fa-lock aria-hidden=true form-control-feedback"></span>
                     </div>
                     <div class="row">
                         <div class="col-xs-8">

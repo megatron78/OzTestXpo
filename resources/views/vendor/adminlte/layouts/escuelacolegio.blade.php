@@ -35,7 +35,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                  onmouseleave="if($('#collapse{{ $institucion->id }}').attr('aria-expanded') === 'true'){ $('#collapse{{ $institucion->id }}').collapse('toggle');}">
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user">
-                                    <input style="position: absolute; bottom: 0px; right: 0px;" type="checkbox" class="checkbox"
+                                    <input style="transform: scale(1.5); position: absolute; bottom: 5px; right: 5px;" type="checkbox" class="checkbox"
                                            id="compare-{{ $institucion->id }}" />
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-black"
@@ -260,6 +260,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     $(function () {
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();
+
+        $('#advsearch_costo').on('slideStop', function(event) { alert('Al variar el rango se pueden excluir instituciones sin valor de pensión'); });
 
         /* ION SLIDER */
         $("#range_1").ionRangeSlider({

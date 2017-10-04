@@ -80,7 +80,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" value="" class="slider form-control" id="advsearch_costo" name="advsearch_costo"
                            data-slider-min="0" data-slider-max="600" data-slider-step="50"
-                           data-slider-value="[0,500]" data-slider-orientation="horizontal"
+                           data-slider-value="[0,600]" data-slider-orientation="horizontal"
                            data-slider-selection="before" data-slider-tooltip="show"
                            data-slider-id="blue_price_slider"/>&nbsp;<b style="font-size: 14px; color: ghostwhite;" >$ 600+</b>
                 </div>

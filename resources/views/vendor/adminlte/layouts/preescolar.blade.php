@@ -36,7 +36,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                  onmouseleave="if($('#collapse{{ $institucion->id }}').attr('aria-expanded') === 'true'){ $('#collapse{{ $institucion->id }}').collapse('toggle');}">
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user">
-                                    <input style="position: absolute; bottom: 0px; right: 0px;" type="checkbox" class="checkbox"
+                                    <input style="transform: scale(1.5); position: absolute; bottom: 5px; right: 5px;" type="checkbox" class="checkbox"
                                            id="compare-{{ $institucion->id }}" />
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-black"
@@ -221,7 +221,6 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     </footer>
 
 </div>
-
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -267,50 +266,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     $(function () {
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();
-
+        $('#advsearch_costo').on('slideStop', function(event) { alert('Al variar el rango se pueden excluir instituciones sin valor de pensión'); });
         /* ION SLIDER */
-        $("#range_1").ionRangeSlider({
-            min: 0,
-            max: 5000,
-            from: 1000,
-            to: 4000,
-            type: 'double',
-            step: 1,
-            prefix: "$",
-            prettify: false,
-            hasGrid: true
-        });
-        $("#range_2").ionRangeSlider();
-
-        $("#range_5").ionRangeSlider({
-            min: 0,
-            max: 10,
-            type: 'single',
-            step: 0.1,
-            postfix: " mm",
-            prettify: false,
-            hasGrid: true
-        });
-        $("#range_6").ionRangeSlider({
-            min: -50,
-            max: 50,
-            from: 0,
-            type: 'single',
-            step: 1,
-            postfix: "°",
-            prettify: false,
-            hasGrid: true
-        });
-
-        $("#range_4").ionRangeSlider({
-            type: "single",
-            step: 100,
-            postfix: " light years",
-            from: 55000,
-            hideMinMax: true,
-            hideFromTo: false
-        });
-        $("#range_3").ionRangeSlider({
+        $("#slider_3").ionRangeSlider({
             type: "double",
             postfix: " miles",
             step: 10000,

@@ -79,7 +79,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" value="" class="slider form-control" id="advsearch_costo" name="advsearch_costo"
                            data-slider-min="0" data-slider-max="11000" data-slider-step="1000"
-                           data-slider-value="[0,5000]" data-slider-orientation="horizontal"
+                           data-slider-value="[0,11000]" data-slider-orientation="horizontal"
                            data-slider-selection="before" data-slider-tooltip="show"
                            data-slider-id="blue_price_slider"/>&nbsp;<b style="font-size: 14px; color: ghostwhite;" >$ 11.000+</b>
                 </div>

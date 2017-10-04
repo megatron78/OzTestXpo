@@ -89,13 +89,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 && empty($institution->banner_inst_picture_4)
                                 && empty($institution->banner_inst_picture_5))
                                     <div class="item active">
-                                        <img style="width: 100%;" src="{{ asset('/img/slide-01.png') }}" alt="">
+                                        <img style="width: 100%;" src="{{ asset('/img/default_banner.png') }}" alt="">
                                     </div>
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset('/img/slide-02.png') }}" alt="">
+                                        <img style="width: 100%;" src="{{ asset('/img/default_banner.png') }}" alt="">
                                     </div>
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset('/img/slide-03.png') }}" alt="">
+                                        <img style="width: 100%;" src="{{ asset('/img/default_banner.png') }}" alt="">
                                     </div>
                                 @endif
                             </div>
@@ -103,7 +103,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     </div>
                 </div> <!--/ .carousel -->
             </div> <!-- banner -->
-            <h1 class="text-blue">{{ $institution->nombre }}</h1>
+            <h1 style="background-color: #1B2D4D; color: white;">{{ $institution->nombre }}</h1>
             <div class="row">
                 <div class="col-md-12">
                     <div style="font-size: 20px;" class="nav-tabs-custom">
@@ -282,7 +282,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         </div>
                                         <!-- /.box-body -->
                                         <div class="modal-footer bg-gray-light">
-                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                            <button style="font-size: 16px" type="submit" class="btn btn-primary">Enviar</button>
                                         </div>
                                         {!! Form::close() !!}
                                     </div>
@@ -442,22 +442,22 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_5">
                                 <ul style="padding:0 0 0 0; margin:0 0 0 0;" class="row">
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
+                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
+                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
+                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
+                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
+                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
+                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
                                     </li>
                                 </ul>
                             </div>

@@ -103,7 +103,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     </div>
                 </div> <!--/ .carousel -->
             </div> <!-- banner -->
-            <h1 class="text-blue">{{ $pregrade->nombre }}</h1>
+            <h1 style="background-color: #1B2D4D; color: white;">{{ $pregrade->nombre }}</h1>
             <div class="row">
                 <div class="col-md-12">
                     <div style="font-size: 20px" class="nav-tabs-custom">
@@ -261,7 +261,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-9" style="text-align: right;">
-                                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                                    <button style="font-size: 16px" type="submit" class="btn btn-primary">Enviar</button>
                                                 </div>
                                             </div>
                                         </form>

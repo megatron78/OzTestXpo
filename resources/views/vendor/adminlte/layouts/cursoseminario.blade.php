@@ -185,6 +185,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     $(function () {
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();
+        $('#advsearch_costo').on('slideStop', function(event) { alert('Al variar el rango se pueden excluir instituciones que no ingresaron el costo'); });
 
         /* ION SLIDER */
         $("#range_1").ionRangeSlider({

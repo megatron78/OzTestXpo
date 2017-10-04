@@ -1,18 +1,20 @@
 @extends('adminlte::layouts.auth')
 
 @section('htmlheader_title')
-    Register
+    Registro
 @endsection
 
 @section('content')
-
-    <body style="background-image: url('{{ asset('/img/expoeducar_login_bg.png') }}'); background-size: contain; background-repeat: no-repeat; background-position: center center;" class="hold-transition register-page">
+    @include('vendor.adminlte.layouts.partials.headexpoeducar');
+    <body style="background-image: url('{{ asset('/img/expoeducar_login_bg.png') }}'); background-size: contain;
+            background-repeat: no-repeat; background-position: center center; margin-top: 1px"
+          class="hold-transition register-page" >
     <div id="app" v-cloak>
+    @include('vendor.adminlte.layouts.partials.navbarexpoeducar')
         <div class="register-box">
-            <div class="register-logo">
+            {{--<div class="register-logo">
                 <a href="{{ url('/home') }}"><b>Expo</b>Educar</a>
-            </div>
-
+            </div>--}}
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <strong>Whoops!</strong> {{ trans('adminlte_lang::message.someproblems') }}<br><br>
@@ -24,8 +26,8 @@
                 </div>
             @endif
 
-            <div style="background-color: rgba(255, 255, 255, 0.1);" class="register-box-body">
-                <p class="login-box-msg">{{ trans('adminlte_lang::message.registermember') }}</p>
+            <div style="background-color: rgba(255, 255, 255, 0.4); outline: solid 1px #057EA2" class="register-box-body">
+                <p style="font-size: 14px" class="login-box-msg">{{ trans('adminlte_lang::message.registermember') }}</p>
                 <form action="{{ url('/register') }}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group has-feedback">
@@ -80,13 +82,15 @@
                     </div>
                 </form>
 
-                    {{--@include('adminlte::auth.partials.social_login')--}}
+                {{--@include('adminlte::auth.partials.social_login')--}}
 
                 <a href="{{ url('/login') }}" class="text-center">{{ trans('adminlte_lang::message.membreship') }}</a>
             </div><!-- /.form-box -->
         </div><!-- /.register-box -->
+    <footer>
+        @include('vendor.adminlte.layouts.partials.footerexpoeducar')
+    </footer>
     </div>
-
     @include('adminlte::layouts.partials.scripts_auth')
 
     @include('adminlte::auth.terms')
@@ -100,7 +104,6 @@
             });
         });
     </script>
-
     </body>
 
 @endsection

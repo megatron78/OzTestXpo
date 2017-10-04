@@ -47,7 +47,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <div class="row">
                                         <div class="centered">
                                             <div style="min-height: 15px; max-height: 15px" class="description-block">
-                                                <h5 class="description-header">Carreras</h5>
+                                                {{--<h5 class="description-header">Carreras</h5>--}}
                                                 <span class="description-text">{{ str_limit($pregrado->carreras_corto, $limit=65, $end="...") }}</span>
                                             </div>
                                             <!-- /.description-block -->

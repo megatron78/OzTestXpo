@@ -8,7 +8,8 @@
                     <select style="min-width: 200px; max-width: 200px" name="search_province" id="search_province" class="form-control">
                         <option value="">Provincia</option>
                         @foreach($provinces as $province)
-                            <option value="{{ $province->id}}">{{ $province->name}}</option>
+                            <option value="{{ $province->id}}" @if(old('search_province')===17)
+                                selected="selected" @endif>{{ $province->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -113,7 +114,7 @@
                     </label>
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
-                    &nbsp;&nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;"  for="advsearch_costo">Pensión: <b>$ 0</b></label>
+                    &nbsp;&nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;"  for="advsearch_costo">Pensión Promedio: <b>$ 0</b></label>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" value="" class="slider form-control" id="advsearch_costo" name="advsearch_costo"
                            data-slider-min="0" data-slider-max="500" data-slider-step="50"
