@@ -18,7 +18,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <div class="row">
                 <div class="row centered">
                     <div class="col-lg-12 col-lg-offset-0">
-                        <div id="carousel-example-generic" class="carousel slide">
+                        {{--<div id="carousel-example-generic" class="carousel slide">
                             <!-- Indicators -->
                             <ol class="hidden-xs carousel-indicators">
                                 @if(!empty($event->banner_inst_picture_1))
@@ -37,7 +37,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <li data-target="#carousel-example-generic" data-slide-to="4"></li>
                                 @endif
 
-                                {{-- Put default pics on empty carousel --}}
+                                --}}{{-- Put default pics on empty carousel --}}{{--
                                 @if(empty($event->banner_inst_picture_1)
                                 && empty($event->banner_inst_picture_2)
                                 && empty($event->banner_inst_picture_3)
@@ -82,24 +82,24 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                              alt="">
                                     </div>
                                 @endif
-                                {{-- Put default pics on empty carousel --}}
+                                --}}{{-- Put default pics on empty carousel --}}{{--
                                 @if(empty($event->banner_inst_picture_1)
                                 && empty($event->banner_inst_picture_2)
                                 && empty($event->banner_inst_picture_3)
                                 && empty($event->banner_inst_picture_4)
                                 && empty($event->banner_inst_picture_5))
                                     <div class="item active">
-                                        <img style="width: 100%;" src="{{ asset('/img/slide-01.png') }}" alt="">
+                                        <img style="width: 100%;" src="{{ asset('/img/default_banner.png') }}" alt="">
                                     </div>
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset('/img/slide-02.png') }}" alt="">
+                                        <img style="width: 100%;" src="{{ asset('/img/default_banner.png') }}" alt="">
                                     </div>
                                     <div class="item">
-                                        <img style="width: 100%;" src="{{ asset('/img/slide-03.png') }}" alt="">
+                                        <img style="width: 100%;" src="{{ asset('/img/default_banner.png') }}" alt="">
                                     </div>
                                 @endif
                             </div>
-                        </div>
+                        </div>--}}
                     </div>
                 </div> <!--/ .carousel -->
             </div> <!-- banner -->
@@ -109,11 +109,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     <div style="font-size: 20px" class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab_1" data-toggle="tab">Información</a></li>
-                            <li><a href="#tab_2" data-toggle="tab">Descripción</a></li>
-                            <li><a href="#tab_3" data-toggle="tab">Detalles</a></li>
-                            <li><a href="#tab_4" data-toggle="tab">Certificaciones y Logros</a></li>
                             <li><a href="#tab_5" data-toggle="tab">Galería de Imágenes</a></li>
-                            <li><a href="#tab_6" data-toggle="tab">Mapa de Ubicación</a></li>
                             {{--<li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     Acciones <span class="caret"></span>
@@ -131,66 +127,16 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <div class="row">
                                     <div class="col-md-5">
                                         <dl class="dl-horizontal">
-                                    <dt>Niveles</dt>
-                                    @if($event->preescolar)
-                                        <dd>Inicial</dd>
-                                    @elseif($event->escuela)
-                                        <dd>Educación General Básica</dd>
-                                    @elseif($event->colegio)
-                                        <dd>Colegio</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Trayectoria</dt>
-                                    <dd>{{ $event->trayectoria }}</dd>
-                                    <dt>Rector/Director</dt>
-                                    <dd>{{ $event->nombre_autoridad }}</dd>
-                                    <dt>Ubicación</dt>
-                                    <dd>{{ $event->province->name }} {{ isset($event->city->name) ? " / ".$event->city->name : "" }}  {{ isset($event->sector->nombre) ? " / ".$event->sector->nombre : "" }}</dd>
+                                    <dt>Información</dt>
+                                    <dd>{{ $event->informacion }}</dd>
+                                    <dt>Costo</dt>
+                                    <dd>{{ $event->costo }}</dd>
+                                    <dt>Fecha Evento</dt>
+                                    <dd>{{ $event->fecha_evento }}</dd>
+                                    <dt>Hora Evento</dt>
+                                    <dd>{{ $event->hora_evento }}</dd>
                                     <dt>Dirección</dt>
                                     <dd>{{ $event->direccion }}</dd>
-                                    <dt>Tipo Educación</dt>
-                                    @if($event->religioso)
-                                        <dd>Religioso</dd>
-                                    @else
-                                        <dd>Laico</dd>
-                                    @endif
-                                    <dt>Género</dt>
-                                    @if($event->masculino)
-                                        <dd>Maculino</dd>
-                                    @elseif($event->femenino)
-                                        <dd>Femenino</dd>
-                                    @else
-                                        <dd>Mixto</dd>
-                                    @endif
-                                    <dt>Sostenimiento</dt>
-                                    @if($event->fiscal)
-                                        <dd>Pública</dd>
-                                    @elseif($event->fiscomisional)
-                                        <dd>Fiscomisional</dd>
-                                    @else
-                                        <dd>Privada</dd>
-                                    @endif
-                                    <dt>Régimen</dt>
-                                    @if(isset($event->regimen))
-                                        <dd>{{ $event->regimen }}</dd>
-                                    @else
-                                        <dd>Sierra</dd>
-                                    @endif
-                                    <dt>Pensión promedio</dt>
-                                    @if(isset($event->pago_promedio_escuela))
-                                        <dd>Escuela: ${{ $event->pago_promedio_escuela }}</dd>
-                                    @elseif(isset($event->pago_promedio_colegio))
-                                        <dd>Colegio: ${{ $event->pago_promedio_colegio }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Idiomas</dt>
-                                    @if(isset($event->lenguajes))
-                                        <dd>{{ $event->lenguajes }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
                                     <dt>Teléfonos</dt>
                                     @if(isset($event->telefono))
                                         <dd>{{ $event->telefono }}</dd>
@@ -231,232 +177,73 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 </dl>
                                     </div>
                                     <div class="col-md-7">
-                                        <form class="form-horizontal" action="/">
-                                            <div class="box-body">
-                                                <div class="form-group">
-                                                    <label for="nombreApellido" class="col-sm-3 control-label">Nombre y Apellido *</label>
+                                        <div class="modal-header bg-gray-light">
+                                            <h4 class="modal-title" id="myModalLabel">
+                                                <img style="padding-left: 1%; height: 70px; width: auto;"
+                                                     src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
+                                                <strong>Proporciona tus datos para obtener más información</strong></h4>
+                                        </div>
+                                        {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                <label for="nombreApellido" class="col-sm-3 control-label">Nombre y Apellido *</label>
 
-                                                    <div class="col-sm-6">
-                                                        <input type="text" class="form-control" id="nombreApellido"
-                                                               placeholder="Nombre y Apellido" required>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="telefono" class="col-sm-3 control-label">Teléfono *</label>
-
-                                                    <div class="col-sm-6">
-                                                        <input type="email" class="form-control" id="telefono" placeholder="Correo electrónico" required>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
-
-                                                    <div class="col-sm-6">
-                                                        <input type="email" class="form-control" id="whatsapp" placeholder="Whatsapp">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
-
-                                                    <div class="col-sm-6">
-                                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Correo electrónico" required>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="interes" class="col-sm-3 control-label">Interés</label>
-
-                                                    <div class="col-sm-6">
-                                                        <input type="email" class="form-control" id="interes" placeholder="Estoy interesado en...">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-9" style="text-align: right;">
-                                                    <button style="font-size: 16px" type="submit" class="btn btn-primary">Enviar</button>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="nombreApellido" name="nombreApellido"
+                                                           placeholder="Nombre y Apellido" required>
                                                 </div>
                                             </div>
-                                        </form>
+                                            <div class="form-group">
+                                                <label for="telefono" class="col-sm-3 control-label">Teléfono *</label>
+
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
+
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="whatsapp" name="telefono" placeholder="Whatsapp">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
+
+                                                <div class="col-sm-9">
+                                                    <input type="hidden" id="email" name="email" value="{{ $event->email }}">
+                                                    <input type="email" class="form-control" id="inputEmail3" name="inputEmail3" placeholder="Correo electrónico" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="interes" class="col-sm-3 control-label">Interés</label>
+
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="interes" name="interes" placeholder="Estoy interesado en...">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.box-body -->
+                                        <div class="modal-footer bg-gray-light">
+                                            <button style="font-size: 16px" type="submit" class="btn btn-primary">Enviar</button>
+                                        </div>
+                                        {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_2">
-                                <div class="box-body">
-                                    {{--<b class="text-blue">Instalaciones</b>--}}
-                                    <dl class="dl-horizontal">
-                                        <dt>Descripción</dt>
-                                        @if(isset($event->descripcion))
-                                            <dd>{{ $event->descripcion }}</dd>
-                                        @else
-                                            <dd></dd>
-                                        @endif
-                                    </dl>
-                                </div>
-                                <!-- /.box-body -->
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_3">
-                                <dl class="dl-horizontal">
-                                    <dt>Edad desde</dt>
-                                    @if(isset($event->edad_desde))
-                                        <dd>{{ $event->edad_desde }} años</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Edad hasta</dt>
-                                    @if(isset($event->edad_hasta))
-                                        <dd>{{ $event->edad_hasta }} años</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Extendido</dt>
-                                    @if($event->horario_extendido)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Horario Ingreso Diurno</dt>
-                                    @if(isset($event->entrada_matutino))
-                                        <dd>{{ $event->entrada_matutino }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Salida Diurno</dt>
-                                    @if(isset($event->salida_matutino))
-                                        <dd>{{ $event->salida_matutino }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Horario Salida Extendido</dt>
-                                    @if(isset($event->salida_horario_extendido))
-                                        <dd>{{ $event->salida_horario_extendido }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Alimentación</dt>
-                                    @if(isset($event->alimentacion))
-                                        @if($event->alimentacion === "S")
-                                            <dd>SI</dd>
-                                        @elseif($event->alimentacion === "O")
-                                            <dd>OPCIONAL</dd>
-                                        @else
-                                            <dd>NO</dd>
-                                        @endif
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Total Alumnos</dt>
-                                    @if(isset($event->total_estudiantes))
-                                        <dd>{{ $event->total_estudiantes }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Máximo por Clase</dt>
-                                    @if(isset($event->max_estudiantes_x_clase))
-                                        <dd>{{ $event->max_estudiantes_x_clase }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Total</dt>
-                                    @if(isset($event->max_estudiantes_x_clase))
-                                        <dd>{{ $event->max_estudiantes_x_clase }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Canchas Deportivas</dt>
-                                    @if(isset($event->area_deportiva))
-                                        <dd>{{ $event->area_deportiva }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Espacios Verdes</dt>
-                                    @if(isset($event->area_espacios_verdes))
-                                        <dd>{{ $event->area_espacios_verdes }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Área Piscinas</dt>
-                                    @if(isset($event->area_piscina))
-                                        <dd>{{ $event->area_piscina }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Seguridad Privada</dt>
-                                    @if($event->seguridad_privada)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Wifi en aulas</dt>
-                                    @if($event->wifi_interior)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Wifi exterior</dt>
-                                    @if(isset($event->wifi_otros))
-                                        <dd>{{ $event->wifi_otros }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <dt>Cámara IP Entrada/Salida</dt>
-                                    @if($event->wifi_interior)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Cámara IP Aulas/Espacios</dt>
-                                    @if($event->wifi_interior)
-                                        <dd>SI</dd>
-                                    @else
-                                        <dd>NO</dd>
-                                    @endif
-                                    <dt>Otros</dt>
-                                    @if(isset($event->otros))
-                                        <dd>{{ $event->otros }}</dd>
-                                    @else
-                                        <dd></dd>
-                                    @endif
-                                    <hr>
-                                </dl>
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_4">
-                                <dt>Certificaciones y Logros</dt>
-                                @if(isset($event->certificaciones_logros))
-                                    <dd>{{ $event->certificaciones_logros }}</dd>
-                                @else
-                                    <dd></dd>
-                                @endif
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_5">
                                 <ul style="padding:0 0 0 0; margin:0 0 0 0;" class="row">
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
-                                    </li>
-                                    <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/slide-01.png') }}">
+                                        @if(!empty($event->evento_bg_picture))
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset($event->evento_bg_picture) }}">
+                                        @else
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @endif
+
                                     </li>
                                 </ul>
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_6">
-                                @if(isset($event->mapa_url) && !empty($event->mapa_url))
-                                    {!! $event->mapa_url !!}
-                                @else
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7911908314577!2d-78.41692168566942!3d-0.21129163545664972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5913090093377%3A0x6df39dd58f481a13!2sOV+Constructora!5e0!3m2!1ses!2sec!4v1502305609923" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                @endif
                             </div>
                             <!-- /.tab-pane -->
                         </div>

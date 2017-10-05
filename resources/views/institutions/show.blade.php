@@ -442,22 +442,46 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_5">
                                 <ul style="padding:0 0 0 0; margin:0 0 0 0;" class="row">
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @if(!empty($institution->institution_picture_1))
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset($institution->institution_picture_1) }}">
+                                        @else
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @endif
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @if(!empty($institution->institution_picture_2))
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset($institution->institution_picture_2) }}">
+                                        @else
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @endif
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @if(!empty($institution->institution_picture_3))
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset($institution->institution_picture_3) }}">
+                                        @else
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @endif
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @if(!empty($institution->institution_picture_4))
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset($institution->institution_picture_4) }}">
+                                        @else
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @endif
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @if(!empty($institution->institution_picture_5))
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset($institution->institution_picture_5) }}">
+                                        @else
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @endif
                                     </li>
                                     <li style="list-style: none; margin-bottom:20px;" class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
-                                        <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @if(!empty($institution->institution_picture_6))
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset($institution->institution_picture_6) }}">
+                                        @else
+                                            <img style="cursor: pointer;" class="img-responsive" src="{{ asset('/img/default_image.png') }}">
+                                        @endif
                                     </li>
                                 </ul>
                             </div>
