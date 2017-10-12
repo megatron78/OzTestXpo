@@ -6,7 +6,7 @@ use App\PosgradeCourseSeminar;
 
 class ShowPosgradeController extends Controller
 {
-    public function __invoke(PosgradeCourseSeminar $posgrado, $slug) {
+    public function __invoke($provincename, $cityname, PosgradeCourseSeminar $posgrado, $slug) {
 
         //abort_unless($post->slug == $slug, 404);
         if($posgrado->slug != $slug) {

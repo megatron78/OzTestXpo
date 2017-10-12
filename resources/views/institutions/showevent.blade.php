@@ -271,7 +271,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <!--Google Maps API-->
-<script src="{{ url (mix('/js/app-landing.js')) }}"></script>
+<script src="{{ asset('/js/app-landing.js') }}"></script>
 <script src="{{ url ('/js/photo-gallery.js') }}"></script>
 <script>
     $('.carousel').carousel({

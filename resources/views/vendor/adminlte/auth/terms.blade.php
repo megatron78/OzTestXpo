@@ -1,5 +1,5 @@
 <!-- Terms and conditions modal -->
-<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
+<div class="modal" id="termsModal" tabindex="-10" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

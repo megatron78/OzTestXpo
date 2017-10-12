@@ -24,7 +24,7 @@
                 </div>
             @endif
 
-            <div style="background-color: rgba(255, 255, 255, 0.4); outline: solid 1px #057EA2" class="login-box-body">
+            <div style="background-color: rgba(255, 255, 255, 0.5); outline: solid 1px #057EA2" class="login-box-body">
                 <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
                 <form action="{{ url('/login') }}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -13,7 +13,11 @@
                     <li style="font-size: 14px">¿Quiénes Somos?</li>
                     <li style="font-size: 14px">Términos y Condiciones</li>
                     <li style="font-size: 14px">Preguntas Frecuentes</li>
-                    <li style="font-size: 14px">Contáctanos</li>
+                    <li style="font-size: 14px"><a style="color: #555555" data-target="#meInteresa" data-toggle="modal"
+                                                   data-email="info@expoeducar.com"
+                                                   href="#meInteresa">
+                            Contáctanos
+                        </a></li>
                 </ul>
             </div>
         </div>

@@ -77,8 +77,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <div class="col-sm-4 centered">
                                             <div class="description-block">
                                                 <h5 class="description-header">Ubicación</h5>
-                                                <span class="description-text">{{ isset($institucionview->city->name) ? $institucionview->city->name : "ND" }}
-                                                    , {{ isset($institucionview->province->name) ? $institucionview->province->name : "ND" }}</span>
+                                                <span class="description-text">{{ isset($institucionview->city_name) ? $institucionview->city_name : "ND" }}
+                                                    , {{ isset($institucionview->province_name) ? $institucionview->province_name : "ND" }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
@@ -93,11 +93,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <div class="col-sm-4 centered">
                                         @if($institucionview->preescolar == 1 and $institucionview->escuela == 0
                                         and $institucionview->colegio == 0)
-                                            <a href="{{ route('preescolar.show', [$institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
+                                            <a href="{{ route('preescolar.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
                                             </a>
                                         @else
-                                            <a href="{{ route('escuelacolegio.show', [$institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
+                                            <a href="{{ route('escuelacolegio.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
                                             </a>
                                         @endif
@@ -166,7 +166,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             </a>
                                         </div>
                                         <div class="col-sm-4 centered">
-                                            <a href="{{ route('superior.show', [$institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
+                                            <a href="{{ route('superior.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
                                             </a>
                                         </div>
@@ -217,7 +217,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 {{ str_limit($institucionview->objetivo, $limit=50, $end="...") }}
                                             </div>
                                             <div class="col-sm-4 centered">
-                                                <a href="{{ route('posgrado.show', [$institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
+                                                <a href="{{ route('posgrado.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                     Más información
                                                 </a>
                                             </div>
@@ -277,7 +277,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             {{$institucionview->objetivo}}
                                         </div>
                                         <div class="col-sm-4 centered">
-                                            <a href="{{ route('cursoseminario.show', [$institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
+                                            <a href="{{ route('cursoseminario.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
                                             </a>
                                         </div>
@@ -400,7 +400,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ url (mix('/js/app-landing.js')) }}"></script>
+<script src="{{ asset('/js/app-landing.js') }}"></script>
 <script>
     $('.carousel').carousel({
         interval: 3500

@@ -256,7 +256,7 @@ class InstitutionController extends Controller
     //Escuela Colegio
     public function createEscuelacolegio() {
         $provinces = Province::all(['name','id']);
-        return view('institutions.createpreescolar', compact('provinces'));
+        return view('institutions.createescuelacolegio', compact('provinces'));
     }
 
     public function storeEscuelacolegio(Request $request) {
@@ -348,7 +348,7 @@ class InstitutionController extends Controller
         $sectors = Sector::where('city_id','=',$institution->city_id)
             ->select('nombre','id')->get();
 
-        return view('institutions.editinstitution',
+        return view('institutions.editescuelacolegio',
             compact('provinces','cantons','parishes','cities','sectors'))->withInstitution($institution);
     }
 

@@ -107,7 +107,7 @@ class Pregrade extends Model
 
     public function getUrlAttribute()
     {
-        return route('superior.show', [$this->id, $this->slug]);
+        return route('superior.show', [isset($this->province->name) ? $this->province->name : 'provincia', isset($this->city->name) ? $this->city->name : 'ciudad', $this->id, $this->slug]);
     }
 
     public function scopeProvince($query, $province_id) {

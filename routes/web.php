@@ -62,27 +62,27 @@ Route::get('planes', [
     'as' => 'planes.all',
 ]);
 
-Route::get('preescolar/{institution}-{slug}', [
+Route::get('preescolar/{provincia}/{ciudad}/{institution}-{slug}', [
     'uses' => 'ShowInstitutionController',
     'as' => 'preescolar.show',
 ])->where('institution', '\d+');
 
-Route::get('escuelacolegio/{institution}-{slug}', [
+Route::get('escuelacolegio/{provincia}/{ciudad}/{institution}-{slug}', [
     'uses' => 'ShowEscuelaColegioController',
     'as' => 'escuelacolegio.show',
 ])->where('institution', '\d+');
 
-Route::get('superior/{pregrade}-{slug}', [
+Route::get('superior/{provincia}/{ciudad}/{pregrade}-{slug}', [
     'uses' => 'ShowSuperiorController',
     'as' => 'superior.show',
 ])->where('pregrade', '\d+');
 
-Route::get('posgrado/{posgrado}-{slug}', [
+Route::get('posgrado/{provincia}/{ciudad}/{posgrado}-{slug}', [
     'uses' => 'ShowPosgradeController',
     'as' => 'posgrado.show',
 ])->where('posgrado', '\d+');
 
-Route::get('cursoseminario/{cursoseminario}-{slug}', [
+Route::get('cursoseminario/{provincia}/{ciudad}/{cursoseminario}-{slug}', [
     'uses' => 'ShowCourseSeminarController',
     'as' => 'cursoseminario.show',
 ])->where('cursoseminario', '\d+');

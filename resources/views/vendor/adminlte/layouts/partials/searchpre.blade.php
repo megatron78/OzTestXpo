@@ -8,8 +8,7 @@
                     <select style="min-width: 200px; max-width: 200px" name="search_province" id="search_province" class="form-control">
                         <option value="">Provincia</option>
                         @foreach($provinces as $province)
-                            <option value="{{ $province->id}}" @if(old('search_province')===17)
-                                selected="selected" @endif>{{ $province->name}}</option>
+                            <option value="{{ $province->id}}">{{ $province->name}}</option>
                         @endforeach
                     </select>
                 </div>

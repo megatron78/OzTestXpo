@@ -26,7 +26,7 @@
                 </div>
             @endif
 
-            <div style="background-color: rgba(255, 255, 255, 0.4); outline: solid 1px #057EA2" class="register-box-body">
+            <div style="background-color: rgba(255, 255, 255, 0.5); outline: solid 1px #057EA2" class="register-box-body">
                 <p style="font-size: 14px" class="login-box-msg">{{ trans('adminlte_lang::message.registermember') }}</p>
                 <form action="{{ url('/register') }}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -92,9 +92,7 @@
     </footer>
     </div>
     @include('adminlte::layouts.partials.scripts_auth')
-
     @include('adminlte::auth.terms')
-
     <script>
         $(function () {
             $('input').iCheck({

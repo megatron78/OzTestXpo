@@ -6,7 +6,7 @@ use App\Institution;
 
 class ShowEscuelaColegioController extends Controller
 {
-    public function __invoke(Institution $institution, $slug) {
+    public function __invoke($provincename, $cityname, Institution $institution, $slug) {
         //abort_unless($post->slug == $slug, 404);
         if($institution->slug != $slug) {
             return redirect($institution->url, 301);
