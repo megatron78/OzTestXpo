@@ -91,8 +91,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         </a>
                                     </div>
                                     <div class="col-sm-4 centered">
-                                        @if($institucionview->preescolar == 1 and $institucionview->escuela == 0
-                                        and $institucionview->colegio == 0)
+                                        @if($institucionview->preescolar == 1 and $institucionview->escuela == 0 and $institucionview->colegio == 0)
                                             <a href="{{ route('preescolar.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
                                             </a>
