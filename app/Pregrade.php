@@ -122,28 +122,34 @@ class Pregrade extends Model
         return $query->where('nombre', 'LIKE', "%$name%")->orWhere('palabras_clave', 'LIKE', "%$name%");
     }
 
-    public function scopeFiscal($query, $fiscal) {
-        return $query->where('fiscal', 1);
+    public function scopeFiscal($query, $foo, $privado, $fiscomisional) {
+        return $query->where(function ($query) use ($privado, $fiscomisional)
+        {$query->where('fiscal', 1)->orWhere('privado', $privado)->orWhere('fiscomisional', $fiscomisional);});
     }
 
-    public function scopePrivado($query, $privado) {
-        return $query->where('privado', 1);
+    public function scopePrivado($query, $foo, $fiscal, $fiscomisional) {
+        return $query->where(function ($query) use ($fiscal, $fiscomisional)
+        {$query->where('privado', 1)->orWhere('fiscal', $fiscal)->orWhere('fiscomisional', $fiscomisional);});
     }
 
-    public function scopeFiscomisional($query, $fiscomisional) {
-        return $query->where('fiscomisional', 1);
+    public function scopeFiscomisional($query, $foo, $privado, $fiscal) {
+        return $query->where(function ($query) use ($privado, $fiscal)
+        {$query->where('fiscomisional', 1)->orWhere('privado', $privado)->orWhere('fiscal', $fiscal);});
     }
 
-    public function scopePresencial($query, $presencial) {
-        return $query->where('presencial', 1);
+    public function scopePresencial($query, $foo, $semipresencial, $distancia) {
+        return $query->where(function ($query) use ($semipresencial, $distancia)
+        {$query->where('presencial', 1)->orWhere('semipresencial', $semipresencial)->orWhere('distancia', $distancia);});
     }
 
-    public function scopeSemipresencial($query, $semipresencial) {
-        return $query->where('semipresencial', 1);
+    public function scopeSemipresencial($query, $foo, $presencial, $distancia) {
+        return $query->where(function ($query) use ($presencial, $distancia)
+        {$query->where('semipresencial', 1)->orWhere('presencial', $presencial)->orWhere('distancia', $distancia);});
     }
 
-    public function scopeDistancia($query, $distancia) {
-        return $query->where('distancia', 1);
+    public function scopeDistancia($query, $foo, $presencial, $semipresencial) {
+        return $query->where(function ($query) use ($presencial, $semipresencial)
+        {$query->where('distancia', 1)->orWhere('presencial', $presencial)->orWhere('semipresencial', $semipresencial);});
     }
 
     public function scopeCarreras($query, $carreras) {

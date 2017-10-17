@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BannerCategory;
+use Illuminate\Support\Facades\Session;
 use App\Institution;
 use App\Province;
 use Illuminate\Http\Request;
@@ -29,6 +30,9 @@ class ListEscuelaColegioController extends Controller
 
         $provinces = Province::all(['name','id']);
 
+        if(!$instituciones->first())
+            Session::flash('flash_message', 'No se encontraron registros.');
+
         return view('vendor.adminlte.layouts.escuelacolegio', compact('instituciones','provinces', 'bannerData'));
     }
 
@@ -42,22 +46,72 @@ class ListEscuelaColegioController extends Controller
             $scopes = array_add($scopes, 'sector', $request->get('search_sector'));
         if(!is_null($request->get('search_institution')))
             $scopes = array_add($scopes, 'nombreKeyword', $request->get('search_institution'));
-        if(!is_null($request->get('advsearch_chkFiscal')))
-            $scopes = array_add($scopes, 'fiscal', $request->get('advsearch_chkFiscal'));
-        if(!is_null($request->get('advsearch_chkFiscomisional')))
-            $scopes = array_add($scopes, 'fiscomisional', $request->get('advsearch_chkFiscomisional'));
-        if(!is_null($request->get('advsearch_chkParticular')))
-            $scopes = array_add($scopes, 'privado', $request->get('advsearch_chkParticular'));
-        if(!is_null($request->get('advsearch_chkLaico')))
-            $scopes = array_add($scopes, 'laico', $request->get('advsearch_chkLaico'));
-        if(!is_null($request->get('advsearch_chkReligioso')))
-            $scopes = array_add($scopes, 'religioso', $request->get('advsearch_chkReligioso'));
-        if(!is_null($request->get('advsearch_chkMujeres')))
-            $scopes = array_add($scopes, 'femenino', $request->get('advsearch_chkMujeres'));
-        if(!is_null($request->get('advsearch_chkMixto')))
-            $scopes = array_add($scopes, 'mixto', $request->get('advsearch_chkMixto'));
-        if(!is_null($request->get('advsearch_chkHombres')))
-            $scopes = array_add($scopes, 'masculino', $request->get('advsearch_chkHombres'));
+        if(!is_null($request->get('advsearch_chkFiscal'))) {
+            $privado=0;
+            $fiscomisional=0;
+            if(!is_null($request->get('advsearch_chkFiscomisional')))
+                $fiscomisional=1;
+            if(!is_null($request->get('advsearch_chkParticular')))
+                $privado=1;
+            $scopes = array_add($scopes, 'fiscal', [$request->get('advsearch_chkFiscal'), $privado, $fiscomisional]);
+        }
+        if(!is_null($request->get('advsearch_chkFiscomisional'))) {
+            $privado=0;
+            $fiscal=0;
+            if(!is_null($request->get('advsearch_chkParticular')))
+                $privado=1;
+            if(!is_null($request->get('advsearch_chkFiscal')))
+                $fiscal=1;
+            $scopes = array_add($scopes, 'fiscomisional', [$request->get('advsearch_chkFiscomisional'), $privado, $fiscal]);
+        }
+        if(!is_null($request->get('advsearch_chkParticular'))) {
+            $fiscal=0;
+            $fiscomisional=0;
+            if(!is_null($request->get('advsearch_chkFiscal')))
+                $fiscal=1;
+            if(!is_null($request->get('advsearch_chkFiscomisional')))
+                $fiscomisional=1;
+            $scopes = array_add($scopes, 'privado', [$request->get('advsearch_chkParticular'), $fiscal, $fiscomisional]);
+        }
+        if(!is_null($request->get('advsearch_chkLaico'))) {
+            $religioso=0;
+            if(!is_null($request->get('advsearch_chkReligioso')))
+                $religioso=1;
+            $scopes = array_add($scopes, 'laico', [$request->get('advsearch_chkLaico'), $religioso]);
+        }
+        if(!is_null($request->get('advsearch_chkReligioso'))) {
+            $laico=0;
+            if(!is_null($request->get('advsearch_chkLaico')))
+                $laico=1;
+            $scopes = array_add($scopes, 'religioso', [$request->get('advsearch_chkReligioso'), $laico]);
+        }
+        if(!is_null($request->get('advsearch_chkMujeres'))) {
+            $mixto=0;
+            $hombres=0;
+            if(!is_null($request->get('advsearch_chkHombres')))
+                $hombres=1;
+            if(!is_null($request->get('advsearch_chkMixto')))
+                $mixto=1;
+            $scopes = array_add($scopes, 'femenino', [$request->get('advsearch_chkMujeres'), $mixto, $hombres]);
+        }
+        if(!is_null($request->get('advsearch_chkMixto'))) {
+            $femenino=0;
+            $hombres=0;
+            if(!is_null($request->get('advsearch_chkHombres')))
+                $hombres=1;
+            if(!is_null($request->get('advsearch_chkMujeres')))
+                $femenino=1;
+            $scopes = array_add($scopes, 'mixto', [$request->get('advsearch_chkMixto'), $femenino, $hombres]);
+        }
+        if(!is_null($request->get('advsearch_chkHombres'))) {
+            $femenino=0;
+            $mixto=0;
+            if(!is_null($request->get('advsearch_chkMujeres')))
+                $femenino=1;
+            if(!is_null($request->get('advsearch_chkMixto')))
+                $mixto=1;
+            $scopes = array_add($scopes, 'masculino', [$request->get('advsearch_chkHombres'), $femenino, $mixto]);
+        }
         if(!is_null($request->get('advsearch_chkExtendido')))
             $scopes = array_add($scopes, 'horario_extendido', $request->get('advsearch_chkExtendido'));
         if(!is_null($request->get('advsearch_costo'))) {
@@ -65,7 +119,6 @@ class ListEscuelaColegioController extends Controller
             if(is_null($request->get('advsearch_chkFiscal')))
                 $scopes = array_add($scopes, 'pago_promedio_escuela', $request->get('advsearch_costo'));
         }
-
         return isset($scopes) ? $scopes : [];
         //return [];
     }

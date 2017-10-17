@@ -115,19 +115,19 @@ class PosgradeCourseSeminar extends Model
         return $query->where('nombre', 'LIKE', "%$name%")->orWhere('palabras_clave', 'LIKE', "%$name%");
     }
 
-    public function scopePresencial($query, $presencial)
-    {
-        return $query->orWhere('presencial', 1);
+    public function scopePresencial($query, $foo, $semipresencial, $distancia) {
+        return $query->where(function ($query) use ($semipresencial, $distancia)
+        {$query->where('presencial', 1)->orWhere('semipresencial', $semipresencial)->orWhere('distancia', $distancia);});
     }
 
-    public function scopeSemipresencial($query, $semipresencial)
-    {
-        return $query->orWhere('semipresencial', 1);
+    public function scopeSemipresencial($query, $foo, $presencial, $distancia) {
+        return $query->where(function ($query) use ($presencial, $distancia)
+        {$query->where('semipresencial', 1)->orWhere('presencial', $presencial)->orWhere('distancia', $distancia);});
     }
 
-    public function scopeDistancia($query, $distancia)
-    {
-        return $query->orWhere('distancia', 1);
+    public function scopeDistancia($query, $foo, $presencial, $semipresencial) {
+        return $query->where(function ($query) use ($presencial, $semipresencial)
+        {$query->where('distancia', 1)->orWhere('presencial', $presencial)->orWhere('semipresencial', $semipresencial);});
     }
 
     public function scopeInstitucion($query, $institucion)

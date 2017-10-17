@@ -23,6 +23,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <!-- Search panel -->
             @include('vendor.adminlte.layouts.partials.searchpre')
 
+            @if(Session::has('flash_message'))
+                <div class="alert alert-warning">
+                    {{ Session::get('flash_message') }}
+                </div>
+            @endif
+
             <?php $countPagado = 0; ?>
             <?php $countFree = 0; ?>
 

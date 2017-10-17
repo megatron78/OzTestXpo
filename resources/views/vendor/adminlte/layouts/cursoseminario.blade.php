@@ -20,6 +20,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <div style="width: 100%" class="container">
             <!-- Search panel -->
             @include('vendor.adminlte.layouts.partials.searchcursoseminario')
+
+            @if(Session::has('flash_message'))
+                <div class="alert alert-warning">
+                    {{ Session::get('flash_message') }}
+                </div>
+            @endif
+
             <?php $countPagado = 0; ?>
             <?php $countFree = 0; ?>
             @foreach($cursoseminarios as $cursoseminario)

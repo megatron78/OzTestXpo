@@ -177,35 +177,43 @@ class Institution extends Model
         return $query->whereBetween('pago_promedio_escuela', $pension);
     }
 
-    public function scopeFiscal($query, $fiscal) {
-        return $query->orWhere('fiscal', 1);
+    public function scopeFiscal($query, $foo, $privado, $fiscomisional) {
+        return $query->where(function ($query) use ($privado, $fiscomisional)
+        {$query->where('fiscal', 1)->orWhere('privado', $privado)->orWhere('fiscomisional', $fiscomisional);});
     }
 
-    public function scopePrivado($query, $privado) {
-        return $query->orWhere('privado', 1);
+    public function scopePrivado($query, $foo, $fiscal, $fiscomisional) {
+        return $query->where(function ($query) use ($fiscal, $fiscomisional)
+        {$query->where('privado', 1)->orWhere('fiscal', $fiscal)->orWhere('fiscomisional', $fiscomisional);});
     }
 
-    public function scopeFiscomisional($query, $fiscomisional) {
-        return $query->orWhere('fiscomisional', 1);
+    public function scopeFiscomisional($query, $foo, $privado, $fiscal) {
+        return $query->where(function ($query) use ($privado, $fiscal)
+        {$query->where('fiscomisional', 1)->orWhere('privado', $privado)->orWhere('fiscal', $fiscal);});
     }
 
-    public function scopeLaico($query, $laico) {
-        return $query->orWhere('laico', 1);
+    public function scopeLaico($query, $foo, $religioso) {
+        return $query->where(function ($query) use ($religioso)
+        {$query->orWhere('laico', 1)->orWhere('religioso', $religioso);});
     }
 
-    public function scopeReligioso($query, $religioso) {
-        return $query->orWhere('religioso', 1);
+    public function scopeReligioso($query, $foo, $laico) {
+        return $query->where(function ($query) use ($laico)
+        {return $query->orWhere('religioso', 1)->orWhere('laico', $laico);});
     }
 
-    public function scopeFemenino($query, $femenino) {
-        return $query->orWhere('femenino', 1);
+    public function scopeFemenino($query, $foo, $mixto, $masculino) {
+        return $query->where(function ($query) use ($mixto, $masculino)
+        {$query->where('femenino', 1)->orWhere('mixto', $mixto)->orWhere('masculino', $masculino);});
     }
 
-    public function scopeMixto($query, $mixto) {
-        return $query->orWhere('mixto', 1);
+    public function scopeMixto($query, $foo, $femenino, $masculino) {
+        return $query->where(function ($query) use ($femenino, $masculino)
+        {$query->where('mixto', 1)->orWhere('femenino', $femenino)->orWhere('masculino', $masculino);});
     }
 
-    public function scopeMasculino($query, $masculino) {
-        return $query->orWhere('masculino', 1);
+    public function scopeMasculino($query, $foo, $femenino, $mixto) {
+        return $query->where(function ($query) use ($femenino, $mixto)
+        {$query->where('masculino', 1)->orWhere('femenino', $femenino)->orWhere('mixto', $mixto);});
     }
 }
