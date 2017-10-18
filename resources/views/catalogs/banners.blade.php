@@ -30,49 +30,49 @@
 									<td>{{ $banner->id }}</td>
 									@if($banner->category_id == 1)
                                         <td>
-										<a href="{{ route('banners.edit', [1]) }}" target="_blank" >
+										<a href="{{ route('banners.edit', [$banner->id]) }}" target="_blank" >
 											Página Principal
 										</a>
                                         </td>
 									@endif
 									@if($banner->category_id == 2)
                                         <td>
-										<a href="{{ route('banners.edit', [2]) }}" target="_blank" >
+										<a href="{{ route('banners.edit', [$banner->id]) }}" target="_blank" >
 											Preescolar
 										</a>
                                         </td>
 									@endif
 									@if($banner->category_id == 3)
                                         <td>
-										<a href="{{ route('banners.edit', [3]) }}" target="_blank" >
+										<a href="{{ route('banners.edit', [$banner->id]) }}" target="_blank" >
 											Escuela/Colegio
 										</a>
                                         </td>
 									@endif
 									@if($banner->category_id == 4)
                                         <td>
-										<a href="{{ route('banners.edit', [4]) }}" target="_blank" >
+										<a href="{{ route('banners.edit', [$banner->id]) }}" target="_blank" >
 											Educación Superior
 										</a>
                                         </td>
 									@endif
 									@if($banner->category_id == 5)
 										<td>
-										<a href="{{ route('banners.edit', [5]) }}" target="_blank" >
+										<a href="{{ route('banners.edit', [$banner->id]) }}" target="_blank" >
 											Posgrados
 										</a>
                                         </td>
 									@endif
 									@if($banner->category_id == 6)
                                         <td>
-										<a href="{{ route('banners.edit', [6]) }}" target="_blank" >
+										<a href="{{ route('banners.edit', [$banner->id]) }}" target="_blank" >
 											Cursos y Seminarios
 										</a>
                                         </td>
 									@endif
 									@if($banner->category_id == 7)
                                         <td>
-										<a href="{{ route('banners.edit', [7]) }}" target="_blank" >
+										<a href="{{ route('banners.edit', [$banner->id]) }}" target="_blank" >
 											Eventos
 										</a>
                                         </td>
