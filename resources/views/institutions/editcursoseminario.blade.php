@@ -51,13 +51,14 @@
 
                                         <div class="form-group">
                                             {{ Form::label('clasificacion', 'Clasificación') }}
-                                            {{ Form::select('clasificacion', ['Posgrado' => 'Posgrado'],
+                                            {{ Form::select('clasificacion', ['Cursos' => 'Cursos y Seminarios'],
                                             $posgrade->clasificacion, ['class' => 'form-control select2']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('tipo', 'Tipo') }}
-                                            {{ Form::select('tipo', ['Masterado' => 'Masterado', 'Doctorado' => 'Doctorado',
-                                            'PHD' => 'PHD'], $posgrade->tipo, ['class' => 'form-control select2']) }}
+                                            {{ Form::select('tipo', ['Curso Específico' => 'Curso Específico',
+                                        'Curso por Niveles' => 'Curso por Niveles', 'Seminario' => 'Seminario',
+                                        'Taller' => 'Taller'], $posgrade->tipo, ['class' => 'form-control select2']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('campo', 'Campo') }}

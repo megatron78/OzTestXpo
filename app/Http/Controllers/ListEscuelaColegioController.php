@@ -28,12 +28,69 @@ class ListEscuelaColegioController extends Controller
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
             ->get();
 
+        $cities=null;
+        $sectors=null;
+        $province_id=0;
+        $city_id=0;
+        $sector_id=0;
+        $palabrasClave=null;
+
+        if(!is_null($request->get('search_province')))
+            $province_id=$request->get('search_province');
+        if(!is_null($request->get('search_city'))) {
+            $city_id = $request->get('search_city');
+            $cities=City::where('province_id', $province_id)
+                ->select('name', 'id')
+                ->get();
+        }
+        if(!is_null($request->get('search_sector'))) {
+            $sector_id = $request->get('search_sector');
+            $sectors=Sector::where('city_id', $city_id)
+                ->select('nombre', 'id')
+                ->get();
+        }
+        if(!is_null($request->get('search_institution'))) {
+            $palabrasClave=$request->get('search_institution');
+        }
+
+        $chkFiscal=0;
+        $chkFiscomisional=0;
+        $chkParticular=0;
+        $chkLaico=0;
+        $chkReligioso=0;
+        $chkMujeres=0;
+        $chkMixto=0;
+        $chkHombres=0;
+        $chkExtendido=0;
+
+        if(!is_null($request->get('advsearch_chkFiscal')))
+            $chkFiscal=1;
+        if(!is_null($request->get('advsearch_chkFiscomisional')))
+            $chkFiscomisional=1;
+        if(!is_null($request->get('advsearch_chkParticular')))
+            $chkParticular=1;
+        if(!is_null($request->get('advsearch_chkLaico')))
+            $chkLaico=1;
+        if(!is_null($request->get('advsearch_chkReligioso')))
+            $chkReligioso=1;
+        if(!is_null($request->get('advsearch_chkMujeres')))
+            $chkMujeres=1;
+        if(!is_null($request->get('advsearch_chkHombres')))
+            $chkHombres=1;
+        if(!is_null($request->get('advsearch_chkMixto')))
+            $chkMixto=1;
+        if(!is_null($request->get('advsearch_chkExtendido')))
+            $chkExtendido=1;
+
         $provinces = Province::all(['name','id']);
 
         if(!$instituciones->first())
             Session::flash('flash_message', 'No se encontraron registros.');
 
-        return view('vendor.adminlte.layouts.escuelacolegio', compact('instituciones','provinces', 'bannerData'));
+        return view('vendor.adminlte.layouts.escuelacolegio', compact('instituciones','provinces', 'bannerData',
+            'province_id', 'cities', 'city_id', 'sectors', 'sector_id', 'palabrasClave',
+            'chkFiscal', 'chkFiscomisional', 'chkParticular', 'chkLaico', 'chkReligioso', 'chkMujeres', 'chkHombres',
+            'chkMixto', 'chkExtendido'));
     }
 
     protected function getRouteScope(Request $request) {

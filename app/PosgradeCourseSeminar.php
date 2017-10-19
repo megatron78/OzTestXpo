@@ -132,7 +132,12 @@ class PosgradeCourseSeminar extends Model
 
     public function scopeInstitucion($query, $institucion)
     {
-        return $query->orWhere('institucion', $institucion);
+        return $query->where('institucion', $institucion);
+    }
+
+    public function scopeTipo($query, $tipo)
+    {
+        return $query->where('tipo', $tipo);
     }
 
     public function scopeCosto_promedio_posgrados($query, $costo)

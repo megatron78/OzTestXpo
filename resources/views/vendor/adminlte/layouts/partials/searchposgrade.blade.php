@@ -6,9 +6,13 @@
                 &nbsp;&nbsp;&nbsp;--}}
                 <div class="form-group">
                     <select style="min-width: 200px; max-width: 200px" name="search_country" id="search_country" class="form-control">
-                        <option value="">País</option>
+                        {{--<option value="">País</option>--}}
                         @foreach($countries as $country)
-                            <option value="{{ $country->id}}">{{ $country->printable_name}}</option>
+                            @if($country->printable_name == 'Ecuador')
+                                <option selected value="{{ $country->id}}">{{ $country->printable_name}}</option>
+                            @else
+                                <option value="{{ $country->id}}">{{ $country->printable_name}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -17,21 +21,43 @@
                     <select style="min-width: 200px; max-width: 200px" name="search_province" id="search_province" class="form-control">
                         <option value="">Provincia</option>
                         @foreach($provinces as $province)
-                            <option value="{{ $province->id}}">{{ $province->name}}</option>
+                            @if($province->id == $province_id)
+                                <option selected value="{{ $province->id}}">{{ $province->name}}</option>
+                            @else
+                                <option value="{{ $province->id}}">{{ $province->name}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     &nbsp;&nbsp;
-                    <select style="min-width: 200px; max-width: 200px" id="search_city" name="search_city" class="form-control">
-                        <option value="">Ciudad</option>
+                    @if(isset($cities))
+                        <select style="min-width: 200px; max-width: 200px" id="search_city" name="search_city" class="form-control">
+                            <option value="">Ciudad</option>
+                            @foreach($cities as $city)
+                                @if($city->id == $city_id)
+                                    <option selected value="{{ $city->id}}">{{ $city->name}}</option>
+                                @else
+                                    <option value="{{ $city->id}}">{{ $city->name}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    @else
+                        <select style="min-width: 200px; max-width: 200px" id="search_city" name="search_city" class="form-control">
+                            <option value="">Ciudad</option>
 
-                    </select>
+                        </select>
+                    @endif
                 </div>
                 <div class="form-group">
                     &nbsp;&nbsp;
-                    <input type="text" id="search_keywordtopic" name="search_keywordtopic" class="form-control mx-sm-2"
-                           placeholder="Clave, Tópico, Nombre, Palabra Clave..." style="min-width: 400px; max-width: 400px">
+                    @if(isset($palabrasClave))
+                        <input type="text" id="search_keywordtopic" name="search_keywordtopic" class="form-control mx-sm-2"
+                               placeholder="Clave, Tópico, Nombre, Palabra Clave..." style="min-width: 370px; max-width: 370px" value="{{ $palabrasClave }}">
+                    @else
+                        <input type="text" id="search_keywordtopic" name="search_keywordtopic" class="form-control mx-sm-2"
+                               placeholder="Clave, Tópico, Nombre, Palabra Clave..." style="min-width: 370px; max-width: 370px">
+                    @endif
                 </div>
                 <button type="submit" style="width: 120px;" class="btn btn-warning">BUSCAR</button>
                 <a style="font-size: 14px" data-toggle="collapse" data-parent="#accordion"
@@ -39,40 +65,82 @@
                     <strong> Avanzada <i class="fa fa-search-plus margin-r-5"></i></strong>
                 </a>
             </div>
-            <div id="advancedSearch" class="box-body panel-collapse collapse">
+            @if(isset($tipo) or isset($institucion)
+                or $chkPresencial==1 or $chkSemipresencial==1 or $chkDistancia==1 or isset($carrera))
+                <div id="advancedSearch" class="box-body panel-collapse">
+            @else
+                <div id="advancedSearch" class="box-body panel-collapse collapse">
+            @endif
                 <div class="form-group">
                     <select style="min-width: 200px; max-width: 200px" id="search_tipo" name="search_tipo" class="form-control">
                         <option value="">Tipo</option>
-                        <option value="Masterado">Masterado</option>
-                        <option value="Doctorado">Doctorado</option>
-                        <option value="PHD">PHD</option>
+                        @if($tipo=='Masterado')
+                            <option selected value="Masterado">Masterado</option>
+                        @else
+                            <option value="Masterado">Masterado</option>
+                        @endif
+
+                        @if($tipo=='Doctorado')
+                            <option selected value="Doctorado">Doctorado</option>
+                        @else
+                            <option value="Doctorado">Doctorado</option>
+                        @endif
+
+                        @if($tipo=='PHD')
+                            <option selected value="PHD">PHD</option>
+                        @else
+                            <option value="PHD">PHD</option>
+                        @endif
                     </select>
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkPresencial" name="advsearch_chkPresencial"
-                               value="presencial">
-                        Presencial
+                        @if($chkPresencial==1)
+                            <input type="checkbox" class="form-check-input" id="advsearch_chkPresencial" name="advsearch_chkPresencial"
+                                   value="presencial" checked>
+                            Presencial
+                        @else
+                            <input type="checkbox" class="form-check-input" id="advsearch_chkPresencial" name="advsearch_chkPresencial"
+                                   value="presencial">
+                            Presencial
+                        @endif
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkSemipresencial" name="advsearch_chkSemipresencial"
-                               value="semipresencial">
-                        Semipresencial
+                        @if($chkSemipresencial==1)
+                            <input type="checkbox" class="form-check-input" id="advsearch_chkSemipresencial" name="advsearch_chkSemipresencial"
+                                   value="semipresencial" checked>
+                            Semipresencial
+                        @else
+                            <input type="checkbox" class="form-check-input" id="advsearch_chkSemipresencial" name="advsearch_chkSemipresencial"
+                                   value="semipresencial">
+                            Semipresencial
+                        @endif
                     </label>
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="advsearch_chkDistancia" name="advsearch_chkDistancia"
-                               value="distancia">
-                        Distancia
+                        @if($chkDistancia==1)
+                            <input type="checkbox" class="form-check-input" id="advsearch_chkDistancia" name="advsearch_chkDistancia"
+                                   value="distancia" checked>
+                            Distancia
+                        @else
+                            <input type="checkbox" class="form-check-input" id="advsearch_chkDistancia" name="advsearch_chkDistancia"
+                                   value="distancia">
+                            Distancia
+                        @endif
                     </label>
                 </div>
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;
-                      <input type="text" id="search_institucion" name="search_institucion" class="form-control mx-sm-2"
-                               placeholder="Institución..." style="min-width: 400px; max-width: 400px">
+                    @if(isset($institucion))
+                        <input type="text" id="search_institucion" name="search_institucion" class="form-control mx-sm-2"
+                               placeholder="Institución..." style="min-width: 370px; max-width: 370px" value="{{ $institucion }}">
+                    @else
+                        <input type="text" id="search_institucion" name="search_institucion" class="form-control mx-sm-2"
+                               placeholder="Institución..." style="min-width: 370px; max-width: 370px">
+                    @endif
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;"  for="advsearch_costo">Costo: <b>$ 0</b></label>

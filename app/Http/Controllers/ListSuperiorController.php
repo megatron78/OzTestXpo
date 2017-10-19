@@ -6,6 +6,7 @@ use App\BannerCategory;
 use Illuminate\Support\Facades\Session;
 use App\Pregrade;
 use App\Province;
+use App\City;
 use Illuminate\Http\Request;
 
 class ListSuperiorController extends Controller
@@ -25,10 +26,55 @@ class ListSuperiorController extends Controller
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
             ->get();
 
+        $tipo=null;
+        $cities=null;
+        $province_id=0;
+        $city_id=0;
+        $palabrasClave=null;
+        $carrera=null;
+        if(!is_null($request->get('search_tipo')))
+            $tipo=$request->get('search_tipo');
+        if(!is_null($request->get('search_province')))
+            $province_id=$request->get('search_province');
+        if(!is_null($request->get('search_city'))) {
+            $city_id = $request->get('search_city');
+            $cities=City::where('province_id', $province_id)
+                ->select('name', 'id')
+                ->get();
+        }
+        if(!is_null($request->get('search_institution'))) {
+            $palabrasClave=$request->get('search_institution');
+        }
+        if(!is_null($request->get('search_carreras'))) {
+            $carrera=$request->get('search_carreras');
+        }
+
+        $chkFiscal=0;
+        $chkFiscomisional=0;
+        $chkParticular=0;
+        $chkPresencial=0;
+        $chkSemipresencial=0;
+        $chkDistancia=0;
+
+        if(!is_null($request->get('advsearch_chkFiscal')))
+            $chkFiscal=1;
+        if(!is_null($request->get('advsearch_chkFiscomisional')))
+            $chkFiscomisional=1;
+        if(!is_null($request->get('advsearch_chkParticular')))
+            $chkParticular=1;
+        if(!is_null($request->get('advsearch_chkPresencial')))
+            $chkPresencial=1;
+        if(!is_null($request->get('advsearch_chkSemipresencial')))
+            $chkSemipresencial=1;
+        if(!is_null($request->get('advsearch_chkDistancia')))
+            $chkDistancia=1;
+
         if(!$superiors->first())
             Session::flash('flash_message', 'No se encontraron registros.');
 
-        return view('vendor.adminlte.layouts.superior', compact('superiors','provinces', 'bannerData'));
+        return view('vendor.adminlte.layouts.superior', compact('superiors','provinces', 'bannerData',
+            'province_id', 'cities', 'city_id', 'palabrasClave', 'chkFiscal', 'chkFiscomisional', 'chkParticular',
+            'chkPresencial', 'chkSemipresencial', 'chkDistancia', 'tipo', 'carrera'));
     }
 
     protected function getRouteScope(Request $request) {
