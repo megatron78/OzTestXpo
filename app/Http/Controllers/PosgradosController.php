@@ -18,6 +18,13 @@ class PosgradosController extends Controller
     public function store(Request $request) {
         $this->validate($request, [
             'nombre' => 'required',
+            'nombre_corto' => 'required',
+            'duracion' => 'required',
+            'institucion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+            'province_id' => 'required',
+            'city_id' => 'required',
             'documento_pdf1' => 'nullable|image|mimes:pdf|max:500',
             'documento_pdf2' => 'nullable|image|mimes:pdf|max:500',
             'documento_pdf3' => 'nullable|image|mimes:pdf|max:500',
@@ -64,6 +71,13 @@ class PosgradosController extends Controller
 
         $this->validate($request, [
             'nombre' => 'required',
+            'nombre_corto' => 'required',
+            'duracion' => 'required',
+            'institucion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+            'province_id' => 'required',
+            'city_id' => 'required',
             'documento_pdf1' => 'nullable|mimes:pdf|max:500',
             'documento_pdf2' => 'nullable|mimes:pdf|max:500',
             'documento_pdf3' => 'nullable|mimes:pdf|max:500',

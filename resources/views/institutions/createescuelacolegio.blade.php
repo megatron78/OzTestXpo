@@ -70,7 +70,7 @@
                                         <div class="form-group">
                                             {{ Form::label('institution_bg_picture','Foto de fondo') }}
                                             {{ Form::file('institution_bg_picture') }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 600x390 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 400x180 y 500K.</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('trayectoria', 'Trayectoria') }}
@@ -396,7 +396,7 @@
                                             {{ Form::file('institution_picture_4') }}
                                             {{ Form::file('institution_picture_5') }}
                                             {{ Form::file('institution_picture_6') }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 600x390 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 400x180 y 500K.</p>
                                         </div>
                                     </div>
                                 </div>

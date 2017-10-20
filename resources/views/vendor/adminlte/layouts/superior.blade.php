@@ -42,9 +42,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
                                 <div class="widget-user-header bg-black"
                                     @if(!empty($pregrado->pregrade_bg_picture))
-                                        style="background: url('{{ asset($pregrado->pregrade_bg_picture) }}') center;">
+                                        style="background: url('{{ asset($pregrado->pregrade_bg_picture) }}') center center no-repeat;">
                                     @else
-                                        style="background: url('{{ asset('/img/ucla_campus_superior_destacado.jpg') }}') center center;">
+                                        style="background: url('{{ asset('/img/ucla_campus_superior_destacado.jpg') }}') center center no-repeat;">
                                     @endif
                                 </div>
 

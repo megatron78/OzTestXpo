@@ -17,6 +17,12 @@ class SuperiorController extends Controller
     public function store(Request $request) {
         $this->validate($request, [
             'nombre' => 'required',
+            'nombre_corto' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+            'province_id' => 'required',
+            'city_id' => 'required',
             'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
@@ -112,6 +118,12 @@ class SuperiorController extends Controller
 
         $this->validate($request, [
             'nombre' => 'required',
+            'nombre_corto' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+            'province_id' => 'required',
+            'city_id' => 'required',
             'pregrade_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',

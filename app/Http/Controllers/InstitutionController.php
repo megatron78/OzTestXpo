@@ -69,14 +69,24 @@ class InstitutionController extends Controller
     }
 
     //Preescolar
-    public function createPreescolar() {
+    public function createPreescolar(Request $request) {
         $provinces = Province::all(['name','id']);
+
         return view('institutions.createpreescolar', compact('provinces'));
     }
 
     public function store(Request $request) {
         $this->validate($request, [
             'nombre' => 'required',
+            'nombre_corto' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+            'province_id' => 'required',
+            'canton_id' => 'required',
+            'parish_id' => 'required',
+            'city_id' => 'required',
+            'sector_id' => 'required',
             'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
@@ -157,7 +167,8 @@ class InstitutionController extends Controller
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 
-        return redirect()->back();
+        //return redirect()->back();
+        return back()->withInput();
     }
 
     public function edit($id) {
@@ -181,6 +192,15 @@ class InstitutionController extends Controller
 
         $this->validate($request, [
             'nombre' => 'required',
+            'nombre_corto' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+            'province_id' => 'required',
+            'canton_id' => 'required',
+            'parish_id' => 'required',
+            'city_id' => 'required',
+            'sector_id' => 'required',
             'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
@@ -262,6 +282,15 @@ class InstitutionController extends Controller
     public function storeEscuelacolegio(Request $request) {
         $this->validate($request, [
             'nombre' => 'required',
+            'nombre_corto' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+            'province_id' => 'required',
+            'canton_id' => 'required',
+            'parish_id' => 'required',
+            'city_id' => 'required',
+            'sector_id' => 'required',
             'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
@@ -357,6 +386,15 @@ class InstitutionController extends Controller
 
         $this->validate($request, [
             'nombre' => 'required',
+            'nombre_corto' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+            'province_id' => 'required',
+            'canton_id' => 'required',
+            'parish_id' => 'required',
+            'city_id' => 'required',
+            'sector_id' => 'required',
             'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_1' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
             'institution_picture_2' => 'nullable|image|mimes:jpeg,bmp,png|max:500',

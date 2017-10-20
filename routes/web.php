@@ -255,7 +255,7 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'escuelacolegio.update',
     ]);
     Route::post('escuelacolegio/store', [
-        'uses' => 'InstitutionController@storeEsuelacolegio',
+        'uses' => 'InstitutionController@storeEscuelacolegio',
         'as' => 'escuelacolegio.store',
     ]);
 

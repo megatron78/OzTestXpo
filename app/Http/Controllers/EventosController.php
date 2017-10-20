@@ -16,6 +16,13 @@ class EventosController extends Controller
     public function store(Request $request) {
         $this->validate($request, [
             'nombre' => 'required',
+            'informacion' => 'required',
+            'costo' => 'required',
+            'fecha_evento' => 'required',
+            'hora_evento' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
             'evento_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
         ]);
 
@@ -49,6 +56,13 @@ class EventosController extends Controller
 
         $this->validate($request, [
             'nombre' => 'required',
+            'informacion' => 'required',
+            'costo' => 'required',
+            'fecha_evento' => 'required',
+            'hora_evento' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
             'evento_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
         ]);
 
@@ -58,6 +72,11 @@ class EventosController extends Controller
             $fileName = $request->evento_bg_picture->store('public/event_pic');
             $input['evento_bg_picture'] = Storage::url($fileName);
         }
+
+        $input['user_id'] = $request->user()->id;
+        $input['dia_evento'] = $request->fecha_evento->day;
+        $input['mes_evento'] = $request->fecha_evento->format('F');
+        $input['year_evento'] = $request->fecha_evento->year;
 
         $evento->fill($input);
         $evento->save();

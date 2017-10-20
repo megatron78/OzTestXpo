@@ -440,6 +440,11 @@ desired effect
         });
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        //$('#province_id').change();
+    });
+</script>
 <!-- CK Editor -->
 <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script>
