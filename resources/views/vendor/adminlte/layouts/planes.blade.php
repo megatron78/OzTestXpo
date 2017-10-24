@@ -11,9 +11,19 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <!-- Fixed navbar -->
     @include('vendor.adminlte.layouts.partials.navbarexpoeducar')
 
-    <div style="width: 95%" class="container content">
+    <div style=" width: 95%" class="container content">
         <div style="padding-left: 10%" class="table-responsive">
-            <div class="membership-pricing-table">
+            <div id="quienes_somos">
+                <img src='{{ asset('/img/quienes_somos.png') }}' alt="Quiénes somos" height="100%" width="91%">
+            </div>
+            <div id="beneficios_instituciones">
+                <img src='{{ asset('/img/beneficios_instituciones.png') }}' alt="Quiénes somos" height="100%" width="91%">
+            </div>
+            <div id="beneficios_estudiantes">
+                <img src='{{ asset('/img/beneficios_estudiantes.png') }}' alt="Quiénes somos" height="100%" width="91%">
+            </div>
+            <div id="planes_instituciones" class="membership-pricing-table">
+                <p class="centered"><h1 class="centered">Planes y Tarifas</h1></p>
                 <table>
                     <tbody>
                     <tr>
@@ -138,7 +148,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <br>
         <br>
         <div style="padding-left: 10%" class="table-responsive">
-            <div class="membership-pricing-table">
+            <div id="planes_posgrados" class="membership-pricing-table">
                 <table>
                     <tbody>
                     <tr>
@@ -250,7 +260,6 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     </tr>
                     </tbody></table>
             </div>
-
         </div>
         <br>
         <div style="padding-left: 10%">
@@ -260,6 +269,71 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             *** Por 1 mes<br>
             **** Arte y Texto del Cliente<br>
         </p>
+            <div id="faq">
+                <img src='{{ asset('/img/preguntas_frecuentes.png') }}' alt="Quiénes somos" height="100%" width="91%">
+            </div>
+            <div id="contacto">
+                <div style="width: 100%; padding-right: 9%" class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-gray-light">
+                            <h4 class="modal-title" id="myModalLabel">
+                                <img style="padding-left: 1%; height: 70px; width: auto;"
+                                     src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
+                                <strong>Proporciona tus datos para obtener más información</strong></h4>
+                        </div>
+                        <div class="modal-body">
+                            <!-- form start -->
+                            {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="nombreApellido" class="col-sm-3 control-label">Nombre y Apellido *</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="nombreApellido" name="nombreApellido"
+                                               placeholder="Nombre y Apellido" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefono" class="col-sm-3 control-label">Teléfono *</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="whatsapp" name="telefono" placeholder="Whatsapp">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="hidden" id="email" name="email" value="info@expoeducar.com.ec">
+                                        <input type="hidden" id="tipo" name="tipo">
+                                        <input type="email" class="form-control" id="inputEmail3" name="inputEmail3" placeholder="Correo electrónico" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="interes" class="col-sm-3 control-label">Interés</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="interes" name="interes" placeholder="Estoy interesado en...">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="modal-footer bg-gray-light">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

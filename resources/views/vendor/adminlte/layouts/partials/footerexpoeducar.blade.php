@@ -10,9 +10,9 @@
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
             <div class="row access-wrapper">
                 <ul class="menu">
-                    <li style="font-size: 14px">¿Quiénes Somos?</li>
+                    <li style="font-size: 14px"><a style="color: #555555" href="{{ url('/planes#quienes_somos') }}">¿Quiénes Somos?</a></li>
                     <li style="font-size: 14px">Términos y Condiciones</li>
-                    <li style="font-size: 14px">Preguntas Frecuentes</li>
+                    <li style="font-size: 14px"><a style="color: #555555" href="{{ url('/planes#faq') }}">Preguntas Frecuentes</a></li>
                     <li style="font-size: 14px"><a style="color: #555555" data-target="#meInteresa" data-toggle="modal"
                                                    data-email="info@expoeducar.com"
                                                    href="#meInteresa">
@@ -25,10 +25,9 @@
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
             <div class="row links-wrapper">
                 <ul class="menu">
-                    <li style="font-size: 14px">Beneficios para Instituciones</li>
-                    <li style="font-size: 14px">Beneficios para Estudiantes</li>
-                    <li style="font-size: 14px"><a style="color: #555555" href="{{ route('planes.all') }}">Planes y
-                            Tarifas</a></li>
+                    <li style="font-size: 14px"><a style="color: #555555" href="{{ url('/planes#beneficios_instituciones') }}">Beneficios para Instituciones</a></li>
+                    <li style="font-size: 14px"><a style="color: #555555" href="{{ url('/planes#beneficios_estudiantes') }}">Beneficios para Estudiantes</a></li>
+                    <li style="font-size: 14px"><a style="color: #555555" href="{{ url('/planes#planes_instituciones') }}">Planes y Tarifas</a></li>
                 </ul>
             </div>
         </div>

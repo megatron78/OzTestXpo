@@ -76,7 +76,7 @@ body {
     margin-left: 0;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .sidebar-collapse .content-wrapper,
   .sidebar-collapse .right-side,
   .sidebar-collapse .main-footer {

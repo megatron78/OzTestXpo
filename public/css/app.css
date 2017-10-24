@@ -1847,7 +1847,7 @@ dd {
   clear: both;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .dl-horizontal dt {
     float: left;
     width: 160px;
@@ -2010,7 +2010,7 @@ pre code {
   clear: both;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .container {
     width: 750px;
   }
@@ -2333,7 +2333,7 @@ pre code {
   margin-left: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .col-sm-1,
   .col-sm-2,
   .col-sm-3,
@@ -3825,7 +3825,7 @@ select[multiple].input-lg,
   color: #a4aaae;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .form-inline .form-group {
     display: inline-block;
     margin-bottom: 0;
@@ -3915,7 +3915,7 @@ select[multiple].input-lg,
   clear: both;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .form-horizontal .control-label {
     text-align: right;
     margin-bottom: 0;
@@ -3927,7 +3927,7 @@ select[multiple].input-lg,
   right: 15px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .form-horizontal .form-group-lg .control-label {
     padding-top: 11px;
     font-size: 18px;
@@ -4656,7 +4656,7 @@ tbody.collapse.in {
   margin-bottom: 2px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar-right .dropdown-menu {
     right: 0;
     left: auto;
@@ -5176,7 +5176,7 @@ tbody.collapse.in {
   left: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .nav-justified > li,
   .nav-tabs.nav-justified > li {
     display: table-cell;
@@ -5209,7 +5209,7 @@ tbody.collapse.in {
   border: 1px solid #ddd;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .nav-tabs-justified > li > a,
   .nav-tabs.nav-justified > li > a {
     border-bottom: 1px solid #ddd;
@@ -5257,7 +5257,7 @@ tbody.collapse.in {
   clear: both;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar {
     border-radius: 4px;
   }
@@ -5273,7 +5273,7 @@ tbody.collapse.in {
   clear: both;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar-header {
     float: left;
   }
@@ -5302,7 +5302,7 @@ tbody.collapse.in {
   overflow-y: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -5348,7 +5348,7 @@ tbody.collapse.in {
   margin-left: -15px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .container > .navbar-header,
   .container > .navbar-collapse,
   .container-fluid > .navbar-header,
@@ -5363,7 +5363,7 @@ tbody.collapse.in {
   border-width: 0 0 1px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar-static-top {
     border-radius: 0;
   }
@@ -5377,7 +5377,7 @@ tbody.collapse.in {
   z-index: 1030;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     border-radius: 0;
@@ -5412,7 +5412,7 @@ tbody.collapse.in {
   display: block;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: -15px;
@@ -5447,7 +5447,7 @@ tbody.collapse.in {
   margin-top: 4px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .navbar-toggle {
     display: none;
   }
@@ -5489,7 +5489,7 @@ tbody.collapse.in {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar-nav {
     float: left;
     margin: 0;
@@ -5516,7 +5516,7 @@ tbody.collapse.in {
   margin-bottom: 7px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar-form .form-group {
     display: inline-block;
     margin-bottom: 0;
@@ -5587,7 +5587,7 @@ tbody.collapse.in {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar-form {
     width: auto;
     border: 0;
@@ -5635,7 +5635,7 @@ tbody.collapse.in {
   margin-bottom: 14px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar-text {
     float: left;
     margin-left: 15px;
@@ -5643,7 +5643,7 @@ tbody.collapse.in {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .navbar-left {
     float: left !important;
   }
@@ -6262,7 +6262,7 @@ a.badge:focus {
   max-width: 100%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   .jumbotron {
     padding-top: 48px;
     padding-bottom: 48px;
@@ -8125,7 +8125,7 @@ button.close {
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 767px) and (max-width: 991px) {
   .visible-sm {
     display: block !important;
   }
@@ -8236,7 +8236,7 @@ button.close {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .hidden-xs {
     display: none !important;
   }

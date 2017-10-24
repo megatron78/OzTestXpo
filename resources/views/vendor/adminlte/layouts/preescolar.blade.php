@@ -100,20 +100,20 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             </div>
                                             <!-- /.col -->
                                         </div>
-                                        <div class="col-sm-4 centered">
+                                        <div style="padding: 5px;" class="col-sm-4 centered">
                                             <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
                                                data-email="{{ $institucion->email }}"
                                                href="#meInteresa">
                                                 Me interesa
                                             </a>
                                         </div>
-                                        <div class="col-sm-4 centered">
+                                        <div style="padding: 5px;" class="col-sm-4 centered">
                                             <a href="{{ $institucion->url }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
                                             </a>
                                         </div>
-                                        <div class="centered">
-                                            <a class="btn-sm bg-green" data-toggle="collapse" data-parent="#accordion"
+                                        <div style="padding: 5px;" class="col-sm-4 centered">
+                                            <a class="btn-sm bg-orange" data-toggle="collapse" data-parent="#accordion"
                                                href="#collapse{{ $institucion->id }}">
                                                 Contactos...
                                             </a>

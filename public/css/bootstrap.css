@@ -4029,7 +4029,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse.in {
   overflow-y: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -6411,7 +6411,7 @@ button.close {
     display: inline-block !important;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .hidden-xs {
     display: none !important;
   }

@@ -5302,7 +5302,7 @@ tbody.collapse.in {
   overflow-y: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -8236,7 +8236,7 @@ button.close {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .hidden-xs {
     display: none !important;
   }

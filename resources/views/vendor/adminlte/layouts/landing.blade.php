@@ -84,13 +84,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         </div>
                                         <!-- /.col -->
                                     </div>
-                                    <div class="col-sm-4 centered">
+                                    <div style="padding: 5px;" class="col-sm-4 centered">
                                         <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
                                            href="#meInteresa">
                                             Me interesa
                                         </a>
                                     </div>
-                                    <div class="col-sm-4 centered">
+                                    <div style="padding: 5px;" class="col-sm-4 centered">
                                         @if($institucionview->preescolar == 1 and $institucionview->escuela == 0 and $institucionview->colegio == 0)
                                             <a href="{{ route('preescolar.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
@@ -101,8 +101,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             </a>
                                         @endif
                                     </div>
-                                    <div class="centered">
-                                        <a class="btn-sm bg-green" data-toggle="collapse" data-parent="#accordion"
+                                    <div style="padding: 5px;" class="col-sm-4 centered">
+                                        <a class="btn-sm bg-orange" data-toggle="collapse" data-parent="#accordion"
                                            href="#1collapse{{ $institucionview->id }}">
                                             Contactos...
                                         </a>
@@ -158,19 +158,19 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             </div>
                                         </div>
                                         <br>
-                                        <div class="col-sm-4 centered">
+                                        <div style="padding: 5px;" class="col-sm-4 centered">
                                             <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
                                                href="#meInteresa">
                                                 Me interesa
                                             </a>
                                         </div>
-                                        <div class="col-sm-4 centered">
+                                        <div style="padding: 5px;" class="col-sm-4 centered">
                                             <a href="{{ route('superior.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
                                             </a>
                                         </div>
-                                        <div class="centered">
-                                            <a class="btn-sm bg-green" data-toggle="collapse" data-parent="#accordion"
+                                        <div style="padding: 5px;" class="col-sm-4 centered">
+                                            <a class="btn-sm bg-orange" data-toggle="collapse" data-parent="#accordion"
                                                href="#2collapse{{ $institucionview->id }}">
                                                 Contactos...
                                             </a>
