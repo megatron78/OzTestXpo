@@ -90,7 +90,17 @@ class SuperiorController extends Controller
 
         $input['user_id'] = $request->user()->id;
 
-        Pregrade::create($input);
+        if($input['plan'] != '3B') {
+            $input['activo'] = 0;
+        }
+
+        if($input['plan'] != '3B') {
+            $email=env('MAIL_INFO', 'info@expoeducar.com');
+            event(new Registered($pregrade = Pregrade::create($input)));
+            $this->dispatch(new SendAlertaVentaEmail($request->user(), $pregrade, $email));
+        }
+        else
+            Pregrade::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 

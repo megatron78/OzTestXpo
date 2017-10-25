@@ -63,6 +63,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <br>
                                     <div class="col-sm-4 centered">
                                         <a style="padding: 5px;" class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
+                                           data-email="{{ $pregrado->email }}"
                                            href="#meInteresa">
                                             Me interesa
                                         </a>
@@ -162,6 +163,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="{{ asset('/js/app-landing.js') }}"></script>
 <script>
+    $('#meInteresa').on('show.bs.modal', function(e) {
+        var $modal = $(this);
+        var email = $(e.relatedTarget).attr('data-email');
+        $modal.find("#email").val(email);
+        $modal.find("#tipo").val("1");
+    });
+
     $('.carousel').carousel({
         interval: 3500
     })

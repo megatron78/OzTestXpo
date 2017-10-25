@@ -7,7 +7,7 @@
     </a>
 </div>
 <!-- Fixed navbar -->
-<div id="navigation" class="navbar navbar-default navbar-fixed-top col-lg-offset-1">
+<div id="navigation" class="navbar navbar-default navbar-fixed-top col-lg-offset-1 .hidden-lg-down">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

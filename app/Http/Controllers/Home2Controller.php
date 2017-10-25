@@ -102,7 +102,6 @@ class Home2Controller extends Controller
         $bannerData = BannerCategory::where('category_id','=','1')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
             ->get();
-
         return view('welcome', compact('bannerData', 'instituciones_view'));
     }
 }

@@ -33,7 +33,7 @@
                             <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
 
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="whatsapp" name="telefono" placeholder="Whatsapp">
+                                <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="Whatsapp">
                             </div>
                         </div>
                         <div class="form-group">

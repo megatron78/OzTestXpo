@@ -9,6 +9,7 @@ class Institution extends Model
 {
     protected $fillable = [
         'nombre',
+        'activo',
         'plan',
         'palabras_clave',
         'nombre_corto',

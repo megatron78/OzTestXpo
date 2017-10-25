@@ -38,7 +38,15 @@ class EventosController extends Controller
         $input['mes_evento'] = $request->fecha_evento->format('F');
         $input['year_evento'] = $request->fecha_evento->year;
 
-        Event::create($input);
+        $input['user_id'] = $request->user()->id;
+
+        if($input['plan'] != '3B') {
+            $email=env('MAIL_INFO', 'info@expoeducar.com');
+            event(new Registered($evento = Event::create($input)));
+            $this->dispatch(new SendAlertaVentaEmail($request->user(), $evento, $email));
+        }
+        else
+            Event::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 

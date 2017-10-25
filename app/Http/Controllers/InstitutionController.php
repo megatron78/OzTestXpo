@@ -159,8 +159,9 @@ class InstitutionController extends Controller
         }
 
         if($input['plan'] != '3B') {
-            event(new Registered($institution = $this->create($input)));
-            $this->dispatch(new SendAlertaVentaEmail($request->user(), $institution));
+            $email=env('MAIL_INFO', 'info@expoeducar.com');
+            event(new Registered($institution = Institution::create($input)));
+            $this->dispatch(new SendAlertaVentaEmail($request->user(), $institution, $email));
         }
         else
             Institution::create($input);
@@ -358,7 +359,17 @@ class InstitutionController extends Controller
 
         $input['user_id'] = $request->user()->id;
 
-        Institution::create($input);
+        if($input['plan'] != '3B') {
+            $input['activo'] = 0;
+        }
+
+        if($input['plan'] != '3B') {
+            $email=env('MAIL_INFO', 'info@expoeducar.com');
+            event(new Registered($institution = $this->create($input)));
+            $this->dispatch(new SendAlertaVentaEmail($request->user(), $institution, $email));
+        }
+        else
+            Institution::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 

@@ -47,7 +47,17 @@ class PosgradosController extends Controller
 
         $input['user_id'] = $request->user()->id;
 
-        PosgradeCourseSeminar::create($input);
+        if($input['plan'] != '3B') {
+            $input['activo'] = 0;
+        }
+
+        if($input['plan'] != '3B') {
+            $email=env('MAIL_INFO', 'info@expoeducar.com');
+            event(new Registered($posgrado = PosgradeCourseSeminar::create($input)));
+            $this->dispatch(new SendAlertaVentaEmail($request->user(), $posgrado, $email));
+        }
+        else
+            PosgradeCourseSeminar::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 
