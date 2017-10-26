@@ -220,6 +220,9 @@ class InstitutionController extends Controller
         $institution->fill($input);
 
         if(isset($request->institution_bg_picture)) {
+            if(file_exists(public_path($institution->institution_bg_picture))){
+                dd(public_path($institution->institution_bg_picture));
+            }
             $fileName = $request->institution_bg_picture->store('public/institution_bg');
             $institution->institution_bg_picture = Storage::url($fileName);
         }

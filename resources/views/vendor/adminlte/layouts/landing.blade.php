@@ -33,7 +33,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                      @if(!empty($institution->institution_bg_picture))
                                      style="background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
                                     @else
-                                        style="background: url('{{ asset('/img/st_charles_hs.jpg') }}') center center no-repeat;">
+                                        style="background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
                                     @endif
                                 </div>
 
@@ -142,7 +142,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         @if(!empty($pregrado->institution_bg_picture))
                                             style="background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
                                         @else
-                                            style="background: url('{{ asset('/img/ucla_campus_superior_destacado.jpg') }}') center center no-repeat;">
+                                            style="background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
                                         @endif
                                     </div>
 

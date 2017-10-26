@@ -5,9 +5,12 @@
 @endsection
 
 @section('content')
-    <body style="background-image: url('{{ asset('/img/expoeducar_login_bg.png') }}'); background-size: contain; background-repeat: no-repeat; background-position: center center;"
+    @include('vendor.adminlte.layouts.partials.headexpoeducar');
+    <body style="background-image: url('{{ asset('/img/expoeducar_login_bg.png') }}'); background-size: contain;
+            background-repeat: no-repeat; background-position: center center; margin-top: 1px"
           class="hold-transition login-page">
     <div id="app" v-cloak>
+        @include('vendor.adminlte.layouts.partials.navbarexpoeducar')
         <div class="login-box">
             <div class="login-logo">
                 <a href="{{ url('/home') }}"><b>EXPO</b>Educar</a>
