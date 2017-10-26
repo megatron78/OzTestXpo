@@ -152,62 +152,62 @@ class SuperiorController extends Controller
 
         //Delete old images if necessary
         if(isset($request->pregrade_bg_picture)) {
-            if(file_exists(public_path($pregrade->pregrade_bg_picture))){
+            if(file_exists(public_path($pregrade->pregrade_bg_picture)) and !empty($pregrade->pregrade_bg_picture)){
                 unlink(public_path($pregrade->pregrade_bg_picture));
             }
         }
         if(isset($request->institution_picture_1)) {
-            if(file_exists(public_path($pregrade->institution_picture_1))){
+            if(file_exists(public_path($pregrade->institution_picture_1)) and !empty($pregrade->institution_picture_1)){
                 unlink(public_path($pregrade->institution_picture_1));
             }
         }
         if(isset($request->institution_picture_2)) {
-            if(file_exists(public_path($pregrade->institution_picture_2))){
+            if(file_exists(public_path($pregrade->institution_picture_2)) and !empty($pregrade->institution_picture_2)){
                 unlink(public_path($pregrade->institution_picture_2));
             }
         }
         if(isset($request->institution_picture_3)) {
-            if(file_exists(public_path($pregrade->institution_picture_3))){
+            if(file_exists(public_path($pregrade->institution_picture_3)) and !empty($pregrade->institution_picture_3)){
                 unlink(public_path($pregrade->institution_picture_3));
             }
         }
         if(isset($request->institution_picture_4)) {
-            if(file_exists(public_path($pregrade->institution_picture_4))){
+            if(file_exists(public_path($pregrade->institution_picture_4)) and !empty($pregrade->institution_picture_4)){
                 unlink(public_path($pregrade->institution_picture_4));
             }
         }
         if(isset($request->institution_picture_5)) {
-            if(file_exists(public_path($pregrade->institution_picture_5))){
+            if(file_exists(public_path($pregrade->institution_picture_5)) and !empty($pregrade->institution_picture_5)){
                 unlink(public_path($pregrade->institution_picture_5));
             }
         }
         if(isset($request->institution_picture_6)) {
-            if(file_exists(public_path($pregrade->institution_picture_6))){
+            if(file_exists(public_path($pregrade->institution_picture_6)) and !empty($pregrade->institution_picture_6)){
                 unlink(public_path($pregrade->institution_picture_6));
             }
         }
         if(isset($request->banner_inst_picture_1)) {
-            if(file_exists(public_path($pregrade->banner_inst_picture_1))){
+            if(file_exists(public_path($pregrade->banner_inst_picture_1)) and !empty($pregrade->banner_inst_picture_1)){
                 unlink(public_path($pregrade->banner_inst_picture_1));
             }
         }
         if(isset($request->banner_inst_picture_2)) {
-            if(file_exists(public_path($pregrade->banner_inst_picture_2))){
+            if(file_exists(public_path($pregrade->banner_inst_picture_2)) and !empty($pregrade->banner_inst_picture_2)){
                 unlink(public_path($pregrade->banner_inst_picture_2));
             }
         }
         if(isset($request->banner_inst_picture_3)) {
-            if(file_exists(public_path($pregrade->banner_inst_picture_3))){
+            if(file_exists(public_path($pregrade->banner_inst_picture_3)) and !empty($pregrade->banner_inst_picture_3)){
                 unlink(public_path($pregrade->banner_inst_picture_3));
             }
         }
         if(isset($request->banner_inst_picture_4)) {
-            if(file_exists(public_path($pregrade->banner_inst_picture_4))){
+            if(file_exists(public_path($pregrade->banner_inst_picture_4)) and !empty($pregrade->banner_inst_picture_4)){
                 unlink(public_path($pregrade->banner_inst_picture_4));
             }
         }
         if(isset($request->banner_inst_picture_5)) {
-            if(file_exists(public_path($pregrade->banner_inst_picture_5))){
+            if(file_exists(public_path($pregrade->banner_inst_picture_5)) and !empty($pregrade->banner_inst_picture_5)){
                 unlink(public_path($pregrade->banner_inst_picture_5));
             }
         }

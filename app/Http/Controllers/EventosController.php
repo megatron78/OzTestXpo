@@ -77,6 +77,10 @@ class EventosController extends Controller
         $input = $request->all();
 
         if(isset($request->evento_bg_picture)) {
+            //Delete old if necessary
+            if(file_exists(public_path($evento->evento_bg_picture)) and !empty($evento->evento_bg_picture)){
+                unlink(public_path($evento->evento_bg_picture));
+            }
             $fileName = $request->evento_bg_picture->store('public/event_pic');
             $input['evento_bg_picture'] = Storage::url($fileName);
         }

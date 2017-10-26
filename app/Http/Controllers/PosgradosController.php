@@ -97,7 +97,7 @@ class PosgradosController extends Controller
 
         if(isset($request->documento_pdf1)) {
             //Delete old if necessary
-            if(file_exists(public_path($posgrade->documento_pdf1))){
+            if(file_exists(public_path($posgrade->documento_pdf1)) and !empty($posgrade->documento_pdf1)){
                 unlink(public_path($posgrade->documento_pdf1));
             }
             $fileName = $request->documento_pdf1->store('public/posgrade_pdf');
@@ -105,7 +105,7 @@ class PosgradosController extends Controller
         }
         if(isset($request->documento_pdf2)) {
             //Delete old if necessary
-            if(file_exists(public_path($posgrade->documento_pdf2))){
+            if(file_exists(public_path($posgrade->documento_pdf2)) and !empty($posgrade->documento_pdf2)){
                 unlink(public_path($posgrade->documento_pdf2));
             }
             $fileName = $request->documento_pdf2->store('public/posgrade_pdf');
@@ -113,7 +113,7 @@ class PosgradosController extends Controller
         }
         if(isset($request->documento_pdf3)) {
             //Delete old if necessary
-            if(file_exists(public_path($posgrade->documento_pdf3))){
+            if(file_exists(public_path($posgrade->documento_pdf3)) and !empty($posgrade->documento_pdf3)){
                 unlink(public_path($posgrade->documento_pdf3));
             }
             $fileName = $request->documento_pdf3->store('public/posgrade_pdf');
