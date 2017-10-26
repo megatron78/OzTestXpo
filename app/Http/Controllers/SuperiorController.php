@@ -95,7 +95,7 @@ class SuperiorController extends Controller
         }
 
         if($input['plan'] != '3B') {
-            $email=env('MAIL_INFO', 'info@expoeducar.com');
+            $email=config('MAIL_INFO');
             event(new Registered($pregrade = Pregrade::create($input)));
             $this->dispatch(new SendAlertaVentaEmail($request->user(), $pregrade, $email));
         }
@@ -149,6 +149,69 @@ class SuperiorController extends Controller
         ]);
 
         $input = $request->all();
+
+        //Delete old images if necessary
+        if(isset($request->pregrade_bg_picture)) {
+            if(file_exists(public_path($pregrade->pregrade_bg_picture))){
+                unlink(public_path($pregrade->pregrade_bg_picture));
+            }
+        }
+        if(isset($request->institution_picture_1)) {
+            if(file_exists(public_path($pregrade->institution_picture_1))){
+                unlink(public_path($pregrade->institution_picture_1));
+            }
+        }
+        if(isset($request->institution_picture_2)) {
+            if(file_exists(public_path($pregrade->institution_picture_2))){
+                unlink(public_path($pregrade->institution_picture_2));
+            }
+        }
+        if(isset($request->institution_picture_3)) {
+            if(file_exists(public_path($pregrade->institution_picture_3))){
+                unlink(public_path($pregrade->institution_picture_3));
+            }
+        }
+        if(isset($request->institution_picture_4)) {
+            if(file_exists(public_path($pregrade->institution_picture_4))){
+                unlink(public_path($pregrade->institution_picture_4));
+            }
+        }
+        if(isset($request->institution_picture_5)) {
+            if(file_exists(public_path($pregrade->institution_picture_5))){
+                unlink(public_path($pregrade->institution_picture_5));
+            }
+        }
+        if(isset($request->institution_picture_6)) {
+            if(file_exists(public_path($pregrade->institution_picture_6))){
+                unlink(public_path($pregrade->institution_picture_6));
+            }
+        }
+        if(isset($request->banner_inst_picture_1)) {
+            if(file_exists(public_path($pregrade->banner_inst_picture_1))){
+                unlink(public_path($pregrade->banner_inst_picture_1));
+            }
+        }
+        if(isset($request->banner_inst_picture_2)) {
+            if(file_exists(public_path($pregrade->banner_inst_picture_2))){
+                unlink(public_path($pregrade->banner_inst_picture_2));
+            }
+        }
+        if(isset($request->banner_inst_picture_3)) {
+            if(file_exists(public_path($pregrade->banner_inst_picture_3))){
+                unlink(public_path($pregrade->banner_inst_picture_3));
+            }
+        }
+        if(isset($request->banner_inst_picture_4)) {
+            if(file_exists(public_path($pregrade->banner_inst_picture_4))){
+                unlink(public_path($pregrade->banner_inst_picture_4));
+            }
+        }
+        if(isset($request->banner_inst_picture_5)) {
+            if(file_exists(public_path($pregrade->banner_inst_picture_5))){
+                unlink(public_path($pregrade->banner_inst_picture_5));
+            }
+        }
+
         $pregrade->fill($input);
 
         if(isset($request->pregrade_bg_picture)) {

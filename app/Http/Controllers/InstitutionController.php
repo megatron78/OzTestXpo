@@ -217,12 +217,72 @@ class InstitutionController extends Controller
         ]);
 
         $input = $request->all();
+
+        //Delete old images if necessary
+        if(isset($request->institution_bg_picture)) {
+            if(file_exists(public_path($institution->institution_bg_picture))){
+                unlink(public_path($institution->institution_bg_picture));
+            }
+        }
+        if(isset($request->institution_picture_1)) {
+            if(file_exists(public_path($institution->institution_picture_1))){
+                unlink(public_path($institution->institution_picture_1));
+            }
+        }
+        if(isset($request->institution_picture_2)) {
+            if(file_exists(public_path($institution->institution_picture_2))){
+                unlink(public_path($institution->institution_picture_2));
+            }
+        }
+        if(isset($request->institution_picture_3)) {
+            if(file_exists(public_path($institution->institution_picture_3))){
+                unlink(public_path($institution->institution_picture_3));
+            }
+        }
+        if(isset($request->institution_picture_4)) {
+            if(file_exists(public_path($institution->institution_picture_4))){
+                unlink(public_path($institution->institution_picture_4));
+            }
+        }
+        if(isset($request->institution_picture_5)) {
+            if(file_exists(public_path($institution->institution_picture_5))){
+                unlink(public_path($institution->institution_picture_5));
+            }
+        }
+        if(isset($request->institution_picture_6)) {
+            if(file_exists(public_path($institution->institution_picture_6))){
+                unlink(public_path($institution->institution_picture_6));
+            }
+        }
+        if(isset($request->banner_inst_picture_1)) {
+            if(file_exists(public_path($institution->banner_inst_picture_1))){
+                unlink(public_path($institution->banner_inst_picture_1));
+            }
+        }
+        if(isset($request->banner_inst_picture_2)) {
+            if(file_exists(public_path($institution->banner_inst_picture_2))){
+                unlink(public_path($institution->banner_inst_picture_2));
+            }
+        }
+        if(isset($request->banner_inst_picture_3)) {
+            if(file_exists(public_path($institution->banner_inst_picture_3))){
+                unlink(public_path($institution->banner_inst_picture_3));
+            }
+        }
+        if(isset($request->banner_inst_picture_4)) {
+            if(file_exists(public_path($institution->banner_inst_picture_4))){
+                unlink(public_path($institution->banner_inst_picture_4));
+            }
+        }
+        if(isset($request->banner_inst_picture_5)) {
+            if(file_exists(public_path($institution->banner_inst_picture_5))){
+                unlink(public_path($institution->banner_inst_picture_5));
+            }
+        }
+
         $institution->fill($input);
 
         if(isset($request->institution_bg_picture)) {
-            if(file_exists(public_path($institution->institution_bg_picture))){
-                dd(public_path($institution->institution_bg_picture));
-            }
             $fileName = $request->institution_bg_picture->store('public/institution_bg');
             $institution->institution_bg_picture = Storage::url($fileName);
         }
@@ -424,6 +484,69 @@ class InstitutionController extends Controller
         ]);
 
         $input = $request->all();
+
+        //Delete old images if necessary
+        if(isset($request->institution_bg_picture)) {
+            if(file_exists(public_path($institution->institution_bg_picture))){
+                unlink(public_path($institution->institution_bg_picture));
+            }
+        }
+        if(isset($request->institution_picture_1)) {
+            if(file_exists(public_path($institution->institution_picture_1))){
+                unlink(public_path($institution->institution_picture_1));
+            }
+        }
+        if(isset($request->institution_picture_2)) {
+            if(file_exists(public_path($institution->institution_picture_2))){
+                unlink(public_path($institution->institution_picture_2));
+            }
+        }
+        if(isset($request->institution_picture_3)) {
+            if(file_exists(public_path($institution->institution_picture_3))){
+                unlink(public_path($institution->institution_picture_3));
+            }
+        }
+        if(isset($request->institution_picture_4)) {
+            if(file_exists(public_path($institution->institution_picture_4))){
+                unlink(public_path($institution->institution_picture_4));
+            }
+        }
+        if(isset($request->institution_picture_5)) {
+            if(file_exists(public_path($institution->institution_picture_5))){
+                unlink(public_path($institution->institution_picture_5));
+            }
+        }
+        if(isset($request->institution_picture_6)) {
+            if(file_exists(public_path($institution->institution_picture_6))){
+                unlink(public_path($institution->institution_picture_6));
+            }
+        }
+        if(isset($request->banner_inst_picture_1)) {
+            if(file_exists(public_path($institution->banner_inst_picture_1))){
+                unlink(public_path($institution->banner_inst_picture_1));
+            }
+        }
+        if(isset($request->banner_inst_picture_2)) {
+            if(file_exists(public_path($institution->banner_inst_picture_2))){
+                unlink(public_path($institution->banner_inst_picture_2));
+            }
+        }
+        if(isset($request->banner_inst_picture_3)) {
+            if(file_exists(public_path($institution->banner_inst_picture_3))){
+                unlink(public_path($institution->banner_inst_picture_3));
+            }
+        }
+        if(isset($request->banner_inst_picture_4)) {
+            if(file_exists(public_path($institution->banner_inst_picture_4))){
+                unlink(public_path($institution->banner_inst_picture_4));
+            }
+        }
+        if(isset($request->banner_inst_picture_5)) {
+            if(file_exists(public_path($institution->banner_inst_picture_5))){
+                unlink(public_path($institution->banner_inst_picture_5));
+            }
+        }
+
         $institution->fill($input);
 
         if(isset($request->institution_bg_picture)) {
