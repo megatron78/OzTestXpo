@@ -29,7 +29,7 @@
                        class="{{ Request::is('preescolar*') ? 'bg-orange-active' : '' }}">{{ trans('adminlte_lang::message.eduinicial') }}</a>
                 </li>
                 <li><a style="font-size: 15px" href="{{ route('escuela_colegio.all') }}"
-                       class="{{ Request::is('escuela_colegio*') ? 'bg-orange-active' : '' }}">{{ trans('adminlte_lang::message.egb') }}</a>
+                       class="{{ Request::is('escuela-colegio*') ? 'bg-orange-active' : '' }}">{{ trans('adminlte_lang::message.egb') }}</a>
                 </li>
                 <li><a style="font-size: 15px" href="{{ route('superior.all') }}"
                        class="{{ Request::is('superior*') ? 'bg-orange-active' : '' }}">{{ trans('adminlte_lang::message.universidades') }}</a>
@@ -55,14 +55,14 @@
                 @else
                     <li><a href="/home">{{ Auth::user()->name }}</a></li>
                 @endif
-                <li><a href="https://www.facebook.com/Expoeducar-685682501640613" target="_blank"
+                <a href="https://www.facebook.com/Expoeducar-685682501640613" target="_blank"
                        style="font-size: 10px; height: 30px;width: 30px" class="btn btn-social-icon btn-facebook"><i
-                                class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/expoeducar" style="font-size: 10px; height: 30px;width: 30px" target="_blank"
-                       class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/expo-educar-547944135" target="_blank"
+                                class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/expoeducar" style="font-size: 10px; height: 30px;width: 30px" target="_blank"
+                       class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/expo-educar-547944135" target="_blank"
                        style="font-size: 10px; height: 30px;width: 30px" class="btn btn-social-icon btn-linkedin"><i
-                                class="fa fa-linkedin"></i></a></li>
+                                class="fa fa-linkedin"></i></a>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

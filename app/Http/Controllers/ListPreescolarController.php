@@ -37,19 +37,32 @@ class ListPreescolarController extends Controller
         $sector_id=0;
         $palabrasClave=null;
 
-        if(!is_null($request->get('search_province')))
-            $province_id=$request->get('search_province');
+        if(!is_null($request->get('search_province'))) {
+            $province_id = $request->get('search_province');
+            $cities=City::where('province_id', $province_id)
+                ->select('name', 'id')
+                ->get();
+        }
         if(!is_null($request->get('search_city'))) {
             $city_id = $request->get('search_city');
             $cities=City::where('province_id', $province_id)
                 ->select('name', 'id')
                 ->get();
+            $sectors=Sector::where('city_id', $city_id)
+                ->select('nombre', 'id')
+                ->get();
+            if(!count($sectors) > 0) {
+                $sectors = Sector::where('city_id', '=', null)->orderBy('nombre')->get();
+            }
         }
         if(!is_null($request->get('search_sector'))) {
             $sector_id = $request->get('search_sector');
             $sectors=Sector::where('city_id', $city_id)
                 ->select('nombre', 'id')
                 ->get();
+            if(!count($sectors) > 0) {
+                $sectors = Sector::where('city_id', '=', null)->orderBy('nombre')->get();
+            }
         }
         if(!is_null($request->get('search_institution'))) {
             $palabrasClave=$request->get('search_institution');

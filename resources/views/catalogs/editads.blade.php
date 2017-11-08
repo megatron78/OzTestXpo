@@ -32,7 +32,7 @@
                             </div>
                             <div class="form-group">
                                 {{ Form::label('orden_presentacion', 'Orden Presentación') }}
-                                {{ Form::text('orden_presentacion', null, ['class' => 'form-control']) }}
+                                {{ Form::number('orden_presentacion', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
                                 {{ Form::label('fecha_inicio', 'Fecha Inicio') }}

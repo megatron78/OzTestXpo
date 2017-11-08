@@ -133,10 +133,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <div class="col-md-5">
                                         <dl class="dl-horizontal">
                                     <dt>Tipo</dt>
-                                    @if(isset($pregrade->tipo))
+                                    @if(!empty($pregrade->tipo))
                                         <dd>{{ $pregrade->tipo }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Trayectoria</dt>
                                     <dd>{{ $pregrade->trayectoria }}</dd>
@@ -175,48 +175,48 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>Nocturno</dd>
                                     @endif
                                     <dt>Teléfonos</dt>
-                                    @if(isset($pregrade->telefono))
+                                    @if(!empty($pregrade->telefono))
                                         <dd>{{ $pregrade->telefono }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Celular</dt>
-                                    @if(isset($pregrade->celular))
+                                    @if(!empty($pregrade->celular))
                                         <dd>{{ $pregrade->celular }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Email</dt>
-                                    @if(isset($pregrade->email))
+                                    @if(!empty($pregrade->email))
                                         <dd>{{ $pregrade->email }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Web</dt>
-                                    @if(isset($pregrade->web))
+                                    @if(!empty($pregrade->web))
                                         <dd>{{ $pregrade->web }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Redes Sociales</dt>
                                     <dd>
-                                        @if(isset($pregrade->facebook))
+                                        @if(!empty($pregrade->facebook))
                                             <a href="{{ $pregrade->facebook }}"
                                                class="btn btn-social-icon btn-facebook"><i
                                                         class="fa fa-facebook"></i></a>
                                         @endif
-                                        @if(isset($pregrade->twitter))
+                                        @if(!empty($pregrade->twitter))
                                             &nbsp
                                             <a href="{{ $pregrade->twitter }}"
                                                class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                         @endif
-                                        @if(isset($pregrade->linkedin))
+                                        @if(!empty($pregrade->linkedin))
                                             &nbsp
                                                 <a href="{{ $pregrade->linkedin }}"
                                                    class="btn btn-social-icon btn-linkedin"><i
                                                             class="fa fa-linkedin"></i></a>
                                         @else
-                                            <dd></dd>
+                                            <dd>N/D</dd>
                                         @endif
                                     </dd>
                                 </dl>
@@ -226,7 +226,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             <h4 class="modal-title" id="myModalLabel">
                                                 <img style="padding-left: 1%; height: 70px; width: auto;"
                                                      src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
-                                                <strong>Proporciona tus datos para obtener más información</strong></h4>
+                                                <strong>Proporciona tus datos para contactarnos contigo</strong></h4>
                                         </div>
                                         {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
                                         <div class="box-body">
@@ -283,10 +283,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
                                         <dt>Descripción</dt>
-                                        @if(isset($pregrade->descripcion))
+                                        @if(!empty($pregrade->descripcion))
                                             <dd>{{ $pregrade->descripcion }}</dd>
                                         @else
-                                            <dd></dd>
+                                            <dd>N/D</dd>
                                         @endif
                                     </dl>
                                 </div>
@@ -298,10 +298,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
                                         <dt>Carreras</dt>
-                                        @if(isset($pregrade->carreras))
+                                        @if(!empty($pregrade->carreras))
                                             <dd>{!! $pregrade->carreras !!}</dd>
                                         @else
-                                            <dd></dd>
+                                            <dd>N/D</dd>
                                         @endif
                                     </dl>
                                 </div>
@@ -311,28 +311,28 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_4">
                                 <dl class="dl-horizontal">
                                     <dt>Área Total</dt>
-                                    @if(isset($pregrade->max_estudiantes_x_clase))
+                                    @if(!empty($pregrade->max_estudiantes_x_clase))
                                         <dd>{{ $pregrade->max_estudiantes_x_clase }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Área Canchas Deportivas</dt>
-                                    @if(isset($pregrade->area_deportiva))
+                                    @if(!empty($pregrade->area_deportiva))
                                         <dd>{{ $pregrade->area_deportiva }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Área Espacios Verdes</dt>
-                                    @if(isset($pregrade->area_espacios_verdes))
+                                    @if(!empty($pregrade->area_espacios_verdes))
                                         <dd>{{ $pregrade->area_espacios_verdes }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Área Piscinas</dt>
-                                    @if(isset($pregrade->area_piscina))
+                                    @if(!empty($pregrade->area_piscina))
                                         <dd>{{ $pregrade->area_piscina }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Seguridad Privada</dt>
                                     @if($pregrade->seguridad_privada)
@@ -347,46 +347,46 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Wifi exterior</dt>
-                                    @if(isset($pregrade->wifi_otros))
+                                    @if(!empty($pregrade->wifi_otros))
                                         <dd>{{ $pregrade->wifi_otros }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Capacidad en Restaurantes</dt>
-                                    @if(isset($pregrade->capacidad_restaurantes))
+                                    @if(!empty($pregrade->capacidad_restaurantes))
                                         <dd>{{ $pregrade->capacidad_restaurantes }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Canchas Indoor Fútbol</dt>
-                                    @if(isset($pregrade->canchas_indoor))
+                                    @if(!empty($pregrade->canchas_indoor))
                                         <dd>{{ $pregrade->canchas_indoor }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Canchas Fútbol</dt>
-                                    @if(isset($pregrade->canchas_futbol))
+                                    @if(!empty($pregrade->canchas_futbol))
                                         <dd>{{ $pregrade->canchas_futbol }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Canchas Basket</dt>
-                                    @if(isset($pregrade->canchas_basket))
+                                    @if(!empty($pregrade->canchas_basket))
                                         <dd>{{ $pregrade->canchas_basket }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Canchas Tenis</dt>
-                                    @if(isset($pregrade->canchas_tenis))
+                                    @if(!empty($pregrade->canchas_tenis))
                                         <dd>{{ $pregrade->canchas_tenis }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Mesas de Tenis de Mesa</dt>
-                                    @if(isset($pregrade->mesas_tenis))
+                                    @if(!empty($pregrade->mesas_tenis))
                                         <dd>{{ $pregrade->mesas_tenis }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Pista de Atletismo</dt>
                                     @if($pregrade->pista_atletica)
@@ -407,21 +407,21 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Otros</dt>
-                                    @if(isset($pregrade->otros))
+                                    @if(!empty($pregrade->otros))
                                         <dd>{{ $pregrade->otros }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <hr>
                                 </dl>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_5">
-                                <dt>Certificaciones y Logros</dt>
-                                @if(isset($pregrade->certificaciones_logros))
+                                <dt></dt>
+                                @if(!empty($pregrade->certificaciones_logros))
                                     <dd>{{ $pregrade->certificaciones_logros }}</dd>
                                 @else
-                                    <dd></dd>
+                                    <dd>N/D</dd>
                                 @endif
                             </div>
                             <!-- /.tab-pane -->

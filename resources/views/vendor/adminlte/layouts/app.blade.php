@@ -308,7 +308,7 @@ desired effect
                     "targets": [6],
                     render: function ( data, type, row, meta ) {
                         if(type === 'display'){
-                            if(row['role'] == 1)
+                            if(row['role'] == 'admin')
                                 data = 'Administrador';
                             else
                                 data = 'Usuario';

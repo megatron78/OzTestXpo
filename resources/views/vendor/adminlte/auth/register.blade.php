@@ -51,7 +51,7 @@
                     </div>
                     <div class="form-group has-feedback">
                         <input type="text" class="form-control" placeholder="{{ trans('adminlte_lang::message.contact_person') }}" name="contact_person" value="{{ old('contact_person') }}" autofocus/>
-                        <span class="glyphicon glyphicon-phone-alt form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                         <input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.password') }}" name="password"/>

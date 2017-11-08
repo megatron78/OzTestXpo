@@ -279,7 +279,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <h4 class="modal-title" id="myModalLabel">
                                 <img style="padding-left: 1%; height: 70px; width: auto;"
                                      src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
-                                <strong>Proporciona tus datos para obtener más información</strong></h4>
+                                <strong>Proporciona tus datos para contactarnos contigo</strong></h4>
                         </div>
                         <div class="modal-body">
                             <!-- form start -->

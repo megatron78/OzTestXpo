@@ -30,7 +30,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="box box-widget widget-user">
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
                                 <div class="widget-user-header bg-black"
-                                     @if(!empty($institution->institution_bg_picture))
+                                     @if(!empty($institucionview->institution_bg_picture))
                                      style="background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
                                     @else
                                         style="background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
@@ -77,8 +77,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <div class="col-sm-4 centered">
                                             <div class="description-block">
                                                 <h5 class="description-header">Ubicación</h5>
-                                                <span class="description-text">{{ isset($institucionview->city_name) ? $institucionview->city_name : "ND" }}
-                                                    , {{ isset($institucionview->province_name) ? $institucionview->province_name : "ND" }}</span>
+                                                <span class="description-text">{{ str_limit(((isset($institucionview->city_name) ? $institucionview->city_name : "ND") .','.(isset($institucionview->province_name) ? $institucionview->province_name : "ND")),14) }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
@@ -139,7 +138,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <div class="box box-widget widget-user">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-black"
-                                        @if(!empty($pregrado->institution_bg_picture))
+                                        @if(!empty($institucionview->institution_bg_picture))
                                             style="background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
                                         @else
                                             style="background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">

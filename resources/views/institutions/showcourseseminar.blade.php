@@ -131,10 +131,14 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @if(isset($cursoseminario->tipo))
                                                     <dd>{{ $cursoseminario->tipo }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Institución que imparte</dt>
-                                                <dd>{{ $cursoseminario->institucion }}</dd>
+                                                @if(!empty($cursoseminario->institucion))
+                                                    <dd>{{ $cursoseminario->institucion }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Modalidades</dt>
                                                 @if($cursoseminario->presencial)
                                                     <dd>Presencial</dd>
@@ -146,81 +150,81 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     <dd>Distancia</dd>
                                                 @endif
                                                 <dt>Alumnos máximo por Nivel</dt>
-                                                @if(isset($cursoseminario->max_alumnos_x_nivel))
+                                                @if(!empty($cursoseminario->max_alumnos_x_nivel))
                                                     <dd>{{ $cursoseminario->max_alumnos_x_nivel }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Meses de Inicio</dt>
-                                                @if(isset($cursoseminario->meses_inicio))
+                                                @if(!empty($cursoseminario->meses_inicio))
                                                     <dd>{{ $cursoseminario->meses_inicio }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Duración por Nivel</dt>
-                                                @if(isset($cursoseminario->duracion_nivel))
+                                                @if(!empty($cursoseminario->duracion_nivel))
                                                     <dd>{{ $cursoseminario->duracion_nivel }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Horarios</dt>
-                                                @if(isset($cursoseminario->horarios))
+                                                @if(!empty($cursoseminario->horarios))
                                                     <dd>{{ $cursoseminario->horarios }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Lugar</dt>
-                                                @if(isset($cursoseminario->lugar))
+                                                @if(!empty($cursoseminario->lugar))
                                                     <dd>{{ $cursoseminario->lugar }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Ubicación</dt>
                                                 <dd>{{ isset($cursoseminario->country->printable_name) ? " / ".$cursoseminario->country->printable_name : "" }} </dd>
                                                 <dd>{{ $cursoseminario->province->name }} {{ isset($cursoseminario->city->name) ? " / ".$cursoseminario->city->name : "" }} </dd>
                                                 <dt>Teléfonos</dt>
-                                                @if(isset($cursoseminario->telefono))
+                                                @if(!empty($cursoseminario->telefono))
                                                     <dd>{{ $cursoseminario->telefono }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Celular</dt>
-                                                @if(isset($cursoseminario->celular))
+                                                @if(!empty($cursoseminario->celular))
                                                     <dd>{{ $cursoseminario->celular }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Email</dt>
-                                                @if(isset($cursoseminario->email))
+                                                @if(!empty($cursoseminario->email))
                                                     <dd>{{ $cursoseminario->email }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Web</dt>
-                                                @if(isset($cursoseminario->web))
+                                                @if(!empty($cursoseminario->web))
                                                     <dd>{{ $cursoseminario->web }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Redes Sociales</dt>
                                                 <dd>
-                                                    @if(isset($cursoseminario->facebook))
+                                                    @if(!empty($cursoseminario->facebook))
                                                         <a href="{{ $cursoseminario->facebook }}"
                                                            class="btn btn-social-icon btn-facebook"><i
                                                                     class="fa fa-facebook"></i></a>
                                                     @endif
-                                                    @if(isset($cursoseminario->twitter))
+                                                    @if(!empty($cursoseminario->twitter))
                                                         &nbsp
                                                         <a href="{{ $cursoseminario->twitter }}"
                                                            class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                                     @endif
-                                                    @if(isset($cursoseminario->linkedin))
+                                                    @if(!empty($cursoseminario->linkedin))
                                                         &nbsp
                                                         <a href="{{ $cursoseminario->linkedin }}"
                                                            class="btn btn-social-icon btn-linkedin"><i
                                                                     class="fa fa-linkedin"></i></a>
                                                     @else
-                                                        <dd></dd>
+                                                        N/D
                                                     @endif
                                                     </dd>
                                             </dl>
@@ -230,7 +234,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 <h4 class="modal-title" id="myModalLabel">
                                                     <img style="padding-left: 1%; height: 70px; width: auto;"
                                                          src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
-                                                    <strong>Proporciona tus datos para obtener más información</strong></h4>
+                                                    <strong>Proporciona tus datos para contactarnos contigo</strong></h4>
                                             </div>
                                             {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
                                             <div class="box-body">
@@ -312,19 +316,35 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <div class="col-md-5">
                                             <dl class="dl-horizontal">
                                                 <dt>Tipo</dt>
-                                                @if(isset($cursoseminario->tipo))
+                                                @if(!empty($cursoseminario->tipo))
                                                     <dd>{{ $cursoseminario->tipo }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Campo</dt>
-                                                <dd>{{ $cursoseminario->campo }}</dd>
+                                                @if(!empty($cursoseminario->campo))
+                                                    <dd>{{ $cursoseminario->campo }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Institución que imparte</dt>
-                                                <dd>{{ $cursoseminario->institucion }}</dd>
+                                                @if(!empty($cursoseminario->institucion))
+                                                    <dd>{{ $cursoseminario->institucion }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Costo</dt>
-                                                <dd>{{ $cursoseminario->costo }}</dd>
+                                                @if(!empty($cursoseminario->costo))
+                                                    <dd>{{ $cursoseminario->costo }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Instructor(es)</dt>
-                                                <dd>{{ $cursoseminario->instructores }}</dd>
+                                                @if(!empty($cursoseminario->instructores))
+                                                    <dd>{{ $cursoseminario->instructores }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Modalidades</dt>
                                                 @if($cursoseminario->presencial)
                                                     <dd>Presencial</dd>
@@ -336,66 +356,94 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     <dd>Distancia</dd>
                                                 @endif
                                                 <dt>Cupos</dt>
-                                                <dd>{{ $cursoseminario->cupo }}</dd>
+                                                @if(!empty($cursoseminario->cupo))
+                                                    <dd>{{ $cursoseminario->cupo }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Fecha de Inicio</dt>
-                                                <dd>{{ $cursoseminario->fecha_inicio }}</dd>
+                                                @if(!empty($cursoseminario->fecha_inicio))
+                                                    <dd>{{ $cursoseminario->fecha_inicio }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Fecha de Finalización</dt>
-                                                <dd>{{ $cursoseminario->fecha_fin }}</dd>
+                                                @if(!empty($cursoseminario->fecha_fin))
+                                                    <dd>{{ $cursoseminario->fecha_fin }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Duración (horas)</dt>
-                                                <dd>{{ $cursoseminario->duracion }}</dd>
+                                                @if(!empty($cursoseminario->duracion))
+                                                    <dd>{{ $cursoseminario->duracion }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Hora ingreso</dt>
-                                                <dd>{{ $cursoseminario->hora_ingreso }}</dd>
+                                                @if(!empty($cursoseminario->hora_ingreso))
+                                                    <dd>{{ $cursoseminario->hora_ingreso }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Hora salida</dt>
-                                                <dd>{{ $cursoseminario->hora_salida }}</dd>
+                                                @if(!empty($cursoseminario->hora_salida))
+                                                    <dd>{{ $cursoseminario->hora_salida }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Lugar</dt>
-                                                <dd>{{ $cursoseminario->lugar }}</dd>
+                                                @if(!empty($cursoseminario->lugar))
+                                                    <dd>{{ $cursoseminario->lugar }}</dd>
+                                                @else
+                                                    <dd>N/D</dd>
+                                                @endif
                                                 <dt>Ubicación</dt>
                                                 <dd>{{ $cursoseminario->province->name }} {{ isset($cursoseminario->city->name) ? " / ".$cursoseminario->city->name : "" }} </dd>
                                                 <dt>Teléfonos</dt>
-                                                @if(isset($cursoseminario->telefono))
+                                                @if(!empty($cursoseminario->telefono))
                                                     <dd>{{ $cursoseminario->telefono }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Celular</dt>
-                                                @if(isset($cursoseminario->celular))
+                                                @if(!empty($cursoseminario->celular))
                                                     <dd>{{ $cursoseminario->celular }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Email</dt>
-                                                @if(isset($cursoseminario->email))
+                                                @if(!empty($cursoseminario->email))
                                                     <dd>{{ $cursoseminario->email }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Web</dt>
-                                                @if(isset($cursoseminario->web))
+                                                @if(!empty($cursoseminario->web))
                                                     <dd>{{ $cursoseminario->web }}</dd>
                                                 @else
-                                                    <dd></dd>
+                                                    <dd>N/D</dd>
                                                 @endif
                                                 <dt>Redes Sociales</dt>
                                                 <dd>
-                                                    @if(isset($cursoseminario->facebook))
+                                                    @if(!empty($cursoseminario->facebook))
                                                         <a href="{{ $cursoseminario->facebook }}"
                                                            class="btn btn-social-icon btn-facebook"><i
                                                                     class="fa fa-facebook"></i></a>
                                                     @endif
-                                                    @if(isset($cursoseminario->twitter))
+                                                    @if(!empty($cursoseminario->twitter))
                                                         &nbsp
                                                         <a href="{{ $cursoseminario->twitter }}"
                                                            class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                                     @endif
-                                                    @if(isset($cursoseminario->linkedin))
+                                                    @if(!empty($cursoseminario->linkedin))
                                                         &nbsp
                                                         <a href="{{ $cursoseminario->linkedin }}"
                                                            class="btn btn-social-icon btn-linkedin"><i
                                                                     class="fa fa-linkedin"></i></a>
-                                                @else
-                                                    <dd></dd>
+                                                    @else
+                                                        N/D
                                                     @endif
-                                                    </dd>
+                                                </dd>
                                             </dl>
                                         </div>
                                         <div class="col-md-7">
@@ -403,7 +451,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 <h4 class="modal-title" id="myModalLabel">
                                                     <img style="padding-left: 1%; height: 70px; width: auto;"
                                                          src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
-                                                    <strong>Proporciona tus datos para obtener más información</strong></h4>
+                                                    <strong>Proporciona tus datos para contactarnos contigo</strong></h4>
                                             </div>
                                             {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
                                             <div class="box-body">
@@ -463,7 +511,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             @if(isset($cursoseminario->objetivo))
                                                 <dd>{{ $cursoseminario->objetivo }}</dd>
                                             @else
-                                                <dd></dd>
+                                                <dd>N/D</dd>
                                             @endif
                                         </dl>
                                     </div>
@@ -478,7 +526,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             @if(isset($cursoseminario->temario))
                                                 <dd>{!! $cursoseminario->temario !!}</dd>
                                             @else
-                                                <dd></dd>
+                                                <dd>N/D</dd>
                                             @endif
                                         </dl>
                                     </div>
@@ -491,7 +539,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         @if(isset($cursoseminario->instructores_detalle))
                                             <dd>{!! $cursoseminario->instructores_detalle !!}</dd>
                                         @else
-                                            <dd></dd>
+                                            <dd>N/D</dd>
                                         @endif
                                         <hr>
                                     </dl>
@@ -502,7 +550,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @if(isset($cursoseminario->incluye))
                                         <dd>{{ $cursoseminario->incluye }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                 </div>
                                 <!-- /.tab-pane -->
@@ -525,7 +573,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @if(isset($cursoseminario->documento_pdf3))
                                         <dd>{{ $cursoseminario->documento_pdf3 }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                 </div>
                                 <!-- /.tab-pane -->
@@ -540,7 +588,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @if(isset($cursoseminario->documento_pdf3))
                                         <dd>{{ $cursoseminario->documento_pdf3 }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                 </div>
                                 <!-- /.tab-pane -->

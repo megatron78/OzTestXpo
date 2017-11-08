@@ -133,19 +133,35 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <div class="col-md-5">
                                         <dl class="dl-horizontal">
                                             <dt>Tipo</dt>
-                                            @if(isset($posgrado->tipo))
+                                            @if(!empty($posgrado->tipo))
                                                 <dd>{{ $posgrado->tipo }}</dd>
                                             @else
-                                                <dd></dd>
+                                                <dd>N/D</dd>
                                             @endif
                                             <dt>Campo</dt>
-                                            <dd>{{ $posgrado->campo }}</dd>
+                                            @if(!empty($posgrado->campo))
+                                                <dd>{{ $posgrado->campo }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Institución que imparte</dt>
-                                            <dd>{{ $posgrado->institucion }}</dd>
+                                            @if(!empty($posgrado->institucion))
+                                                <dd>{{ $posgrado->institucion }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Costo</dt>
-                                            <dd>{{ $posgrado->costo }}</dd>
+                                            @if(!empty($posgrado->costo))
+                                                <dd>{{ $posgrado->costo }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Instructor(es)</dt>
-                                            <dd>{{ $posgrado->instructores }}</dd>
+                                            @if(!empty($posgrado->instructores))
+                                                <dd>{{ $posgrado->instructores }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Modalidades</dt>
                                             @if($posgrado->presencial)
                                                 <dd>Presencial</dd>
@@ -157,67 +173,95 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 <dd>Distancia</dd>
                                             @endif
                                             <dt>Cupos</dt>
-                                            <dd>{{ $posgrado->cupo }}</dd>
+                                            @if(!empty($posgrado->cupo))
+                                                <dd>{{ $posgrado->cupo }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Fecha de Inicio</dt>
-                                            <dd>{{ $posgrado->fecha_inicio }}</dd>
+                                            @if(!empty($posgrado->fecha_inicio))
+                                                <dd>{{ $posgrado->fecha_inicio }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Fecha de Finalización</dt>
-                                            <dd>{{ $posgrado->fecha_fin }}</dd>
+                                            @if(!empty($posgrado->fecha_fin))
+                                                <dd>{{ $posgrado->fecha_fin }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Duración (horas)</dt>
-                                            <dd>{{ $posgrado->duracion }}</dd>
+                                            @if(!empty($posgrado->duracion))
+                                                <dd>{{ $posgrado->duracion }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Hora ingreso</dt>
-                                            <dd>{{ $posgrado->hora_ingreso }}</dd>
+                                            @if(!empty($posgrado->hora_ingreso))
+                                                <dd>{{ $posgrado->hora_ingreso }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Hora salida</dt>
-                                            <dd>{{ $posgrado->hora_salida }}</dd>
+                                            @if(!empty($posgrado->hora_salida))
+                                                <dd>{{ $posgrado->hora_salida }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Lugar</dt>
-                                            <dd>{{ $posgrado->lugar }}</dd>
+                                            @if(!empty($posgrado->lugar))
+                                                <dd>{{ $posgrado->lugar }}</dd>
+                                            @else
+                                                <dd>N/D</dd>
+                                            @endif
                                             <dt>Ubicación</dt>
                                             <dd>{{ isset($posgrado->country->printable_name) ? " / ".$posgrado->country->printable_name : "" }} </dd>
                                             <dd>{{ $posgrado->province->name }} {{ isset($posgrado->city->name) ? " / ".$posgrado->city->name : "" }} </dd>
                                             <dt>Teléfonos</dt>
-                                            @if(isset($posgrado->telefono))
+                                            @if(!empty($posgrado->telefono))
                                                 <dd>{{ $posgrado->telefono }}</dd>
                                             @else
-                                                <dd></dd>
+                                                <dd>N/D</dd>
                                             @endif
                                             <dt>Celular</dt>
-                                            @if(isset($posgrado->celular))
+                                            @if(!empty($posgrado->celular))
                                                 <dd>{{ $posgrado->celular }}</dd>
                                             @else
-                                                <dd></dd>
+                                                <dd>N/D</dd>
                                             @endif
                                             <dt>Email</dt>
-                                            @if(isset($posgrado->email))
+                                            @if(!empty($posgrado->email))
                                                 <dd>{{ $posgrado->email }}</dd>
                                             @else
-                                                <dd></dd>
+                                                <dd>N/D</dd>
                                             @endif
                                             <dt>Web</dt>
-                                            @if(isset($posgrado->web))
+                                            @if(!empty($posgrado->web))
                                                 <dd>{{ $posgrado->web }}</dd>
                                             @else
-                                                <dd></dd>
+                                                <dd>N/D</dd>
                                             @endif
                                             <dt>Redes Sociales</dt>
                                             <dd>
-                                                @if(isset($posgrado->facebook))
+                                                @if(!empty($posgrado->facebook))
                                                     <a href="{{ $posgrado->facebook }}"
                                                        class="btn btn-social-icon btn-facebook"><i
                                                                 class="fa fa-facebook"></i></a>
                                                 @endif
-                                                @if(isset($posgrado->twitter))
+                                                @if(!empty($posgrado->twitter))
                                                     &nbsp
                                                     <a href="{{ $posgrado->twitter }}"
                                                        class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                                 @endif
-                                                @if(isset($posgrado->linkedin))
+                                                @if(!empty($posgrado->linkedin))
                                                     &nbsp
                                                     <a href="{{ $posgrado->linkedin }}"
                                                        class="btn btn-social-icon btn-linkedin"><i
                                                                 class="fa fa-linkedin"></i></a>
-                                            @else
-                                                <dd></dd>
+                                                @else
+                                                    N/D
                                                 @endif
-                                                </dd>
+                                            </dd>
                                         </dl>
                                     </div>
                                     <div class="col-md-7">
@@ -225,7 +269,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             <h4 class="modal-title" id="myModalLabel">
                                                 <img style="padding-left: 1%; height: 70px; width: auto;"
                                                      src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
-                                                <strong>Proporciona tus datos para obtener más información</strong></h4>
+                                                <strong>Proporciona tus datos para contactarnos contigo</strong></h4>
                                         </div>
                                         {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
                                         <div class="box-body">
@@ -282,10 +326,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
                                         <dt>Objetivo</dt>
-                                        @if(isset($posgrado->objetivo))
+                                        @if(!empty($posgrado->objetivo))
                                             <dd>{{ $posgrado->objetivo }}</dd>
                                         @else
-                                            <dd></dd>
+                                            <dd>N/D</dd>
                                         @endif
                                     </dl>
                                 </div>
@@ -297,10 +341,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{--<b class="text-blue">Instalaciones</b>--}}
                                     <dl class="dl-horizontal">
                                         <dt>Temario</dt>
-                                        @if(isset($posgrado->temario))
+                                        @if(!empty($posgrado->temario))
                                             <dd>{!! $posgrado->temario !!}</dd>
                                         @else
-                                            <dd></dd>
+                                            <dd>N/D</dd>
                                         @endif
                                     </dl>
                                 </div>
@@ -310,10 +354,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_4">
                                 <dl class="dl-horizontal">
                                     <dt>Instructores</dt>
-                                    @if(isset($posgrado->instructores_detalle))
+                                    @if(!empty($posgrado->instructores_detalle))
                                         <dd>{!! $posgrado->instructores_detalle  !!}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <hr>
                                 </dl>
@@ -321,10 +365,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_5">
                                 <dt>Incluye</dt>
-                                @if(isset($posgrado->incluye))
+                                @if(!empty($posgrado->incluye))
                                     <dd>{{ $posgrado->incluye }}</dd>
                                 @else
-                                    <dd></dd>
+                                    <dd>N/D</dd>
                                 @endif
                             </div>
                             <!-- /.tab-pane -->
@@ -338,16 +382,16 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_7">
                                 <dt>Documentos</dt>
-                                @if(isset($posgrado->documento_pdf1))
+                                @if(!empty($posgrado->documento_pdf1))
                                     <dd>{{ $posgrado->documento_pdf1 }}</dd>
                                 @endif
-                                @if(isset($posgrado->documento_pdf2))
+                                @if(!empty($posgrado->documento_pdf2))
                                     <dd>{{ $posgrado->documento_pdf2 }}</dd>
                                 @endif
-                                @if(isset($posgrado->documento_pdf3))
+                                @if(!empty($posgrado->documento_pdf3))
                                     <dd>{{ $posgrado->documento_pdf3 }}</dd>
                                 @else
-                                    <dd></dd>
+                                    <dd>N/D</dd>
                                 @endif
                             </div>
                             <!-- /.tab-pane -->

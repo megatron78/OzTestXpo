@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('trayectoria', 'Trayectoria') }}
-                                            {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
+                                            {{ Form::textarea('trayectoria', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('nombre_autoridad', 'Nombre Autoridad') }}
@@ -176,20 +176,12 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('descripcion', 'Descripcion') }}
-                                            {{ Form::text('descripcion', null, ['class' => 'form-control']) }}
+                                            {{ Form::textarea('descripcion', null, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab_33">
                                     <div class="col-md-6 col-md-offset-0">
-                                        <div class="form-group">
-                                            {{ Form::label('edad_desde', 'Edad Desde') }}
-                                            {{ Form::number('edad_desde', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('edad_hasta', 'Edad Hasta') }}
-                                            {{ Form::number('edad_hasta', null, ['class' => 'form-control']) }}
-                                        </div>
                                         <div class="form-group">
                                             {{ Form::label('extracurriculares', 'Extracurriculares') }}
                                             {{ Form::hidden('extracurriculares',0)}}

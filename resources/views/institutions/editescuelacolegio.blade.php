@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('trayectoria', 'Trayectoria') }}
-                                            {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
+                                            {{ Form::textarea('trayectoria', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('nombre_autoridad', 'Nombre Autoridad') }}
@@ -172,20 +172,12 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('descripcion', 'Descripcion') }}
-                                            {{ Form::text('descripcion', null, ['class' => 'form-control']) }}
+                                            {{ Form::textarea('descripcion', null, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab_33">
                                     <div class="col-md-6 col-md-offset-0">
-                                        <div class="form-group">
-                                            {{ Form::label('edad_desde', 'Edad Desde') }}
-                                            {{ Form::number('edad_desde', $institution->edad_desde, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('edad_hasta', 'Edad Hasta') }}
-                                            {{ Form::number('edad_hasta', $institution->edad_hasta, ['class' => 'form-control']) }}
-                                        </div>
                                         <div class="form-group">
                                             {{ Form::label('extracurriculares', 'Extracurriculares') }}
                                             {{ Form::hidden('extracurriculares',0)}}
@@ -452,9 +444,9 @@
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
                     </div>
                     <!-- /.box-footer -->
+                    {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::close() !!}
                 </div>
-                {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
-                {!! Form::close() !!}
                 <!-- /.box -->
             </div>
         </div>

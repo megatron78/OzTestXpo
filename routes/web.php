@@ -32,7 +32,7 @@ Route::get('preescolar', [
     'as' => 'preescolar.all',
 ]);
 
-Route::get('escuela_colegio', [
+Route::get('escuela-colegio', [
     'uses' => 'ListEscuelaColegioController',
     'as' => 'escuela_colegio.all',
 ]);
@@ -67,7 +67,7 @@ Route::get('preescolar/{provincia}/{ciudad}/{institution}-{slug}', [
     'as' => 'preescolar.show',
 ])->where('institution', '\d+');
 
-Route::get('escuelacolegio/{provincia}/{ciudad}/{institution}-{slug}', [
+Route::get('escuela-colegio/{provincia}/{ciudad}/{institution}-{slug}', [
     'uses' => 'ShowEscuelaColegioController',
     'as' => 'escuelacolegio.show',
 ])->where('institution', '\d+');

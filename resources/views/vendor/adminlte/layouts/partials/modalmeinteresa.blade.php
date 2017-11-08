@@ -8,14 +8,14 @@
                 <h4 class="modal-title" id="myModalLabel">
                     <img style="padding-left: 1%; height: 70px; width: auto;"
                          src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
-                     <strong>Proporciona tus datos para obtener más información</strong></h4>
+                     <strong>Proporciona tus datos para contactarnos contigo</strong></h4>
             </div>
             <div class="modal-body">
                 <!-- form start -->
                 {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="nombreApellido" class="col-sm-3 control-label">Nombre y Apellido *</label>
+                            <label style="font-size: 14px" for="nombreApellido" class="col-sm-3 control-label">Nombre Apellido *</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="nombreApellido" name="nombreApellido"
@@ -23,21 +23,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="telefono" class="col-sm-3 control-label">Teléfono *</label>
+                            <label style="font-size: 14px" for="telefono" class="col-sm-3 control-label">Teléfono *</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
+                            <label style="font-size: 14px" for="whatsapp" class="col-sm-3 control-label">Whatsapp</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="Whatsapp">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
+                            <label style="font-size: 14px" for="inputEmail3" class="col-sm-3 control-label">Correo *</label>
 
                             <div class="col-sm-9">
                                 <input type="hidden" id="email" name="email">
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="interes" class="col-sm-3 control-label">Interés</label>
+                            <label style="font-size: 14px" for="interes" class="col-sm-3 control-label">Asunto</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="interes" name="interes" placeholder="Estoy interesado en...">

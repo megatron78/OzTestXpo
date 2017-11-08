@@ -142,9 +142,17 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd></dd>
                                     @endif
                                     <dt>Trayectoria</dt>
-                                    <dd>{{ $institution->trayectoria }}</dd>
+                                    @if(!empty($institution->trayectoria))
+                                        <dd>{{ $institution->trayectoria }}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                     <dt>Rector/Director</dt>
-                                    <dd>{{ $institution->nombre_autoridad }}</dd>
+                                    @if(!empty($institution->nombre_autoridad))
+                                        <dd>{{ $institution->nombre_autoridad }}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                     <dt>Ubicación</dt>
                                     <dd>{{ $institution->province->name }} {{ isset($institution->city->name) ? " / ".$institution->city->name : "" }}  {{ isset($institution->sector->nombre) ? " / ".$institution->sector->nombre : "" }}</dd>
                                     <dt>Dirección</dt>
@@ -178,56 +186,56 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>Sierra</dd>
                                     @endif
                                     <dt>Pensión promedio</dt>
-                                    @if(isset($institution->pago_promedio_escuela))
+                                    @if(!empty($institution->pago_promedio_escuela))
                                         <dd>Escuela: ${{ $institution->pago_promedio_escuela }}</dd>
-                                    @elseif(isset($institution->pago_promedio_colegio))
+                                    @elseif(!empty($institution->pago_promedio_colegio))
                                         <dd>Colegio: ${{ $institution->pago_promedio_colegio }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Idiomas</dt>
-                                    @if(isset($institution->lenguajes))
+                                    @if(!empty($institution->lenguajes))
                                         <dd>{{ $institution->lenguajes }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Teléfonos</dt>
-                                    @if(isset($institution->telefono))
+                                    @if(!empty($institution->telefono))
                                         <dd>{{ $institution->telefono }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Celular</dt>
-                                    @if(isset($institution->celular))
+                                    @if(!empty($institution->celular))
                                         <dd>{{ $institution->celular }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Email</dt>
-                                    @if(isset($institution->email))
+                                    @if(!empty($institution->email))
                                         <dd>{{ $institution->email }}</dd>
                                     @else
                                         <dd></dd>
                                     @endif
                                     <dt>Web</dt>
-                                    @if(isset($institution->web))
+                                    @if(!empty($institution->web))
                                         <dd>{{ $institution->web }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Redes Sociales</dt>
                                     <dd>
-                                        @if(isset($pregrade->facebook))
-                                            <a href="{{ $pregrade->facebook }}"
+                                        @if(!empty($institution->facebook))
+                                            <a href="{{ $institution->facebook }}"
                                                class="btn btn-social-icon btn-facebook"><i
                                                         class="fa fa-facebook"></i></a>
                                         @endif
-                                        @if(isset($pregrade->twitter))
+                                        @if(!empty($institution->twitter))
                                             &nbsp
-                                            <a href="{{ $pregrado->twitter }}"
+                                            <a href="{{ $institution->twitter }}"
                                                class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                         @else
-                                            <dd></dd>
+                                            N/D
                                         @endif
                                     </dd>
                                 </dl>
@@ -237,7 +245,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             <h4 class="modal-title" id="myModalLabel">
                                                 <img style="padding-left: 1%; height: 70px; width: auto;"
                                                      src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
-                                                <strong>Proporciona tus datos para obtener más información</strong></h4>
+                                                <strong>Proporciona tus datos para contactarnos contigo</strong></h4>
                                         </div>
                                         {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
                                         <div class="box-body">
@@ -292,14 +300,14 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_2">
                                 <div class="box-body">
                                     {{--<b class="text-blue">Instalaciones</b>--}}
-                                    <dl class="dl-horizontal">
-                                        <dt>Descripción</dt>
-                                        @if(isset($institution->descripcion))
+                                    {{--<dl class="dl-horizontal">--}}
+                                        <dt></dt>
+                                        @if(!empty($institution->descripcion))
                                             <dd>{{ $institution->descripcion }}</dd>
                                         @else
-                                            <dd></dd>
+                                            <dd>N/D</dd>
                                         @endif
-                                    </dl>
+                                    {{--</dl>--}}
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -307,16 +315,16 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_3">
                                 <dl class="dl-horizontal">
                                     <dt>Edad desde</dt>
-                                    @if(isset($institution->edad_desde))
+                                    @if(!empty($institution->edad_desde))
                                         <dd>{{ $institution->edad_desde }} años</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Edad hasta</dt>
-                                    @if(isset($institution->edad_hasta))
+                                    @if(!empty($institution->edad_hasta))
                                         <dd>{{ $institution->edad_hasta }} años</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Horario Extendido</dt>
                                     @if($institution->horario_extendido)
@@ -325,25 +333,25 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Horario Ingreso Diurno</dt>
-                                    @if(isset($institution->entrada_matutino))
+                                    @if(!empty($institution->entrada_matutino))
                                         <dd>{{ $institution->entrada_matutino }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Horario Salida Diurno</dt>
-                                    @if(isset($institution->salida_matutino))
+                                    @if(!empty($institution->salida_matutino))
                                         <dd>{{ $institution->salida_matutino }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Horario Salida Extendido</dt>
-                                    @if(isset($institution->salida_horario_extendido))
+                                    @if(!empty($institution->salida_horario_extendido))
                                         <dd>{{ $institution->salida_horario_extendido }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Alimentación</dt>
-                                    @if(isset($institution->alimentacion))
+                                    @if(!empty($institution->alimentacion))
                                         @if($institution->alimentacion === "S")
                                             <dd>SI</dd>
                                         @elseif($institution->alimentacion === "O")
@@ -355,40 +363,40 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Total Alumnos</dt>
-                                    @if(isset($institution->total_estudiantes))
+                                    @if(!empty($institution->total_estudiantes))
                                         <dd>{{ $institution->total_estudiantes }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Máximo por Clase</dt>
-                                    @if(isset($institution->max_estudiantes_x_clase))
+                                    @if(!empty($institution->max_estudiantes_x_clase))
                                         <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Área Total</dt>
-                                    @if(isset($institution->max_estudiantes_x_clase))
+                                    @if(!empty($institution->max_estudiantes_x_clase))
                                         <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Área Canchas Deportivas</dt>
-                                    @if(isset($institution->area_deportiva))
+                                    @if(!empty($institution->area_deportiva))
                                         <dd>{{ $institution->area_deportiva }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Área Espacios Verdes</dt>
                                     @if(isset($institution->area_espacios_verdes))
                                         <dd>{{ $institution->area_espacios_verdes }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Área Piscinas</dt>
-                                    @if(isset($institution->area_piscina))
+                                    @if(!empty($institution->area_piscina))
                                         <dd>{{ $institution->area_piscina }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Seguridad Privada</dt>
                                     @if($institution->seguridad_privada)
@@ -403,10 +411,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Wifi exterior</dt>
-                                    @if(isset($institution->wifi_otros))
+                                    @if(!empty($institution->wifi_otros))
                                         <dd>{{ $institution->wifi_otros }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Cámara IP Entrada/Salida</dt>
                                     @if($institution->wifi_interior)
@@ -421,21 +429,21 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>NO</dd>
                                     @endif
                                     <dt>Otros</dt>
-                                    @if(isset($institution->otros))
+                                    @if(!empty($institution->otros))
                                         <dd>{{ $institution->otros }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <hr>
                                 </dl>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_4">
-                                <dt>Certificaciones y Logros</dt>
-                                @if(isset($institution->certificaciones_logros))
+                                <dt></dt>
+                                @if(!empty($institution->certificaciones_logros))
                                     <dd>{{ $institution->certificaciones_logros }}</dd>
                                 @else
-                                    <dd></dd>
+                                    <dd>N/D</dd>
                                 @endif
                             </div>
                             <!-- /.tab-pane -->

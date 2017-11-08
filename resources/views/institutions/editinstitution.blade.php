@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('trayectoria', 'Trayectoria') }}
-                                            {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
+                                            {{ Form::textarea('trayectoria', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('nombre_autoridad', 'Nombre Autoridad') }}
@@ -172,7 +172,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('descripcion', 'Descripcion') }}
-                                            {{ Form::text('descripcion', null, ['class' => 'form-control']) }}
+                                            {{ Form::textarea('descripcion', null, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
                                 </div>
@@ -451,7 +451,7 @@
                     <div class="box-footer">
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
                     </div>
-                    <!-- /.box-body -->
+                    <!-- /.box-footer -->
                     {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
                     {!! Form::close() !!}
                 </div>

@@ -119,9 +119,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <!-- /.box-header -->
                                     <div class="box-body">
                                         <h5><strong><i class="fa fa-map-marker margin-r-5"></i> Ubicación</strong></h5>
-
-                                        <p class="text-muted">{{ isset($pregrado->province->name) ? $pregrado->province->name : "ND" }}
-                                            , {{ isset($pregrado->city->name) ? $pregrado->city->name : "ND" }}</p>
+                                        <p class="text-muted">{{ str_limit(((isset($pregrado->province->name) ? $pregrado->province->name : "ND") .','.(isset($pregrado->city->name) ? $pregrado->city->name : "ND")),14) }}</p>
                                         <hr>
                                         <a class="btn-sm bg-green" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse{{ $pregrado->id }}">

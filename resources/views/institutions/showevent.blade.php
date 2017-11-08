@@ -128,50 +128,70 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <div class="col-md-5">
                                         <dl class="dl-horizontal">
                                     <dt>Información</dt>
-                                    <dd>{{ $event->informacion }}</dd>
+                                    @if(!empty($event->informacion))
+                                        <dd>{{ $event->informacion }}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                     <dt>Costo</dt>
-                                    <dd>{{ $event->costo }}</dd>
+                                    @if(!empty($event->costo))
+                                        <dd>{{ $event->costo }}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                     <dt>Fecha Evento</dt>
-                                    <dd>{{ $event->fecha_evento }}</dd>
+                                    @if(!empty($event->fecha_evento))
+                                        <dd>{{ $event->fecha_evento }}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                     <dt>Hora Evento</dt>
-                                    <dd>{{ $event->hora_evento }}</dd>
+                                    @if(!empty($event->hora_evento))
+                                        <dd>{{ $event->hora_evento }}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                     <dt>Dirección</dt>
-                                    <dd>{{ $event->direccion }}</dd>
+                                    @if(!empty($event->direccion))
+                                        <dd>{{ $event->direccion }}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                     <dt>Teléfonos</dt>
-                                    @if(isset($event->telefono))
+                                    @if(!empty($event->telefono))
                                         <dd>{{ $event->telefono }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Celular</dt>
-                                    @if(isset($event->celular))
+                                    @if(!empty($event->celular))
                                         <dd>{{ $event->celular }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Email</dt>
-                                    @if(isset($event->email))
+                                    @if(!empty($event->email))
                                         <dd>{{ $event->email }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Web</dt>
-                                    @if(isset($event->web))
+                                    @if(!empty($event->web))
                                         <dd>{{ $event->web }}</dd>
                                     @else
-                                        <dd></dd>
+                                        <dd>N/D</dd>
                                     @endif
                                     <dt>Redes Sociales</dt>
                                     <dd>
-                                        @if(isset($event->facebook))
+                                        @if(!empty($event->facebook))
                                             <a href="{{ $event->facebook }}"
                                                class="btn btn-social-icon btn-facebook"><i
                                                         class="fa fa-facebook"></i></a>
-                                        @elseif(isset($event->twitter))
+                                        @elseif(!empty($event->twitter))
                                             &nbsp;
                                             <a href="{{ $event->twitter }}"><i class="fa fa-twitter"></i></a>
                                         @else
-                                            <dd></dd>
+                                            N/D
                                         @endif
                                     </dd>
                                 </dl>
@@ -181,7 +201,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             <h4 class="modal-title" id="myModalLabel">
                                                 <img style="padding-left: 1%; height: 70px; width: auto;"
                                                      src="{{ asset('/img/expoeducar_logo115x97.png') }}" alt="ExpoEducar">
-                                                <strong>Proporciona tus datos para obtener más información</strong></h4>
+                                                <strong>Proporciona tus datos para contactarnos contigo</strong></h4>
                                         </div>
                                         {!! Form::open(['method' => 'POST', 'route' => 'send.moreinfo', 'class' => 'form-horizontal']) !!}
                                         <div class="box-body">

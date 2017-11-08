@@ -39,8 +39,12 @@ class ListCursoSeminarioController extends Controller
         $institucion=null;
         if(!is_null($request->get('search_tipo')))
             $tipo=$request->get('search_tipo');
-        if(!is_null($request->get('search_province')))
-            $province_id=$request->get('search_province');
+        if(!is_null($request->get('search_province'))) {
+            $province_id = $request->get('search_province');
+            $cities=City::where('province_id', $province_id)
+                ->select('name', 'id')
+                ->get();
+        }
         if(!is_null($request->get('search_city'))) {
             $city_id = $request->get('search_city');
             $cities=City::where('province_id', $province_id)
