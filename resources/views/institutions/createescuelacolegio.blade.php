@@ -124,7 +124,7 @@
                                         <div class="form-group">
                                             {{ Form::label('laico', 'Laico', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('laico',0)}}
-                                            {{ Form::checkbox('laico', null, true, [ 'class' => 'chkclass2', 'onclick' => 'SetSel2(this)' ]) }}
+                                            {{ Form::checkbox('laico', 1, true, [ 'class' => 'chkclass2', 'onclick' => 'SetSel2(this)' ]) }}
                                             &nbsp;&nbsp;
                                             {{ Form::label('religioso', 'Religioso', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('religioso',0)}}
@@ -141,7 +141,7 @@
                                             &nbsp;&nbsp;
                                             {{ Form::label('mixto', 'Mixto', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('mixto',0)}}
-                                            {{ Form::checkbox('mixto', null, true, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
+                                            {{ Form::checkbox('mixto', 1, true, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('fiscal', 'Fiscal', [ 'class' => 'text text-bold' ]) }}
@@ -150,7 +150,7 @@
                                             &nbsp;&nbsp;
                                             {{ Form::label('privado', 'Privado', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('privado',0)}}
-                                            {{ Form::checkbox('privado', null, true, [ 'class' => 'chkclass4', 'onclick' => 'SetSel4(this)' ]) }}
+                                            {{ Form::checkbox('privado', 1, true, [ 'class' => 'chkclass4', 'onclick' => 'SetSel4(this)' ]) }}
                                             &nbsp;&nbsp;
                                             {{ Form::label('fiscomisional', 'Fiscomisional', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('fiscomisional',0)}}

@@ -405,6 +405,8 @@ desired effect
             }
         }
         elem.checked = currentState;
+        if(elem.checked)
+            elem.value="1";
     }
     function SetSel2(elem)
     {
@@ -421,6 +423,8 @@ desired effect
             }
         }
         elem.checked = currentState;
+        if(elem.checked)
+            elem.value="1";
     }
     function SetSel3(elem)
     {
@@ -437,6 +441,8 @@ desired effect
             }
         }
         elem.checked = currentState;
+        if(elem.checked)
+            elem.value="1";
     }
     function SetSel4(elem)
     {
@@ -453,6 +459,8 @@ desired effect
             }
         }
         elem.checked = currentState;
+        if(elem.checked)
+            elem.value="1";
     }
     $(document).ready(function() {
         $('#province_id').on('change', function (e) {
