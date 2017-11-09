@@ -111,37 +111,37 @@
                                         <div class="form-group">
                                             {{ Form::label('laico', 'Laico', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('laico',0)}}
-                                            {{ Form::checkbox('laico', null, $institution->laico, [ 'class' => 'chkclass2', 'onclick' => 'SetSel2(this)' ]) }}
+                                            {{ Form::checkbox('laico', $institution->laico, $institution->laico, [ 'class' => 'chkclass2', 'onclick' => 'SetSel2(this)' ]) }}
                                             &nbsp;&nbsp;
                                             {{ Form::label('religioso', 'Religioso', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('religioso',0)}}
-                                            {{ Form::checkbox('religioso', null, $institution->religioso, [ 'class' => 'chkclass2', 'onclick' => 'SetSel2(this)' ]) }}
+                                            {{ Form::checkbox('religioso', $institution->religioso, $institution->religioso, [ 'class' => 'chkclass2', 'onclick' => 'SetSel2(this)' ]) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('masculino', 'Masculino', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('masculino',0)}}
-                                            {{ Form::checkbox('masculino', null, $institution->masculino, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
+                                            {{ Form::checkbox('masculino', $institution->masculino, $institution->masculino, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
                                             &nbsp;&nbsp;
                                             {{ Form::label('femenino', 'Femenino', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('femenino',0)}}
-                                            {{ Form::checkbox('femenino', null, $institution->femenino, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
+                                            {{ Form::checkbox('femenino', $institution->femenino, $institution->femenino, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
                                             &nbsp;&nbsp;
                                             {{ Form::label('mixto', 'Mixto', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('mixto',0)}}
-                                            {{ Form::checkbox('mixto', null, $institution->mixto, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
+                                            {{ Form::checkbox('mixto', $institution->mixto, $institution->mixto, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('fiscal', 'Fiscal', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('fiscal',0)}}
-                                            {{ Form::checkbox('fiscal', null, $institution->fiscal, [ 'class' => 'chkclass4', 'onclick' => 'SetSel4(this)' ]) }}
+                                            {{ Form::checkbox('fiscal', $institution->fiscal, $institution->fiscal, [ 'class' => 'chkclass4', 'onclick' => 'SetSel4(this)' ]) }}
                                             &nbsp;&nbsp;
                                             {{ Form::label('privado', 'Privado', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('privado',0)}}
-                                            {{ Form::checkbox('privado', null, $institution->privado, [ 'class' => 'chkclass4', 'onclick' => 'SetSel4(this)' ]) }}
+                                            {{ Form::checkbox('privado', $institution->privado, $institution->privado, [ 'class' => 'chkclass4', 'onclick' => 'SetSel4(this)' ]) }}
                                             &nbsp;&nbsp;
                                             {{ Form::label('fiscomisional', 'Fiscomisional', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('fiscomisional',0)}}
-                                            {{ Form::checkbox('fiscomisional', null, $institution->fiscomisional, [ 'class' => 'chkclass4', 'onclick' => 'SetSel4(this)' ]) }}
+                                            {{ Form::checkbox('fiscomisional', $institution->fiscomisional, $institution->fiscomisional, [ 'class' => 'chkclass4', 'onclick' => 'SetSel4(this)' ]) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('pago_promedio_escuela', 'Costo Promedio Pensión Escuela', [ 'class' => 'text text-bold' ]) }}
