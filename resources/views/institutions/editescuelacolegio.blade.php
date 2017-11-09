@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textarea('trayectoria', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('nombre_autoridad', 'Rector o Director', [ 'class' => 'text text-bold' ]) }}
@@ -366,7 +366,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('certificaciones_logros', 'Certificaciones y Logros', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('certificaciones_logros', $institution->certificaciones_logros, ['class' => 'form-control']) }}
+                                            {{ Form::textArea('certificaciones_logros', $institution->certificaciones_logros, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('regimen', 'Régimen', [ 'class' => 'text text-bold' ]) }}

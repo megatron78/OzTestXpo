@@ -261,7 +261,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="interes" class="col-sm-3 control-label">Interés</label>
+                                                <label for="interes" class="col-sm-3 control-label">Asunto</label>
 
                                                 <div class="col-sm-9">
                                                     <input type="text" class="form-control" id="interes" name="interes" placeholder="Estoy interesado en...">

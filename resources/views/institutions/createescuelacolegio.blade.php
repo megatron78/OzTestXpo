@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textarea('trayectoria', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('nombre_autoridad', 'Rector o Director', [ 'class' => 'text text-bold' ]) }}
@@ -422,7 +422,11 @@
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
                                                     {{ Form::label('activo', 'Activo', [ 'class' => 'text text-bold' ]) }}
-                                                    {{ Form::hidden('activo',0)}}
+                                                    @if(!auth()->user()->isAdmin())
+                                                        {{ Form::hidden('activo',0)}}
+                                                    @else
+                                                        {{ Form::hidden('activo',1)}}
+                                                    @endif
                                                     {{ Form::checkbox('activo') }}
                                                 </div>
                                             @endif

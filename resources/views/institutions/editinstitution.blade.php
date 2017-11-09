@@ -75,7 +75,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textarea('trayectoria', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('nombre_autoridad', 'Nombre Autoridad', [ 'class' => 'text text-bold' ]) }}

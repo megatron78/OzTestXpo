@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textarea('trayectoria', null, ['class' => 'form-control', 'PlaceHolder' => 'Los años de experiencia como institución']) }}
+                                            {{ Form::text('trayectoria', null, ['class' => 'form-control', 'PlaceHolder' => 'Los años de experiencia como institución']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('nombre_autoridad', 'Rector o Director', [ 'class' => 'text text-bold' ]) }}
