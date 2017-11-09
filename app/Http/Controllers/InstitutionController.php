@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\{Institution,InstitutionsView,Province,Canton,Parish,City,Sector};
+use App\{Institution,InstitutionsView,Province,City,Sector};
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
@@ -71,8 +72,23 @@ class InstitutionController extends Controller
     //Preescolar
     public function createPreescolar(Request $request) {
         $provinces = Province::all(['name','id']);
-
-        return view('institutions.createpreescolar', compact('provinces'));
+        $cities = null;
+        $sectors = null;
+        if(!empty(session()->getOldInput('province_id'))) {
+            $cities=City::where('province_id', session()->getOldInput('province_id'))
+                ->select('name', 'id')
+                ->get();
+        }
+        if(!empty(session()->getOldInput('city_id'))) {
+            $sectors=Sector::where('city_id', session()->getOldInput('city_id'))
+                ->select('nombre', 'id')
+                ->get();
+            if(!count($sectors) > 0) {
+                $sectors = Sector::where('city_id', '=', null)->orderBy('nombre')->get();
+            }
+        }
+        //dd($old = session()->getOldInput('city_id'));
+        return view('institutions.createpreescolar', compact('provinces','cities', 'sectors'));
     }
 
     public function store(Request $request) {
@@ -83,8 +99,8 @@ class InstitutionController extends Controller
             'telefono' => 'required',
             'email' => 'required',
             'province_id' => 'required',
-            'canton_id' => 'required',
-            'parish_id' => 'required',
+            /*'canton_id' => 'required',
+            'parish_id' => 'required',*/
             'city_id' => 'required',
             'sector_id' => 'required',
             'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
@@ -167,7 +183,6 @@ class InstitutionController extends Controller
             Institution::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
-
         //return redirect()->back();
         return back()->withInput();
     }
@@ -175,17 +190,17 @@ class InstitutionController extends Controller
     public function edit($id) {
         $institution = Institution::findOrFail($id);
         $provinces = Province::all(['name','id']);
-        $cantons = Canton::where('province_id','=',$institution->province_id)
+        /*$cantons = Canton::where('province_id','=',$institution->province_id)
                     ->select('name','id')->get();
         $parishes = Parish::where('canton_id','=',$institution->canton_id)
-                    ->select('name','id')->get();
+                    ->select('name','id')->get();*/
         $cities = City::where('province_id','=',$institution->province_id)
                     ->select('name','id')->get();
         $sectors = Sector::where('city_id','=',$institution->city_id)
                     ->select('nombre','id')->get();
 
         return view('institutions.editinstitution',
-            compact('provinces','cantons','parishes','cities','sectors'))->withInstitution($institution);
+            compact('provinces','cities','sectors'))->withInstitution($institution);
     }
 
     public function update($id, Request $request) {
@@ -198,8 +213,8 @@ class InstitutionController extends Controller
             'telefono' => 'required',
             'email' => 'required',
             'province_id' => 'required',
-            'canton_id' => 'required',
-            'parish_id' => 'required',
+            /*'canton_id' => 'required',
+            'parish_id' => 'required',*/
             'city_id' => 'required',
             'sector_id' => 'required',
             'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
@@ -338,7 +353,22 @@ class InstitutionController extends Controller
     //Escuela Colegio
     public function createEscuelacolegio() {
         $provinces = Province::all(['name','id']);
-        return view('institutions.createescuelacolegio', compact('provinces'));
+        $cities = null;
+        $sectors = null;
+        if(!empty(session()->getOldInput('province_id'))) {
+            $cities=City::where('province_id', session()->getOldInput('province_id'))
+                ->select('name', 'id')
+                ->get();
+        }
+        if(!empty(session()->getOldInput('city_id'))) {
+            $sectors=Sector::where('city_id', session()->getOldInput('city_id'))
+                ->select('nombre', 'id')
+                ->get();
+            if(!count($sectors) > 0) {
+                $sectors = Sector::where('city_id', '=', null)->orderBy('nombre')->get();
+            }
+        }
+        return view('institutions.createescuelacolegio', compact('provinces', 'cities', 'sectors'));
     }
 
     public function storeEscuelacolegio(Request $request) {
@@ -349,8 +379,8 @@ class InstitutionController extends Controller
             'telefono' => 'required',
             'email' => 'required',
             'province_id' => 'required',
-            'canton_id' => 'required',
-            'parish_id' => 'required',
+            /*'canton_id' => 'required',
+            'parish_id' => 'required',*/
             'city_id' => 'required',
             'sector_id' => 'required',
             'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',
@@ -440,17 +470,17 @@ class InstitutionController extends Controller
     public function editEscuelacolegio($id) {
         $institution = Institution::findOrFail($id);
         $provinces = Province::all(['name','id']);
-        $cantons = Canton::where('province_id','=',$institution->province_id)
+        /*$cantons = Canton::where('province_id','=',$institution->province_id)
             ->select('name','id')->get();
         $parishes = Parish::where('canton_id','=',$institution->canton_id)
-            ->select('name','id')->get();
+            ->select('name','id')->get();*/
         $cities = City::where('province_id','=',$institution->province_id)
             ->select('name','id')->get();
         $sectors = Sector::where('city_id','=',$institution->city_id)
             ->select('nombre','id')->get();
 
         return view('institutions.editescuelacolegio',
-            compact('provinces','cantons','parishes','cities','sectors'))->withInstitution($institution);
+            compact('provinces','cities','sectors'))->withInstitution($institution);
     }
 
     public function updateEscuelacolegio($id, Request $request) {
@@ -463,8 +493,8 @@ class InstitutionController extends Controller
             'telefono' => 'required',
             'email' => 'required',
             'province_id' => 'required',
-            'canton_id' => 'required',
-            'parish_id' => 'required',
+            /*'canton_id' => 'required',
+            'parish_id' => 'required',*/
             'city_id' => 'required',
             'sector_id' => 'required',
             'institution_bg_picture' => 'nullable|image|mimes:jpeg,bmp,png|max:500',

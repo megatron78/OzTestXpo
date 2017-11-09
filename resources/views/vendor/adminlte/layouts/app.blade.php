@@ -390,15 +390,79 @@ desired effect
     });
 </script>
 <script>
+    function SetSel(elem)
+    {
+        var elems = document.getElementsByClassName("chkclass");
+        var currentState = elem.checked;
+        var elemsLength = elems.length;
+        //alert(elemsLength);
+        for(i=0; i<elemsLength; i++)
+        {
+            if(elems[i].type === "checkbox")
+            {
+                //alert(elems[i].className);
+                elems[i].checked = false;
+            }
+        }
+        elem.checked = currentState;
+    }
+    function SetSel2(elem)
+    {
+        var elems = document.getElementsByClassName("chkclass2");
+        var currentState = elem.checked;
+        var elemsLength = elems.length;
+        //alert(elemsLength);
+        for(i=0; i<elemsLength; i++)
+        {
+            if(elems[i].type === "checkbox")
+            {
+                //alert(elems[i].className);
+                elems[i].checked = false;
+            }
+        }
+        elem.checked = currentState;
+    }
+    function SetSel3(elem)
+    {
+        var elems = document.getElementsByClassName("chkclass3");
+        var currentState = elem.checked;
+        var elemsLength = elems.length;
+        //alert(elemsLength);
+        for(i=0; i<elemsLength; i++)
+        {
+            if(elems[i].type === "checkbox")
+            {
+                //alert(elems[i].className);
+                elems[i].checked = false;
+            }
+        }
+        elem.checked = currentState;
+    }
+    function SetSel4(elem)
+    {
+        var elems = document.getElementsByClassName("chkclass4");
+        var currentState = elem.checked;
+        var elemsLength = elems.length;
+        //alert(elemsLength);
+        for(i=0; i<elemsLength; i++)
+        {
+            if(elems[i].type === "checkbox")
+            {
+                //alert(elems[i].className);
+                elems[i].checked = false;
+            }
+        }
+        elem.checked = currentState;
+    }
     $(document).ready(function() {
         $('#province_id').on('change', function (e) {
             var province_id = e.target.value;
             $('#city_id').empty();
             $('#sector_id').empty();
-            $('#canton_id').empty();
-            $('#parish_id').empty();
+            /*$('#canton_id').empty();
+            $('#parish_id').empty();*/
             $('#city_id').append('<option value="">...</option>');
-            $('#canton_id').append('<option value="">...</option>');
+            /*$('#canton_id').append('<option value="">...</option>');*/
             //ajax
             $.get('/ajax-city?province_id=' + province_id, function (data) {
                 //success_data
@@ -406,15 +470,15 @@ desired effect
                     $('#city_id').append('<option value="' + cityObj.id + '">' + cityObj.name + '</option>');
                 });
             });
-            $.get('/ajax-canton?province_id=' + province_id, function (data) {
+            /*$.get('/ajax-canton?province_id=' + province_id, function (data) {
                 //success_data
                 $.each(data, function (index, cantonObj) {
                     $('#canton_id').append('<option value="' + cantonObj.id + '">' + cantonObj.name + '</option>');
                 });
-            });
+            });*/
         });
 
-        $('#canton_id').on('change', function (e) {
+        /*$('#canton_id').on('change', function (e) {
             var canton_id = e.target.value;
             $('#parish_id').empty();
             //ajax
@@ -424,7 +488,7 @@ desired effect
                     $('#parish_id').append('<option value="' + parishObj.id + '">' + parishObj.name + '</option>');
                 });
             });
-        });
+        });*/
 
         $('#city_id').on('change', function (e) {
             var city_id = e.target.value;

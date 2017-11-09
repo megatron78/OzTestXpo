@@ -59,7 +59,7 @@
                                placeholder="Clave, Tópico, Nombre, Palabra Clave..." style="min-width: 370px; max-width: 370px">
                     @endif
                 </div>
-                <button type="submit" style="width: 120px;" class="btn btn-warning">BUSCAR</button>
+                <button type="submit" style="width: 120px;" class="btn btn-success">BUSCAR</button>
                 <a style="font-size: 14px" data-toggle="collapse" data-parent="#accordion"
                    href="#advancedSearch">&nbsp;&nbsp;
                     <strong> Avanzada <i class="fa fa-search-plus margin-r-5"></i></strong>

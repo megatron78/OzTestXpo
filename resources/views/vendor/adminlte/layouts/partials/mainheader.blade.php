@@ -119,7 +119,15 @@
                             {{--<img src="{{ Gravatar::get($user->email) }}" class="user-image" alt="User Image"/>--}}
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
-                        </a>
+                            <li><a href="{{ url('/logout') }}" id="logout"
+                                   onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                                    <i style="font-size: 18px" class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                                <input type="submit" value="logout" style="display: none;">
+                            </form>
+                            </a>
                         <ul style="max-width: 150px" class="dropdown-menu">
                             <!-- The user image in the menu -->
                             {{--<li class="user-header">
@@ -146,7 +154,7 @@
                                 {{--<div class="pull-left">
                                     <a href="{{ url('/settings') }}" class="btn btn-default btn-flat">{{ trans('adminlte_lang::message.profile') }}</a>
                                 </div>--}}
-                                <div class="pull-right">
+                                {{--<div class="pull-right">
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat" id="logout"
                                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -158,7 +166,7 @@
                                         <input type="submit" value="logout" style="display: none;">
                                     </form>
 
-                                </div>
+                                </div>--}}
                             </li>
                         </ul>
                     </li>

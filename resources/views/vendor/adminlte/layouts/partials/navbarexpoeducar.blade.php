@@ -54,6 +54,14 @@
                         </a></li>
                 @else
                     <li><a href="/home">{{ Auth::user()->name }}</a></li>
+                    <li><a href="{{ url('/logout') }}" id="logout"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        <i style="font-size: 18px" class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                        <input type="submit" value="logout" style="display: none;">
+                    </form>
                 @endif
                 <a href="https://www.facebook.com/Expoeducar-685682501640613" target="_blank"
                        style="font-size: 10px; height: 30px;width: 30px" class="btn btn-social-icon btn-facebook"><i

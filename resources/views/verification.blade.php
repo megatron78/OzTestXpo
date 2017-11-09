@@ -19,7 +19,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <div class="panel panel-default">
                     <div class="panel-heading">Verificación</div>
                     <div class="panel-body">
-                        Se ha registrado satisfactoriamente. Un correo ha sido enviado para verificación de la cuenta.
+                        Se ha registrado satisfactoriamente. Revise su correo para verificación de su cuenta.
                     </div>
                 </div>
             </div>

@@ -27,6 +27,9 @@
                     {!! Form::model($institution, array('files' => true, 'route' => array('preescolar.update', $institution->id))) !!}
                     <div class="box-body with-border">
                         <div class="nav-tabs-custom">
+                            {!! Form::submit('Actualizar Información', ['class' => 'btn btn-success']) !!}
+                            <br>
+                            <br>
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab_11" data-toggle="tab">Información</a></li>
                                 <li><a href="#tab_22" data-toggle="tab">Descripción</a></li>
@@ -40,64 +43,66 @@
                                 <div class="tab-pane active" id="tab_11">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('nombre', 'Nombre') }}
+                                            {{ Form::label('nombre', 'Nombre *', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('nombre', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('nombre_corto', 'Nombre corto') }}
+                                            {{ Form::label('nombre_corto', 'Nombre corto *', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('nombre_corto', null, ['class' => 'form-control']) }}
                                         </div>
 
                                         <div class="form-group">
-                                            {{ Form::label('palabras_clave', 'Palabras Clave') }}
-                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('palabras_clave', 'Palabras Clave', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('preescolar', 'Preescolar') }}
-                                            {{ Form::hidden('preescolar',0)}}
-                                            {{ Form::checkbox('preescolar') }}
-                                            {{ Form::label('escuela', 'Escuela') }}
+                                            {{--{{ Form::label('preescolar', 'Preescolar') }}--}}
+                                            {{ Form::hidden('preescolar',1)}}
+                                            {{--{{ Form::checkbox('preescolar') }}--}}
+                                            {{ Form::hidden('escuela',0)}}
+                                            {{ Form::hidden('colegio',0)}}
+                                            {{--{{ Form::label('escuela', 'Escuela') }}
                                             {{ Form::hidden('escuela',0)}}
                                             {{ Form::checkbox('escuela') }}
                                             {{ Form::label('colegio', 'Colegio') }}
                                             {{ Form::hidden('colegio',0)}}
-                                            {{ Form::checkbox('colegio') }}
+                                            {{ Form::checkbox('colegio') }}--}}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('institution_bg_picture','Foto de fondo') }}
+                                            {{ Form::label('institution_bg_picture','Foto de fondo', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::file('institution_bg_picture') }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 y 500K.</p>
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('trayectoria', 'Trayectoria') }}
+                                            {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::textarea('trayectoria', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('nombre_autoridad', 'Nombre Autoridad') }}
+                                            {{ Form::label('nombre_autoridad', 'Nombre Autoridad', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('nombre_autoridad', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('direccion', 'Dirección') }}
+                                            {{ Form::label('direccion', 'Dirección *', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('direccion', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('province_id', 'Provincia') }}
+                                            {{ Form::label('province_id', 'Provincia *', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::select('province_id', $provinces->pluck('name','id')->all(), $institution->province_id, ['class' => 'form-control']) }}
                                         </div>
-                                        <div class="form-group">
+                                        {{--<div class="form-group">
                                             {{ Form::label('canton_id', 'Canton') }}
                                             {{ Form::select('canton_id', $cantons->pluck('name','id')->all(), $institution->canton_id, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('parish_id', 'Parroquia') }}
                                             {{ Form::select('parish_id', $parishes->pluck('name','id')->all(), $institution->parish_id, ['class' => 'form-control']) }}
-                                        </div>
+                                        </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('city_id', 'Ciudad') }}
+                                            {{ Form::label('city_id', 'Ciudad *', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::select('city_id', $cities->pluck('name','id')->all(), $institution->city_id, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('sector_id', 'Sector') }}
+                                            {{ Form::label('sector_id', 'Sector *', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::select('sector_id', $sectors->pluck('nombre','id')->all(), $institution->sector_id, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
@@ -105,73 +110,78 @@
                                 <div class="tab-pane" id="tab_22">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('laico', 'Laico') }}
+                                            {{ Form::label('laico', 'Laico', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('laico',0)}}
-                                            {{ Form::checkbox('laico') }}
-                                            {{ Form::label('religioso', 'Religioso') }}
+                                            {{ Form::checkbox('laico', null, null, [ 'class' => 'chkclass', 'onclick' => 'SetSel(this)' ]) }}
+                                            &nbsp;&nbsp;
+                                            {{ Form::label('religioso', 'Religioso', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('religioso',0)}}
-                                            {{ Form::checkbox('religioso') }}
+                                            {{ Form::checkbox('religioso', null, null, [ 'class' => 'chkclass', 'onclick' => 'SetSel(this)' ]) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('masculino', 'Masculino') }}
+                                            {{ Form::label('masculino', 'Masculino', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('masculino',0)}}
-                                            {{ Form::checkbox('masculino') }}
-                                            {{ Form::label('femenino', 'Femenino') }}
+                                            {{ Form::checkbox('masculino', null, null, [ 'class' => 'chkclass2', 'onclick' => 'SetSel2(this)' ]) }}
+                                            &nbsp;&nbsp;
+                                            {{ Form::label('femenino', 'Femenino', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('femenino',0)}}
-                                            {{ Form::checkbox('femenino') }}
-                                            {{ Form::label('mixto', 'Mixto') }}
+                                            {{ Form::checkbox('femenino', null, null, [ 'class' => 'chkclass2', 'onclick' => 'SetSel2(this)' ]) }}
+                                            &nbsp;&nbsp;
+                                            {{ Form::label('mixto', 'Mixto', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('mixto',0)}}
-                                            {{ Form::checkbox('mixto') }}
+                                            {{ Form::checkbox('mixto', null, null, [ 'class' => 'chkclass2', 'onclick' => 'SetSel2(this)' ]) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('fiscal', 'Fiscal') }}
+                                            {{ Form::label('fiscal', 'Fiscal', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('fiscal',0)}}
-                                            {{ Form::checkbox('fiscal') }}
-                                            {{ Form::label('privado', 'Privado') }}
+                                            {{ Form::checkbox('fiscal', null, null, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
+                                            &nbsp;&nbsp;
+                                            {{ Form::label('privado', 'Privado', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('privado',0)}}
-                                            {{ Form::checkbox('privado') }}
-                                            {{ Form::label('fiscomisional', 'Fiscomisional') }}
+                                            {{ Form::checkbox('privado', null, null, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
+                                            &nbsp;&nbsp;
+                                            {{ Form::label('fiscomisional', 'Fiscomisional', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('fiscomisional',0)}}
-                                            {{ Form::checkbox('fiscomisional') }}
+                                            {{ Form::checkbox('fiscomisional', null, null, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('pago_promedio_escuela', 'Costo Promedio Pensión') }}
-                                            {{ Form::number('pago_promedio_escuela', $institution->pago_promedio_escuela, ['class' => 'form-control']) }}
+                                            {{ Form::label('pago_promedio_escuela', 'Costo Promedio Pensión', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('pago_promedio_escuela', $institution->pago_promedio_escuela, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('pago_promedio_colegio', 'Pago Promedio Colegio') }}
                                             {{ Form::number('pago_promedio_colegio', $institution->pago_promedio_colegio, ['class' => 'form-control']) }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('lenguajes', 'Lenguajes') }}
+                                            {{ Form::label('lenguajes', 'Lenguajes', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('lenguajes', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono') }}
+                                            {{ Form::label('telefono', 'Telefono *', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('telefono', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('celular', 'Celular') }}
+                                            {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('celular', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('email', 'Email') }}
+                                            {{ Form::label('email', 'Email *', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('web', 'Web') }}
+                                            {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('web', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('facebook', 'Facebook') }}
+                                            {{ Form::label('facebook', 'Facebook', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('facebook', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('twitter', 'Twitter') }}
+                                            {{ Form::label('twitter', 'Twitter', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('twitter', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('descripcion', 'Descripcion') }}
+                                            {{ Form::label('descripcion', 'Descripcion', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::textarea('descripcion', null, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
@@ -179,12 +189,12 @@
                                 <div class="tab-pane" id="tab_33">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('edad_desde', 'Edad Desde') }}
-                                            {{ Form::number('edad_desde', $institution->edad_desde, ['class' => 'form-control']) }}
+                                            {{ Form::label('edad_desde', 'Edad Desde', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('edad_desde', $institution->edad_desde, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('edad_hasta', 'Edad Hasta') }}
-                                            {{ Form::number('edad_hasta', $institution->edad_hasta, ['class' => 'form-control']) }}
+                                            {{ Form::label('edad_hasta', 'Edad Hasta', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('edad_hasta', $institution->edad_hasta, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('extracurriculares', 'Extracurriculares') }}
@@ -192,7 +202,7 @@
                                             {{ Form::checkbox('extracurriculares') }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('horario_extendido', 'Horario Extendido') }}
+                                            {{ Form::label('horario_extendido', 'Horario Extendido', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('horario_extendido',0)}}
                                             {{ Form::checkbox('horario_extendido') }}
                                         </div>
@@ -219,7 +229,7 @@
                                             {{ Form::checkbox('nocturno') }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('entrada_matutino', 'Entrada Matutino') }}
+                                            {{ Form::label('entrada_matutino', 'Entrada Matutino', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('entrada_matutino', null, ['class' => 'form-control']) }}
                                         </div>
                                         {{--<div class="form-group">
@@ -231,7 +241,7 @@
                                             {{ Form::text('entrada_nocturno', null, ['class' => 'form-control']) }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('salida_matutino', 'Salida Matutino') }}
+                                            {{ Form::label('salida_matutino', 'Salida Matutino', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('salida_matutino', null, ['class' => 'form-control']) }}
                                         </div>
                                         {{--<div class="form-group">
@@ -243,11 +253,11 @@
                                             {{ Form::text('salida_nocturno', null, ['class' => 'form-control']) }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('salida_horario_extendido', 'Salida Horario Extendido') }}
+                                            {{ Form::label('salida_horario_extendido', 'Salida Horario Extendido', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('salida_horario_extendido', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('alimentacion', 'Alimentación') }}
+                                            {{ Form::label('alimentacion', 'Alimentación', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::select('alimentacion', ['S' => 'Si', 'N' => 'No', 'O' => 'Opcional'], $institution->alimentacion, ['class' => 'form-control']) }}
                                         </div>
                                         {{--<div class="form-group">
@@ -264,49 +274,50 @@
                                             {{ Form::number('porcentaje_profesores_nativos', $institution->porcentaje_profesores_nativos, ['class' => 'form-control']) }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('total_estudiantes', 'Total Estudiantes') }}
-                                            {{ Form::number('total_estudiantes', $institution->total_estudiantes, ['class' => 'form-control']) }}
+                                            {{ Form::label('total_estudiantes', 'Total Estudiantes', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('total_estudiantes', $institution->total_estudiantes, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('max_estudiantes_x_clase', 'Máximo Estudiantes por Clase') }}
-                                            {{ Form::number('max_estudiantes_x_clase', $institution->max_estudiantes_x_clase, ['class' => 'form-control']) }}
+                                            {{ Form::label('max_estudiantes_x_clase', 'Máximo Estudiantes por Clase', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('max_estudiantes_x_clase', $institution->max_estudiantes_x_clase, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_total', 'Área Total') }}
-                                            {{ Form::number('area_total', $institution->area_total, ['class' => 'form-control']) }}
+                                            {{ Form::label('area_total', 'Área Total', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('area_total', $institution->area_total, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_deportiva', 'Área Canchas Deportivas') }}
-                                            {{ Form::number('area_deportiva', $institution->area_deportiva, ['class' => 'form-control']) }}
+                                            {{ Form::label('area_deportiva', 'Área Canchas Deportivas', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('area_deportiva', $institution->area_deportiva, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_espacios_verdes', 'Área Espacios Verdes') }}
-                                            {{ Form::number('area_espacios_verdes', $institution->area_espacios_verdes, ['class' => 'form-control']) }}
+                                            {{ Form::label('area_espacios_verdes', 'Área Espacios Verdes', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('area_espacios_verdes', $institution->area_espacios_verdes, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_piscina', 'Área Piscina') }}
-                                            {{ Form::number('area_piscina', $institution->area_piscina, ['class' => 'form-control']) }}
+                                            {{ Form::label('area_piscina', 'Área Piscina', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('area_piscina', $institution->area_piscina, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('seguridad_privada', 'Seguridad Privada') }}
+                                            {{ Form::label('seguridad_privada', 'Seguridad Privada', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('seguridad_privada',0)}}
                                             {{ Form::checkbox('seguridad_privada') }}
-                                            {{ Form::label('wifi_interior', 'Wifi Interior') }}
+                                            <br>
+                                            {{ Form::label('wifi_interior', 'Wifi Interior', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('wifi_interior',0)}}
                                             {{ Form::checkbox('wifi_interior') }}
-                                            {{ Form::label('wifi_exterior', 'Wifi Exterior') }}
+                                            {{--{{ Form::label('wifi_exterior', 'Wifi Exterior') }}--}}
                                             {{ Form::hidden('wifi_exterior',0)}}
-                                            {{ Form::checkbox('wifi_exterior') }}
+                                            {{--{{ Form::checkbox('wifi_exterior') }}--}}
+                                            <br>
+                                            {{ Form::label('wifi_otros', 'Wifi Otros', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('wifi_otros', $institution->wifi_otros, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('wifi_otros', 'Wifi Otros') }}
-                                            {{ Form::text('wifi_otros') }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('camara_ip_entrada_salida', 'Cámara IP Entrada/Salida') }}
+                                            {{ Form::label('camara_ip_entrada_salida', 'Cámara IP Entrada/Salida', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('camara_ip_entrada_salida',0)}}
                                             {{ Form::checkbox('camara_ip_entrada_salida') }}
-                                            {{ Form::label('camara_ip_aulas_espacios', 'Cámara IP Otros') }}
+                                            <br>
+                                            {{ Form::label('camara_ip_aulas_espacios', 'Cámara IP Otros', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('camara_ip_aulas_espacios',0)}}
                                             {{ Form::checkbox('camara_ip_aulas_espacios') }}
                                         </div>
@@ -354,11 +365,11 @@
                                             {{ Form::checkbox('gimnasio') }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('otros', 'Otras Áreas') }}
+                                            {{ Form::label('otros', 'Otras Áreas', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::textArea('otros', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('certificaciones_logros', 'Certificaciones y Logros') }}
+                                            {{ Form::label('certificaciones_logros', 'Certificaciones y Logros', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('certificaciones_logros', null, ['class' => 'form-control']) }}
                                         </div>
                                         {{--<div class="form-group">
@@ -370,8 +381,8 @@
                                             {{ Form::text('jurisdiccion', null, ['class' => 'form-control']) }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('mapa_url', 'Mapa URL') }}
-                                            {{ Form::text('mapa_url', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('mapa_url', null, ['class' => 'form-control', 'PlaceHolder' => 'Pega aquí el código del mapa compartido de google map']]) }}
                                         </div>
                                     </div>
                                 </div>
@@ -401,32 +412,32 @@
                                         <div class="col-md-6 col-md-offset-0">
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
-                                                    {{ Form::label('activo', 'Activo') }}
+                                                    {{ Form::label('activo', 'Activo', [ 'class' => 'text text-bold' ]) }}
                                                     {{ Form::hidden('activo',0)}}
                                                     {{ Form::checkbox('activo') }}
                                                 </div>
                                             @endif
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
-                                                    {{ Form::label('plan', 'Plan') }}
+                                                    {{ Form::label('plan', 'Plan', [ 'class' => 'text text-bold' ]) }}
                                                     {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $institution->plan, ['class' => 'form-control select2']) }}
                                                 </div>
                                             @endif
                                                 <div class="form-group">
-                                                    {{ Form::label('ruc_invoice', 'Ruc para Factura') }}
+                                                    {{ Form::label('ruc_invoice', 'Ruc para Factura', [ 'class' => 'text text-bold' ]) }}
                                                     {{ Form::text('ruc_invoice', null, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
-                                                    {{ Form::label('razon_social_invoice', 'Razón Social para Factura') }}
+                                                    {{ Form::label('razon_social_invoice', 'Razón Social para Factura', [ 'class' => 'text text-bold' ]) }}
                                                     {{ Form::text('razon_social_invoice', null, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
-                                                    {{ Form::label('email_invoice', 'Mail para Factura') }}
+                                                    {{ Form::label('email_invoice', 'Mail para Factura', [ 'class' => 'text text-bold' ]) }}
                                                     <br>
                                                     {{ Form::text('email_invoice', null, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
-                                                    {{ Form::label('telefono_invoice', 'Teléfono para Factura') }}
+                                                    {{ Form::label('telefono_invoice', 'Teléfono para Factura', [ 'class' => 'text text-bold' ]) }}
                                                     {{ Form::text('telefono_invoice', null, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
@@ -434,11 +445,11 @@
                                                     {{ Form::text('direccion_invoice', null, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
-                                                    {{ Form::label('plan_desde', 'Plan Desde') }}
+                                                    {{ Form::label('plan_desde', 'Plan Desde', [ 'class' => 'text text-bold' ]) }}
                                                     {{ Form::date('plan_desde', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
-                                                    {{ Form::label('plan_hasta', 'Plan Hasta') }}
+                                                    {{ Form::label('plan_hasta', 'Plan Hasta', [ 'class' => 'text text-bold' ]) }}
                                                     {{ Form::date('plan_hasta', null, ['class' => 'form-control']) }}
                                                 </div>
                                         </div>
@@ -448,11 +459,11 @@
                         </div>
                     </div>
                     <!-- /.box-body -->
-                    <div class="box-footer">
+                    {{--<div class="box-footer">
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
-                    </div>
+                    </div>--}}
                     <!-- /.box-footer -->
-                    {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::submit('Actualizar Información', ['class' => 'btn btn-success']) !!}
                     {!! Form::close() !!}
                 </div>
                 <!-- /.box -->
