@@ -78,12 +78,16 @@
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 y 500K.</p>
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('telefono', 'Telefono *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('telefono', null, ['class' => 'form-control', 'PlaceHolder' => 'Teléfono de contacto']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('nombre_autoridad', 'Rector o Director', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('nombre_autoridad', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre del Rector, Director o Autoridad Superior']) }}
+                                            {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('email', 'Email *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('direccion', 'Dirección *', [ 'class' => 'text text-bold' ]) }}
@@ -157,6 +161,14 @@
                                             {{ Form::checkbox('fiscomisional', null, null, [ 'class' => 'chkclass4', 'onclick' => 'SetSel4(this)' ]) }}
                                         </div>
                                         <div class="form-group">
+                                            {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('trayectoria', null, ['class' => 'form-control', 'PlaceHolder' => 'Los años de experiencia como institución']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('nombre_autoridad', 'Rector o Director', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('nombre_autoridad', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre del Rector, Director o Autoridad Superior']) }}
+                                        </div>
+                                        <div class="form-group">
                                             {{ Form::label('pago_promedio_escuela', 'Costo Promedio Pensión Escuela', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('pago_promedio_escuela', null, ['class' => 'form-control', 'min' => '0', 'PlaceHolder' => 'En dólares y números enteros']) }}
                                         </div>
@@ -167,18 +179,6 @@
                                         <div class="form-group">
                                             {{ Form::label('lenguajes', 'Idiomas de Eneñanza', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('lenguajes', null, ['class' => 'form-control', 'PlaceHolder' => 'Idiomas que se imparten en clases']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono *', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('telefono', null, ['class' => 'form-control', 'PlaceHolder' => 'Teléfono de contacto']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('email', 'Email *', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}

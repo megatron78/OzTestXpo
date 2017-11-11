@@ -43,8 +43,8 @@
                                             {{ Form::text('nombre', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('nombre_corto', 'Nombre corto') }}
-                                            {{ Form::text('nombre_corto', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('nombre', 'Nombre de la Institución *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('nombre_corto', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre Corto de la Institución']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('plan', 'Plan') }}
@@ -69,8 +69,8 @@
                                             {{ Form::text('institucion', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('palabras_clave', 'Palabras Clave') }}
-                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('palabras_clave', 'Palabras Clave', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('costo', 'Costo') }}
@@ -109,19 +109,19 @@
                                             {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('web', 'Web') }}
-                                            {{ Form::text('web', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('web', null, ['class' => 'form-control', 'PlaceHolder' => 'Página Web']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('facebook', 'Facebook') }}
+                                            {{ Form::label('facebook', 'Facebook', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('facebook', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('twitter', 'Twitter') }}
+                                            {{ Form::label('twitter', 'Twitter', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('twitter', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('linkedin', 'Linkedin') }}
+                                            {{ Form::label('linkedin', 'Linkedin', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('linkedin', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">

@@ -5,13 +5,20 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
-use App\{Pregrade,Province,Canton,Parish,City,Sector};
+use App\{Pregrade,Province,User,City};
 
 class SuperiorController extends Controller
 {
     public function create() {
         $provinces = Province::all(['name','id']);
-        return view('institutions.createsuperior', compact('provinces'));
+        $users = User::all(['name','id']);
+        $cities = null;
+        if(!empty(session()->getOldInput('province_id'))) {
+            $cities=City::where('province_id', session()->getOldInput('province_id'))
+                ->select('name', 'id')
+                ->get();
+        }
+        return view('institutions.createsuperior', compact('provinces', 'cities', 'users'));
     }
 
     public function store(Request $request) {
@@ -110,17 +117,11 @@ class SuperiorController extends Controller
     public function edit($id) {
         $pregrade = Pregrade::findOrFail($id);
         $provinces = Province::all(['name','id']);
-        $cantons = Canton::where('province_id','=',$pregrade->province_id)
-            ->select('name','id')->get();
-        $parishes = Parish::where('canton_id','=',$pregrade->canton_id)
-            ->select('name','id')->get();
         $cities = City::where('province_id','=',$pregrade->province_id)
             ->select('name','id')->get();
-        $sectors = Sector::where('city_id','=',$pregrade->city_id)
-            ->select('nombre','id')->get();
-
+        $users = User::all(['name','id']);
         return view('institutions.editsuperior',
-            compact('provinces','cantons','parishes','cities','sectors'))->withPregrade($pregrade);
+            compact('provinces','cities','users'))->withPregrade($pregrade);
     }
 
     public function update($id, Request $request) {

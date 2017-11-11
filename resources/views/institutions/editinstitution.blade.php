@@ -43,12 +43,12 @@
                                 <div class="tab-pane active" id="tab_11">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('nombre', 'Nombre *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('nombre', 'Nombre de la Institución *', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('nombre', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('nombre_corto', 'Nombre corto *', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('nombre_corto', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('nombre_corto', 'Nombre Corto *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('nombre_corto', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre Corto de la Institución']) }}
                                         </div>
 
                                         <div class="form-group">
@@ -74,12 +74,16 @@
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 y 500K.</p>
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('trayectoria', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('telefono', 'Telefono *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('telefono', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('nombre_autoridad', 'Nombre Autoridad', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('nombre_autoridad', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('email', 'Email *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('direccion', 'Dirección *', [ 'class' => 'text text-bold' ]) }}
@@ -145,32 +149,28 @@
                                             {{ Form::checkbox('fiscomisional', $institution->fiscomisional, $institution->fiscomisional, [ 'class' => 'chkclass3', 'onclick' => 'SetSel3(this)' ]) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('pago_promedio_escuela', 'Costo Promedio Pensión', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::number('pago_promedio_escuela', $institution->pago_promedio_escuela, ['class' => 'form-control', 'min' => '0']) }}
+                                            {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('trayectoria', null, ['class' => 'form-control', 'PlaceHolder' => 'Los años de experiencia como institución']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('nombre_autoridad', 'Rector o Director', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('nombre_autoridad', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre del rector, Director o Autoridad Superior']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('pago_promedio_escuela', 'Costo Promedio Pensión Escuela', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('pago_promedio_escuela', $institution->pago_promedio_escuela, ['class' => 'form-control', 'min' => '0', 'PlaceHolder' => 'En dólares y números enteros']) }}
                                         </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('pago_promedio_colegio', 'Pago Promedio Colegio') }}
                                             {{ Form::number('pago_promedio_colegio', $institution->pago_promedio_colegio, ['class' => 'form-control']) }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('lenguajes', 'Lenguajes', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('lenguajes', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono *', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('telefono', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('email', 'Email *', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('lenguajes', 'Idiomas de Enseñanza', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('lenguajes', null, ['class' => 'form-control', 'PlaceHolder' => 'Idiomas que se imparte en clases']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('web', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('web', null, ['class' => 'form-control', 'PlaceHolder' => 'Página Web']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('facebook', 'Facebook', [ 'class' => 'text text-bold' ]) }}
@@ -182,18 +182,18 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('descripcion', 'Descripcion', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textarea('descripcion', null, ['class' => 'form-control']) }}
+                                            {{ Form::textarea('descripcion', null, ['class' => 'form-control', 'PlaceHolder' => 'Describa a su institución, por ejemplo sus valores, principios, etc.']) }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab_33">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('edad_desde', 'Edad Desde', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('edad_desde', 'Edad Desde en Años', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('edad_desde', $institution->edad_desde, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('edad_hasta', 'Edad Hasta', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('edad_hasta', 'Edad Hasta en Años', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('edad_hasta', $institution->edad_hasta, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         {{--<div class="form-group">
@@ -205,6 +205,10 @@
                                             {{ Form::label('horario_extendido', 'Horario Extendido', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('horario_extendido',0)}}
                                             {{ Form::checkbox('horario_extendido') }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('salida_horario_extendido', 'Salida Horario Extendido', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('salida_horario_extendido', null, ['class' => 'form-control']) }}
                                         </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('presencial', 'Presencial') }}
@@ -252,10 +256,6 @@
                                             {{ Form::label('salida_nocturno', 'Salida Nocturno') }}
                                             {{ Form::text('salida_nocturno', null, ['class' => 'form-control']) }}
                                         </div>--}}
-                                        <div class="form-group">
-                                            {{ Form::label('salida_horario_extendido', 'Salida Horario Extendido', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('salida_horario_extendido', null, ['class' => 'form-control']) }}
-                                        </div>
                                         <div class="form-group">
                                             {{ Form::label('alimentacion', 'Alimentación', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::select('alimentacion', ['S' => 'Si', 'N' => 'No', 'O' => 'Opcional'], $institution->alimentacion, ['class' => 'form-control']) }}
@@ -389,14 +389,14 @@
                                 <div class="tab-pane" id="tab_44">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('Fotos para el Banner') }}
+                                            {{ Form::label('Fotos para el Banner', null, [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::file('banner_inst_picture_1') }}
                                             {{ Form::file('banner_inst_picture_2') }}
                                             {{ Form::file('banner_inst_picture_3') }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('Fotos para la Galería') }}
+                                            {{ Form::label('Fotos para la Galería', null, [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::file('institution_picture_1') }}
                                             {{ Form::file('institution_picture_2') }}
                                             {{ Form::file('institution_picture_3') }}
@@ -412,8 +412,16 @@
                                         <div class="col-md-6 col-md-offset-0">
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
+                                                    {{ Form::label('user_id', 'Usuario *', [ 'class' => 'text text-bold' ]) }}
+                                                    {{ Form::select('user_id', $users->pluck('name','id')->all(), $institution->user_id, ['class' => 'form-control']) }}
+                                                </div>
+                                                <div class="form-group">
                                                     {{ Form::label('activo', 'Activo', [ 'class' => 'text text-bold' ]) }}
-                                                    {{ Form::hidden('activo',0)}}
+                                                    @if(!auth()->user()->isAdmin())
+                                                        {{ Form::hidden('activo',0)}}
+                                                    @else
+                                                        {{ Form::hidden('activo',1)}}
+                                                    @endif
                                                     {{ Form::checkbox('activo') }}
                                                 </div>
                                             @endif
@@ -441,7 +449,7 @@
                                                     {{ Form::text('telefono_invoice', null, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
-                                                    {{ Form::label('direccion_invoice', 'Dirección para Factura') }}
+                                                    {{ Form::label('direccion_invoice', 'Dirección para Factura', [ 'class' => 'text text-bold' ]) }}
                                                     {{ Form::text('direccion_invoice', null, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">

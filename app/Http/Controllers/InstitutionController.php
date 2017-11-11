@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\{Institution,InstitutionsView,Province,City,Sector};
+use App\{Institution,InstitutionsView,Province,City,Sector,User};
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -190,6 +190,7 @@ class InstitutionController extends Controller
     public function edit($id) {
         $institution = Institution::findOrFail($id);
         $provinces = Province::all(['name','id']);
+        $users = User::all(['name','id']);
         /*$cantons = Canton::where('province_id','=',$institution->province_id)
                     ->select('name','id')->get();
         $parishes = Parish::where('canton_id','=',$institution->canton_id)
@@ -200,7 +201,7 @@ class InstitutionController extends Controller
                     ->select('nombre','id')->get();
 
         return view('institutions.editinstitution',
-            compact('provinces','cities','sectors'))->withInstitution($institution);
+            compact('provinces','cities','sectors', 'users'))->withInstitution($institution);
     }
 
     public function update($id, Request $request) {
@@ -478,9 +479,13 @@ class InstitutionController extends Controller
             ->select('name','id')->get();
         $sectors = Sector::where('city_id','=',$institution->city_id)
             ->select('nombre','id')->get();
+        if(!count($sectors) > 0) {
+            $sectors = Sector::where('city_id', '=', null)->orderBy('nombre')->get();
+        }
+        $users = User::all(['name','id']);
 
         return view('institutions.editescuelacolegio',
-            compact('provinces','cities','sectors'))->withInstitution($institution);
+            compact('provinces','cities','sectors', 'users'))->withInstitution($institution);
     }
 
     public function updateEscuelacolegio($id, Request $request) {
