@@ -5,14 +5,20 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
-use App\{PosgradeCourseSeminar,Province,City,Country};
+use App\{PosgradeCourseSeminar,Province,City,Country,User};
 
 class PosgradosController extends Controller
 {
     public function create() {
         $countries = Country::all(['name','id']);
         $provinces = Province::all(['name','id']);
-        return view('institutions.createposgrade', compact('provinces', 'countries'));
+        $cities = null;
+        if(!empty(session()->getOldInput('province_id'))) {
+            $cities=City::where('province_id', session()->getOldInput('province_id'))
+                ->select('name', 'id')
+                ->get();
+        }
+        return view('institutions.createposgrade', compact('provinces', 'countries', 'cities', 'users'));
     }
 
     public function store(Request $request) {
@@ -68,12 +74,13 @@ class PosgradosController extends Controller
         $posgrade = PosgradeCourseSeminar::findOrFail($id);
         $countries = Country::all(['name','id']);
         $provinces = Province::all(['name','id']);
+        $users = User::all(['name','id']);
 
         $cities = City::where('province_id','=',$posgrade->province_id)
             ->select('name','id')->get();
 
         return view('institutions.editposgrade',
-            compact('countries','provinces','cities'))->withPosgrade($posgrade);
+            compact('countries','provinces','cities','users'))->withPosgrade($posgrade);
     }
 
     public function update($id, Request $request) {

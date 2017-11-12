@@ -12,7 +12,8 @@ class ListEventosController extends Controller
     public function __invoke(Request $request) {
         $eventos = Event::where('activo', '=', 1)
             ->select('id','plan','nombre','evento_bg_picture','informacion','slug','costo','fecha_evento',
-                'direccion','telefono','celular','email','web','facebook','twitter','user_id','hora_evento')
+                'direccion','telefono','celular','email','web','facebook','twitter','user_id',
+                'dia_evento','mes_evento','year_evento','hora_evento')
             ->orderBy('plan')
             ->orderBy('nombre')
             ->paginate(14);

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-
+use DateTime;
 use Illuminate\Http\Request;
-use App\{Event};
+use App\{Event,User};
 
 class EventosController extends Controller
 {
@@ -34,9 +34,52 @@ class EventosController extends Controller
         }
 
         $input['user_id'] = $request->user()->id;
-        $input['dia_evento'] = $request->fecha_evento->day;
-        $input['mes_evento'] = $request->fecha_evento->format('F');
-        $input['year_evento'] = $request->fecha_evento->year;
+        //dd(DateTime::createFromFormat("Y-m-d", $request->fecha_evento)->day);
+        //dd(explode('-', $request->fecha_evento)[0]);
+        $input['dia_evento'] = explode('-', $request->fecha_evento)[2]; //$request->fecha_evento->day;
+
+        $nmes = explode('-', $request->fecha_evento)[1];
+        switch ($nmes) {
+            case '01':
+                $input['mes_evento'] = 'ENE';
+                break;
+            case '02':
+                $input['mes_evento'] = 'FEB';
+                break;
+            case '03':
+                $input['mes_evento'] = 'MAR';
+                break;
+            case '04':
+                $input['mes_evento'] = 'ABR';
+                break;
+            case '05':
+                $input['mes_evento'] = 'MAY';
+                break;
+            case '06':
+                $input['mes_evento'] = 'JUN';
+                break;
+            case '07':
+                $input['mes_evento'] = 'JUL';
+                break;
+            case '08':
+                $input['mes_evento'] = 'AGO';
+                break;
+            case '09':
+                $input['mes_evento'] = 'SEP';
+                break;
+            case '10':
+                $input['mes_evento'] = 'OCT';
+                break;
+            case '11':
+                $input['mes_evento'] = 'NOV';
+                break;
+            case '12':
+                $input['mes_evento'] = 'DIC';
+                break;
+        }
+
+        //$input['mes_evento'] = $input['mes_evento'] = date("F", strtotime($request->fecha_evento)); //explode('-', $request->fecha_evento)[1]; //$request->fecha_evento->format('F');
+        $input['year_evento'] = explode('-', $request->fecha_evento)[0]; //$request->fecha_evento->year;
 
         $input['user_id'] = $request->user()->id;
 
@@ -55,8 +98,9 @@ class EventosController extends Controller
 
     public function edit($id) {
         $evento = Event::findOrFail($id);
+        $users = User::all(['name','id']);
 
-        return view('institutions.editevento')->withEvento($evento);
+        return view('institutions.editevento', compact('users'))->withEvento($evento);
     }
 
     public function update($id, Request $request) {
@@ -85,10 +129,48 @@ class EventosController extends Controller
             $input['evento_bg_picture'] = Storage::url($fileName);
         }
 
-        $input['user_id'] = $request->user()->id;
-        $input['dia_evento'] = $request->fecha_evento->day;
-        $input['mes_evento'] = $request->fecha_evento->format('F');
-        $input['year_evento'] = $request->fecha_evento->year;
+        $input['dia_evento'] = explode('-', $request->fecha_evento)[2]; //$request->fecha_evento->day;
+        $nmes = explode('-', $request->fecha_evento)[1];
+        switch ($nmes) {
+            case '01':
+                $input['mes_evento'] = 'ENE';
+                break;
+            case '02':
+                $input['mes_evento'] = 'FEB';
+                break;
+            case '03':
+                $input['mes_evento'] = 'MAR';
+                break;
+            case '04':
+                $input['mes_evento'] = 'ABR';
+                break;
+            case '05':
+                $input['mes_evento'] = 'MAY';
+                break;
+            case '06':
+                $input['mes_evento'] = 'JUN';
+                break;
+            case '07':
+                $input['mes_evento'] = 'JUL';
+                break;
+            case '08':
+                $input['mes_evento'] = 'AGO';
+                break;
+            case '09':
+                $input['mes_evento'] = 'SEP';
+                break;
+            case '10':
+                $input['mes_evento'] = 'OCT';
+                break;
+            case '11':
+                $input['mes_evento'] = 'NOV';
+                break;
+            case '12':
+                $input['mes_evento'] = 'DIC';
+                break;
+        }
+        //$input['mes_evento'] = date("F", strtotime($request->fecha_evento)); //explode('-', $request->fecha_evento)[1]; //$request->fecha_evento->format('F');
+        $input['year_evento'] = explode('-', $request->fecha_evento)[0]; //$request->fecha_evento->year;
 
         $evento->fill($input);
         $evento->save();

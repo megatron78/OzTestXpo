@@ -50,8 +50,7 @@ class HomeController extends Controller
 
     protected function getInstitutionsByAuthUser() {
         if(auth()->user()->isAdmin()) {
-            $instituciones = InstitutionsView::where('activo', '=', 1)
-                ->select('id'
+            $instituciones = InstitutionsView::select('id'
                     , 'activo'
                     , 'tipo'
                     , 'clasificacion'

@@ -5,14 +5,20 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
-use App\{PosgradeCourseSeminar,Province,City,Country};
+use App\{PosgradeCourseSeminar,Province,City,Country,User};
 
 class CourseSeminarController extends Controller
 {
     public function create() {
         $countries = Country::all(['name','id']);
         $provinces = Province::all(['name','id']);
-        return view('institutions.createcursoseminario', compact('provinces', 'countries'));
+        $cities = null;
+        if(!empty(session()->getOldInput('province_id'))) {
+            $cities=City::where('province_id', session()->getOldInput('province_id'))
+                ->select('name', 'id')
+                ->get();
+        }
+        return view('institutions.createcursoseminario', compact('provinces', 'countries', 'cities'));
     }
 
     public function store(Request $request) {
@@ -64,12 +70,13 @@ class CourseSeminarController extends Controller
         $courseseminar = PosgradeCourseSeminar::findOrFail($id);
         $countries = Country::all(['name','id']);
         $provinces = Province::all(['name','id']);
+        $users = User::all(['name','id']);
 
         $cities = City::where('province_id','=',$courseseminar->province_id)
             ->select('name','id')->get();
 
         return view('institutions.editcursoseminario',
-            compact('countries','provinces','cities'))->withCourseseminar($courseseminar);
+            compact('countries','provinces', 'cities', 'users'))->withCourseseminar($courseseminar);
     }
 
     public function update($id, Request $request) {

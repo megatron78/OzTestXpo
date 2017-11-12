@@ -99,7 +99,7 @@ desired effect
                                 else
                                     url = '{{route('cursoseminario.edit', [":id", ":slug"])}}';
                             if(row['tipo'] == 4)
-                                url=row['web'];
+                                url = '{{route('eventos.edit', [":id", ":slug"])}}';
 
                             url = url.replace(':id', row['id']);
                             url = url.replace(':slug', row['slug']);
@@ -208,7 +208,7 @@ desired effect
                                 else
                                     url = '{{route('cursoseminario.edit', [":id", ":slug"])}}';
                             if(row['tipo'] == 4)
-                                url=row['web'];
+                                url = '{{route('eventos.edit', [":id", ":slug"])}}';
 
                             url = url.replace(':id', row['id']);
                             url = url.replace(':slug', row['slug']);

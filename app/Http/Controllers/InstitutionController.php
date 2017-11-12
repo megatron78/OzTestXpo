@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\{Institution,InstitutionsView,Province,City,Sector,User};
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;

@@ -251,6 +251,10 @@
                                         <div class="col-md-6 col-md-offset-0">
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
+                                                    {{ Form::label('user_id', 'Usuario *', [ 'class' => 'text text-bold' ]) }}
+                                                    {{ Form::select('user_id', $users->pluck('name','id')->all(), $pregrade->user_id, ['class' => 'form-control']) }}
+                                                </div>
+                                                <div class="form-group">
                                                     {{ Form::label('plan', 'Plan') }}
                                                     {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $pregrade->plan, ['class' => 'form-control select2']) }}
                                                 </div>

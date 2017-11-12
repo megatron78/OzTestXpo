@@ -36,6 +36,7 @@ class Event extends Model
         'direccion_invoice',
         'plan_desde',
         'plan_hasta',
+        'user_id',
     ];
 
     public function user() {

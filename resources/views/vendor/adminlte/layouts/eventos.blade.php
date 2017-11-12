@@ -41,15 +41,15 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <div style="padding: 0px;height: 121px" class="box-footer">
                                         <ul class="event-list">
                                             <li>
-                                                <time datetime="2014-07-20 0000">
+                                                <time datetime={{ $evento->fecha_evento }}>
                                                     <span class="day">{{ $evento->dia_evento }}</span>
                                                     <span class="month">{{ $evento->mes_evento }}</span>
                                                     <span class="year">{{ $evento->year_evento }}</span>
                                                     <span class="time">{{ $evento->hora_evento }}</span>
                                                 </time>
                                                 <div class="info">
-                                                    <h2 class="title">Megatron's birthday</h2>
-                                                    <p style="font-size: 14px" class="desc">{{ $evento->informacion }}</p>
+                                                    <h2 class="title">{{ str_limit($evento->nombre, 19) }}</h2>
+                                                    <p style="font-size: 14px" class="desc">{{ str_limit($evento->informacion, 45) }}</p>
                                                     <ul>
                                                         <li style="width:32%;">
                                                             <a style="color: #0073B7;" href="{{ $evento->web }}" target="_blank"><span class="fa fa-info text-black"></span>

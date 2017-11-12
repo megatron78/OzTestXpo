@@ -11,14 +11,13 @@ class SuperiorController extends Controller
 {
     public function create() {
         $provinces = Province::all(['name','id']);
-        $users = User::all(['name','id']);
         $cities = null;
         if(!empty(session()->getOldInput('province_id'))) {
             $cities=City::where('province_id', session()->getOldInput('province_id'))
                 ->select('name', 'id')
                 ->get();
         }
-        return view('institutions.createsuperior', compact('provinces', 'cities', 'users'));
+        return view('institutions.createsuperior', compact('provinces', 'cities'));
     }
 
     public function store(Request $request) {
