@@ -39,9 +39,9 @@
 						</div>--}}
 					</div>
 					<!-- /.box-body -->
-					<div class="box-footer">
+					{{--<div class="box-footer">
 						{{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
-					</div>
+					</div>--}}
 					<!-- /.box-footer -->
 				</div>
 				<!-- /.box -->

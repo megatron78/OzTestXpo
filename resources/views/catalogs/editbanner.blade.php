@@ -62,7 +62,7 @@
                             @endif
                             <br>
                             <div class="form-group">
-                                {{ Form::label('Imágenes para el banner', [ 'class' => 'text text-bold' ]) }}
+                                {{ Form::label('Imágenes para el banner', null, [ 'class' => 'text text-bold' ]) }}
                                 {{ Form::file('photo1_url') }}
                                 {{ Form::file('photo2_url') }}
                                 {{ Form::file('photo3_url') }}
@@ -72,7 +72,7 @@
                                 <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
                             </div>
                             <br>
-                            {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit('Actualizar Información', ['class' => 'btn btn-success']) !!}
                         {!! Form::close() !!}
                         </div>
                         {{--<div class="box-tools pull-right">

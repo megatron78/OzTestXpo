@@ -45,11 +45,11 @@
                                     {{ Form::text('contact_person', null, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('role', 'Rol', [ 'class' => 'text text-bold' ]) }}
+                                    {{ Form::label('role', 'Rol *', [ 'class' => 'text text-bold' ]) }}
                                     {{ Form::select('role', ['admin' => 'Administrador', 'user' => 'Usuario'], $user->role, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('verified', 'Activo', [ 'class' => 'text text-bold' ]) }}
+                                    {{ Form::label('verified', 'Activo *', [ 'class' => 'text text-bold' ]) }}
                                     {{ Form::select('verified', [1 => 'Activo', 0 => 'Inactivo'], $user->verified, ['class' => 'form-control']) }}
                                 </div>
                                 {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-success']) !!}
