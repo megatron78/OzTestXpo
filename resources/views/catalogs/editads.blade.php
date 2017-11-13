@@ -26,23 +26,23 @@
                         <div class="col-md-6 col-md-offset-0">
                             {!! Form::model($ads, array('route' => array('ads.update', $ads->id))) !!}
                             <div class="form-group">
-                                {{ Form::label('object_id', 'Institución') }}
+                                {{ Form::label('object_id', 'Institución *', [ 'class' => 'text text-bold' ]) }}
                                 {{ Form::select('object_id', $adsCombo->pluck('nombre_corto','id')->all(), $ads->object_id, ['class' => 'form-control select2']) }}
                                 {{ Form::hidden('ads_nombre_corto', $ads->nombre_corto, array('id' => 'ads_nombre_corto')) }}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('orden_presentacion', 'Orden Presentación') }}
+                                {{ Form::label('orden_presentacion', 'Orden Presentación *', [ 'class' => 'text text-bold' ]) }}
                                 {{ Form::number('orden_presentacion', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('fecha_inicio', 'Fecha Inicio') }}
+                                {{ Form::label('fecha_inicio', 'Fecha Inicio *', [ 'class' => 'text text-bold' ]) }}
                                 {{ Form::date('fecha_inicio', null, ['class' => 'form-control']) }}
                             </div>
                             <div class="form-group">
-                                {{ Form::label('fecha_fin', 'Fecha Fin') }}
+                                {{ Form::label('fecha_fin', 'Fecha Fin *', [ 'class' => 'text text-bold' ]) }}
                                 {{ Form::date('fecha_fin', null, ['class' => 'form-control']) }}
                             </div>
-                            {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit('Actualizar Información', ['class' => 'btn btn-success']) !!}
                             {!! Form::close() !!}
                         </div>
                         {{--<div class="box-tools pull-right">
@@ -52,9 +52,9 @@
                                 <i class="fa fa-times"></i></button>
                         </div>--}}
                     </div>
-                    <div class="box-body">
+                    {{--<div class="box-body">
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
-                    </div>
+                    </div>--}}
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->

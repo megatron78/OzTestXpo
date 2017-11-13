@@ -28,31 +28,31 @@
                         <div class="col-md-6 col-md-offset-0">
                             {!! Form::model($user, array('route' => array('user.update', $user->id))) !!}
                                 <div class="form-group">
-                                    {{ Form::label('name', 'Nombre') }}
+                                    {{ Form::label('name', 'Nombre del Usuario *', [ 'class' => 'text text-bold' ]) }}
                                     {{ Form::text('name', null, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                {{ Form::label('password', 'Clave de Acceso') }}
+                                {{ Form::label('password', 'Clave de Acceso *', [ 'class' => 'text text-bold' ]) }}
                                 {{ Form::hidden('pwd', $user->password) }}
-                                {{ Form::password('password', ['class' => 'form-control']) }}
+                                {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'No escribir nada si desea mantener la actual.']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('telephone', 'Teléfono') }}
+                                    {{ Form::label('telephone', 'Teléfono *', [ 'class' => 'text text-bold' ]) }}
                                     {{ Form::text('telephone', null, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('contact_person', 'Persona de Contacto') }}
+                                    {{ Form::label('contact_person', 'Persona de Contacto *', [ 'class' => 'text text-bold' ]) }}
                                     {{ Form::text('contact_person', null, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('role', 'Rol') }}
+                                    {{ Form::label('role', 'Rol', [ 'class' => 'text text-bold' ]) }}
                                     {{ Form::select('role', ['admin' => 'Administrador', 'user' => 'Usuario'], $user->role, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('verified', 'Activo') }}
+                                    {{ Form::label('verified', 'Activo', [ 'class' => 'text text-bold' ]) }}
                                     {{ Form::select('verified', [1 => 'Activo', 0 => 'Inactivo'], $user->verified, ['class' => 'form-control']) }}
                                 </div>
-                                {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
+                                {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-success']) !!}
                             {!! Form::close() !!}
                         </div>
                         {{--<div class="box-tools pull-right">
@@ -63,9 +63,9 @@
                         </div>--}}
                     </div>
                     <!-- /.box-body -->
-                    <div class="box-footer">
+                    {{--<div class="box-footer">
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
-                    </div>
+                    </div>--}}
                 </div>
                 <!-- /.box -->
 

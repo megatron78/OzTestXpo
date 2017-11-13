@@ -62,7 +62,7 @@
                             @endif
                             <br>
                             <div class="form-group">
-                                {{ Form::label('Imágenes para el banner') }}
+                                {{ Form::label('Imágenes para el banner', [ 'class' => 'text text-bold' ]) }}
                                 {{ Form::file('photo1_url') }}
                                 {{ Form::file('photo2_url') }}
                                 {{ Form::file('photo3_url') }}
@@ -82,9 +82,9 @@
                                 <i class="fa fa-times"></i></button>
                         </div>--}}
                     </div>
-                    <div class="box-body">
+                    {{--<div class="box-body">
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
-                    </div>
+                    </div>--}}
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->

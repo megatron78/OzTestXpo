@@ -87,9 +87,9 @@
 								<i class="fa fa-times"></i></button>
 						</div>--}}
 					</div>
-					<div class="box-body">
+					{{--<div class="box-body">
 						{{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
-					</div>
+					</div>--}}
 					<!-- /.box-body -->
 				</div>
 				<!-- /.box -->
