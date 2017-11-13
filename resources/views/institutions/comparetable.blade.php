@@ -3,7 +3,7 @@
 Landing page based on Pratt: http://blacktie.co/demo/pratt/
 -->
 
-<table class="table table-bordered">
+<table class="table table-striped table-bordered">
     <?php $countTR = 0; ?>
     @foreach($transposedpre as $row)
         <?php $countTD = 0; ?>
