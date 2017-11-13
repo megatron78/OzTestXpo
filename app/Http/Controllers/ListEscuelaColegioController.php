@@ -24,6 +24,10 @@ class ListEscuelaColegioController extends Controller
             ->orderBy('nombre')
             ->paginate(14);
 
+        $instituciones->load('province');
+        $instituciones->load('city');
+        $instituciones->load('canton');
+
         $bannerData = BannerCategory::where('category_id','=','3')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
             ->get();

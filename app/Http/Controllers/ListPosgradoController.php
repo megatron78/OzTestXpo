@@ -26,6 +26,10 @@ class ListPosgradoController extends Controller
             ->orderBy('nombre')
             ->paginate(14);
 
+        $posgrades->load('country');
+        $posgrades->load('province');
+        $posgrades->load('city');
+
         $bannerData = BannerCategory::where('category_id','=','5')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
             ->get();

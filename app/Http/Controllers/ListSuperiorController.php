@@ -22,6 +22,9 @@ class ListSuperiorController extends Controller
 
         $provinces = Province::all(['name','id']);
 
+        $superiors->load('province');
+        $superiors->load('city');
+
         $bannerData = BannerCategory::where('category_id','=','4')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
             ->get();
