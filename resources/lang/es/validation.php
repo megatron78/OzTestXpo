@@ -149,6 +149,12 @@ return [
         'time'                  => 'hora',
         'subject'               => 'asunto',
         'message'               => 'mensaje',
+        'terms'                 => 'términos y condiciones',
+        'telephone'             => 'teléfono',
+        'contact_person'        => 'Persona de contacto',
+        'city_id'               => 'ciudad',
+        'province_id'           => 'provincia',
+        'sector_id'             => 'sector',
     ],
 
 ];

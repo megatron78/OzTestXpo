@@ -57,7 +57,7 @@
                     <li><a href="{{ url('/logout') }}" id="logout"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                        <i style="font-size: 18px" class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                        <i style="font-size: 18px" class="fa fa-sign-out" aria-hidden="true"></i>Salir</a></li>
                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                         <input type="submit" value="logout" style="display: none;">
