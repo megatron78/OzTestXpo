@@ -130,13 +130,13 @@
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        @if($chkLaico==1)
+                        @if($chkLaico==0)
                             <input type="checkbox" class="form-check-input" id="advsearch_chkLaico" name="advsearch_chkLaico"
-                                   value="laic" checked>
+                                   value="laic">
                             Laico
                         @else
                             <input type="checkbox" class="form-check-input" id="advsearch_chkLaico" name="advsearch_chkLaico"
-                                   value="laic">
+                                   value="laic" checked>
                             Laico
                         @endif
                     </label>
@@ -169,13 +169,13 @@
                 </div>&nbsp;&nbsp;
                 <div class="form-group">
                     &nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;" class="form-check-label">
-                        @if($chkMixto==1)
+                        @if($chkMixto==0)
                             <input type="checkbox" class="form-check-input" id="advsearch_chkMixto" name="advsearch_chkMixto"
-                                   value="male_female" checked>
+                                   value="male_female">
                             Mixto
                         @else
                             <input type="checkbox" class="form-check-input" id="advsearch_chkMixto" name="advsearch_chkMixto"
-                                   value="male_female">
+                                   value="male_female" checked>
                             Mixto
                         @endif
                     </label>

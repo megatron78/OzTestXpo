@@ -28,28 +28,28 @@
                         <div class="col-md-6 col-md-offset-0">
                             {!! Form::model($user, array('route' => array('user.update', $user->id))) !!}
                                 <div class="form-group">
-                                    {{ Form::label('name', 'Nombre del Usuario *', [ 'class' => 'text text-bold' ]) }}
+                                    {{ Form::label('name', 'Nombre del Usuario  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                     {{ Form::text('name', null, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                {{ Form::label('password', 'Clave de Acceso *', [ 'class' => 'text text-bold' ]) }}
+                                {{ Form::label('password', 'Clave de Acceso  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                 {{ Form::hidden('pwd', $user->password) }}
                                 {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'No escribir nada si desea mantener la actual.']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('telephone', 'Teléfono *', [ 'class' => 'text text-bold' ]) }}
+                                    {{ Form::label('telephone', 'Teléfono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                     {{ Form::text('telephone', null, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('contact_person', 'Persona de Contacto *', [ 'class' => 'text text-bold' ]) }}
+                                    {{ Form::label('contact_person', 'Persona de Contacto  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                     {{ Form::text('contact_person', null, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('role', 'Rol *', [ 'class' => 'text text-bold' ]) }}
+                                    {{ Form::label('role', 'Rol  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                     {{ Form::select('role', ['admin' => 'Administrador', 'user' => 'Usuario'], $user->role, ['class' => 'form-control']) }}
                                 </div>
                                 <div class="form-group">
-                                    {{ Form::label('verified', 'Activo *', [ 'class' => 'text text-bold' ]) }}
+                                    {{ Form::label('verified', 'Activo  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                     {{ Form::select('verified', [1 => 'Activo', 0 => 'Inactivo'], $user->verified, ['class' => 'form-control']) }}
                                 </div>
                                 {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-success']) !!}

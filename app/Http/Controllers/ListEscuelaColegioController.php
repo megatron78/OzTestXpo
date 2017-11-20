@@ -72,13 +72,20 @@ class ListEscuelaColegioController extends Controller
 
         $chkFiscal=0;
         $chkFiscomisional=0;
-        $chkParticular=0;
-        $chkLaico=0;
+        $chkParticular=-1;
+        $chkLaico=-1;
         $chkReligioso=0;
         $chkMujeres=0;
-        $chkMixto=0;
+        $chkMixto=-1;
         $chkHombres=0;
         $chkExtendido=0;
+
+        //dd(basename($_SERVER['HTTP_REFERER']));
+        if(strpos(basename($_SERVER['HTTP_REFERER']), 'escuela') !== false) {
+            $chkParticular=0;
+            $chkLaico=0;
+            $chkMixto=0;
+        }
 
         if(!is_null($request->get('advsearch_chkFiscal')))
             $chkFiscal=1;

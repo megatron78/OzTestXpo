@@ -43,32 +43,32 @@
                                 <div class="tab-pane active" id="tab_11">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('nombre', 'Nombre de la Institución *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('nombre', 'Nombre de la Institución  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('nombre', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre de la Institución']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('nombre', 'Nombre Corto *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('nombre', 'Nombre Corto  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('nombre_corto', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre Corto de la Institución']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('tipo', 'Tipo *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('tipo', 'Tipo  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::select('tipo', ['Universidad' => 'Universidad', 'Instituto' => 'Instituto', 'Academia' => 'Academia'], $pregrade->tipo, ['class' => 'form-control select2']) }}
                                         </div>
 
                                         <div class="form-group">
                                             {{ Form::label('palabras_clave', 'Palabras Clave', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres']) }}
+                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres separados por espacio']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('telefono', 'Telefono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('telefono', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'Preferible WhatsApp']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('email', 'Email *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('email', 'Email  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
@@ -78,22 +78,22 @@
                                         <div class="form-group">
                                             {{ Form::label('pregrade_bg_picture','Foto de fondo', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::file('pregrade_bg_picture') }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('nombre_autoridad', 'Rector o Director', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('nombre_autoridad', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre del rector, Director o Autoridad Superior']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('province_id', 'Provincia *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('province_id', 'Provincia  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::select('province_id', $provinces->pluck('name','id')->all(), $pregrade->province_id, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('city_id', 'Ciudad *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('city_id', 'Ciudad  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::select('city_id', $cities->pluck('name','id')->all(), $pregrade->city_id, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('direccion', 'Dirección *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('direccion', 'Dirección  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('direccion', null, ['class' => 'form-control', 'PlaceHolder' => 'Dirección del Establecimiento']) }}
                                         </div>
                                     </div>
@@ -275,7 +275,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('mapa_url', null, ['class' => 'form-control', 'PlaceHolder' => 'Pega aquí el código del mapa compartido de google map']) }}
+                                            {{ Form::text('mapa_url', null, ['class' => 'form-control', 'PlaceHolder' => 'Pegue aquí el código del mapa compartido de google map']) }}
                                         </div>
                                     </div>
                                 </div>
@@ -296,7 +296,7 @@
                                             {{ Form::file('institution_picture_4') }}
                                             {{ Form::file('institution_picture_5') }}
                                             {{ Form::file('institution_picture_6') }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                     </div>
                                 </div>
@@ -305,7 +305,7 @@
                                         <div class="col-md-6 col-md-offset-0">
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
-                                                    {{ Form::label('user_id', 'Usuario *', [ 'class' => 'text text-bold' ]) }}
+                                                    {{ Form::label('user_id', 'Usuario  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                                     {{ Form::select('user_id', $users->pluck('name','id')->all(), $pregrade->user_id, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">

@@ -43,17 +43,17 @@
                                 <div class="tab-pane active" id="tab_11">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('nombre', 'Nombre de la Institución *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('nombre', 'Nombre de la Institución  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('nombre', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('nombre_corto', 'Nombre Corto *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('nombre_corto', 'Nombre Corto  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('nombre_corto', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre Corto de la Institución']) }}
                                         </div>
 
                                         <div class="form-group">
                                             {{ Form::label('palabras_clave', 'Palabras Clave', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres']) }}
+                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres separados por espacio']) }}
                                         </div>
                                         <div class="form-group">
                                             {{--{{ Form::label('preescolar', 'Preescolar') }}--}}
@@ -71,26 +71,26 @@
                                         <div class="form-group">
                                             {{ Form::label('institution_bg_picture','Foto de fondo', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::file('institution_bg_picture') }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('telefono', 'Telefono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('telefono', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'Preferible WhatsApp']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('email', 'Email *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('email', 'Email  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('direccion', 'Dirección *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('direccion', 'Dirección  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('direccion', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('province_id', 'Provincia *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('province_id', 'Provincia  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::select('province_id', $provinces->pluck('name','id')->all(), $institution->province_id, ['class' => 'form-control']) }}
                                         </div>
                                         {{--<div class="form-group">
@@ -102,11 +102,11 @@
                                             {{ Form::select('parish_id', $parishes->pluck('name','id')->all(), $institution->parish_id, ['class' => 'form-control']) }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('city_id', 'Ciudad *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('city_id', 'Ciudad  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::select('city_id', $cities->pluck('name','id')->all(), $institution->city_id, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('sector_id', 'Sector *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('sector_id', 'Sector  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::select('sector_id', $sectors->pluck('nombre','id')->all(), $institution->sector_id, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
@@ -157,7 +157,7 @@
                                             {{ Form::text('nombre_autoridad', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre del rector, Director o Autoridad Superior']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('pago_promedio_escuela', 'Costo Promedio Pensión Escuela', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('pago_promedio_escuela', 'Costo Promedio Pensión Preescolar', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('pago_promedio_escuela', $institution->pago_promedio_escuela, ['class' => 'form-control', 'min' => '0', 'PlaceHolder' => 'En dólares y números enteros']) }}
                                         </div>
                                         {{--<div class="form-group">
@@ -196,6 +196,14 @@
                                             {{ Form::label('edad_hasta', 'Edad Hasta en Años', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('edad_hasta', $institution->edad_hasta, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
+                                        <div class="form-group">
+                                            {{ Form::label('entrada_matutino', 'Hora de Ingreso Normal', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('entrada_matutino', null, ['class' => 'form-control', 'PlaceHolder' => 'Formato am / pm']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('salida_matutino', 'Hora de Salida Normal', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('salida_matutino', null, ['class' => 'form-control', 'PlaceHolder' => 'Formato am / pm']) }}
+                                        </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('extracurriculares', 'Extracurriculares') }}
                                             {{ Form::hidden('extracurriculares',0)}}
@@ -207,8 +215,8 @@
                                             {{ Form::checkbox('horario_extendido') }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('salida_horario_extendido', 'Salida Horario Extendido', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('salida_horario_extendido', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('salida_horario_extendido', 'Hora de Salida Extendido', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('salida_horario_extendido', null, ['class' => 'form-control', 'PlaceHolder' => 'Formato am / pm']) }}
                                         </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('presencial', 'Presencial') }}
@@ -232,10 +240,6 @@
                                             {{ Form::hidden('nocturno',0)}}
                                             {{ Form::checkbox('nocturno') }}
                                         </div>--}}
-                                        <div class="form-group">
-                                            {{ Form::label('entrada_matutino', 'Entrada Matutino', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('entrada_matutino', null, ['class' => 'form-control']) }}
-                                        </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('entrada_vespertino', 'Entrada Vespertino') }}
                                             {{ Form::text('entrada_vespertino', null, ['class' => 'form-control']) }}
@@ -244,10 +248,6 @@
                                             {{ Form::label('entrada_nocturno', 'Entrada Nocturno') }}
                                             {{ Form::text('entrada_nocturno', null, ['class' => 'form-control']) }}
                                         </div>--}}
-                                        <div class="form-group">
-                                            {{ Form::label('salida_matutino', 'Salida Matutino', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('salida_matutino', null, ['class' => 'form-control']) }}
-                                        </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('salida_vespertino', 'Salida Vespertino') }}
                                             {{ Form::text('salida_vespertino', null, ['class' => 'form-control']) }}
@@ -282,19 +282,19 @@
                                             {{ Form::number('max_estudiantes_x_clase', $institution->max_estudiantes_x_clase, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_total', 'Área Total', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('area_total', 'Área Total en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('area_total', $institution->area_total, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_deportiva', 'Área Canchas Deportivas', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('area_deportiva', 'Área Canchas Deportivas en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('area_deportiva', $institution->area_deportiva, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_espacios_verdes', 'Área Espacios Verdes', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('area_espacios_verdes', 'Área Espacios Verdes en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('area_espacios_verdes', $institution->area_espacios_verdes, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_piscina', 'Área Piscina', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('area_piscina', 'Área Piscinas en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('area_piscina', $institution->area_piscina, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
@@ -302,22 +302,22 @@
                                             {{ Form::hidden('seguridad_privada',0)}}
                                             {{ Form::checkbox('seguridad_privada') }}
                                             <br>
-                                            {{ Form::label('wifi_interior', 'Wifi Interior', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('wifi_interior', 'Wifi en Aulas (si/no)', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('wifi_interior',0)}}
                                             {{ Form::checkbox('wifi_interior') }}
                                             {{--{{ Form::label('wifi_exterior', 'Wifi Exterior') }}--}}
                                             {{ Form::hidden('wifi_exterior',0)}}
                                             {{--{{ Form::checkbox('wifi_exterior') }}--}}
-                                            <br>
+                                            {{--<br>
                                             {{ Form::label('wifi_otros', 'Wifi Otros', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('wifi_otros', $institution->wifi_otros, ['class' => 'form-control']) }}
+                                            {{ Form::text('wifi_otros', $institution->wifi_otros, ['class' => 'form-control']) }}--}}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('camara_ip_entrada_salida', 'Cámara IP Entrada/Salida', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('camara_ip_entrada_salida',0)}}
                                             {{ Form::checkbox('camara_ip_entrada_salida') }}
                                             <br>
-                                            {{ Form::label('camara_ip_aulas_espacios', 'Cámara IP Otros', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('camara_ip_aulas_espacios', 'Cámaras IP en Aulas', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('camara_ip_aulas_espacios',0)}}
                                             {{ Form::checkbox('camara_ip_aulas_espacios') }}
                                         </div>
@@ -365,7 +365,7 @@
                                             {{ Form::checkbox('gimnasio') }}
                                         </div>--}}
                                         <div class="form-group">
-                                            {{ Form::label('otros', 'Otras Áreas', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('otros', 'Otras Áreas en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::textArea('otros', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
@@ -382,7 +382,7 @@
                                         </div>--}}
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('mapa_url', null, ['class' => 'form-control', 'PlaceHolder' => 'Pega aquí el código del mapa compartido de google map']) }}
+                                            {{ Form::text('mapa_url', null, ['class' => 'form-control', 'PlaceHolder' => 'Pegue aquí el código del mapa compartido de google map']) }}
                                         </div>
                                     </div>
                                 </div>
@@ -412,7 +412,7 @@
                                         <div class="col-md-6 col-md-offset-0">
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
-                                                    {{ Form::label('user_id', 'Usuario *', [ 'class' => 'text text-bold' ]) }}
+                                                    {{ Form::label('user_id', 'Usuario  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                                     {{ Form::select('user_id', $users->pluck('name','id')->all(), $institution->user_id, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">

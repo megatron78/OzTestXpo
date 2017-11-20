@@ -43,43 +43,43 @@
                                     <div class="col-md-6 col-md-offset-0">
                                         <br>
                                         <div class="form-group">
-                                            {{ Form::label('nombre', 'Nombre del Evento *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('nombre', 'Nombre del Evento  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('nombre', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre del Evento']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('palabras_clave', 'Palabras Clave', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres']) }}
+                                            {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres separados por espacio']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('informacion', 'Información *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('informacion', 'Información  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::textArea('informacion', null, ['class' => 'form-control', 'PlaceHolder' => 'Información sobre el evento']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('costo', 'Costo *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('costo', 'Costo  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::number('costo', $evento->costo, ['class' => 'form-control', 'min' => '0', 'PlaceHolder' => 'En dólares y números enteros']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('fecha_evento', 'Fecha Evento *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('fecha_evento', 'Fecha Evento  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::date('fecha_evento', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('hora_evento', 'Hora Evento *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('hora_evento', 'Hora Evento  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('hora_evento', $evento->hora_evento, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('direccion', 'Dirección *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('direccion', 'Dirección  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('direccion', $evento->direccion, ['class' => 'form-control', 'PlaceHolder' => 'Dirección del Evento']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('telefono', 'Telefono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('telefono', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'Preferible WhatsApp']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('email', 'Email *', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('email', 'Email  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                         <div class="form-group">
                                             {{ Form::label('evento_bg_picture','Foto del Evento', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::file('evento_bg_picture') }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}
@@ -112,7 +112,7 @@
                                             <br>
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
-                                                    {{ Form::label('user_id', 'Usuario *', [ 'class' => 'text text-bold' ]) }}
+                                                    {{ Form::label('user_id', 'Usuario  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                                     {{ Form::select('user_id', $users->pluck('name','id')->all(), $evento->user_id, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">

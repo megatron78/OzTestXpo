@@ -58,10 +58,15 @@ class ListSuperiorController extends Controller
 
         $chkFiscal=0;
         $chkFiscomisional=0;
-        $chkParticular=0;
+        $chkParticular=-1;
         $chkPresencial=0;
         $chkSemipresencial=0;
         $chkDistancia=0;
+
+        //dd(basename($_SERVER['HTTP_REFERER']));
+        if(strpos(basename($_SERVER['HTTP_REFERER']), 'superior') !== false) {
+            $chkParticular=0;
+        }
 
         if(!is_null($request->get('advsearch_chkFiscal')))
             $chkFiscal=1;

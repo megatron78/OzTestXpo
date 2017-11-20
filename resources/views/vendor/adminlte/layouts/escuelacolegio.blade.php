@@ -273,7 +273,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();
 
-        $('#advsearch_costo').on('slideStop', function(event) { alert('Al variar el rango se pueden excluir instituciones sin valor de pensión'); });
+        $('#advsearch_costo').on('slideStop', function(event) { alert('Al variar el rango se pueden excluir instituciones que no disponen este dato.); });
 
         /* ION SLIDER */
         $("#range_1").ionRangeSlider({
