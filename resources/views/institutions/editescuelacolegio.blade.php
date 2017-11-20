@@ -69,6 +69,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('institution_bg_picture','Foto de fondo', [ 'class' => 'text text-bold' ]) }}
+
                                             {{ Form::file('institution_bg_picture') }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>

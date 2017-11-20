@@ -198,6 +198,9 @@ class InstitutionController extends Controller
                     ->select('name','id')->get();
         $sectors = Sector::where('city_id','=',$institution->city_id)
                     ->select('nombre','id')->get();
+        if(!count($sectors) > 0) {
+            $sectors = Sector::where('city_id', '=', null)->orderBy('nombre')->get();
+        }
 
         return view('institutions.editinstitution',
             compact('provinces','cities','sectors', 'users'))->withInstitution($institution);

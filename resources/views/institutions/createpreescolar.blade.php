@@ -116,7 +116,7 @@
                                         <div class="form-group">
                                             {{ Form::label('sector_id', 'Sector  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             @if(!empty($sectors))
-                                                {{ Form::select('sector_id', $sectors->pluck('nombre','id')->all(), null, ['class' => 'form-control']) }}
+                                                {{ Form::select('sector_id', [null=>'...']+$sectors->pluck('nombre','id')->all(), null, ['class' => 'form-control']) }}
                                             @else
                                                 {{ Form::select('sector_id', [null=>'...'], null, ['class' => 'form-control']) }}
                                             @endif
