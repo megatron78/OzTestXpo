@@ -245,8 +245,20 @@
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
                                             {{ Form::label('Archivos PDF', null, [ 'class' => 'text text-bold' ]) }}
+                                            @if(!empty($posgrade->documento_pdf1))
+                                                <br>
+                                                Actual: {{ explode('/',$posgrade->documento_pdf1)[3]}}
+                                            @endif
                                             {{ Form::file('documento_pdf1') }}
+                                            @if(!empty($posgrade->documento_pdf2))
+                                                <br>
+                                                Actual: {{ explode('/',$posgrade->documento_pdf2)[3]}}
+                                            @endif
                                             {{ Form::file('documento_pdf2') }}
+                                            @if(!empty($posgrade->documento_pdf3))
+                                                <br>
+                                                Actual: {{ explode('/',$posgrade->documento_pdf3)[3]}}
+                                            @endif
                                             {{ Form::file('documento_pdf3') }}
                                             <p class="help-block">Los documentos deben ser .pdf y 500K.</p>
                                         </div>
@@ -262,7 +274,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     {{ Form::label('plan', 'Plan', [ 'class' => 'text text-bold' ]) }}
-                                                    {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $pregrade->plan, ['class' => 'form-control select2']) }}
+                                                    {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $posgrade->plan, ['class' => 'form-control select2']) }}
                                                 </div>
                                             @endif
                                             @if(auth()->user()->isAdmin())

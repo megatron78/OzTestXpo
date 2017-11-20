@@ -239,8 +239,20 @@
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
                                             {{ Form::label('Archivos PDF') }}
+                                            @if(!empty($posgrade->documento_pdf1))
+                                                <br>
+                                                Actual: {{ explode('/',$posgrade->documento_pdf1)[3]}}
+                                            @endif
                                             {{ Form::file('documento_pdf1') }}
+                                            @if(!empty($posgrade->documento_pdf2))
+                                                <br>
+                                                Actual: {{ explode('/',$posgrade->documento_pdf2)[3]}}
+                                            @endif
                                             {{ Form::file('documento_pdf2') }}
+                                            @if(!empty($posgrade->documento_pdf3))
+                                                <br>
+                                                Actual: {{ explode('/',$posgrade->documento_pdf3)[3]}}
+                                            @endif
                                             {{ Form::file('documento_pdf3') }}
                                             <p class="help-block">Los documentos deben ser .pdf y 500K.</p>
                                         </div>
@@ -252,11 +264,11 @@
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
                                                     {{ Form::label('user_id', 'Usuario  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                                    {{ Form::select('user_id', $users->pluck('name','id')->all(), $pregrade->user_id, ['class' => 'form-control']) }}
+                                                    {{ Form::select('user_id', $users->pluck('name','id')->all(), $posgrade->user_id, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
                                                     {{ Form::label('plan', 'Plan') }}
-                                                    {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $pregrade->plan, ['class' => 'form-control select2']) }}
+                                                    {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $posgrade->plan, ['class' => 'form-control select2']) }}
                                                 </div>
                                             @endif
                                             @if(auth()->user()->isAdmin())

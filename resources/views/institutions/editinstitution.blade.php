@@ -70,6 +70,10 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('institution_bg_picture','Foto de fondo', [ 'class' => 'text text-bold' ]) }}
+                                            @if(!empty($institution->institution_bg_picture))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->institution_bg_picture)[3]}}
+                                            @endif
                                             {{ Form::file('institution_bg_picture') }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
@@ -390,18 +394,54 @@
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
                                             {{ Form::label('Fotos para el Banner', null, [ 'class' => 'text text-bold' ]) }}
+                                            @if(!empty($institution->banner_inst_picture_1))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->banner_inst_picture_1)[3]}}
+                                            @endif
                                             {{ Form::file('banner_inst_picture_1') }}
+                                            @if(!empty($institution->banner_inst_picture_2))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->banner_inst_picture_2)[3]}}
+                                            @endif
                                             {{ Form::file('banner_inst_picture_2') }}
+                                            @if(!empty($institution->banner_inst_picture_3))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->banner_inst_picture_3)[3]}}
+                                            @endif
                                             {{ Form::file('banner_inst_picture_3') }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('Fotos para la Galería', null, [ 'class' => 'text text-bold' ]) }}
+                                            @if(!empty($institution->institution_picture_1))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->institution_picture_1)[3]}}
+                                            @endif
                                             {{ Form::file('institution_picture_1') }}
+                                            @if(!empty($institution->institution_picture_2))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->institution_picture_2)[3]}}
+                                            @endif
                                             {{ Form::file('institution_picture_2') }}
+                                            @if(!empty($institution->institution_picture_3))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->institution_picture_3)[3]}}
+                                            @endif
                                             {{ Form::file('institution_picture_3') }}
+                                            @if(!empty($institution->institution_picture_4))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->institution_picture_4)[3]}}
+                                            @endif
                                             {{ Form::file('institution_picture_4') }}
+                                            @if(!empty($institution->institution_picture_5))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->institution_picture_5)[3]}}
+                                            @endif
                                             {{ Form::file('institution_picture_5') }}
+                                            @if(!empty($institution->institution_picture_6))
+                                                <br>
+                                                Actual: {{ explode('/',$institution->institution_picture_6)[3]}}
+                                            @endif
                                             {{ Form::file('institution_picture_6') }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 400x180 y 500K.</p>
                                         </div>

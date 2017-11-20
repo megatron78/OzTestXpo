@@ -89,6 +89,10 @@
                                         <br>
                                         <div class="form-group">
                                             {{ Form::label('evento_bg_picture','Foto del Evento', [ 'class' => 'text text-bold' ]) }}
+                                            @if(!empty($evento->evento_bg_picture))
+                                                <br>
+                                                Actual: {{ explode('/',$evento->evento_bg_picture)[3]}}
+                                            @endif
                                             {{ Form::file('evento_bg_picture') }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
