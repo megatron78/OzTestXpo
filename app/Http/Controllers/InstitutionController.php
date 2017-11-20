@@ -179,11 +179,11 @@ class InstitutionController extends Controller
             $this->dispatch(new SendAlertaVentaEmail($request->user(), $institution, $email));
         }
         else
-            Institution::create($input);
+            $institution = Institution::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
-        //return redirect()->back();
-        return back()->withInput();
+
+        return redirect()->route('preescolar.edit', [$institution->id]);
     }
 
     public function edit($id) {
@@ -460,11 +460,11 @@ class InstitutionController extends Controller
             $this->dispatch(new SendAlertaVentaEmail($request->user(), $institution, $email));
         }
         else
-            Institution::create($input);
+            $institution = Institution::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 
-        return redirect()->back();
+        return redirect()->route('escuelacolegio.edit', [$institution->id]);
     }
 
     public function editEscuelacolegio($id) {

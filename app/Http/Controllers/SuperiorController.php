@@ -106,11 +106,11 @@ class SuperiorController extends Controller
             $this->dispatch(new SendAlertaVentaEmail($request->user(), $pregrade, $email));
         }
         else
-            Pregrade::create($input);
+            $pregrade = Pregrade::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 
-        return redirect()->back();
+        return redirect()->route('superior.edit', [$pregrade->id]);
     }
 
     public function edit($id) {

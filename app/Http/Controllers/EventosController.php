@@ -89,11 +89,11 @@ class EventosController extends Controller
             $this->dispatch(new SendAlertaVentaEmail($request->user(), $evento, $email));
         }
         else
-            Event::create($input);
+            $evento = Event::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 
-        return redirect()->back();
+        return redirect()->route('eventos.edit', [$evento->id]);
     }
 
     public function edit($id) {

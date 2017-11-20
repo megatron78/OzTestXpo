@@ -63,11 +63,11 @@ class PosgradosController extends Controller
             $this->dispatch(new SendAlertaVentaEmail($request->user(), $posgrado, $email));
         }
         else
-            PosgradeCourseSeminar::create($input);
+            $posgrade = PosgradeCourseSeminar::create($input);
 
         Session::flash('flash_message', 'Registro creado correctamente.');
 
-        return redirect()->back();
+        return redirect()->route('posgrados.edit', [$posgrade->id]);
     }
 
     public function edit($id) {
