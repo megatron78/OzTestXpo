@@ -252,9 +252,9 @@
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
                                             {{ Form::label('Archivos PDF', null, [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::file('documento_pdf1') }}
-                                            {{ Form::file('documento_pdf2') }}
-                                            {{ Form::file('documento_pdf3') }}
+                                            {{ Form::file('documento_pdf1', ['onchange' => 'validatePdfFiles()']) }}
+                                            {{ Form::file('documento_pdf2', ['onchange' => 'validatePdfFiles()']) }}
+                                            {{ Form::file('documento_pdf3', ['onchange' => 'validatePdfFiles()']) }}
                                             <p class="help-block">Los documentos deben ser .pdf y 500K.</p>
                                         </div>
                                     </div>

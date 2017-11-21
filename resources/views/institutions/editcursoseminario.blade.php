@@ -243,17 +243,17 @@
                                                 <br>
                                                 Actual: {{ explode('/',$posgrade->documento_pdf1)[3]}}
                                             @endif
-                                            {{ Form::file('documento_pdf1') }}
+                                            {{ Form::file('documento_pdf1', ['onchange' => 'validatePdfFiles()']) }}
                                             @if(!empty($posgrade->documento_pdf2))
                                                 <br>
                                                 Actual: {{ explode('/',$posgrade->documento_pdf2)[3]}}
                                             @endif
-                                            {{ Form::file('documento_pdf2') }}
+                                            {{ Form::file('documento_pdf2', ['onchange' => 'validatePdfFiles()']) }}
                                             @if(!empty($posgrade->documento_pdf3))
                                                 <br>
                                                 Actual: {{ explode('/',$posgrade->documento_pdf3)[3]}}
                                             @endif
-                                            {{ Form::file('documento_pdf3') }}
+                                            {{ Form::file('documento_pdf3', ['onchange' => 'validatePdfFiles()']) }}
                                             <p class="help-block">Los documentos deben ser .pdf y 500K.</p>
                                         </div>
                                     </div>

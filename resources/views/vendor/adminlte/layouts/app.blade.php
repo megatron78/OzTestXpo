@@ -551,6 +551,50 @@ desired effect
     });
 </script>
 <script>
+    function validatePdfFiles() {
+        if(document.forms[1]['documento_pdf1'].files[0]) {
+            var ext = document.forms[1]['documento_pdf1'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['documento_pdf1'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['pdf']) == -1) {
+                alert('Solamente se admiten documentos .pdf');
+                document.forms[1]['documento_pdf1'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['documento_pdf1'].value='';
+            }
+        }
+        if(document.forms[1]['documento_pdf2'].files[0]) {
+            var ext = document.forms[1]['documento_pdf2'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['documento_pdf2'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['pdf']) == -1) {
+                alert('Solamente se admiten documentos .pdf');
+                document.forms[1]['documento_pdf2'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['documento_pdf2'].value='';
+            }
+        }
+        if(document.forms[1]['documento_pdf3'].files[0]) {
+            var ext = document.forms[1]['documento_pdf3'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['documento_pdf3'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['pdf']) == -1) {
+                alert('Solamente se admiten documentos .pdf');
+                document.forms[1]['documento_pdf3'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['documento_pdf3'].value='';
+            }
+        }
+    }
     function validateBgPicture() {
         if(document.forms[1]['institution_bg_picture'].files[0]) {
             var ext = document.forms[1]['institution_bg_picture'].files[0].name.split('.').pop().toLowerCase();
