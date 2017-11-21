@@ -81,7 +81,7 @@
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}
                                             @endif
-                                            {{ Form::file('pregrade_bg_picture') }}
+                                            {{ Form::file('pregrade_bg_picture', ['onchange' => 'validateBgPicturePregrade()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
@@ -291,17 +291,17 @@
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}
                                             @endif
-                                            {{ Form::file('banner_inst_picture_1') }}
+                                            {{ Form::file('banner_inst_picture_1', ['onchange' => 'validateBannerFiles()']) }}
                                             @if(!empty($pregrade->pregrade_bg_picture))
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}
                                             @endif
-                                            {{ Form::file('banner_inst_picture_2') }}
+                                            {{ Form::file('banner_inst_picture_2', ['onchange' => 'validateBannerFiles()']) }}
                                             @if(!empty($pregrade->pregrade_bg_picture))
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}
                                             @endif
-                                            {{ Form::file('banner_inst_picture_3') }}
+                                            {{ Form::file('banner_inst_picture_3', ['onchange' => 'validateBannerFiles()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
                                         </div>
                                         <div class="form-group">
@@ -310,32 +310,32 @@
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->institution_picture_1)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_1') }}
+                                            {{ Form::file('institution_picture_1', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($pregrade->institution_picture_2))
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->institution_picture_2)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_2') }}
+                                            {{ Form::file('institution_picture_2', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($pregrade->institution_picture_3))
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->institution_picture_3)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_3') }}
+                                            {{ Form::file('institution_picture_3', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($pregrade->institution_picture_4))
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->institution_picture_4)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_4') }}
-                                            @if(!empty($pregrade->institution_picture_5))
+                                            {{ Form::file('institution_picture_4', ['onchange' => 'validateGalleryFiles()']) }}
+                                            @if(!empty($pregrade->institution_picture_5))h
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->institution_picture_5)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_5') }}
+                                            {{ Form::file('institution_picture_5', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($pregrade->institution_picture_6))
                                                 <br>
                                                 Actual: {{ explode('/',$pregrade->institution_picture_6)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_6') }}
+                                            {{ Form::file('institution_picture_6', ['onchange' => 'validateGalleryFiles()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                     </div>

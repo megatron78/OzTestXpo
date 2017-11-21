@@ -155,6 +155,18 @@ return [
         'city_id'               => 'ciudad',
         'province_id'           => 'provincia',
         'sector_id'             => 'sector',
+        'institution_bg_picture' => 'imagen institucional',
+        'pregrade_bg_picture'    => 'imagen institucional',
+        'evento_bg_picture'     => 'imagen institucional',
+        'institution_picture_1' => 'imagen institucional 1',
+        'institution_picture_2' => 'imagen institucional 2',
+        'institution_picture_3' => 'imagen institucional 3',
+        'institution_picture_4' => 'imagen institucional 4',
+        'institution_picture_5' => 'imagen institucional 5',
+        'institution_picture_6' => 'imagen institucional 6',
+        'banner_inst_picture_1' => 'imagen banner 1',
+        'banner_inst_picture_2' => 'imagen banner 2',
+        'banner_inst_picture_3' => 'imagen banner 3',
     ],
 
 ];

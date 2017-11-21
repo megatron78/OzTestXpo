@@ -74,7 +74,7 @@
                                                 <br>
                                                 Actual: {{ explode('/',$institution->institution_bg_picture)[3]}}
                                             @endif
-                                            {{ Form::file('institution_bg_picture') }}
+                                            {{ Form::file('institution_bg_picture', ['onchange' => 'validateBgPicture()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
@@ -398,17 +398,17 @@
                                                 <br>
                                                 Actual: {{ explode('/',$institution->banner_inst_picture_1)[3]}}
                                             @endif
-                                            {{ Form::file('banner_inst_picture_1') }}
+                                            {{ Form::file('banner_inst_picture_1', ['onchange' => 'validateBannerFiles()']) }}
                                             @if(!empty($institution->banner_inst_picture_2))
                                                 <br>
                                                 Actual: {{ explode('/',$institution->banner_inst_picture_2)[3]}}
                                             @endif
-                                            {{ Form::file('banner_inst_picture_2') }}
+                                            {{ Form::file('banner_inst_picture_2', ['onchange' => 'validateBannerFiles()']) }}
                                             @if(!empty($institution->banner_inst_picture_3))
                                                 <br>
                                                 Actual: {{ explode('/',$institution->banner_inst_picture_3)[3]}}
                                             @endif
-                                            {{ Form::file('banner_inst_picture_3') }}
+                                            {{ Form::file('banner_inst_picture_3', ['onchange' => 'validateBannerFiles()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
                                         </div>
                                         <div class="form-group">
@@ -417,32 +417,32 @@
                                                 <br>
                                                 Actual: {{ explode('/',$institution->institution_picture_1)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_1') }}
+                                            {{ Form::file('institution_picture_1', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($institution->institution_picture_2))
                                                 <br>
                                                 Actual: {{ explode('/',$institution->institution_picture_2)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_2') }}
+                                            {{ Form::file('institution_picture_2', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($institution->institution_picture_3))
                                                 <br>
                                                 Actual: {{ explode('/',$institution->institution_picture_3)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_3') }}
+                                            {{ Form::file('institution_picture_3', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($institution->institution_picture_4))
                                                 <br>
                                                 Actual: {{ explode('/',$institution->institution_picture_4)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_4') }}
+                                            {{ Form::file('institution_picture_4', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($institution->institution_picture_5))
                                                 <br>
                                                 Actual: {{ explode('/',$institution->institution_picture_5)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_5') }}
+                                            {{ Form::file('institution_picture_5', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($institution->institution_picture_6))
                                                 <br>
                                                 Actual: {{ explode('/',$institution->institution_picture_6)[3]}}
                                             @endif
-                                            {{ Form::file('institution_picture_6') }}
+                                            {{ Form::file('institution_picture_6', ['onchange' => 'validateGalleryFiles()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 400x180 y 500K.</p>
                                         </div>
                                     </div>

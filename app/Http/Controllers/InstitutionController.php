@@ -86,6 +86,8 @@ class InstitutionController extends Controller
                 $sectors = Sector::where('city_id', '=', null)->orderBy('nombre')->get();
             }
         }
+        //dd($request);
+        //dd(session()->getOldInput('institution_picture_1'));
         //dd($old = session()->getOldInput('city_id'));
         return view('institutions.createpreescolar', compact('provinces','cities', 'sectors'));
     }

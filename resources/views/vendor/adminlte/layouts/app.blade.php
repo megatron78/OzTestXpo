@@ -550,5 +550,186 @@ desired effect
         });
     });
 </script>
+<script>
+    function validateBgPicture() {
+        if(document.forms[1]['institution_bg_picture'].files[0]) {
+            var ext = document.forms[1]['institution_bg_picture'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['institution_bg_picture'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['institution_bg_picture'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['institution_bg_picture'].value='';
+            }
+        }
+    }
+    function validateBgPicturePregrade() {
+        if(document.forms[1]['pregrade_bg_picture'].files[0]) {
+            var ext = document.forms[1]['pregrade_bg_picture'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['pregrade_bg_picture'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['pregrade_bg_picture'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['pregrade_bg_picture'].value='';
+            }
+        }
+    }
+    function validateBgPictureEvento() {
+        if(document.forms[1]['evento_bg_picture'].files[0]) {
+            var ext = document.forms[1]['evento_bg_picture'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['evento_bg_picture'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['evento_bg_picture'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['evento_bg_picture'].value='';
+            }
+        }
+    }
+    function validateBannerFiles() {
+        if(document.forms[1]['banner_inst_picture_1'].files[0]) {
+            var ext = document.forms[1]['banner_inst_picture_1'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['banner_inst_picture_1'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['banner_inst_picture_1'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['banner_inst_picture_1'].value='';
+            }
+        }
+        if(document.forms[1]['banner_inst_picture_2'].files[0]) {
+            var ext = document.forms[1]['banner_inst_picture_2'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['banner_inst_picture_2'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['banner_inst_picture_2'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['banner_inst_picture_2'].value='';
+            }
+        }
+        if(document.forms[1]['banner_inst_picture_3'].files[0]) {
+            var ext = document.forms[1]['banner_inst_picture_3'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['banner_inst_picture_3'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['banner_inst_picture_3'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['banner_inst_picture_3'].value='';
+            }
+        }
+    }
+    function validateGalleryFiles() {
+        //console.log(document.forms[1]['institution_picture_1'].files[0]);
+        if(document.forms[1]['institution_picture_1'].files[0]) {
+            var ext = document.forms[1]['institution_picture_1'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['institution_picture_1'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['institution_picture_1'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['institution_picture_1'].value='';
+            }
+        }
+        if(document.forms[1]['institution_picture_2'].files[0]) {
+            var ext = document.forms[1]['institution_picture_2'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['institution_picture_2'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['institution_picture_2'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['institution_picture_2'].value='';
+            }
+        }
+        if(document.forms[1]['institution_picture_3'].files[0]) {
+            var ext = document.forms[1]['institution_picture_3'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['institution_picture_3'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['institution_picture_3'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['institution_picture_3'].value='';
+            }
+        }
+        if(document.forms[1]['institution_picture_4'].files[0]) {
+            var ext = document.forms[1]['institution_picture_4'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['institution_picture_4'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['institution_picture_4'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['institution_picture_4'].value='';
+            }
+        }
+        if(document.forms[1]['institution_picture_5'].files[0]) {
+            var ext = document.forms[1]['institution_picture_5'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['institution_picture_5'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['institution_picture_5'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['institution_picture_5'].value='';
+            }
+        }
+        if(document.forms[1]['institution_picture_6'].files[0]) {
+            var ext = document.forms[1]['institution_picture_6'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['institution_picture_6'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['institution_picture_6'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['institution_picture_6'].value='';
+            }
+        }
+    }
+</script>
 </body>
 </html>
