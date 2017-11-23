@@ -24,10 +24,10 @@
                             </div>
                         @endif
                     </div>
-                    {!! Form::open(['files' => true, 'method' => 'POST', 'route' => 'posgrados.store']) !!}
+                    {!! Form::open(['files' => true, 'method' => 'POST', 'route' => 'cursoseminario.store']) !!}
                     <div class="box-body with-border">
                         <div class="nav-tabs-custom">
-                            {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-success']) !!}
+                            {!! Form::submit('Crear Registro', ['class' => 'btn btn-success']) !!}
                             <br>
                             <br>
                             <ul class="nav nav-tabs">
@@ -88,7 +88,7 @@
                                             {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'Preferible WhatsApp']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('email', 'Email', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('email', 'Email', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
@@ -309,7 +309,7 @@
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
                     </div>--}}
                     <!-- /.box-body -->
-                    {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-success']) !!}
+                    {!! Form::submit('Crear Registro', ['class' => 'btn btn-success']) !!}
                     {!! Form::close() !!}
                 </div>
                 <!-- /.box -->

@@ -28,6 +28,9 @@
                     {!! Form::model($courseseminar, array('files' => true, 'route' => array('posgrados.edit', $courseseminar->id))) !!}
                     <div class="box-body with-border">
                         <div class="nav-tabs-custom">
+                            {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-sucess']) !!}
+                            <br>
+                            <br>
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab_11" data-toggle="tab">Información</a></li>
                                 <li><a href="#tab_22" data-toggle="tab">Descripción</a></li>
@@ -52,13 +55,13 @@
                                         <div class="form-group">
                                             {{ Form::label('clasificacion', 'Clasificación') }}
                                             {{ Form::select('clasificacion', ['Cursos' => 'Cursos y Seminarios'],
-                                            $posgrade->clasificacion, ['class' => 'form-control select2']) }}
+                                            $courseseminar->clasificacion, ['class' => 'form-control select2']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('tipo', 'Tipo') }}
                                             {{ Form::select('tipo', ['Curso Específico' => 'Curso Específico',
                                         'Curso por Niveles' => 'Curso por Niveles', 'Seminario' => 'Seminario',
-                                        'Taller' => 'Taller'], $posgrade->tipo, ['class' => 'form-control select2']) }}
+                                        'Taller' => 'Taller'], $courseseminar->tipo, ['class' => 'form-control select2']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('campo', 'Campo') }}
@@ -74,7 +77,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('costo', 'Costo') }}
-                                            {{ Form::number('costo', $posgrade->costo, ['class' => 'form-control']) }}
+                                            {{ Form::number('costo', $courseseminar->costo, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('instructores', 'Instructores') }}
@@ -82,15 +85,15 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('country_id', 'País') }}
-                                            {{ Form::select('country_id', $countries->pluck('name','id')->all(), $posgrade->country_id, ['class' => 'form-control']) }}
+                                            {{ Form::select('country_id', $countries->pluck('name','id')->all(), $courseseminar->country_id, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('province_id', 'Provincia') }}
-                                            {{ Form::select('province_id', $provinces->pluck('name','id')->all(), $posgrade->province_id, ['class' => 'form-control']) }}
+                                            {{ Form::select('province_id', $provinces->pluck('name','id')->all(), $courseseminar->province_id, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('city_id', 'Ciudad') }}
-                                            {{ Form::select('city_id', $cities->pluck('name','id')->all(), $posgrade->city_id, ['class' => 'form-control']) }}
+                                            {{ Form::select('city_id', $cities->pluck('name','id')->all(), $courseseminar->city_id, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +108,7 @@
                                             {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'Preferible WhatsApp']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('email', 'Email') }}
+                                            {{ Form::label('email', 'Email', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('email', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
@@ -137,7 +140,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('cupos', 'Cupos') }}
-                                            {{ Form::number('cupos', $posgrade->cupos, ['class' => 'form-control']) }}
+                                            {{ Form::number('cupos', $courseseminar->cupos, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('fecha_inicio', 'Fecha Inicio') }}
@@ -165,7 +168,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('objetivo', 'Objetivo') }}
-                                            {{ Form::textArea('objetivo', $posgrade->objetivo, ['class' => 'form-control']) }}
+                                            {{ Form::textArea('objetivo', $courseseminar->objetivo, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
                                 </div>
@@ -186,7 +189,7 @@
                                             </div>
                                             <!-- /.box-header -->
                                             <div class="box-body pad">
-                                                {{ Form::textArea('temario', $posgrade->temario, ['class' => 'form-control']) }}
+                                                {{ Form::textArea('temario', $courseseminar->temario, ['class' => 'form-control']) }}
                                             </div>
                                         </div>
                                         <br>
@@ -205,12 +208,12 @@
                                             </div>
                                             <!-- /.box-header -->
                                             <div class="box-body pad">
-                                                {{ Form::textArea('instructores_detalle', $posgrade->instructores_detalle, ['class' => 'textarea']) }}
+                                                {{ Form::textArea('instructores_detalle', $courseseminar->instructores_detalle, ['class' => 'textarea']) }}
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('incluye', 'Incluye') }}
-                                            {{ Form::textArea('incluye', $posgrade->incluye, ['class' => 'textarea']) }}
+                                            {{ Form::textArea('incluye', $courseseminar->incluye, ['class' => 'textarea']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL') }}
@@ -219,7 +222,7 @@
 
                                         <div class="form-group">
                                             {{ Form::label('max_alumnos_x_nivel', 'Máximo Alumnos por Nivel') }}
-                                            {{ Form::number('max_alumnos_x_nivel', $posgrade->max_alumnos_x_nivel, ['class' => 'form-control']) }}
+                                            {{ Form::number('max_alumnos_x_nivel', $courseseminar->max_alumnos_x_nivel, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('meses_inicio', 'Meses Inicio') }}
@@ -239,19 +242,19 @@
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
                                             {{ Form::label('Archivos PDF') }}
-                                            @if(!empty($posgrade->documento_pdf1))
+                                            @if(!empty($courseseminar->documento_pdf1))
                                                 <br>
-                                                Actual: {{ explode('/',$posgrade->documento_pdf1)[3]}}
+                                                Actual: {{ explode('/',$courseseminar->documento_pdf1)[3]}}
                                             @endif
                                             {{ Form::file('documento_pdf1', ['onchange' => 'validatePdfFiles()']) }}
-                                            @if(!empty($posgrade->documento_pdf2))
+                                            @if(!empty($courseseminar->documento_pdf2))
                                                 <br>
-                                                Actual: {{ explode('/',$posgrade->documento_pdf2)[3]}}
+                                                Actual: {{ explode('/',$courseseminar->documento_pdf2)[3]}}
                                             @endif
                                             {{ Form::file('documento_pdf2', ['onchange' => 'validatePdfFiles()']) }}
-                                            @if(!empty($posgrade->documento_pdf3))
+                                            @if(!empty($courseseminar->documento_pdf3))
                                                 <br>
-                                                Actual: {{ explode('/',$posgrade->documento_pdf3)[3]}}
+                                                Actual: {{ explode('/',$courseseminar->documento_pdf3)[3]}}
                                             @endif
                                             {{ Form::file('documento_pdf3', ['onchange' => 'validatePdfFiles()']) }}
                                             <p class="help-block">Los documentos deben ser .pdf y 500K.</p>
@@ -264,11 +267,11 @@
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
                                                     {{ Form::label('user_id', 'Usuario  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                                    {{ Form::select('user_id', $users->pluck('name','id')->all(), $posgrade->user_id, ['class' => 'form-control']) }}
+                                                    {{ Form::select('user_id', $users->pluck('name','id')->all(), $courseseminar->user_id, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
                                                     {{ Form::label('plan', 'Plan') }}
-                                                    {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $posgrade->plan, ['class' => 'form-control select2']) }}
+                                                    {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], $courseseminar->plan, ['class' => 'form-control select2']) }}
                                                 </div>
                                             @endif
                                             @if(auth()->user()->isAdmin())
@@ -317,7 +320,7 @@
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
                     </div>
                     <!-- /.box-body -->
-                    {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-sucess']) !!}
                     {!! Form::close() !!}
                 </div>
                 <!-- /.box -->

@@ -62,7 +62,7 @@ desired effect
     $(document).ready(function() {
         oTable = $('#institucionesTable').DataTable({
             "processing": true,
-            "serverSide": false,
+            "serverSide": true,
             "ajax": {"url": "{{ route('institutions.all') }}", "type": "get"},
             "columns": [
                 {data: 'id', name: 'id'},
@@ -390,6 +390,15 @@ desired effect
     });
 </script>
 <script>
+    function CheckValueOn(elem) {
+        var elems = document.getElementsByClassName("chkclass");
+        var currentState = elem.checked;
+        elem.checked = currentState;
+        if(elem.checked)
+            elem.value="1";
+        else
+            elem.value="0";
+    }
     function SetSel(elem)
     {
         var elems = document.getElementsByClassName("chkclass");

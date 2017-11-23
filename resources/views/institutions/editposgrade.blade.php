@@ -270,7 +270,7 @@
                                             @if(auth()->user()->isAdmin())
                                                 <div class="form-group">
                                                     {{ Form::label('user_id', 'Usuario  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                                    {{ Form::select('user_id', $users->pluck('name','id')->all(), $institution->user_id, ['class' => 'form-control']) }}
+                                                    {{ Form::select('user_id', $users->pluck('name','id')->all(), $posgrade->user_id, ['class' => 'form-control']) }}
                                                 </div>
                                                 <div class="form-group">
                                                     {{ Form::label('plan', 'Plan', [ 'class' => 'text text-bold' ]) }}

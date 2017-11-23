@@ -66,11 +66,11 @@
                                             {{--{{ Form::checkbox('preescolar') }}--}}
                                             {{ Form::label('escuela', 'Escuela', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('escuela',0)}}
-                                            {{ Form::checkbox('escuela', null, null) }}
+                                            {{ Form::checkbox('escuela', 0, false, [ 'class' => 'chkclass2', 'onclick' => 'CheckValueOn(this)' ]) }}
                                             &nbsp;&nbsp;
                                             {{ Form::label('colegio', 'Colegio', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('colegio',0)}}
-                                            {{ Form::checkbox('colegio', null, null) }}
+                                            {{ Form::checkbox('colegio', 0, false, [ 'class' => 'chkclass2', 'onclick' => 'CheckValueOn(this)' ]) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('institution_bg_picture','Foto de fondo', [ 'class' => 'text text-bold' ]) }}

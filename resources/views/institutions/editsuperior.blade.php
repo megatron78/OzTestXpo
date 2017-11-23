@@ -142,7 +142,6 @@
                                             {{ Form::label('nocturno', 'Nocturno', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('nocturno',0)}}
                                             {{ Form::checkbox('nocturno') }}
-                                            {{ Form::checkbox('nocturno') }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('trayectoria', 'Trayectoria', [ 'class' => 'text text-bold' ]) }}
