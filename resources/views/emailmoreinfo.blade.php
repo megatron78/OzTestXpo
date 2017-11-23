@@ -1,4 +1,4 @@
-<h2>Ha recibido un mensaje solicitando información.</h2>
+<h4>Ha recibido un mensaje solicitando información.</h4>
 <br>
 <strong>Nombre:</strong>&nbsp;{{$contactinfo['nombreApellido']}}
 <br>
@@ -6,6 +6,10 @@
 <br>
 <strong>Teléfono:</strong>&nbsp;{{$contactinfo['telefono']}}
 <br>
+@if(!empty($contactinfo['whatsapp']))
+    <strong>WhatsApp:</strong>&nbsp;{{$contactinfo['whatsapp']}}
+    <br>
+@endif
 <strong>Interés:</strong>&nbsp;{{$contactinfo['interes']}}
 <br>
 <p>Saludos Cordiales,

@@ -461,7 +461,8 @@ class InstitutionController extends Controller
 
         if($input['plan'] != '3B') {
             $email=env('MAIL_INFO', 'info@expoeducar.com');
-            event(new Registered($institution = $this->create($input)));
+            //event(new Registered($institution = $this->create($input)));
+            $institution = Institution::create($input);
             $this->dispatch(new SendAlertaVentaEmail($request->user(), $institution, $email));
         }
         else
