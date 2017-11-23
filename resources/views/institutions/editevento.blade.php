@@ -91,7 +91,8 @@
                                             {{ Form::label('evento_bg_picture','Foto del Evento', [ 'class' => 'text text-bold' ]) }}
                                             @if(!empty($evento->evento_bg_picture))
                                                 <br>
-                                                Actual: {{ explode('/',$evento->evento_bg_picture)[3]}}
+                                                {{--Actual: {{ explode('/',$evento->evento_bg_picture)[3]}}--}}
+                                                <img src="{{ $evento->evento_bg_picture }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('evento_bg_picture', ['onchange' => 'validateBgPictureEvento()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>

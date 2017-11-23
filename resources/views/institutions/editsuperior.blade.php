@@ -79,7 +79,8 @@
                                             {{ Form::label('pregrade_bg_picture','Foto de fondo', [ 'class' => 'text text-bold' ]) }}
                                             @if(!empty($pregrade->pregrade_bg_picture))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}
+                                                {{--Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}--}}
+                                                <img src="{{ $pregrade->institution_picture_1 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('pregrade_bg_picture', ['onchange' => 'validateBgPicturePregrade()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
@@ -286,19 +287,22 @@
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
                                             {{ Form::label('Fotos para el Banner', null, [ 'class' => 'text text-bold' ]) }}
-                                            @if(!empty($pregrade->pregrade_bg_picture))
+                                            @if(!empty($pregrade->banner_inst_picture_1))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}
+                                                Actual: {{ explode('/',$pregrade->banner_inst_picture_1)[3]}}
+                                                <img src="{{ $pregrade->banner_inst_picture_1 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('banner_inst_picture_1', ['onchange' => 'validateBannerFiles()']) }}
-                                            @if(!empty($pregrade->pregrade_bg_picture))
+                                            @if(!empty($pregrade->banner_inst_picture_2))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}
+                                                Actual: {{ explode('/',$pregrade->banner_inst_picture_2)[3]}}
+                                                <img src="{{ $pregrade->banner_inst_picture_2 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('banner_inst_picture_2', ['onchange' => 'validateBannerFiles()']) }}
-                                            @if(!empty($pregrade->pregrade_bg_picture))
+                                            @if(!empty($pregrade->banner_inst_picture_3))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}
+                                                Actual: {{ explode('/',$pregrade->banner_inst_picture_3)[3]}}
+                                                <img src="{{ $pregrade->banner_inst_picture_3 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('banner_inst_picture_3', ['onchange' => 'validateBannerFiles()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
@@ -307,32 +311,38 @@
                                             {{ Form::label('Fotos para la Galería', null, [ 'class' => 'text text-bold' ]) }}
                                             @if(!empty($pregrade->institution_picture_1))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->institution_picture_1)[3]}}
+                                                {{--Actual: {{ explode('/',$pregrade->institution_picture_1)[3]}}--}}
+                                                <img src="{{ $pregrade->institution_picture_1 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_picture_1', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($pregrade->institution_picture_2))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->institution_picture_2)[3]}}
+                                                {{--Actual: {{ explode('/',$pregrade->institution_picture_2)[3]}}--}}
+                                                <img src="{{ $pregrade->institution_picture_2 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_picture_2', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($pregrade->institution_picture_3))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->institution_picture_3)[3]}}
+                                                {{--Actual: {{ explode('/',$pregrade->institution_picture_3)[3]}}--}}
+                                                <img src="{{ $pregrade->institution_picture_3 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_picture_3', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($pregrade->institution_picture_4))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->institution_picture_4)[3]}}
+                                                {{--Actual: {{ explode('/',$pregrade->institution_picture_4)[3]}}--}}
+                                                <img src="{{ $pregrade->institution_picture_4 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_picture_4', ['onchange' => 'validateGalleryFiles()']) }}
-                                            @if(!empty($pregrade->institution_picture_5))h
+                                            @if(!empty($pregrade->institution_picture_5))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->institution_picture_5)[3]}}
+                                                {{--Actual: {{ explode('/',$pregrade->institution_picture_5)[3]}}--}}
+                                                <img src="{{ $pregrade->institution_picture_5 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_picture_5', ['onchange' => 'validateGalleryFiles()']) }}
                                             @if(!empty($pregrade->institution_picture_6))
                                                 <br>
-                                                Actual: {{ explode('/',$pregrade->institution_picture_6)[3]}}
+                                                {{--Actual: {{ explode('/',$pregrade->institution_picture_6)[3]}}--}}
+                                                <img src="{{ $pregrade->institution_picture_6 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_picture_6', ['onchange' => 'validateGalleryFiles()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
