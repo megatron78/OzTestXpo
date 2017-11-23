@@ -79,6 +79,7 @@ class ListEscuelaColegioController extends Controller
         $chkMixto=-1;
         $chkHombres=0;
         $chkExtendido=0;
+        $advsearch_costo=null;
 
         //dd(basename($_SERVER['HTTP_REFERER']));
         if(strpos(basename($_SERVER['HTTP_REFERER']), 'escuela') !== false) {
@@ -87,6 +88,8 @@ class ListEscuelaColegioController extends Controller
             $chkMixto=0;
         }
 
+        if(!is_null($request->get('advsearch_costo')))
+            $advsearch_costo=$request->get('advsearch_costo');
         if(!is_null($request->get('advsearch_chkFiscal')))
             $chkFiscal=1;
         if(!is_null($request->get('advsearch_chkFiscomisional')))
@@ -114,7 +117,7 @@ class ListEscuelaColegioController extends Controller
         return view('vendor.adminlte.layouts.escuelacolegio', compact('instituciones','provinces', 'bannerData',
             'province_id', 'cities', 'city_id', 'sectors', 'sector_id', 'palabrasClave',
             'chkFiscal', 'chkFiscomisional', 'chkParticular', 'chkLaico', 'chkReligioso', 'chkMujeres', 'chkHombres',
-            'chkMixto', 'chkExtendido'));
+            'chkMixto', 'chkExtendido', 'advsearch_costo'));
     }
 
     protected function getRouteScope(Request $request) {

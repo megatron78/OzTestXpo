@@ -65,7 +65,10 @@ class ListCursoSeminarioController extends Controller
         $chkPresencial=0;
         $chkSemipresencial=0;
         $chkDistancia=0;
+        $advsearch_costo=null;
 
+        if(!is_null($request->get('advsearch_costo')))
+            $advsearch_costo=$request->get('advsearch_costo');
         if(!is_null($request->get('advsearch_chkPresencial')))
             $chkPresencial=1;
         if(!is_null($request->get('advsearch_chkSemipresencial')))
@@ -81,7 +84,7 @@ class ListCursoSeminarioController extends Controller
 
         return view('vendor.adminlte.layouts.cursoseminario', compact('cursoseminarios','provinces', 'bannerData',
             'countries', 'province_id', 'cities', 'city_id', 'palabrasClave',
-            'chkPresencial', 'chkSemipresencial', 'chkDistancia', 'tipo', 'institucion'));
+            'chkPresencial', 'chkSemipresencial', 'chkDistancia', 'tipo', 'institucion', 'advsearch_costo'));
     }
 
     protected function getRouteScope(Request $request) {

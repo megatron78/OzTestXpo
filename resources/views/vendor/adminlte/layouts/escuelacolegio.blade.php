@@ -243,6 +243,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     $('#meInteresa').on('show.bs.modal', function(e) {
         var $modal = $(this);
         var email = $(e.relatedTarget).attr('data-email');
+        //console.log(email);
         $modal.find("#email").val(email);
         $modal.find("#tipo").val("1");
     });
@@ -273,7 +274,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();
 
-        $('#advsearch_costo').on('slideStop', function(event) { alert('Al variar el rango se pueden excluir instituciones que no disponen este dato.); });
+        $('#advsearch_costo').on('slideStop', function(event) { alert('Al variar el rango se pueden excluir instituciones que no disponen este dato.'); });
 
         /* ION SLIDER */
         $("#range_1").ionRangeSlider({

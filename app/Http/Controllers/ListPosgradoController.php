@@ -64,7 +64,10 @@ class ListPosgradoController extends Controller
         $chkPresencial=0;
         $chkSemipresencial=0;
         $chkDistancia=0;
+        $advsearch_costo=null;
 
+        if(!is_null($request->get('advsearch_costo')))
+            $advsearch_costo=$request->get('advsearch_costo');
         if(!is_null($request->get('advsearch_chkPresencial')))
             $chkPresencial=1;
         if(!is_null($request->get('advsearch_chkSemipresencial')))
@@ -79,7 +82,7 @@ class ListPosgradoController extends Controller
         $provinces = Province::all(['name','id']);
         return view('vendor.adminlte.layouts.posgrado', compact('posgrades','provinces', 'bannerData', 'countries',
             'province_id', 'cities', 'city_id', 'palabrasClave',
-            'chkPresencial', 'chkSemipresencial', 'chkDistancia', 'tipo', 'institucion'));
+            'chkPresencial', 'chkSemipresencial', 'chkDistancia', 'tipo', 'institucion', 'advsearch_costo'));
     }
 
     protected function getRouteScope(Request $request) {

@@ -63,7 +63,7 @@ desired effect
         oTable = $('#institucionesTable').DataTable({
             "processing": true,
             "serverSide": false,
-            "ajax": "{{ route('institutions.all') }}",
+            "ajax": {"url": "{{ route('institutions.all') }}", "type": "get"},
             "columns": [
                 {data: 'id', name: 'id'},
                 {data: 'slug', name: 'slug'},

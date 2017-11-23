@@ -66,7 +66,7 @@
                 </a>
             </div>
             @if(isset($tipo) or isset($institucion)
-                or $chkPresencial==1 or $chkSemipresencial==1 or $chkDistancia==1 or isset($carrera))
+                or $chkPresencial==1 or $chkSemipresencial==1 or $chkDistancia==1 or isset($carrera) or $advsearch_costo!="0,11000")
                 <div id="advancedSearch" class="box-body panel-collapse">
             @else
                 <div id="advancedSearch" class="box-body panel-collapse collapse">
@@ -145,11 +145,19 @@
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;"  for="advsearch_costo">Costo: <b>$ 0</b></label>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" value="" class="slider form-control" id="advsearch_costo" name="advsearch_costo"
-                           data-slider-min="0" data-slider-max="11000" data-slider-step="1000"
-                           data-slider-value="[0,11000]" data-slider-orientation="horizontal"
-                           data-slider-selection="before" data-slider-tooltip="show"
-                           data-slider-id="blue_price_slider"/>&nbsp;<b style="font-size: 14px; color: ghostwhite;" >$ 11.000+</b>
+                    @if(!empty($advsearch_costo) and ($advsearch_costo!="0,11000"))
+                        <input type="text" value="" class="slider form-control" id="advsearch_costo" name="advsearch_costo"
+                               data-slider-min="0" data-slider-max="11000" data-slider-step="1000"
+                               data-slider-value="[{{$advsearch_costo}}]" data-slider-orientation="horizontal"
+                               data-slider-selection="before" data-slider-tooltip="show"
+                               data-slider-id="blue_price_slider"/>&nbsp;<b style="font-size: 14px; color: ghostwhite;" >$ 11.000+</b>
+                    @else
+                        <input type="text" value="" class="slider form-control" id="advsearch_costo" name="advsearch_costo"
+                               data-slider-min="0" data-slider-max="11000" data-slider-step="1000"
+                               data-slider-value="[0,11000]" data-slider-orientation="horizontal"
+                               data-slider-selection="before" data-slider-tooltip="show"
+                               data-slider-id="blue_price_slider"/>&nbsp;<b style="font-size: 14px; color: ghostwhite;" >$ 11.000+</b>
+                    @endif
                 </div>
             </div>
         </form>
