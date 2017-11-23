@@ -28,7 +28,7 @@
                     {!! Form::model($courseseminar, array('files' => true, 'route' => array('posgrados.edit', $courseseminar->id))) !!}
                     <div class="box-body with-border">
                         <div class="nav-tabs-custom">
-                            {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-sucess']) !!}
+                            {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-success']) !!}
                             <br>
                             <br>
                             <ul class="nav nav-tabs">
@@ -316,11 +316,11 @@
                         </div>
                     </div>
                     <!-- /.box-body -->
-                    <div class="box-footer">
+                    {{--<div class="box-footer">
                         {{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
-                    </div>
+                    </div>--}}
                     <!-- /.box-body -->
-                    {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-sucess']) !!}
+                    {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-success']) !!}
                     {!! Form::close() !!}
                 </div>
                 <!-- /.box -->

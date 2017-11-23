@@ -63,9 +63,24 @@
                             <br>
                             <div class="form-group">
                                 {{ Form::label('Imágenes para el banner', null, [ 'class' => 'text text-bold' ]) }}
-                                {{ Form::file('photo1_url') }}
-                                {{ Form::file('photo2_url') }}
-                                {{ Form::file('photo3_url') }}
+                                @if(!empty($banner->photo1_url))
+                                    <br>
+                                    {{--Actual: {{ explode('/',$banner->photo1_url)[3]}}--}}
+                                    <img src="{{ $banner->photo1_url }}" alt="Banner 1" width="25%" height="25%">
+                                @endif
+                                {{ Form::file('photo1_url', ['onchange' => 'validateAdmBanner()']) }}
+                                @if(!empty($banner->photo2_url))
+                                    <br>
+                                    {{--Actual: {{ explode('/',$banner->photo2_url)[3]}}--}}
+                                    <img src="{{ $banner->photo3_url }}" alt="Banner 2" width="25%" height="25%">
+                                @endif
+                                {{ Form::file('photo2_url', ['onchange' => 'validateAdmBanner()']) }}
+                                @if(!empty($banner->photo3_url))
+                                    <br>
+                                    {{--Actual: {{ explode('/',$banner->photo3_url)[3]}}--}}
+                                    <img src="{{ $banner->photo3_url }}" alt="Banner 3" width="25%" height="25%">
+                                @endif
+                                {{ Form::file('photo3_url', ['onchange' => 'validateAdmBanner()']) }}
                                 {{--{{ Form::file('photo4_url') }}--}}
                                 {{--{{ Form::file('photo5_url') }}--}}
 

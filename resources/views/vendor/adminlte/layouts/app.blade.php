@@ -560,6 +560,50 @@ desired effect
     });
 </script>
 <script>
+    function validateAdmBanner() {
+        if(document.forms[1]['photo1_url'].files[0]) {
+            var ext = document.forms[1]['photo1_url'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['photo1_url'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['photo1_url'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['photo1_url'].value='';
+            }
+        }
+        if(document.forms[1]['photo2_url'].files[0]) {
+            var ext = document.forms[1]['photo2_url'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['photo2_url'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['photo2_url'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['photo2_url'].value='';
+            }
+        }
+        if(document.forms[1]['photo3_url'].files[0]) {
+            var ext = document.forms[1]['photo3_url'].files[0].name.split('.').pop().toLowerCase();
+            var size = document.forms[1]['photo3_url'].files[0].size;
+            console.log(ext);
+            console.log(size);
+            if($.inArray(ext, ['jpeg','bmp','jpg','png']) == -1) {
+                alert('Solamente se admiten imágenes .jpeg, .bmp, .png');
+                document.forms[1]['photo3_url'].value='';
+            }
+            if(size > 500000) {
+                alert('El tamaño máximo debe ser 500K');
+                document.forms[1]['photo3_url'].value='';
+            }
+        }
+    }
     function validatePdfFiles() {
         if(document.forms[1]['documento_pdf1'].files[0]) {
             var ext = document.forms[1]['documento_pdf1'].files[0].name.split('.').pop().toLowerCase();
