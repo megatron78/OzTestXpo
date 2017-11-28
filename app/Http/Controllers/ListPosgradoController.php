@@ -68,6 +68,8 @@ class ListPosgradoController extends Controller
 
         if(!is_null($request->get('advsearch_costo')))
             $advsearch_costo=$request->get('advsearch_costo');
+        else
+            $advsearch_costo="0,11000";
         if(!is_null($request->get('advsearch_chkPresencial')))
             $chkPresencial=1;
         if(!is_null($request->get('advsearch_chkSemipresencial')))

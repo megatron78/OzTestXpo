@@ -48,7 +48,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     <span class="time">{{ $evento->hora_evento }}</span>
                                                 </time>
                                                 <div class="info">
-                                                    <h2 class="title">{{ str_limit($evento->nombre, 19) }}</h2>
+                                                    <h2 class="title">{{ str_limit($evento->nombre, 17) }}</h2>
                                                     <p style="font-size: 14px" class="desc">{{ str_limit($evento->informacion, 45) }}</p>
                                                     <ul>
                                                         <li style="width:32%;">

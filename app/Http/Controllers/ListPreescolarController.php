@@ -92,6 +92,8 @@ class ListPreescolarController extends Controller
 
         if(!is_null($request->get('advsearch_costo')))
             $advsearch_costo=$request->get('advsearch_costo');
+        else
+            $advsearch_costo="0,500";
         if(!is_null($request->get('advsearch_chkFiscal')))
             $chkFiscal=1;
         if(!is_null($request->get('advsearch_chkFiscomisional')))
@@ -112,7 +114,6 @@ class ListPreescolarController extends Controller
             $chkExtendido=1;
 
         $provinces = Province::all(['name','id']);
-
         if(!$instituciones->first())
             Session::flash('flash_message', 'No se encontraron registros.');
         return view('vendor.adminlte.layouts.preescolar', compact('instituciones','provinces',

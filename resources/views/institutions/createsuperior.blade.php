@@ -57,7 +57,7 @@
                                         <div class="form-group">
                                             {{ Form::label('plan', 'Plan', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], '3B', ['class' => 'form-control select2']) }}
-                                            <a href="{{ url('/planes#planes_instituciones') }}" target="_blank">Revisar Planes y Tarifas</a>
+                                            <u><a href="{{ url('/planes#planes_instituciones') }}" target="_blank">Revisar Planes y Tarifas</a></u>
                                         </div>
 
                                         <div class="form-group">
@@ -69,16 +69,16 @@
                                             {{ Form::text('nombre_autoridad', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre del rector, Director o Autoridad Superior']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('telefono', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('telefono', 'Teléfono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::text('telefono', null, ['class' => 'form-control', 'PlaceHolder' => 'Teléfono de Contacto']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'Preferible WhatsApp']) }}
+                                            {{ Form::label('celular', 'WhatsApp', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'WhatsApp de Contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('email', 'Email  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control', 'PlaceHolder' => 'Email de contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('email_adicional', 'Email Adicional', [ 'class' => 'text text-bold' ]) }}
@@ -87,7 +87,7 @@
                                         <div class="form-group">
                                             {{ Form::label('pregrade_bg_picture','Foto de fondo', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::file('pregrade_bg_picture', ['onchange' => 'validateBgPicturePregrade()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y máximo 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('direccion', 'Dirección  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
@@ -131,7 +131,7 @@
                                             {{ Form::hidden('semipresencial',0)}}
                                             {{ Form::checkbox('semipresencial') }}
                                             &nbsp;&nbsp;
-                                            {{ Form::label('distancia', 'Distancia', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('distancia', 'Distancia / Online', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('distancia',0)}}
                                             {{ Form::checkbox('distancia') }}
                                         </div>
@@ -236,10 +236,6 @@
                                             {{ Form::text('wifi_otros', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('capacidad_restaurantes', 'Capacidad Restaurantes', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::number('capacidad_restaurantes', 0, ['class' => 'form-control', 'min' => '0']) }}
-                                        </div>
-                                        <div class="form-group">
                                             {{ Form::label('canchas_indoor', 'Canchas de Indoor', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('canchas_indoor', 0, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
@@ -280,7 +276,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('certificaciones_logros', 'Certificaciones y Logros', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textArea('certificaciones_logros', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('certificaciones_logros', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}
@@ -295,7 +291,7 @@
                                             {{ Form::file('banner_inst_picture_1', ['onchange' => 'validateBannerFiles()']) }}
                                             {{ Form::file('banner_inst_picture_2', ['onchange' => 'validateBannerFiles()']) }}
                                             {{ Form::file('banner_inst_picture_3', ['onchange' => 'validateBannerFiles()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y máximo 500K.</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('Fotos para la Galería', null, [ 'class' => 'text text-bold' ]) }}
@@ -305,7 +301,7 @@
                                             {{ Form::file('institution_picture_4', ['onchange' => 'validateGalleryFiles()']) }}
                                             {{ Form::file('institution_picture_5', ['onchange' => 'validateGalleryFiles()']) }}
                                             {{ Form::file('institution_picture_6', ['onchange' => 'validateGalleryFiles()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y máximo 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                     </div>
                                 </div>

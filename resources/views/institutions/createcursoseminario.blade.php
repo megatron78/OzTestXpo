@@ -53,13 +53,10 @@
                                         <div class="form-group">
                                             {{ Form::label('plan', 'Plan', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], null, ['class' => 'form-control select2']) }}
-                                            <a href="{{ url('/planes#planes_instituciones') }}" target="_blank">Revisar Planes y Tarifas</a>
+                                            <u><a href="{{ url('/planes#planes_instituciones') }}" target="_blank">Revisar Planes y Tarifas</a></u>
                                         </div>
-
                                         <div class="form-group">
-                                            {{ Form::label('clasificacion', 'Clasificación  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::select('clasificacion', ['Cursos' => 'Cursos y Seminarios'],
-                                            null, ['class' => 'form-control select2']) }}
+                                            {{ Form::hidden('clasificacion','Cursos')}}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('tipo', 'Tipo  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
@@ -69,7 +66,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('campo', 'Campo', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('campo', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('campo', null, ['class' => 'form-control', 'PlaceHolder' => 'Campo de Estudio']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('institucion', 'Institución  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
@@ -80,16 +77,16 @@
                                             {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres separados por espacio']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('telefono', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('telefono', 'Teléfono de Contacto  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::text('telefono', null, ['class' => 'form-control', 'PlaceHolder' => 'Teléfono de Contacto']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'Preferible WhatsApp']) }}
+                                            {{ Form::label('celular', 'WhatsApp', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'WhatsApp de Contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('email', 'Email', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control', 'PlaceHolder' => 'Email de contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('costo', 'Costo', [ 'class' => 'text text-bold' ]) }}
@@ -97,7 +94,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('duracion', 'Duración  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('duracion', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('duracion', null, ['class' => 'form-control', 'PlaceHolder' => 'En horas, días, semanas o meses. Por ejemplo: "120 horas"']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('instructores', 'Instructores', [ 'class' => 'text text-bold' ]) }}
@@ -123,22 +120,7 @@
                                 </div>
                                 <div class="tab-pane" id="tab_22">
                                     <div class="col-md-6 col-md-offset-0">
-                                        <div class="form-group">
-                                            {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('web', null, ['class' => 'form-control', 'PlaceHolder' => 'Página Web']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('facebook', 'Facebook', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('facebook', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('twitter', 'Twitter', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('twitter', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('linkedin', 'Linkedin', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('linkedin', null, ['class' => 'form-control']) }}
-                                        </div>
+                                        <br>
                                         <div class="form-group">
                                             {{ Form::label('presencial', 'Presencial', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('presencial',0)}}
@@ -174,16 +156,33 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('lugar', 'Lugar', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('lugar', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('lugar', null, ['class' => 'form-control', 'PlaceHolder' => 'Dirección o Establecimiento de las Clases Presenciales']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('objetivo', 'Objetivo', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textArea('objetivo', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('web', null, ['class' => 'form-control', 'PlaceHolder' => 'Página Web']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('facebook', 'Facebook', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('facebook', null, ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('twitter', 'Twitter', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('twitter', null, ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('linkedin', 'Linkedin', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('linkedin', null, ['class' => 'form-control']) }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab_33">
                                     <div class="col-md-6 col-md-offset-0">
+                                        <br>
+                                        <div class="form-group">
+                                            {{ Form::label('objetivo', 'Objetivo', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('objetivo', null, ['class' => 'form-control']) }}
+                                        </div>
                                         <div class="box">
                                             <div class="box-header">
                                                 <h3 class="box-title">Temario
@@ -255,7 +254,7 @@
                                             {{ Form::file('documento_pdf1', ['onchange' => 'validatePdfFiles()']) }}
                                             {{ Form::file('documento_pdf2', ['onchange' => 'validatePdfFiles()']) }}
                                             {{ Form::file('documento_pdf3', ['onchange' => 'validatePdfFiles()']) }}
-                                            <p class="help-block">Los documentos deben ser .pdf y 500K.</p>
+                                            <p class="help-block">Los documentos deben ser en formato .pdf y máximo 500K.</p>
                                         </div>
                                     </div>
                                 </div>

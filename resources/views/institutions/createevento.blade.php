@@ -47,7 +47,7 @@
                                         <div class="form-group">
                                             {{ Form::label('plan', 'Plan  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::select('plan', ['3B' => 'Básico', '2P' => 'Platinum', '1G' => 'Gold'], null, ['class' => 'form-control select2']) }}
-                                            <a href="{{ url('/planes#planes_instituciones') }}" target="_blank">Revisar Planes y Tarifas</a>
+                                            <u><a href="{{ url('/planes#planes_instituciones') }}" target="_blank">Revisar Planes y Tarifas</a></u>
                                         </div>
 
                                         <div class="form-group">
@@ -75,7 +75,7 @@
                                             {{ Form::text('direccion', null, ['class' => 'form-control', 'PlaceHolder' => 'Dirección del Evento']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::label('telefono', 'Teléfono de Contacto  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('telefono', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
@@ -84,7 +84,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('email', 'Email  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control', 'PlaceHolder' => 'Email de contacto']) }}
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                         <div class="form-group">
                                             {{ Form::label('evento_bg_picture','Foto del Evento', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::file('evento_bg_picture', ['onchange' => 'validateBgPictureEvento()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y máximo 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}

@@ -90,6 +90,8 @@ class ListEscuelaColegioController extends Controller
 
         if(!is_null($request->get('advsearch_costo')))
             $advsearch_costo=$request->get('advsearch_costo');
+        else
+            $advsearch_costo="0,500";
         if(!is_null($request->get('advsearch_chkFiscal')))
             $chkFiscal=1;
         if(!is_null($request->get('advsearch_chkFiscomisional')))

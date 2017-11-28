@@ -51,12 +51,6 @@
                                             {{ Form::label('nombre', 'Nombre de la Institución  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('nombre_corto', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre Corto de la Institución']) }}
                                         </div>
-
-                                        <div class="form-group">
-                                            {{ Form::label('clasificacion', 'Clasificación') }}
-                                            {{ Form::select('clasificacion', ['Cursos' => 'Cursos y Seminarios'],
-                                            $courseseminar->clasificacion, ['class' => 'form-control select2']) }}
-                                        </div>
                                         <div class="form-group">
                                             {{ Form::label('tipo', 'Tipo') }}
                                             {{ Form::select('tipo', ['Curso Específico' => 'Curso Específico',
@@ -65,7 +59,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('campo', 'Campo') }}
-                                            {{ Form::text('campo', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('campo', null, ['class' => 'form-control', 'PlaceHolder' => 'Campo de Estudio']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('institucion', 'Institución') }}
@@ -100,16 +94,16 @@
                                 <div class="tab-pane" id="tab_22">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono') }}
-                                            {{ Form::text('telefono', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('telefono', 'Teléfono de Contacto') }}
+                                            {{ Form::text('telefono', null, ['class' => 'form-control', 'PlaceHolder' => 'Teléfono de Contacto']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('celular', 'Celular') }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'Preferible WhatsApp']) }}
+                                            {{ Form::label('celular', 'WhatsApp') }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'WhatsApp de Contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('email', 'Email', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control', 'PlaceHolder' => 'Email de contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}
@@ -152,7 +146,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('duracion', 'Duración') }}
-                                            {{ Form::text('duracion', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('duracion', null, ['class' => 'form-control', 'PlaceHolder' => 'En horas, días, semanas o meses. Por ejemplo: "120 horas"']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('hora_ingreso', 'Hora Ingreso') }}
@@ -166,14 +160,15 @@
                                             {{ Form::label('lugar', 'Lugar') }}
                                             {{ Form::text('lugar', null, ['class' => 'form-control']) }}
                                         </div>
-                                        <div class="form-group">
-                                            {{ Form::label('objetivo', 'Objetivo') }}
-                                            {{ Form::textArea('objetivo', $courseseminar->objetivo, ['class' => 'form-control']) }}
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab_33">
                                     <div class="col-md-6 col-md-offset-0">
+                                        <br>
+                                        <div class="form-group">
+                                            {{ Form::label('objetivo', 'Objetivo') }}
+                                            {{ Form::textArea('objetivo', $courseseminar->objetivo, ['class' => 'form-control']) }}
+                                        </div>
                                         <div class="box">
                                             <div class="box-header">
                                                 <h3 class="box-title">Temario
@@ -257,7 +252,7 @@
                                                 Actual: {{ explode('/',$courseseminar->documento_pdf3)[3]}}
                                             @endif
                                             {{ Form::file('documento_pdf3', ['onchange' => 'validatePdfFiles()']) }}
-                                            <p class="help-block">Los documentos deben ser .pdf y 500K.</p>
+                                            <p class="help-block">Los documentos deben ser en formato .pdf y máximo 500K.</p>
                                         </div>
                                     </div>
                                 </div>

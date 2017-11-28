@@ -84,7 +84,7 @@
                                 {{--{{ Form::file('photo4_url') }}--}}
                                 {{--{{ Form::file('photo5_url') }}--}}
 
-                                <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
+                                <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y máximo 500K.</p>
                             </div>
                             <br>
                             {!! Form::submit('Actualizar Información', ['class' => 'btn btn-success']) !!}

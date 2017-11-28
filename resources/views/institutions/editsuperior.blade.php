@@ -60,16 +60,16 @@
                                             {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres separados por espacio']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('telefono', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('telefono', 'Teléfono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::text('telefono', null, ['class' => 'form-control', 'PlaceHolder' => 'Teléfono de Contacto']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('celular', 'Celular', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'Preferible WhatsApp']) }}
+                                            {{ Form::label('celular', 'WhatsApp', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'WhatsApp de Contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('email', 'Email  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control', 'PlaceHolder' => 'Email de contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('email_adicional', 'Email Adicional', [ 'class' => 'text text-bold' ]) }}
@@ -83,7 +83,7 @@
                                                 <img src="{{ $pregrade->institution_picture_1 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('pregrade_bg_picture', ['onchange' => 'validateBgPicturePregrade()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y máximo 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('nombre_autoridad', 'Rector o Director', [ 'class' => 'text text-bold' ]) }}
@@ -127,7 +127,7 @@
                                             {{ Form::hidden('semipresencial',0)}}
                                             {{ Form::checkbox('semipresencial') }}
                                             &nbsp;&nbsp;
-                                            {{ Form::label('distancia', 'Distancia', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('distancia', 'Distancia / Online', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('distancia',0)}}
                                             {{ Form::checkbox('distancia') }}
                                         </div>
@@ -231,10 +231,6 @@
                                             {{ Form::text('wifi_otros', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('capacidad_restaurantes', 'Capacidad Restaurantes', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::number('capacidad_restaurantes', $pregrade->capacidad_restaurantes, ['class' => 'form-control', 'min' => '0']) }}
-                                        </div>
-                                        <div class="form-group">
                                             {{ Form::label('canchas_indoor', 'Canchas de Indoor', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('canchas_indoor', $pregrade->canchas_indoor, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
@@ -305,7 +301,7 @@
                                                 <img src="{{ $pregrade->banner_inst_picture_3 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('banner_inst_picture_3', ['onchange' => 'validateBannerFiles()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y máximo 500K.</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('Fotos para la Galería', null, [ 'class' => 'text text-bold' ]) }}
@@ -345,7 +341,7 @@
                                                 <img src="{{ $pregrade->institution_picture_6 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_picture_6', ['onchange' => 'validateGalleryFiles()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y máximo 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                     </div>
                                 </div>

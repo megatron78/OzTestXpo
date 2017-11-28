@@ -75,10 +75,10 @@
                                                 <img src="{{ $institution->institution_bg_picture }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_bg_picture', ['onchange' => 'validateBgPicture()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y máximo 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::label('telefono', 'Teléfono de Contacto  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('telefono', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
@@ -87,7 +87,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('email', 'Email  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control', 'PlaceHolder' => 'Email de contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('direccion', 'Dirección del Establecimiento  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
@@ -193,18 +193,8 @@
                                 <div class="tab-pane" id="tab_33">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('extracurriculares', 'Extracurriculares', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::hidden('extracurriculares',0)}}
-                                            {{ Form::checkbox('extracurriculares') }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('horario_extendido', 'Horario Extendido', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::hidden('horario_extendido',0)}}
-                                            {{ Form::checkbox('horario_extendido') }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('salida_horario_extendido', 'Salida Horario Extendido', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('salida_horario_extendido', null, ['class' => 'form-control', 'PlaceHolder' => 'Formato am / pm']) }}
+                                            {{ Form::label('regimen', 'Régimen', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::select('regimen', ['Costa' => 'Costa', 'Sierra' => 'Sierra', 'Costa y Sierra' => 'Costa y Sierra'], $institution->regimen, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('presencial', 'Presencial', [ 'class' => 'text text-bold' ]) }}
@@ -241,6 +231,21 @@
                                             {{ Form::text('salida_matutino', null, ['class' => 'form-control', 'PlaceHolder' => 'Formato am / pm']) }}
                                         </div>
                                         <div class="form-group">
+                                            {{ Form::label('horario_extendido', 'Horario Extendido (Solo para horario matutino)', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::hidden('horario_extendido',0)}}
+                                            &nbsp;
+                                            {{ Form::checkbox('horario_extendido') }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('salida_horario_extendido', 'Salida Horario Extendido', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('salida_horario_extendido', null, ['class' => 'form-control', 'PlaceHolder' => 'Formato am / pm']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('extracurriculares', 'Extracurriculares', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::hidden('extracurriculares',0)}}
+                                            {{ Form::checkbox('extracurriculares') }}
+                                        </div>
+                                        <div class="form-group">
                                             {{ Form::label('entrada_vespertino', 'Entrada Vespertino', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('entrada_vespertino', null, ['class' => 'form-control', 'PlaceHolder' => 'Formato am / pm']) }}
                                         </div>
@@ -270,7 +275,7 @@
                                             {{ Form::textArea('actividades_extracurriculares', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('porcentaje_profesores_nativos', 'Porcentaje Profesores Nativos', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('porcentaje_profesores_nativos', 'Porcentaje Profesores Nativos para Enseñanza de Lengua Extranjera', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('porcentaje_profesores_nativos', $institution->porcentaje_profesores_nativos, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
@@ -371,11 +376,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('certificaciones_logros', 'Certificaciones y Logros', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textArea('certificaciones_logros', $institution->certificaciones_logros, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('regimen', 'Régimen', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::select('regimen', ['Costa' => 'Costa', 'Sierra' => 'Sierra', 'Costa y Sierra' => 'Costa y Sierra'], $institution->regimen, ['class' => 'form-control']) }}
+                                            {{ Form::text('certificaciones_logros', $institution->certificaciones_logros, ['class' => 'form-control']) }}
                                         </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('jurisdiccion', 'Jurisdicción', [ 'class' => 'text text-bold' ]) }}
@@ -409,7 +410,7 @@
                                                 <img src="{{ $institution->banner_inst_picture_3 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('banner_inst_picture_3', ['onchange' => 'validateBannerFiles()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y máximo 500K.</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('Fotos para la Galería', null, [ 'class' => 'text text-bold' ]) }}
@@ -449,7 +450,7 @@
                                                 <img src="{{ $institution->institution_picture_6 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_picture_6', ['onchange' => 'validateGalleryFiles()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y máximo 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                     </div>
                                 </div>

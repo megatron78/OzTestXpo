@@ -76,10 +76,10 @@
                                                 <img src="{{ $institution->institution_bg_picture }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_bg_picture', ['onchange' => 'validateBgPicture()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y 500K, formatos: jpeg, bmp, png..</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y máximo 500K, formatos: jpeg, bmp, png..</p>
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Telefono  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::label('telefono', 'Teléfono de Contacto  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::text('telefono', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
@@ -88,7 +88,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('email', 'Email  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control', 'PlaceHolder' => 'Email de contacto']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('direccion', 'Dirección  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
@@ -275,7 +275,7 @@
                                             {{ Form::textArea('actividades_extracurriculares', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('porcentaje_profesores_nativos', 'Porcentaje Profesores Nativos') }}
+                                            {{ Form::label('porcentaje_profesores_nativos', 'Porcentaje Profesores Nativos para Enseñanza de Lengua Extranjera') }}
                                             {{ Form::number('porcentaje_profesores_nativos', $institution->porcentaje_profesores_nativos, ['class' => 'form-control']) }}
                                         </div>--}}
                                         <div class="form-group">
@@ -413,7 +413,7 @@
                                                 <img src="{{ $institution->banner_inst_picture_3 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('banner_inst_picture_3', ['onchange' => 'validateBannerFiles()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 1141x351 y máximo 500K.</p>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('Fotos para la Galería', null, [ 'class' => 'text text-bold' ]) }}
@@ -453,7 +453,7 @@
                                                 <img src="{{ $institution->institution_picture_6 }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('institution_picture_6', ['onchange' => 'validateGalleryFiles()']) }}
-                                            <p class="help-block">Las imágenes deben ser de tamaño 400x180 y 500K.</p>
+                                            <p class="help-block">Las imágenes deben ser de tamaño 400x180 y máximo 500K.</p>
                                         </div>
                                     </div>
                                 </div>
