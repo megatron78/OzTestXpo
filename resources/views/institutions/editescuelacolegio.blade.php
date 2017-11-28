@@ -376,7 +376,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('certificaciones_logros', 'Certificaciones y Logros', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('certificaciones_logros', $institution->certificaciones_logros, ['class' => 'form-control']) }}
+                                            {{ Form::textArea('certificaciones_logros', $institution->certificaciones_logros, ['class' => 'form-control']) }}
                                         </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('jurisdiccion', 'Jurisdicción', [ 'class' => 'text text-bold' ]) }}

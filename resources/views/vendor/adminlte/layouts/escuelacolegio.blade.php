@@ -159,7 +159,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <!-- /.box-header -->
                                     <div class="box-body">
                                         <h5><strong><i class="fa fa-map-marker margin-r-5"></i> Ubicación</strong></h5>
-                                        <p class="text-muted">{{ str_limit(((isset($institucion->canton->name) ? $institucion->canton->name : "ND") .','.(isset($institucion->province->name) ? $institucion->province->name : "ND")),25) }}</p>
+                                        <p class="text-muted">{{ str_limit(((isset($institucion->city->name) ? $institucion->city->name : "ND") .','.(isset($institucion->province->name) ? $institucion->province->name : "ND")),25) }}</p>
 
                                         <h5><strong><i class="fa fa-users margin-r-5"></i> Educación</strong></h5>
 
