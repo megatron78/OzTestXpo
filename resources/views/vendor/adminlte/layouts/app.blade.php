@@ -472,6 +472,7 @@ desired effect
             elem.value="1";
     }
     $(document).ready(function() {
+        controlTabsCurso();
         $('#province_id').on('change', function (e) {
             var province_id = e.target.value;
             $('#city_id').empty();
@@ -541,6 +542,12 @@ desired effect
         }
         if(document.getElementsByName("instructores_detalle").length > 0) {
             CKEDITOR.replace('instructores_detalle');
+        }
+        if(document.getElementsByName("horarios").length > 0) {
+            CKEDITOR.replace('horarios');
+        }
+        if(document.getElementsByName("objetivo").length > 0) {
+            CKEDITOR.replace('objetivo');
         }
         //bootstrap WYSIHTML5 - text editor
         //$(".textarea").wysihtml5();
@@ -825,6 +832,17 @@ desired effect
                 alert('El tamaño máximo debe ser 500K');
                 document.forms[1]['institution_picture_6'].value='';
             }
+        }
+    }
+    function controlTabsCurso() {
+        var tipo= $("#tipo").val();
+        if(tipo == 'Curso por Niveles') {
+            $('[href="#tab_33"]').closest('li').hide();
+            $('[href="#tab_66"]').closest('li').show();
+        }
+        else {
+            $('[href="#tab_33"]').closest('li').show();
+            $('[href="#tab_66"]').closest('li').hide();
         }
     }
 </script>

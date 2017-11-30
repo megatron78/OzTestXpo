@@ -34,6 +34,7 @@
                                 <li class="active"><a href="#tab_11" data-toggle="tab">Información</a></li>
                                 <li><a href="#tab_22" data-toggle="tab">Descripción</a></li>
                                 <li><a href="#tab_33" data-toggle="tab">Detalles</a></li>
+                                <li><a href="#tab_66" data-toggle="tab">Cursos por Niveles</a></li>
                                 <li><a href="#tab_44" data-toggle="tab">Documentos PDF</a></li>
                                 @if(auth()->user()->isAdmin())
                                     <li><a href="#tab_55" data-toggle="tab">Administración</a></li>
@@ -62,7 +63,7 @@
                                             {{ Form::label('tipo', 'Tipo  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
                                             {{ Form::select('tipo', ['Curso Específico' => 'Curso Específico',
                                         'Curso por Niveles' => 'Curso por Niveles', 'Seminario' => 'Seminario',
-                                        'Taller' => 'Taller'], null, ['class' => 'form-control select2']) }}
+                                        'Taller' => 'Taller'], null, ['class' => 'form-control select2', 'onchange' => 'controlTabsCurso()']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('campo', 'Campo', [ 'class' => 'text text-bold' ]) }}
@@ -73,32 +74,29 @@
                                             {{ Form::text('institucion', null, ['class' => 'form-control', 'PlaceHolder' => 'Nombre de la Institución que Imparte']) }}
                                         </div>
                                         <div class="form-group">
+                                            {{ Form::label('costo', 'Costo', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('costo', 0, ['class' => 'form-control', 'min' => '0', 'PlaceHolder' => 'Costo del curso / seminario o por nivel']) }}
+                                        </div>
+                                        <div class="form-group">
                                             {{ Form::label('palabras_clave', 'Palabras Clave', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('palabras_clave', null, ['class' => 'form-control', 'PlaceHolder' => 'Máximo 4000 caracteres separados por espacio']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('telefono', 'Teléfono de Contacto  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('telefono', null, ['class' => 'form-control', 'PlaceHolder' => 'Teléfono de Contacto']) }}
+                                            {{ Form::label('presencial', 'Presencial', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::hidden('presencial',0)}}
+                                            {{ Form::checkbox('presencial') }}
+                                            &nbsp;&nbsp;
+                                            {{ Form::label('semipresencial', 'Semipresencial', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::hidden('semipresencial',0)}}
+                                            {{ Form::checkbox('semipresencial') }}
+                                            &nbsp;&nbsp;
+                                            {{ Form::label('distancia', 'Distancia', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::hidden('distancia',0)}}
+                                            {{ Form::checkbox('distancia') }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('celular', 'WhatsApp', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'WhatsApp de Contacto']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('email', 'Email', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('email', null, ['class' => 'form-control', 'PlaceHolder' => 'Email de contacto']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('costo', 'Costo', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::number('costo', 0, ['class' => 'form-control', 'min' => '0']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('duracion', 'Duración  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('duracion', null, ['class' => 'form-control', 'PlaceHolder' => 'En horas, días, semanas o meses. Por ejemplo: "120 horas"']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('instructores', 'Instructores', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('instructores', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('lugar', 'Lugar', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('lugar', null, ['class' => 'form-control', 'PlaceHolder' => 'Dirección donde se impartirá el curso / seminario']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('country_id', 'País  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
@@ -116,72 +114,44 @@
                                                 {{ Form::select('city_id', [null=>'...'], null, ['class' => 'form-control']) }}
                                             @endif
                                         </div>
+                                        <div class="form-group">
+                                            {{ Form::label('telefono', 'Teléfono de Contacto  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::text('telefono', null, ['class' => 'form-control', 'PlaceHolder' => 'Teléfono de Contacto']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('celular', 'WhatsApp', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('celular', null, ['class' => 'form-control', 'PlaceHolder' => 'WhatsApp de Contacto']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('email', 'Email', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::text('email', null, ['class' => 'form-control', 'PlaceHolder' => 'Email de contacto']) }}
+                                        </div>
+                                        {{--<div class="form-group">
+                                            {{ Form::label('instructores', 'Instructores', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('instructores', null, ['class' => 'form-control']) }}
+                                        </div>--}}
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab_22">
                                     <div class="col-md-6 col-md-offset-0">
                                         <br>
-                                        <div class="form-group">
-                                            {{ Form::label('presencial', 'Presencial', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::hidden('presencial',0)}}
-                                            {{ Form::checkbox('presencial') }}
-                                            &nbsp;&nbsp;
-                                            {{ Form::label('semipresencial', 'Semipresencial', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::hidden('semipresencial',0)}}
-                                            {{ Form::checkbox('semipresencial') }}
-                                            &nbsp;&nbsp;
-                                            {{ Form::label('distancia', 'Distancia', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::hidden('distancia',0)}}
-                                            {{ Form::checkbox('distancia') }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('cupos', 'Cupos', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::number('cupos', 0, ['class' => 'form-control', 'min' => '0']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('fecha_inicio', 'Fecha Inicio', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::date('fecha_inicio', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('fecha_fin', 'Fecha Fin', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::date('fecha_fin', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('hora_ingreso', 'Hora Ingreso', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('hora_ingreso', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('hora_salida', 'Hora Salida', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('hora_salida', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('lugar', 'Lugar', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('lugar', null, ['class' => 'form-control', 'PlaceHolder' => 'Dirección o Establecimiento de las Clases Presenciales']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('web', null, ['class' => 'form-control', 'PlaceHolder' => 'Página Web']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('facebook', 'Facebook', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('facebook', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('twitter', 'Twitter', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('twitter', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('linkedin', 'Linkedin', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('linkedin', null, ['class' => 'form-control']) }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="tab_33">
-                                    <div class="col-md-6 col-md-offset-0">
-                                        <br>
-                                        <div class="form-group">
-                                            {{ Form::label('objetivo', 'Objetivo', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('objetivo', null, ['class' => 'form-control']) }}
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Objetivo
+                                                    <small></small>
+                                                </h3>
+                                                <!-- tools box -->
+                                                <div class="pull-right box-tools">
+                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                                            data-toggle="tooltip" title="Collapse">
+                                                        <i class="fa fa-minus"></i></button>
+                                                </div>
+                                                <!-- /. tools -->
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body pad">
+                                                {{ Form::textArea('objetivo', null, ['class' => 'textarea']) }}
+                                            </div>
                                         </div>
                                         <div class="box">
                                             <div class="box-header">
@@ -204,7 +174,7 @@
                                         <br>
                                         <div class="box">
                                             <div class="box-header">
-                                                <h3 class="box-title">Detalle de Instructores
+                                                <h3 class="box-title">Información de Instructores
                                                     <small></small>
                                                 </h3>
                                                 <!-- tools box -->
@@ -228,22 +198,86 @@
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('mapa_url', null, ['class' => 'form-control', 'PlaceHolder' => 'Pegue aquí el código del mapa compartido de google map']) }}
                                         </div>
-                                        <!-- Información cursos por niveles -->
                                         <div class="form-group">
-                                            {{ Form::label('max_alumnos_x_nivel', 'Máximo Alumnos por Nivel', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::number('max_alumnos_x_nivel', 0, ['class' => 'form-control', 'min' => '0']) }}
+                                            {{ Form::label('web', 'Web', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('web', null, ['class' => 'form-control', 'PlaceHolder' => 'Página Web']) }}
                                         </div>
                                         <div class="form-group">
+                                            {{ Form::label('facebook', 'Facebook', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('facebook', null, ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('twitter', 'Twitter', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('twitter', null, ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('linkedin', 'Linkedin', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('linkedin', null, ['class' => 'form-control']) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab_33">
+                                    <div class="col-md-6 col-md-offset-0">
+                                        <br>
+                                        <div class="form-group">
+                                            {{ Form::label('fecha_inicio', 'Fecha Inicio', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::date('fecha_inicio', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('fecha_fin', 'Fecha Fin', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::date('fecha_fin', null, ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('cupos', 'Cupos', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('cupos', 0, ['class' => 'form-control', 'min' => '0']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('duracion', 'Duración  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::text('duracion', null, ['class' => 'form-control', 'PlaceHolder' => 'En horas, días, semanas o meses. Por ejemplo: "120 horas"']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('hora_ingreso', 'Hora Ingreso', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('hora_ingreso', null, ['class' => 'form-control']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('hora_salida', 'Hora Salida', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('hora_salida', null, ['class' => 'form-control']) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab_66">
+                                    <div class="col-md-6 col-md-offset-0">
+                                        <br>
+                                        <!-- Información cursos por niveles -->
+                                        <div class="form-group">
                                             {{ Form::label('meses_inicio', 'Meses Inicio', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('meses_inicio', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('meses_inicio', null, ['class' => 'form-control', 'PlaceHolder' => 'Más de uno o permanente']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('duracion_nivel', 'Duración Nivel', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('duracion_nivel', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('duracion_nivel', null, ['class' => 'form-control', 'PlaceHolder' => 'Semanas o Meses']) }}
+                                        </div>
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Horarios
+                                                    <small></small>
+                                                </h3>
+                                                <!-- tools box -->
+                                                <div class="pull-right box-tools">
+                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                                            data-toggle="tooltip" title="Collapse">
+                                                        <i class="fa fa-minus"></i></button>
+                                                </div>
+                                                <!-- /. tools -->
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body pad">
+                                                {{ Form::textArea('horarios', null, ['class' => 'textarea']) }}
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('horarios', 'Horarios', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('horarios', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('max_alumnos_x_nivel', 'Máximo Alumnos por Nivel', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::number('max_alumnos_x_nivel', 0, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                     </div>
                                 </div>
