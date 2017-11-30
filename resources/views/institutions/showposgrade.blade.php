@@ -113,7 +113,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <li><a href="#tab_3" data-toggle="tab">Temario</a></li>
                             <li><a href="#tab_4" data-toggle="tab">Información Instructores</a></li>
                             <li><a href="#tab_5" data-toggle="tab">Incluye</a></li>
-                            <li><a href="#tab_6" data-toggle="tab">Galería de Imágenes</a></li>
+                            <li><a href="#tab_6" data-toggle="tab">Mapa de Ubicación</a></li>
                             <li><a href="#tab_7" data-toggle="tab">Documentos PDF</a></li>
                             {{--<li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">

@@ -53,6 +53,9 @@ class PosgradosController extends Controller
 
         $input['user_id'] = $request->user()->id;
 
+        if (strpos($input['web'],'http') === false)
+            $input['web'] = 'http://'.$input['web'];
+
         if($input['plan'] != '3B') {
             $input['activo'] = 0;
         }
@@ -126,6 +129,9 @@ class PosgradosController extends Controller
             $fileName = $request->documento_pdf3->store('public/posgrade_pdf');
             $input['documento_pdf3'] = Storage::url($fileName);
         }
+
+        if (strpos($input['web'],'http') === false)
+            $input['web'] = 'http://'.$input['web'];
 
         $posgrade->fill($input);
         $posgrade->save();

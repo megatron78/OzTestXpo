@@ -161,13 +161,13 @@
                 </div>
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;
-                    @if(isset($carrera))
+                    {{--@if(isset($carrera))
                         <input type="text" id="search_carreras" name="search_carreras" class="form-control mx-sm-2"
                                placeholder="Carrera..." style="min-width: 400px; max-width: 400px" value="{{ $carrera }}">
                     @else
                         <input type="text" id="search_carreras" name="search_carreras" class="form-control mx-sm-2"
                                placeholder="Carrera..." style="min-width: 400px; max-width: 400px">
-                    @endif
+                    @endif--}}
                 </div>&nbsp;&nbsp;
             </div>
         </form>

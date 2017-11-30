@@ -90,6 +90,34 @@ class PosgradeCourseSeminar extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
+    public function setWebAttribute($value) {
+        if (strpos($value,'http') === false)
+            $value = 'http://'.$value;
+
+        $this->attributes['web'] = $value;
+    }
+
+    public function setFacebookAttribute($value) {
+        if (strpos($value,'http') === false)
+            $value = 'http://'.$value;
+
+        $this->attributes['facebook'] = $value;
+    }
+
+    public function setTwitterAttribute($value) {
+        if (strpos($value,'http') === false)
+            $value = 'http://'.$value;
+
+        $this->attributes['twitter'] = $value;
+    }
+
+    public function setLinkedinAttribute($value) {
+        if (strpos($value,'http') === false)
+            $value = 'http://'.$value;
+
+        $this->attributes['linkedin'] = $value;
+    }
+
     public function getUrlAttribute()
     {
         return route('posgrado.show', [isset($this->province->name) ? $this->province->name : 'provincia', isset($this->city->name) ? $this->city->name : 'ciudad', $this->id, $this->slug]);
@@ -112,7 +140,7 @@ class PosgradeCourseSeminar extends Model
 
     public function scopeKeywordtopic($query, $name)
     {
-        return $query->where('nombre', 'LIKE', "%$name%")->orWhere('palabras_clave', 'LIKE', "%$name%");
+        return $query->where('nombre', 'LIKE', "%$name%")->orWhere('palabras_clave', 'LIKE', "%$name%")->orWhere('institucion', 'LIKE', "%$name%");
     }
 
     public function scopePresencial($query, $foo, $semipresencial, $distancia) {

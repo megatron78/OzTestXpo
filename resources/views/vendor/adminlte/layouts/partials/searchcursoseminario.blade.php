@@ -140,13 +140,13 @@
                 </div>
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;
-                    @if(isset($institucion))
+                    {{--@if(isset($institucion))
                         <input type="text" id="search_institucion" name="search_institucion" class="form-control mx-sm-2"
                                placeholder="Institución..." style="min-width: 370px; max-width: 370px" value="{{ $institucion }}">
                     @else
                         <input type="text" id="search_institucion" name="search_institucion" class="form-control mx-sm-2"
                                placeholder="Institución..." style="min-width: 370px; max-width: 370px">
-                    @endif
+                    @endif--}}
                 </div>&nbsp;&nbsp;
                 <div style="border-left:1px solid whitesmoke;" class="form-group">
                     &nbsp;&nbsp;&nbsp;<label style="font-size: 14px; color: ghostwhite;"  for="advsearch_costo">Costo: <b>$ 0</b></label>

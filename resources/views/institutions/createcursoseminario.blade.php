@@ -222,7 +222,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('incluye', 'Incluye', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textArea('incluye', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('incluye', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}

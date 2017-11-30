@@ -20,7 +20,7 @@ class ListPosgradoController extends Controller
             ->orWhere('tipo', '=', 'PHD')
             ->select('id','plan','nombre','institucion','nombre_corto','slug','province_id','city_id','user_id','country_id',
                 'objetivo','duracion','fecha_inicio','costo','presencial','semipresencial','distancia',
-                'telefono','celular','email','facebook','twitter')
+                'telefono','celular','email','facebook','twitter','web')
             ->scopes($this->getRouteScope($request))
             ->orderBy('plan')
             ->orderBy('nombre')

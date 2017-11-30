@@ -177,12 +177,12 @@
                                 <div class="tab-pane" id="tab_33">
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
-                                            {{ Form::label('carreras_corto', 'Carreras y Facultades (lista separada por comas)', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textArea('carreras_corto', null, ['class' => 'form-control']) }}
+                                            {{ Form::label('carreras_corto', 'Texto Corto Visual', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::text('carreras_corto', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="box">
                                             <div class="box-header">
-                                                <h3 class="box-title">Carreras
+                                                <h3 class="box-title">Carreras y Facultades
                                                     <small>Facultades, Carreras</small>
                                                 </h3>
                                                 <!-- tools box -->

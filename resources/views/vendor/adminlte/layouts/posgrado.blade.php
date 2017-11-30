@@ -35,25 +35,38 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <div class="row">
                             @endif
                             {{-- Gold y Premium --}}
-                            <br>
                             <div class="col-md-4">
                     <!-- Widget: user widget style 1 -->
                     <div class="box box-widget widget-user-2">
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <div style="padding: 1px" class="widget-user-header bg-blue-active">
                             <!-- /.widget-user-image -->
-                            <h2 style="color: white">{{ str_limit($posgrado->nombre, $limit=29, $end="...") }}</h2>
+                            <h2 style="color: white">{{ str_limit($posgrado->nombre, $limit=23, $end="...") }}</h2>
                             <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $posgrado->institucion }}</h4>
                         </div>
                         <div class="box-footer no-padding">
-                            <div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
+                            {{--<div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
                                 {{ str_limit($posgrado->objetivo, $limit=50, $end="...") }}
+                            </div>--}}
+                            <div class="col-sm-12 centered">
+                                <h5>{{ isset($posgrado->city->name) ? $posgrado->city->name : "ND" }} /
+                                    {{ isset($posgrado->telefono) ? $posgrado->telefono : "ND" }} /
+                                    {{ isset($posgrado->email) ? $posgrado->email : "ND" }}</h5>
                             </div>
-                            <div class="col-sm-4 centered">
-                                <a href="{{ $posgrado->url }}" target="_blank" class="btn-sm bg-navy">
+                            <div class="col-sm-6 centered">
+                                <a href="{{ $posgrado->web }}" target="_blank" class="btn-sm bg-navy">
                                     Más información
                                 </a>
                             </div>
+                            <div class="col-sm-6 centered">
+                                <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
+                                   data-email="{{ $posgrado->email }}"
+                                   href="#meInteresa">
+                                    Me interesa
+                                </a>
+                            </div>
+                            <br>
+                            <br>
                             <br>
                             <hr class="bg-blue-active">
                             <div class="col-sm-6">
@@ -109,13 +122,20 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div style="padding: 1px" class="widget-user-header bg-blue-active">
                                         <!-- /.widget-user-image -->
-                                        <h2 style="color: white">{{ str_limit($posgrado->nombre, $limit=29, $end="...") }}</h2>
+                                        <h2 style="color: white">{{ str_limit($posgrado->nombre, $limit=23, $end="...") }}</h2>
                                         <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $posgrado->institucion }}</h4>
                                     </div>
                                     <div class="box-footer no-padding">
-                                        <div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
+                                        {{--<div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
                                             {{ str_limit($posgrado->objetivo, $limit=50, $end="...") }}
+                                        </div>--}}
+                                        <div class="col-sm-12 centered">
+                                            <h5>{{ isset($posgrado->city->name) ? $posgrado->city->name : "ND" }} /
+                                                {{ isset($posgrado->telefono) ? $posgrado->telefono : "ND" }} /
+                                                {{ isset($posgrado->email) ? $posgrado->email : "ND" }}</h5>
                                         </div>
+                                        <br>
+                                        <br>
                                         <hr class="bg-blue-active">
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
@@ -189,6 +209,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Bootstrap slider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.js"></script>
 <script>
+    $('#meInteresa').on('show.bs.modal', function(e) {
+        var $modal = $(this);
+        var email = $(e.relatedTarget).attr('data-email');
+        $modal.find("#email").val(email);
+        $modal.find("#tipo").val("1");
+    });
     $(function () {
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();
