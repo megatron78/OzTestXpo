@@ -90,13 +90,17 @@
                                             {{ Form::hidden('semipresencial',0)}}
                                             {{ Form::checkbox('semipresencial') }}
                                             &nbsp;&nbsp;
-                                            {{ Form::label('distancia', 'Distancia', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('distancia', 'Online', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('distancia',0)}}
                                             {{ Form::checkbox('distancia') }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('lugar', 'Lugar', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('lugar', null, ['class' => 'form-control', 'PlaceHolder' => 'Dirección donde se impartirá el curso / seminario']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ Form::label('duracion', 'Duración  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
+                                            {{ Form::text('duracion', null, ['class' => 'form-control', 'PlaceHolder' => 'En horas, días, semanas o meses. Por ejemplo: "120 horas"']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('country_id', 'País  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
@@ -230,10 +234,6 @@
                                         <div class="form-group">
                                             {{ Form::label('cupos', 'Cupos', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('cupos', 0, ['class' => 'form-control', 'min' => '0']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('duracion', 'Duración  ', [ 'class' => 'text text-bold' ]) }}&nbsp;{{ Form::label('tag', '*', [ 'class' => 'text text-bold text-red' ]) }}
-                                            {{ Form::text('duracion', null, ['class' => 'form-control', 'PlaceHolder' => 'En horas, días, semanas o meses. Por ejemplo: "120 horas"']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('hora_ingreso', 'Hora Ingreso', [ 'class' => 'text text-bold' ]) }}

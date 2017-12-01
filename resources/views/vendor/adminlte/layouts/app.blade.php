@@ -549,6 +549,12 @@ desired effect
         if(document.getElementsByName("objetivo").length > 0) {
             CKEDITOR.replace('objetivo');
         }
+        if(document.getElementsByName("certificaciones_logros").length > 0) {
+            CKEDITOR.replace('certificaciones_logros');
+        }
+        if(document.getElementsByName("descripcion").length > 0) {
+            CKEDITOR.replace('descripcion');
+        }
         //bootstrap WYSIHTML5 - text editor
         //$(".textarea").wysihtml5();
     });

@@ -185,8 +185,44 @@
                                             {{ Form::text('twitter', null, ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('descripcion', 'Descripcion', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('descripcion', 'Descripción', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::textarea('descripcion', null, ['class' => 'form-control', 'PlaceHolder' => 'Describa a su institución, por ejemplo sus valores, principios, etc.']) }}
+                                        </div>
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Descripción
+                                                    <small></small>
+                                                </h3>
+                                                <!-- tools box -->
+                                                <div class="pull-right box-tools">
+                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                                            data-toggle="tooltip" title="Collapse">
+                                                        <i class="fa fa-minus"></i></button>
+                                                </div>
+                                                <!-- /. tools -->
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body pad">
+                                                {{ Form::textArea('descripcion', $institution->certificaciones_logros, ['class' => 'textarea']) }}
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Certificaciones y Logros
+                                                    <small></small>
+                                                </h3>
+                                                <!-- tools box -->
+                                                <div class="pull-right box-tools">
+                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                                            data-toggle="tooltip" title="Collapse">
+                                                        <i class="fa fa-minus"></i></button>
+                                                </div>
+                                                <!-- /. tools -->
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body pad">
+                                                {{ Form::textArea('certificaciones_logros', $institution->certificaciones_logros, ['class' => 'textarea']) }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -205,7 +241,7 @@
                                             {{ Form::hidden('semipresencial',0)}}
                                             {{ Form::checkbox('semipresencial') }}
                                             &nbsp;&nbsp;
-                                            {{ Form::label('distancia', 'Distancia', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('distancia', 'Online', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('distancia',0)}}
                                             {{ Form::checkbox('distancia') }}
                                         </div>
@@ -373,10 +409,6 @@
                                         <div class="form-group">
                                             {{ Form::label('otros', 'Otras Áreas en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::textArea('otros', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ Form::label('certificaciones_logros', 'Certificaciones y Logros', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textArea('certificaciones_logros', $institution->certificaciones_logros, ['class' => 'form-control']) }}
                                         </div>
                                         {{--<div class="form-group">
                                             {{ Form::label('jurisdiccion', 'Jurisdicción', [ 'class' => 'text text-bold' ]) }}

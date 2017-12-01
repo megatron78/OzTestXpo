@@ -127,7 +127,7 @@
                                             {{ Form::hidden('semipresencial',0)}}
                                             {{ Form::checkbox('semipresencial') }}
                                             &nbsp;&nbsp;
-                                            {{ Form::label('distancia', 'Distancia / Online', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('distancia', 'Online', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('distancia',0)}}
                                             {{ Form::checkbox('distancia') }}
                                         </div>
@@ -178,12 +178,12 @@
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
                                             {{ Form::label('carreras_corto', 'Texto Corto Visual', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('carreras_corto', null, ['class' => 'form-control']) }}
+                                            {{ Form::text('carreras_corto', null, ['class' => 'form-control', 'PlaceHolder' => 'El que aparecerá en la cuadro de inicio']) }}
                                         </div>
                                         <div class="box">
                                             <div class="box-header">
                                                 <h3 class="box-title">Carreras y Facultades
-                                                    <small>Facultades, Carreras</small>
+                                                    <small></small>
                                                 </h3>
                                                 <!-- tools box -->
                                                 <div class="pull-right box-tools">
@@ -200,19 +200,19 @@
                                         </div>
                                         <br>
                                         <div class="form-group">
-                                            {{ Form::label('area_total', 'Área Total', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('area_total', 'Área Total en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('area_total', $pregrade->area_total, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_deportiva', 'Área Canchas Deportivas', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('area_deportiva', 'Área Canchas Deportivas en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('area_deportiva', $pregrade->area_deportiva, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_espacios_verdes', 'Área Espacios Verdes', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('area_espacios_verdes', 'Área Espacios Verdes en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('area_espacios_verdes', $pregrade->area_espacios_verdes, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('area_piscina', 'Área Piscina', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('area_piscina', 'Área Piscina en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::number('area_piscina', $pregrade->area_piscina, ['class' => 'form-control', 'min' => '0']) }}
                                         </div>
                                         <div class="form-group">
@@ -266,12 +266,26 @@
                                             {{ Form::checkbox('gimnasio') }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('otros', 'Otras Áreas', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('otros', 'Otras Áreas en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::textArea('otros', null, ['class' => 'form-control']) }}
                                         </div>
-                                        <div class="form-group">
-                                            {{ Form::label('certificaciones_logros', 'Certificaciones y Logros', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textArea('certificaciones_logros', null, ['class' => 'form-control']) }}
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Certificaciones y Logros
+                                                    <small></small>
+                                                </h3>
+                                                <!-- tools box -->
+                                                <div class="pull-right box-tools">
+                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                                            data-toggle="tooltip" title="Collapse">
+                                                        <i class="fa fa-minus"></i></button>
+                                                </div>
+                                                <!-- /. tools -->
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body pad">
+                                                {{ Form::textArea('certificaciones_logros', null, ['class' => 'textarea']) }}
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}
