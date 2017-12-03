@@ -170,7 +170,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 <dd>Semipresencial</dd>
                                             @endif
                                             @if($posgrado->distancia)
-                                                <dd>Distancia</dd>
+                                                <dd>Online</dd>
                                             @endif
                                             <dt>Cupos</dt>
                                             @if(!empty($posgrado->cupo))
@@ -237,25 +237,25 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             @endif
                                             <dt>Web</dt>
                                             @if(!empty($posgrado->web))
-                                                <dd>{{ $posgrado->web }}</dd>
+                                                <dd><a href="{{ $posgrado->web }}" target="_blank">{{ $posgrado->web }}</a></dd>
                                             @else
                                                 <dd>N/D</dd>
                                             @endif
                                             <dt>Redes Sociales</dt>
                                             <dd>
                                                 @if(!empty($posgrado->facebook))
-                                                    <a href="{{ $posgrado->facebook }}"
+                                                    <a href="{{ $posgrado->facebook }}" target="_blank"
                                                        class="btn btn-social-icon btn-facebook"><i
                                                                 class="fa fa-facebook"></i></a>
                                                 @endif
                                                 @if(!empty($posgrado->twitter))
                                                     &nbsp
-                                                    <a href="{{ $posgrado->twitter }}"
+                                                    <a href="{{ $posgrado->twitter }}" target="_blank"
                                                        class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                                 @endif
                                                 @if(!empty($posgrado->linkedin))
                                                     &nbsp
-                                                    <a href="{{ $posgrado->linkedin }}"
+                                                    <a href="{{ $posgrado->linkedin }}" target="_blank"
                                                        class="btn btn-social-icon btn-linkedin"><i
                                                                 class="fa fa-linkedin"></i></a>
                                                 @else
@@ -324,14 +324,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_2">
                                 <div class="box-body">
                                     {{--<b class="text-blue">Instalaciones</b>--}}
-                                    <dl class="dl-horizontal">
-                                        <dt>Objetivo</dt>
-                                        @if(!empty($posgrado->objetivo))
-                                            <dd>{{ $posgrado->objetivo }}</dd>
-                                        @else
-                                            <dd>N/D</dd>
-                                        @endif
-                                    </dl>
+                                    @if(!empty($posgrado->objetivo))
+                                        <dd>{!! $posgrado->objetivo !!}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -339,58 +336,59 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_3">
                                 <div class="box-body">
                                     {{--<b class="text-blue">Instalaciones</b>--}}
-                                    <dl class="dl-horizontal">
-                                        <dt>Temario</dt>
-                                        @if(!empty($posgrado->temario))
-                                            <dd>{!! $posgrado->temario !!}</dd>
-                                        @else
-                                            <dd>N/D</dd>
-                                        @endif
-                                    </dl>
+                                    @if(!empty($posgrado->temario))
+                                        <dd>{!! $posgrado->temario !!}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                 </div>
                                 <!-- /.box-body -->
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_4">
-                                <dl class="dl-horizontal">
-                                    <dt>Instructores</dt>
+                                <div class="box-body">
                                     @if(!empty($posgrado->instructores_detalle))
                                         <dd>{!! $posgrado->instructores_detalle  !!}</dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <hr>
-                                </dl>
+                                </div>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_5">
-                                <dt>Incluye</dt>
-                                @if(!empty($posgrado->incluye))
-                                    <dd>{{ $posgrado->incluye }}</dd>
-                                @else
-                                    <dd>N/D</dd>
-                                @endif
+                                <div class="box-body">
+                                    @if(!empty($posgrado->incluye))
+                                        <dd>{!! $posgrado->incluye !!}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
+                                </div>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_6">
-                                @if(isset($posgrado->mapa_url) && !empty($posgrado->mapa_url))
-                                    {!! $posgrado->mapa_url !!}
-                                @endif
+                                <div class="box-body">
+                                    @if(isset($posgrado->mapa_url) && !empty($posgrado->mapa_url))
+                                        {!! $posgrado->mapa_url !!}
+                                    @else
+                                        N/D
+                                    @endif
+                                </div>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_7">
-                                <dt>Documentos</dt>
-                                @if(!empty($posgrado->documento_pdf1))
-                                    <dd>{{ $posgrado->documento_pdf1 }}</dd>
-                                @endif
-                                @if(!empty($posgrado->documento_pdf2))
-                                    <dd>{{ $posgrado->documento_pdf2 }}</dd>
-                                @endif
-                                @if(!empty($posgrado->documento_pdf3))
-                                    <dd>{{ $posgrado->documento_pdf3 }}</dd>
-                                @else
-                                    <dd>N/D</dd>
-                                @endif
+                                <div class="box-body">
+                                    @if(!empty($posgrado->documento_pdf1))
+                                        <dd>{{ $posgrado->documento_pdf1 }}</dd>
+                                    @endif
+                                    @if(!empty($posgrado->documento_pdf2))
+                                        <dd>{{ $posgrado->documento_pdf2 }}</dd>
+                                    @endif
+                                    @if(!empty($posgrado->documento_pdf3))
+                                        <dd>{{ $posgrado->documento_pdf3 }}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
+                                </div>
                             </div>
                             <!-- /.tab-pane -->
                         </div>

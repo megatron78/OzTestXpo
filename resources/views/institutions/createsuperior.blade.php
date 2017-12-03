@@ -172,9 +172,41 @@
                                             {{ Form::label('linkedin', 'Linkedin', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('linkedin', null, ['class' => 'form-control']) }}
                                         </div>
-                                        <div class="form-group">
-                                            {{ Form::label('descripcion', 'Descripcion', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('descripcion', null, ['class' => 'form-control', 'PlaceHolder' => 'Describa a su institución, por ejemplo sus valores, principios, etc.']) }}
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Descripción
+                                                    <small></small>
+                                                </h3>
+                                                <!-- tools box -->
+                                                <div class="pull-right box-tools">
+                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                                            data-toggle="tooltip" title="Collapse">
+                                                        <i class="fa fa-minus"></i></button>
+                                                </div>
+                                                <!-- /. tools -->
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body pad">
+                                                {{ Form::textArea('descripcion', null, ['class' => 'textarea']) }}
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Certificaciones y Logros
+                                                    <small></small>
+                                                </h3>
+                                                <!-- tools box -->
+                                                <div class="pull-right box-tools">
+                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                                            data-toggle="tooltip" title="Collapse">
+                                                        <i class="fa fa-minus"></i></button>
+                                                </div>
+                                                <!-- /. tools -->
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body pad">
+                                                {{ Form::textArea('certificaciones_logros', null, ['class' => 'textarea']) }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -182,7 +214,7 @@
                                     <div class="col-md-6 col-md-offset-0">
                                         <div class="form-group">
                                             {{ Form::label('carreras_corto', 'Texto Corto Visual', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('carreras_corto', null, ['class' => 'form-control', 'PlaceHolder' => 'El que aparecerá en la cuadro de inicio']) }}
+                                            {{ Form::text('carreras_corto', null, ['class' => 'form-control', 'PlaceHolder' => 'El que aparecerá en el cuadro de inicio']) }}
                                         </div>
                                         <div class="box">
                                             <div class="box-header">
@@ -273,24 +305,6 @@
                                         <div class="form-group">
                                             {{ Form::label('otros', 'Otras Áreas en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::textArea('otros', null, ['class' => 'form-control']) }}
-                                        </div>
-                                        <div class="box">
-                                            <div class="box-header">
-                                                <h3 class="box-title">Certificaciones y Logros
-                                                    <small></small>
-                                                </h3>
-                                                <!-- tools box -->
-                                                <div class="pull-right box-tools">
-                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
-                                                            data-toggle="tooltip" title="Collapse">
-                                                        <i class="fa fa-minus"></i></button>
-                                                </div>
-                                                <!-- /. tools -->
-                                            </div>
-                                            <!-- /.box-header -->
-                                            <div class="box-body pad">
-                                                {{ Form::textArea('certificaciones_logros', null, ['class' => 'textarea']) }}
-                                            </div>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}

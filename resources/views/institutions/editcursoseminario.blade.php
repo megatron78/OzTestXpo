@@ -25,7 +25,7 @@
                             </div>
                         @endif
                     </div>
-                    {!! Form::model($courseseminar, array('files' => true, 'route' => array('posgrados.edit', $courseseminar->id))) !!}
+                    {!! Form::model($courseseminar, array('files' => true, 'route' => array('cursoseminario.edit', $courseseminar->id))) !!}
                     <div class="box-body with-border">
                         <div class="nav-tabs-custom">
                             {!! Form::submit('Actualizar Registro', ['class' => 'btn btn-success']) !!}
@@ -178,9 +178,23 @@
                                                 {{ Form::textArea('instructores_detalle', $courseseminar->instructores_detalle, ['class' => 'textarea']) }}
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            {{ Form::label('incluye', 'Incluye', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::text('incluye', $courseseminar->incluye, ['class' => 'textarea']) }}
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Incluye
+                                                    <small></small>
+                                                </h3>
+                                                <!-- tools box -->
+                                                <div class="pull-right box-tools">
+                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                                            data-toggle="tooltip" title="Collapse">
+                                                        <i class="fa fa-minus"></i></button>
+                                                </div>
+                                                <!-- /. tools -->
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body pad">
+                                                {{ Form::textArea('incluye', $courseseminar->incluye, ['class' => 'textarea']) }}
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}

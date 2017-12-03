@@ -221,20 +221,20 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @endif
                                     <dt>Web</dt>
                                     @if(!empty($institution->web))
-                                        <dd>{{ $institution->web }}</dd>
+                                        <dd><a href="{{ $institution->web }}" target="_blank">{{ $institution->web }}</a></dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
                                     <dt>Redes Sociales</dt>
                                     <dd>
                                         @if(!empty($institution->facebook))
-                                            <a href="{{ $institution->facebook }}"
+                                            <a href="{{ $institution->facebook }}" target="_blank"
                                                class="btn btn-social-icon btn-facebook"><i
                                                         class="fa fa-facebook"></i></a>
                                         @endif
                                         @if(!empty($institution->twitter))
                                             &nbsp
-                                            <a href="{{ $institution->twitter }}"
+                                            <a href="{{ $institution->twitter }}" target="_blank"
                                                class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                         @else
                                             N/D
@@ -302,14 +302,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_2">
                                 <div class="box-body">
                                     {{--<b class="text-blue">Instalaciones</b>--}}
-                                    <dl class="dl-horizontal">
-                                        <dt></dt>
-                                        @if(!empty($institution->descripcion))
-                                            <dd>{{ $institution->descripcion }}</dd>
-                                        @else
-                                            <dd>N/D</dd>
-                                        @endif
-                                    </dl>
+
+                                    @if(!empty($institution->descripcion))
+                                        {!! $institution->descripcion !!}
+                                    @else
+                                        N/D
+                                    @endif
+
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -346,7 +345,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>Semipresencial</dd>
                                     @endif
                                     @if($institution->distancia)
-                                        <dd>Distancia</dd>
+                                        <dd>Online</dd>
                                     @endif
                                     <dt>Horario</dt>
                                     @if($institution->matutino)
@@ -539,7 +538,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_4">
                                 <dt></dt>
                                 @if(!empty($institution->certificaciones_logros))
-                                    <dd>{{ $institution->certificaciones_logros }}</dd>
+                                    <dd>{!! $institution->certificaciones_logros !!}</dd>
                                 @else
                                     <dd>N/D</dd>
                                 @endif

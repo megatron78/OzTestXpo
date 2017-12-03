@@ -54,7 +54,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{ isset($cursoseminario->email) ? $cursoseminario->email : "ND" }}</h5>
                             </div>
                             <div class="col-sm-6 centered">
-                                <a href="{{ $cursoseminario->web }}" target="_blank" class="btn-sm bg-navy">
+                                <a href="{{ $cursoseminario->url }}" target="_blank" class="btn-sm bg-navy">
                                     Más información
                                 </a>
                             </div>
@@ -71,34 +71,34 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <hr class="bg-blue-active">
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $cursoseminario->duracion }}</span>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $cursoseminario->duracion }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $cursoseminario->fecha_inicio }}</span>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text"> {{ $cursoseminario->fecha_inicio }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $cursoseminario->costo }}</span>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $cursoseminario->costo }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">
                                         @if($cursoseminario->presencial)
                                             Presencial</span>
                                         @elseif($cursoseminario->semipresencial)
                                             Semipresencial</span>
                                         @elseif($cursoseminario->distancia)
-                                            Distancia</span>
+                                            Online</span>
                                         @endif
                                 </div>
                                 <!-- /.description-block -->
@@ -139,34 +139,34 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <hr class="bg-blue-active">
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $cursoseminario->duracion }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $cursoseminario->duracion }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $cursoseminario->fecha_inicio }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text"> {{ $cursoseminario->fecha_inicio }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $cursoseminario->costo }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $cursoseminario->costo }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">
                                         @if($cursoseminario->presencial)
                                             Presencial</span>
                                                 @elseif($cursoseminario->semipresencial)
                                                     Semipresencial</span>
                                                 @elseif($cursoseminario->distancia)
-                                                    Distancia</span>
+                                                    Online</span>
                                                 @endif
                                             </div>
                                             <!-- /.description-block -->

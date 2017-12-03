@@ -73,6 +73,7 @@ desired effect
                 {data: 'plan', name: 'plan'},
                 {data: 'plan_desde', name: 'plan_desde'},
                 {data: 'plan_hasta', name: 'plan_hasta'},
+                {data: 'institution', name: 'institution'},
             ],
             "columnDefs" : [
                 {
@@ -554,6 +555,9 @@ desired effect
         }
         if(document.getElementsByName("descripcion").length > 0) {
             CKEDITOR.replace('descripcion');
+        }
+        if(document.getElementsByName("incluye").length > 0) {
+            CKEDITOR.replace('incluye');
         }
         //bootstrap WYSIHTML5 - text editor
         //$(".textarea").wysihtml5();

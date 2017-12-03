@@ -162,7 +162,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>Semipresencial</dd>
                                     @endif
                                     @if($pregrade->distancia)
-                                        <dd>Distancia</dd>
+                                        <dd>Online</dd>
                                     @endif
                                     <dt>Horarios</dt>
                                     @if($pregrade->matutino)
@@ -194,25 +194,25 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @endif
                                     <dt>Web</dt>
                                     @if(!empty($pregrade->web))
-                                        <dd>{{ $pregrade->web }}</dd>
+                                        <dd><a href="{{ $pregrade->web }}" target="_blank">{{ $pregrade->web }}</a></dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
                                     <dt>Redes Sociales</dt>
                                     <dd>
                                         @if(!empty($pregrade->facebook))
-                                            <a href="{{ $pregrade->facebook }}"
+                                            <a href="{{ $pregrade->facebook }}" target="_blank"
                                                class="btn btn-social-icon btn-facebook"><i
                                                         class="fa fa-facebook"></i></a>
                                         @endif
                                         @if(!empty($pregrade->twitter))
                                             &nbsp
-                                            <a href="{{ $pregrade->twitter }}"
+                                            <a href="{{ $pregrade->twitter }}" target="_blank"
                                                class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
                                         @endif
                                         @if(!empty($pregrade->linkedin))
                                             &nbsp
-                                                <a href="{{ $pregrade->linkedin }}"
+                                                <a href="{{ $pregrade->linkedin }}" target="_blank"
                                                    class="btn btn-social-icon btn-linkedin"><i
                                                             class="fa fa-linkedin"></i></a>
                                         @else
@@ -281,14 +281,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_2">
                                 <div class="box-body">
                                     {{--<b class="text-blue">Instalaciones</b>--}}
-                                    <dl class="dl-horizontal">
-                                        <dt>Descripción</dt>
-                                        @if(!empty($pregrade->descripcion))
-                                            <dd>{{ $pregrade->descripcion }}</dd>
-                                        @else
-                                            <dd>N/D</dd>
-                                        @endif
-                                    </dl>
+                                    @if(!empty($pregrade->descripcion))
+                                        <dd>{!! $pregrade->descripcion !!}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -419,7 +416,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_5">
                                 <dt></dt>
                                 @if(!empty($pregrade->certificaciones_logros))
-                                    <dd>{{ $pregrade->certificaciones_logros }}</dd>
+                                    <dd>{!! $pregrade->certificaciones_logros !!}</dd>
                                 @else
                                     <dd>N/D</dd>
                                 @endif

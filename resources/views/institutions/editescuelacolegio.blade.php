@@ -184,10 +184,6 @@
                                             {{ Form::label('twitter', 'Twitter', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('twitter', null, ['class' => 'form-control']) }}
                                         </div>
-                                        <div class="form-group">
-                                            {{ Form::label('descripcion', 'Descripción', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textarea('descripcion', null, ['class' => 'form-control', 'PlaceHolder' => 'Describa a su institución, por ejemplo sus valores, principios, etc.']) }}
-                                        </div>
                                         <div class="box">
                                             <div class="box-header">
                                                 <h3 class="box-title">Descripción

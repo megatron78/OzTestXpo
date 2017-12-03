@@ -15,12 +15,10 @@ class ListPosgradoController extends Controller
     public function __invoke(Request $request) {
         //dd($request->get('search_province')."-".$request->get('search_city'));
         $posgrades = PosgradeCourseSeminar::where('activo', '=', 1)
-            ->orWhere('tipo', '=', 'Masterado')
-            ->orWhere('tipo', '=', 'Doctorado')
-            ->orWhere('tipo', '=', 'PHD')
+            ->where('clasificacion', 'Posgrado')
             ->select('id','plan','nombre','institucion','nombre_corto','slug','province_id','city_id','user_id','country_id',
                 'objetivo','duracion','fecha_inicio','costo','presencial','semipresencial','distancia',
-                'telefono','celular','email','facebook','twitter','web')
+                'telefono','celular','email','facebook','twitter','web','clasificacion')
             ->scopes($this->getRouteScope($request))
             ->orderBy('plan')
             ->orderBy('nombre')

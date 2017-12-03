@@ -46,6 +46,7 @@
 								<th>Plan</th>
 								<th>Plan desde</th>
 								<th>Plan hasta</th>
+								<th>Institución</th>
 							</tr>
 							</thead>
 						</table>

@@ -217,9 +217,23 @@
                                                 {{ Form::textArea('instructores_detalle', null, ['class' => 'textarea']) }}
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            {{ Form::label('incluye', 'Incluye', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::textArea('incluye', null, ['class' => 'form-control']) }}
+                                        <div class="box">
+                                            <div class="box-header">
+                                                <h3 class="box-title">Incluye
+                                                    <small></small>
+                                                </h3>
+                                                <!-- tools box -->
+                                                <div class="pull-right box-tools">
+                                                    <button type="button" class="btn btn-default btn-sm" data-widget="collapse"
+                                                            data-toggle="tooltip" title="Collapse">
+                                                        <i class="fa fa-minus"></i></button>
+                                                </div>
+                                                <!-- /. tools -->
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body pad">
+                                                {{ Form::textArea('incluye', null, ['class' => 'textarea']) }}
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}
