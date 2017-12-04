@@ -71,21 +71,21 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <hr class="bg-blue-active">
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $cursoseminario->duracion }}</span>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> &nbsp;{{ $cursoseminario->duracion }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text"> {{ $cursoseminario->fecha_inicio }}</span>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text"> &nbsp;{{ $cursoseminario->fecha_inicio }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $cursoseminario->costo }}</span>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> &nbsp;{{ $cursoseminario->costo }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
@@ -94,11 +94,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <div class="description-block pull-left">
                                     <i style="vertical-align: middle; font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">
                                         @if($cursoseminario->presencial)
-                                            Presencial</span>
+                                            &nbsp;Presencial</span>
                                         @elseif($cursoseminario->semipresencial)
-                                            Semipresencial</span>
+                                            &nbsp;Semipresencial</span>
                                         @elseif($cursoseminario->distancia)
-                                            Online</span>
+                                            &nbsp;Online</span>
                                         @endif
                                 </div>
                                 <!-- /.description-block -->
@@ -139,21 +139,21 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <hr class="bg-blue-active">
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $cursoseminario->duracion }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">&nbsp; {{ $cursoseminario->duracion }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text"> {{ $cursoseminario->fecha_inicio }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text">&nbsp; {{ $cursoseminario->fecha_inicio }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $cursoseminario->costo }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">&nbsp; {{ $cursoseminario->costo }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
@@ -162,11 +162,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             <div class="description-block pull-left">
                                                 <i style="vertical-align: middle; font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">
                                         @if($cursoseminario->presencial)
-                                            Presencial</span>
+                                                    &nbsp;Presencial</span>
                                                 @elseif($cursoseminario->semipresencial)
-                                                    Semipresencial</span>
+                                                    &nbsp;Semipresencial</span>
                                                 @elseif($cursoseminario->distancia)
-                                                    Online</span>
+                                                    &nbsp;Online</span>
                                                 @endif
                                             </div>
                                             <!-- /.description-block -->

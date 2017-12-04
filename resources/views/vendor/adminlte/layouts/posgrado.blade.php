@@ -71,34 +71,34 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <hr class="bg-blue-active">
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="padding-bottom: 10px; font-size: 18px" class="description-text"> {{ $posgrado->duracion }}</span>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="padding-bottom: 10px; font-size: 18px" class="description-text">&nbsp; {{ $posgrado->duracion }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text">{{ $posgrado->fecha_inicio }}</span>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text">&nbsp;{{ $posgrado->fecha_inicio }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $posgrado->costo }}</span>
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">&nbsp; {{ $posgrado->costo }}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-6">
                                 <div class="description-block pull-left">
-                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">
+                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-ios-people-outline text-blue"></i><span style="font-size: 18px" class="description-text">
                                         @if($posgrado->presencial)
-                                            Presencial</span>
+                                            &nbsp;Presencial</span>
                                         @elseif($posgrado->semipresencial)
-                                            Semipresencial</span>
+                                            &nbsp;Semipresencial</span>
                                         @elseif($posgrado->distancia)
-                                            Online</span>
+                                            &nbsp;Online</span>
                                         @endif
                                 </div>
                                 <!-- /.description-block -->
@@ -139,21 +139,21 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <hr class="bg-blue-active">
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> {{ $posgrado->duracion }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">&nbsp; {{ $posgrado->duracion }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text">{{ $posgrado->fecha_inicio }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text">&nbsp; {{ $posgrado->fecha_inicio }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i><span style="font-size: 18px" class="description-text">{{ $posgrado->costo }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i><span style="font-size: 18px" class="description-text">&nbsp; {{ $posgrado->costo }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
@@ -162,11 +162,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             <div class="description-block pull-left">
                                                 <i style="vertical-align: middle; font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">
                                         @if($posgrado->presencial)
-                                            Presencial</span>
+                                                    &nbsp;Presencial</span>
                                                 @elseif($posgrado->semipresencial)
-                                                    Semipresencial</span>
+                                                    &nbsp;Semipresencial</span>
                                                 @elseif($posgrado->distancia)
-                                                    Online</span>
+                                                    &nbsp;Online</span>
                                                 @endif
                                             </div>
                                             <!-- /.description-block -->
