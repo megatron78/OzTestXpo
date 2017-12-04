@@ -78,13 +78,19 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     <h5 class="description-header">Niveles</h5>
                                                     <span class="description-text">
                                                     @if($institucion->preescolar)
-                                                            INICIAL, </span>
+                                                            INICIAL </span>
                                                     @endif
-                                                    @if($institucion->escuela)
-                                                         EGB</span>
+                                                    @if($institucion->escuela and $institucion->preescolar)
+                                                         , EGB</span>
+                                                    @endif
+                                                    @if($institucion->escuela and !$institucion->colegio)
+                                                        EGB</span>
+                                                    @endif
+                                                    @if($institucion->escuela and $institucion->colegio)
+                                                        EGB, </span>
                                                     @endif
                                                     @if($institucion->colegio)
-                                                        , BGU</span>
+                                                        BGU</span>
                                                     @endif
                                                 </div>
                                                 <!-- /.description-block -->
@@ -179,13 +185,19 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 
                                         <p>
                                             @if($institucion->preescolar)
-                                                INICIAL, </span>
+                                                INICIAL </span>
                                             @endif
-                                            @if($institucion->escuela)
-                                                 EGB</span>
+                                            @if($institucion->escuela and $institucion->preescolar)
+                                                , EGB</span>
+                                            @endif
+                                            @if($institucion->escuela and !$institucion->colegio)
+                                                EGB</span>
+                                            @endif
+                                            @if($institucion->escuela and $institucion->colegio)
+                                                EGB, </span>
                                             @endif
                                             @if($institucion->colegio)
-                                                 , BGU</span>
+                                                  BGU</span>
                                             @endif
                                         </p>
 

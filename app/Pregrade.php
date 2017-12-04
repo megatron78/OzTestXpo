@@ -106,29 +106,37 @@ class Pregrade extends Model
     }
 
     public function setWebAttribute($value) {
-        if (strpos($value,'http') === false)
-            $value = 'http://'.$value;
+        if(!empty($value)) {
+            if (strpos($value, 'http') === false)
+                $value = 'http://' . $value;
+        }
 
         $this->attributes['web'] = $value;
     }
 
     public function setFacebookAttribute($value) {
-        if (strpos($value,'http') === false)
-            $value = 'http://'.$value;
+        if(!empty($value)) {
+            if (strpos($value, 'http') === false)
+                $value = 'http://' . $value;
+        }
 
         $this->attributes['facebook'] = $value;
     }
 
     public function setTwitterAttribute($value) {
-        if (strpos($value,'http') === false)
-            $value = 'http://'.$value;
+        if(!empty($value)) {
+            if (strpos($value, 'http') === false)
+                $value = 'http://' . $value;
+        }
 
         $this->attributes['twitter'] = $value;
     }
 
     public function setLinkedinAttribute($value) {
-        if (strpos($value,'http') === false)
-            $value = 'http://'.$value;
+        if(!empty($value)) {
+            if (strpos($value, 'http') === false)
+                $value = 'http://' . $value;
+        }
 
         $this->attributes['linkedin'] = $value;
     }
