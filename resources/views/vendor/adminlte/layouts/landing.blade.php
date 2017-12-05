@@ -61,14 +61,20 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             <div class="description-block">
                                                 <h5 class="description-header">Niveles</h5>
                                                 <span class="description-text">
-                                                    @if($institucionview->preescolar)
+                                                @if($institucionview->preescolar)
                                                         INICIAL</span>
                                                 @endif
-                                                @if($institucionview->escuela)
+                                                @if($institucionview->escuela and $institucionview->preescolar)
                                                     , EGB</span>
                                                 @endif
+                                                @if($institucionview->escuela and !$institucionview->colegio)
+                                                    EGB</span>
+                                                @endif
+                                                @if($institucionview->escuela and $institucionview->colegio)
+                                                    EGB, </span>
+                                                @endif
                                                 @if($institucionview->colegio)
-                                                    , BGU</span>
+                                                    BGU</span>
                                                 @endif
                                             </div>
                                             <!-- /.description-block -->
