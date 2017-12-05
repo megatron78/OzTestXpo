@@ -197,7 +197,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @else
                                                     <dd>N/D</dd>
                                                 @endif
-                                                <dt>Lugar</dt>
+                                                <dt>Dirección</dt>
                                                 @if(!empty($cursoseminario->lugar))
                                                     <dd>{{ $cursoseminario->lugar }}</dd>
                                                 @else
@@ -426,7 +426,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @else
                                                     <dd>N/D</dd>
                                                 @endif
-                                                <dt>Costo</dt>
+                                                <dt>Costo (USD $)</dt>
                                                 @if(!empty($cursoseminario->costo))
                                                     <dd>{{ $cursoseminario->costo }}</dd>
                                                 @else
@@ -442,7 +442,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @if($cursoseminario->distancia)
                                                     <dd>On line</dd>
                                                 @endif
-                                                <dt>Duración (horas, días, etc.)</dt>
+                                                <dt>Duración</dt>
                                                 @if(!empty($cursoseminario->duracion))
                                                     <dd>{{ $cursoseminario->duracion }}</dd>
                                                 @else
@@ -454,7 +454,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @else
                                                     <dd>N/D</dd>
                                                 @endif
-                                                <dt>Modalidades</dt>
+                                                {{--<dt>Modalidades</dt>
                                                 @if($cursoseminario->presencial)
                                                     <dd>Presencial</dd>
                                                 @endif
@@ -463,7 +463,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @endif
                                                 @if($cursoseminario->distancia)
                                                     <dd>On line</dd>
-                                                @endif
+                                                @endif--}}
                                                 <dt>Fecha de Inicio</dt>
                                                 @if(!empty($cursoseminario->fecha_inicio))
                                                     <dd>{{ $cursoseminario->fecha_inicio }}</dd>
@@ -494,7 +494,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @else
                                                     <dd>N/D</dd>
                                                 @endif
-                                                <dt>Lugar</dt>
+                                                <dt>Dirección</dt>
                                                 @if(!empty($cursoseminario->lugar))
                                                     <dd>{{ $cursoseminario->lugar }}</dd>
                                                 @else

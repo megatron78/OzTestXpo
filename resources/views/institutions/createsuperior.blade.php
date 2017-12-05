@@ -257,7 +257,7 @@
                                             {{ Form::checkbox('seguridad_privada') }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('wifi_interior', 'Wifi Interior', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('wifi_interior', 'Wifi en Aulas', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('wifi_interior',0)}}
                                             {{ Form::checkbox('wifi_interior') }}
                                             {{--{{ Form::label('wifi_exterior', 'Wifi Exterior') }}--}}

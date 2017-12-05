@@ -340,7 +340,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @else
                                         <dd>NO</dd>
                                     @endif
-                                    <dt>Wifi exterior</dt>
+                                    <dt>Wifi otras Áreas</dt>
                                     @if(!empty($pregrade->wifi_otros))
                                         <dd>{{ $pregrade->wifi_otros }}</dd>
                                     @else

@@ -331,13 +331,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @else
                                         <dd>NO</dd>
                                     @endif
-                                    <dt>Horario Ingreso Diurno</dt>
+                                    <dt>Hora de Ingreso Normal</dt>
                                     @if(!empty($institution->entrada_matutino))
                                         <dd>{{ $institution->entrada_matutino }}</dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Horario Salida Diurno</dt>
+                                    <dt>Hora de Salida Normal</dt>
                                     @if(!empty($institution->salida_matutino))
                                         <dd>{{ $institution->salida_matutino }}</dd>
                                     @else
@@ -379,7 +379,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Área Canchas Deportivas en m2</dt>
+                                    <dt>Área Canchas Dep. en m2</dt>
                                     @if(!empty($institution->area_deportiva))
                                         <dd>{{ $institution->area_deportiva }}</dd>
                                     @else
@@ -427,7 +427,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @else
                                         <dd>NO</dd>
                                     @endif
-                                    <dt>Otros</dt>
+                                    <dt>Otras Áreas en m2</dt>
                                     @if(!empty($institution->otros))
                                         <dd>{{ $institution->otros }}</dd>
                                     @else

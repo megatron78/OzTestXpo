@@ -315,7 +315,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_3">
                                 <dl class="dl-horizontal">
-                                    <dt>Actividades Extracurriculares</dt>
+                                    <dt>Extracurriculares</dt>
                                     @if(!empty($institution->extracurriculares))
                                         @if($institution->extracurriculares)
                                             <dd>SI</dd>
@@ -387,7 +387,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @else
                                         <dd>NO</dd>
                                     @endif
-                                    <dt>% Profesores Nativos Extranjeros</dt>
+                                    <dt>Profesores Nativos<br>de Lengua Extranjera</dt>
                                     @if(!empty($institution->porcentaje_profesores_nativos))
                                         <dd>{{$institution->porcentaje_profesores_nativos}} %</dd>
                                     @else
@@ -465,12 +465,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @else
                                         <dd>NO</dd>
                                     @endif
-                                    <dt>Capacidad en Restaurantes</dt>
+                                    {{--<dt>Capacidad en Restaurantes</dt>
                                     @if(!empty($institution->capacidad_restaurantes))
                                         <dd>{{ $institution->capacidad_restaurantes }}</dd>
                                     @else
                                         <dd>N/D</dd>
-                                    @endif
+                                    @endif--}}
                                     <dt>Canchas Indoor Fútbol</dt>
                                     @if(!empty($institution->canchas_indoor))
                                         <dd>{{ $institution->canchas_indoor }}</dd>
@@ -507,12 +507,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @else
                                         <dd>NO</dd>
                                     @endif
-                                    <dt>Computadoras para Alumnos</dt>
+                                    {{--<dt>Computadoras para Alumnos</dt>
                                     @if(!empty($institution->computadoras_para_alumnos))
                                         <dd>{{ $institution->computadoras_para_alumnos }}</dd>
                                     @else
                                         <dd>N/D</dd>
-                                    @endif
+                                    @endif--}}
                                     <dt>Teatro</dt>
                                     @if($institution->teatro)
                                         <dd>SI</dd>
