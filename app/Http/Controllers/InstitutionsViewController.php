@@ -36,7 +36,7 @@ class InstitutionsViewController extends Controller
 
         $sqlQuery = "SELECT '', 'Sostenimiento', 'Promedio Pensión', 
                         'Religión', 'Género', 'Horario Extendido', 'Total Estudiantes', 'Máximo Estudiantes por Clase', 
-                        'Área Total', 'Área Deportiva', 'Área Espacios Verdes', 'Área Piscina', 'Cámara IP Entrada/Salida', 
+                        'Área Total en m2', 'Área Deportiva en m2', 'Área Espacios Verdes en m2', 'Área Piscina en m2', 'Cámara IP Entrada/Salida', 
                         'Cámara IP Aulas/Espacios'
                         union all
                         select nombre_corto as `Nombre Corto`,
@@ -79,10 +79,10 @@ class InstitutionsViewController extends Controller
 								CASE WHEN horario_extendido = 1 THEN 'SI' ELSE 'NO' END AS `Horario Extendido`,
 								coalesce(total_estudiantes, 0) as `Total Estudiantes`, 
 								coalesce(max_estudiantes_x_clase, 0) as `Máximo Estudiantes por Clase`,
-                        coalesce(area_total, 0) as `Área Total`,
-								coalesce(area_deportiva, 0) as `Área Deportiva`,
-								coalesce(area_espacios_verdes, 0) as `Área Espacios Verdes`, 
-								coalesce(area_piscina, 0) as `Área Piscina`,
+                        coalesce(area_total, 0) as `Área Total en m2`,
+								coalesce(area_deportiva, 0) as `Área Deportiva en m2`,
+								coalesce(area_espacios_verdes, 0) as `Área Espacios Verdes en m2`, 
+								coalesce(area_piscina, 0) as `Área Piscina en m2`,
 								CASE WHEN camara_ip_entrada_salida = 1 THEN 'SI' ELSE 'NO' END AS `Cámara IP Entrada/Salida`,
                         CASE WHEN camara_ip_aulas_espacios = 1 THEN 'SI' ELSE 'NO' END AS `Cámara IP Aulas/Espacios`
                         FROM `institutions_views` where tipo = 1 and id in ({$bindingsString})";
@@ -110,7 +110,7 @@ class InstitutionsViewController extends Controller
         $sqlQuery = "SELECT '', 'Sostenimiento', 'Promedio Pensión', 
                         'Religión', 'Género', 'Actividades Extracurriculares', 'Horario Extendido', 
 								'Presencial','Semipresencial','Distancia','Total Estudiantes', 'Máximo Estudiantes por Clase', 
-                        'Área Total', 'Área Deportiva', 'Área Espacios Verdes', 'Área Piscina', 'Cámara IP Entrada/Salida', 
+                        'Área Total en m2', 'Área Deportiva en m2', 'Área Espacios Verdes en m2', 'Área Piscina en m2', 'Cámara IP Entrada/Salida', 
                         'Cámara IP Aulas/Espacios', 'Porcentaje Profesores Extranjeros'
                         union all
                         select nombre_corto as `Nombre Corto`,
@@ -157,10 +157,10 @@ class InstitutionsViewController extends Controller
 								CASE WHEN distancia = 1 THEN 'SI' ELSE 'NO' END AS `Distancia/On line`,
 								coalesce(total_estudiantes, 0) as `Total Estudiantes`, 
 								coalesce(max_estudiantes_x_clase, 0) as `Máximo Estudiantes por Clase`,
-                        coalesce(area_total, 0) as `Área Total`,
-								coalesce(area_deportiva, 0) as `Área Deportiva`,
-								coalesce(area_espacios_verdes, 0) as `Área Espacios Verdes`, 
-								coalesce(area_piscina, 0) as `Área Piscina`,
+                        coalesce(area_total, 0) as `Área Total en m2`,
+								coalesce(area_deportiva, 0) as `Área Deportiva en m2`,
+								coalesce(area_espacios_verdes, 0) as `Área Espacios Verdes en m2`, 
+								coalesce(area_piscina, 0) as `Área Piscina en m2`,
 								CASE WHEN camara_ip_entrada_salida = 1 THEN 'SI' ELSE 'NO' END AS `Cámara IP Entrada/Salida`,
                         CASE WHEN camara_ip_aulas_espacios = 1 THEN 'SI' ELSE 'NO' END AS `Cámara IP Aulas/Espacios`,
                         porcentaje_profesores_nativos

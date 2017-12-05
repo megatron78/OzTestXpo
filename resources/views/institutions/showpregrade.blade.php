@@ -304,25 +304,25 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_4">
                                 <dl class="dl-horizontal">
-                                    <dt>Área Total</dt>
+                                    <dt>Área Total en m2</dt>
                                     @if(!empty($pregrade->max_estudiantes_x_clase))
                                         <dd>{{ $pregrade->max_estudiantes_x_clase }}</dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Área Canchas Deportivas</dt>
+                                    <dt>Área Canchas Deportivas en m2</dt>
                                     @if(!empty($pregrade->area_deportiva))
                                         <dd>{{ $pregrade->area_deportiva }}</dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Área Espacios Verdes</dt>
+                                    <dt>Área Espacios Verdes en m2</dt>
                                     @if(!empty($pregrade->area_espacios_verdes))
                                         <dd>{{ $pregrade->area_espacios_verdes }}</dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Área Piscinas</dt>
+                                    <dt>Área Piscinas en m2</dt>
                                     @if(!empty($pregrade->area_piscina))
                                         <dd>{{ $pregrade->area_piscina }}</dd>
                                     @else

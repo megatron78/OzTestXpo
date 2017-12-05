@@ -411,25 +411,25 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Área Total</dt>
+                                    <dt>Área Total en m2</dt>
                                     @if(!empty($institution->max_estudiantes_x_clase))
                                         <dd>{{ $institution->max_estudiantes_x_clase }}</dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Área Canchas Deportivas</dt>
+                                    <dt>Área Canchas Deportivas en m2</dt>
                                     @if(!empty($institution->area_deportiva))
                                         <dd>{{ $institution->area_deportiva }}</dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Área Espacios Verdes</dt>
+                                    <dt>Área Espacios Verdes en m2</dt>
                                     @if(!empty($institution->area_espacios_verdes))
                                         <dd>{{ $institution->area_espacios_verdes }}</dd>
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Área Piscinas</dt>
+                                    <dt>Área Piscinas en m2</dt>
                                     @if(!empty($institution->area_piscina))
                                         <dd>{{ $institution->area_piscina }}</dd>
                                     @else
