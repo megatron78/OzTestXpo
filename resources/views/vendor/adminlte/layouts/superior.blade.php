@@ -61,8 +61,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="col-sm-4 centered">
-                                        <a style="padding: 5px;" class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
+                                    <div style="padding: 5px;" class="col-sm-4 centered">
+                                        <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
                                            data-email="{{ $pregrado->email }}"
                                            href="#meInteresa">
                                             Me interesa

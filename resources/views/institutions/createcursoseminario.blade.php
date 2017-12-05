@@ -84,15 +84,15 @@
                                         <div class="form-group">
                                             {{ Form::label('presencial', 'Presencial', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('presencial',0)}}
-                                            {{ Form::checkbox('presencial') }}
+                                            {{ Form::checkbox('presencial', 1, true, [ 'class' => 'chkclass', 'onclick' => 'SetSel(this)' ]) }}
                                             &nbsp;&nbsp;
                                             {{ Form::label('semipresencial', 'Semipresencial', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('semipresencial',0)}}
-                                            {{ Form::checkbox('semipresencial') }}
+                                            {{ Form::checkbox('semipresencial', null, null, [ 'class' => 'chkclass', 'onclick' => 'SetSel(this)' ]) }}
                                             &nbsp;&nbsp;
-                                            {{ Form::label('distancia', 'Online', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('distancia', 'On line', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('distancia',0)}}
-                                            {{ Form::checkbox('distancia') }}
+                                            {{ Form::checkbox('distancia', null, null, [ 'class' => 'chkclass', 'onclick' => 'SetSel(this)' ]) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('lugar', 'Lugar', [ 'class' => 'text text-bold' ]) }}

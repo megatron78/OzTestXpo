@@ -162,7 +162,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>Semipresencial</dd>
                                     @endif
                                     @if($pregrade->distancia)
-                                        <dd>Online</dd>
+                                        <dd>On line</dd>
                                     @endif
                                     <dt>Horarios</dt>
                                     @if($pregrade->matutino)
@@ -216,7 +216,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                    class="btn btn-social-icon btn-linkedin"><i
                                                             class="fa fa-linkedin"></i></a>
                                         @else
-                                            <dd>N/D</dd>
+                                            N/D
                                         @endif
                                     </dd>
                                 </dl>
@@ -293,14 +293,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <div class="tab-pane" id="tab_3">
                                 <div class="box-body">
                                     {{--<b class="text-blue">Instalaciones</b>--}}
-                                    <dl class="dl-horizontal">
-                                        <dt>Carreras</dt>
-                                        @if(!empty($pregrade->carreras))
-                                            <dd>{!! $pregrade->carreras !!}</dd>
-                                        @else
-                                            <dd>N/D</dd>
-                                        @endif
-                                    </dl>
+                                    @if(!empty($pregrade->carreras))
+                                        <dd>{!! $pregrade->carreras !!}</dd>
+                                    @else
+                                        <dd>N/D</dd>
+                                    @endif
                                 </div>
                                 <!-- /.box-body -->
                             </div>

@@ -155,7 +155,7 @@
                         @else
                             <input type="checkbox" class="form-check-input" id="advsearch_chkDistancia" name="advsearch_chkDistancia"
                                    value="distancia">
-                            Online
+                            On line
                         @endif
                     </label>
                 </div>

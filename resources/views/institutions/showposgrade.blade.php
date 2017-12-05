@@ -170,7 +170,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 <dd>Semipresencial</dd>
                                             @endif
                                             @if($posgrado->distancia)
-                                                <dd>Online</dd>
+                                                <dd>On line</dd>
                                             @endif
                                             <dt>Cupos</dt>
                                             @if(!empty($posgrado->cupo))

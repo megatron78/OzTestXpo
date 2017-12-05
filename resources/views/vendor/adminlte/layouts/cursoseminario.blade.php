@@ -98,7 +98,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         @elseif($cursoseminario->semipresencial)
                                             &nbsp;Semipresencial</span>
                                         @elseif($cursoseminario->distancia)
-                                            &nbsp;Online</span>
+                                            &nbsp;On line</span>
                                         @endif
                                 </div>
                                 <!-- /.description-block -->
@@ -166,7 +166,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @elseif($cursoseminario->semipresencial)
                                                     &nbsp;Semipresencial</span>
                                                 @elseif($cursoseminario->distancia)
-                                                    &nbsp;Online</span>
+                                                    &nbsp;On line</span>
                                                 @endif
                                             </div>
                                             <!-- /.description-block -->

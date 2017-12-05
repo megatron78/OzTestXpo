@@ -94,6 +94,7 @@ class HomeController extends Controller
                     , 'plan_desde'
                     , 'plan_hasta')
                 ->orderBy('plan')
+                ->orderBy('created_at')
                 ->orderBy('nombre');
         }
         else {
@@ -143,6 +144,7 @@ class HomeController extends Controller
                     , 'plan_desde'
                     , 'plan_hasta')
                 ->orderBy('plan')
+                ->orderBy('created_at')
                 ->orderBy('nombre');
         }
 

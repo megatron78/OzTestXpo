@@ -165,7 +165,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     <dd>Semipresencial</dd>
                                                 @endif
                                                 @if($cursoseminario->distancia)
-                                                    <dd>Online</dd>
+                                                    <dd>On line</dd>
                                                 @endif
                                                 <dt>Duración (horas, días, etc.)</dt>
                                                 @if(!empty($cursoseminario->duracion))
@@ -179,7 +179,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @else
                                                     <dd>N/D</dd>
                                                 @endif
-                                                <dt>Duración por Nivel</dt>
+                                                    <dt>Duración por Nivel</dt>
                                                 @if(!empty($cursoseminario->duracion_nivel))
                                                     <dd>{{ $cursoseminario->duracion_nivel }}</dd>
                                                 @else
@@ -440,7 +440,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     <dd>Semipresencial</dd>
                                                 @endif
                                                 @if($cursoseminario->distancia)
-                                                    <dd>Online</dd>
+                                                    <dd>On line</dd>
                                                 @endif
                                                 <dt>Duración (horas, días, etc.)</dt>
                                                 @if(!empty($cursoseminario->duracion))
@@ -462,7 +462,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     <dd>Semipresencial</dd>
                                                 @endif
                                                 @if($cursoseminario->distancia)
-                                                    <dd>Online</dd>
+                                                    <dd>On line</dd>
                                                 @endif
                                                 <dt>Fecha de Inicio</dt>
                                                 @if(!empty($cursoseminario->fecha_inicio))
@@ -473,12 +473,6 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 <dt>Fecha de Finalización</dt>
                                                 @if(!empty($cursoseminario->fecha_fin))
                                                     <dd>{{ $cursoseminario->fecha_fin }}</dd>
-                                                @else
-                                                    <dd>N/D</dd>
-                                                @endif
-                                                <dt>Duración (horas, días, etc.)</dt>
-                                                @if(!empty($cursoseminario->duracion))
-                                                    <dd>{{ $cursoseminario->duracion }}</dd>
                                                 @else
                                                     <dd>N/D</dd>
                                                 @endif

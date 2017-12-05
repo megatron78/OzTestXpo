@@ -127,7 +127,7 @@
                                             {{ Form::hidden('semipresencial',0)}}
                                             {{ Form::checkbox('semipresencial') }}
                                             &nbsp;&nbsp;
-                                            {{ Form::label('distancia', 'Online', [ 'class' => 'text text-bold' ]) }}
+                                            {{ Form::label('distancia', 'On line', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::hidden('distancia',0)}}
                                             {{ Form::checkbox('distancia') }}
                                         </div>

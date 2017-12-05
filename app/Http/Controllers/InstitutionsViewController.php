@@ -154,7 +154,7 @@ class InstitutionsViewController extends Controller
 								CASE WHEN horario_extendido = 1 THEN 'SI' ELSE 'NO' END AS `Horario Extendido`,
 								CASE WHEN presencial = 1 THEN 'SI' ELSE 'NO' END AS `Presencial`,
 								CASE WHEN semipresencial = 1 THEN 'SI' ELSE 'NO' END AS `Semipresencial`,
-								CASE WHEN distancia = 1 THEN 'SI' ELSE 'NO' END AS `Distancia/Online`,
+								CASE WHEN distancia = 1 THEN 'SI' ELSE 'NO' END AS `Distancia/On line`,
 								coalesce(total_estudiantes, 0) as `Total Estudiantes`, 
 								coalesce(max_estudiantes_x_clase, 0) as `Máximo Estudiantes por Clase`,
                         coalesce(area_total, 0) as `Área Total`,

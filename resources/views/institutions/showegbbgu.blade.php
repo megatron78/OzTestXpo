@@ -345,7 +345,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         <dd>Semipresencial</dd>
                                     @endif
                                     @if($institution->distancia)
-                                        <dd>Online</dd>
+                                        <dd>On line</dd>
                                     @endif
                                     <dt>Horario</dt>
                                     @if($institution->matutino)
