@@ -150,7 +150,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             @else
                                                 <dd>N/D</dd>
                                             @endif
-                                            <dt>Costo</dt>
+                                            <dt>Costo (USD $)</dt>
                                             @if(!empty($posgrado->costo))
                                                 <dd>{{ $posgrado->costo }}</dd>
                                             @else
@@ -190,7 +190,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             @else
                                                 <dd>N/D</dd>
                                             @endif
-                                            <dt>Duración (horas)</dt>
+                                            <dt>Duración</dt>
                                             @if(!empty($posgrado->duracion))
                                                 <dd>{{ $posgrado->duracion }}</dd>
                                             @else
@@ -208,7 +208,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             @else
                                                 <dd>N/D</dd>
                                             @endif
-                                            <dt>Lugar</dt>
+                                            <dt>Dirección</dt>
                                             @if(!empty($posgrado->lugar))
                                                 <dd>{{ $posgrado->lugar }}</dd>
                                             @else

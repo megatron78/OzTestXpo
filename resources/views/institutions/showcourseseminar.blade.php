@@ -167,7 +167,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 @if($cursoseminario->distancia)
                                                     <dd>On line</dd>
                                                 @endif
-                                                <dt>Duración (horas, días, etc.)</dt>
+                                                <dt>Duración</dt>
                                                 @if(!empty($cursoseminario->duracion))
                                                     <dd>{{ $cursoseminario->duracion }}</dd>
                                                 @else

@@ -310,7 +310,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     @else
                                         <dd>N/D</dd>
                                     @endif
-                                    <dt>Área Canchas Deportivas en m2</dt>
+                                    <dt>Área Canchas Dep. en m2</dt>
                                     @if(!empty($pregrade->area_deportiva))
                                         <dd>{{ $pregrade->area_deportiva }}</dd>
                                     @else
