@@ -12,7 +12,7 @@
                 <ul class="menu">
                     <li style="font-size: 14px"><a style="color: #555555" href="{{ url('/planes#quienes_somos') }}">¿Quiénes Somos?</a></li>
                     <li style="font-size: 14px">Términos y Condiciones</li>
-                    <li style="font-size: 14px"><a style="color: #555555" href="{{ url('/planes#faq') }}">Preguntas Frecuentes</a></li>
+                    <li style="font-size: 14px"><a style="color: #555555" href="">Preguntas Frecuentes</a></li>
                     <li style="font-size: 14px"><a style="color: #555555" data-target="#meInteresa" data-toggle="modal"
                                                    data-email="info@expoeducar.com"
                                                    href="#meInteresa">

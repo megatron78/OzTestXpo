@@ -14,13 +14,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <div style=" width: 95%" class="container content">
         <div style="padding-left: 10%" class="table-responsive">
             <div id="quienes_somos">
-                <img src='{{ asset('/img/quienes_somos.png') }}' alt="Quiénes somos" height="100%" width="91%">
+                <img src='{{ asset('/img/quienes_somos3.png') }}' alt="Quiénes somos" height="100%" width="91%">
             </div>
             <div id="beneficios_instituciones">
-                <img src='{{ asset('/img/beneficios_instituciones.png') }}' alt="Quiénes somos" height="100%" width="91%">
+                <img src='{{ asset('/img/beneficios_instituciones3.png') }}' alt="Quiénes somos" height="100%" width="91%">
             </div>
             <div id="beneficios_estudiantes">
-                <img src='{{ asset('/img/beneficios_estudiantes.png') }}' alt="Quiénes somos" height="100%" width="91%">
+                <img src='{{ asset('/img/beneficios_estudiantes3.png') }}' alt="Quiénes somos" height="100%" width="91%">
             </div>
             <div id="planes_instituciones" class="membership-pricing-table">
                 <p class="centered"><h1 class="centered">Planes y Tarifas</h1></p>
@@ -269,9 +269,9 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             *** Por 1 mes<br>
             **** Arte y Texto del Cliente<br>
         </p>
-            <div id="faq">
+            {{--<div id="faq">
                 <img src='{{ asset('/img/preguntas_frecuentes.png') }}' alt="Quiénes somos" height="100%" width="91%">
-            </div>
+            </div>--}}
             <div id="contacto">
                 <div style="width: 100%; padding-right: 9%" class="modal-dialog" role="document">
                     <div class="modal-content">
