@@ -17,10 +17,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <img src='{{ asset('/img/quienes_somos3.png') }}' alt="Quiénes somos" height="100%" width="91%">
             </div>
             <div id="beneficios_instituciones">
-                <img src='{{ asset('/img/beneficios_instituciones3.png') }}' alt="Quiénes somos" height="100%" width="91%">
+                <img src='{{ asset('/img/beneficios_instituciones4.png') }}' alt="Quiénes somos" height="100%" width="91%">
             </div>
             <div id="beneficios_estudiantes">
-                <img src='{{ asset('/img/beneficios_estudiantes3.png') }}' alt="Quiénes somos" height="100%" width="91%">
+                <img src='{{ asset('/img/beneficios_estudiantes4.png') }}' alt="Quiénes somos" height="100%" width="91%">
             </div>
             <div id="planes_instituciones" class="membership-pricing-table">
                 <p class="centered"><h1 class="centered">Planes y Tarifas</h1></p>
