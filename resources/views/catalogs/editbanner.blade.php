@@ -72,7 +72,7 @@
                                 @if(!empty($banner->photo2_url))
                                     <br>
                                     {{--Actual: {{ explode('/',$banner->photo2_url)[3]}}--}}
-                                    <img src="{{ $banner->photo3_url }}" alt="Banner 2" width="40%" height="40%">
+                                    <img src="{{ $banner->photo2_url }}" alt="Banner 2" width="40%" height="40%">
                                 @endif
                                 {{ Form::file('photo2_url', ['onchange' => 'validateAdmBanner()']) }}
                                 @if(!empty($banner->photo3_url))

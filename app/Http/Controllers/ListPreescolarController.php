@@ -30,7 +30,7 @@ class ListPreescolarController extends Controller
         $instituciones->load('city');
         $instituciones->load('canton');
 
-        $bannerData = BannerCategory::where('category_id','=','1')
+        $bannerData = BannerCategory::where('category_id','=','2')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
             ->get();
 
