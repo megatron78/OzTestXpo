@@ -199,7 +199,7 @@
                                             </div>
                                             <!-- /.box-header -->
                                             <div class="box-body pad">
-                                                {{ Form::textArea('descripcion', $institution->certificaciones_logros, ['class' => 'textarea']) }}
+                                                {{ Form::textArea('descripcion', $institution->descripcion, ['class' => 'textarea']) }}
                                             </div>
                                         </div>
                                         <div class="box">
