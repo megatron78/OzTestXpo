@@ -498,7 +498,7 @@
                                                     @if(!auth()->user()->isAdmin())
                                                         {{ Form::hidden('activo',0)}}
                                                     @else
-                                                        {{ Form::hidden('activo',1)}}
+                                                        {{ Form::hidden('activo',0)}}
                                                     @endif
                                                     {{ Form::checkbox('activo') }}
                                                 </div>
@@ -532,7 +532,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     {{ Form::label('plan_desde', 'Plan Desde', [ 'class' => 'text text-bold' ]) }}
-                                                    {{ Form::date('plan_desde', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                                                    @if(!empty($institution->plan_desde))
+                                                        {{ Form::date('plan_desde', null, ['class' => 'form-control']) }}
+                                                    @else
+                                                        {{ Form::date('plan_desde', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                                                    @endif
                                                 </div>
                                                 <div class="form-group">
                                                     {{ Form::label('plan_hasta', 'Plan Hasta', [ 'class' => 'text text-bold' ]) }}

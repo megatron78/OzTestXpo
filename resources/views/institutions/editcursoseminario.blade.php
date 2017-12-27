@@ -223,7 +223,11 @@
                                         <br>
                                         <div class="form-group">
                                             {{ Form::label('fecha_inicio', 'Fecha Inicio', [ 'class' => 'text text-bold' ]) }}
-                                            {{ Form::date('fecha_inicio', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                                            @if(!empty($courseseminar->fecha_inicio))
+                                                {{ Form::date('fecha_inicio', null, ['class' => 'form-control']) }}
+                                            @else
+                                                {{ Form::date('fecha_inicio', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('fecha_fin', 'Fecha Fin', [ 'class' => 'text text-bold' ]) }}
@@ -347,7 +351,11 @@
                                             </div>
                                             <div class="form-group">
                                                 {{ Form::label('plan_desde', 'Plan Desde', [ 'class' => 'text text-bold' ]) }}
-                                                {{ Form::date('plan_desde', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                                                @if(!empty($courseseminar->plan_desde))
+                                                    {{ Form::date('plan_desde', null, ['class' => 'form-control']) }}
+                                                @else
+                                                    {{ Form::date('plan_desde', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                                                @endif
                                             </div>
                                             <div class="form-group">
                                                 {{ Form::label('plan_hasta', 'Plan Hasta', [ 'class' => 'text text-bold' ]) }}
