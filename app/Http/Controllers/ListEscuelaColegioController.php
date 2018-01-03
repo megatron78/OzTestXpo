@@ -16,7 +16,7 @@ class ListEscuelaColegioController extends Controller
             ->where(function($query) {
                 $query->where('escuela', '=', 1)->orWhere('colegio', '=', 1);
             })
-            ->select('id','plan','nombre','nombre_corto','slug','masculino','femenino','mixto','preescolar',
+            ->select('id','plan','nombre','institution_bg_picture','nombre_corto','slug','masculino','femenino','mixto','preescolar',
                 'escuela','colegio','province_id','canton_id','parish_id','city_id','sector_id','user_id',
                 'direccion','telefono','celular','email','facebook','twitter')
             ->scopes($this->getRouteScope($request))

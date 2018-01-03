@@ -45,11 +45,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <input style="transform: scale(1.5); position: absolute; bottom: 5px; right: 5px;" type="checkbox" class="checkbox"
                                            id="compare-{{ $institucion->id }}" />
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                                    <div class="widget-user-header bg-black"
-                                        @if(!empty($institution->institution_bg_picture))
-                                            style="background: url('{{ asset($institucion->institution_bg_picture) }}') center center no-repeat;">
+                                    <div class="widget-user-header"
+                                        @if(!empty($institucion->institution_bg_picture))
+                                            style="background-color: #FFFFFF; background: url('{{ asset($institucion->institution_bg_picture) }}') center center no-repeat;">
                                         @else
-                                            style="background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
+                                            style="background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
                                         @endif
                                     </div>
 

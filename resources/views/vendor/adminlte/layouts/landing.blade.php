@@ -29,11 +29,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- Widget: user widget style 1 -->
                             <div class="box box-widget widget-user">
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
-                                <div class="widget-user-header bg-black"
+                                <div class="widget-user-header"
                                      @if(!empty($institucionview->institution_bg_picture))
-                                     style="background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
+                                     style="background-color: #FFFFFF; background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
                                     @else
-                                        style="background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
+                                        style="background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
                                     @endif
                                 </div>
 
@@ -143,11 +143,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                                    <div class="widget-user-header bg-black"
+                                    <div class="widget-user-header"
                                         @if(!empty($institucionview->institution_bg_picture))
-                                            style="background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
+                                            style="background-color: #FFFFFF; background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
                                         @else
-                                            style="background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
+                                            style="background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
                                         @endif
                                     </div>
 
@@ -334,11 +334,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                                    <div class="widget-user-header bg-black"
+                                    <div class="widget-user-header"
                                          @if(!empty($institucionview->institution_bg_picture))
-                                         style="background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
+                                            style="background-color: #FFFFFF; background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">
                                         @else
-                                            style="background: url('{{ asset('/img/ucla_campus_superior_destacado.jpg') }}') center center no-repeat;">
+                                            style="background-color: #FFFFFF; background: url('{{ asset('/img/ucla_campus_superior_destacado.jpg') }}') center center no-repeat;">
                                         @endif
                                     </div>
 

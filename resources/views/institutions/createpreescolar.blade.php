@@ -412,14 +412,14 @@
                                             {{ Form::label('otros', 'Otras Áreas en m2', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::textArea('otros', null, ['class' => 'form-control']) }}
                                         </div>
-                                        {{--<div class="form-group">
+                                        <div class="form-group">
                                             {{ Form::label('regimen', 'Régimen') }}
                                             {{ Form::select('regimen', ['Costa' => 'Costa', 'Sierra' => 'Sierra', 'Costa y Sierra' => 'Costa y Sierra'], 'Sierra', ['class' => 'form-control']) }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('jurisdiccion', 'Jurisdicción') }}
                                             {{ Form::text('jurisdiccion', null, ['class' => 'form-control']) }}
-                                        </div>--}}
+                                        </div>
                                         <div class="form-group">
                                             {{ Form::label('mapa_url', 'Mapa URL', [ 'class' => 'text text-bold' ]) }}
                                             {{ Form::text('mapa_url', null, ['class' => 'form-control', 'PlaceHolder' => 'Pegue aquí el código del mapa compartido de google map']) }}
