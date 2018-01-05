@@ -21,30 +21,30 @@
             </ol>
 
             <!-- Wrapper for slides -->
-            <div style="max-height: 325px" class="carousel-inner">
+            <div style="max-height: 450px;" class="carousel-inner">
                 @if(!empty($bannerData[0]->photo1_url))
                     <div class="item active">
-                        <img style="width: 100%;" src="{{ asset($bannerData[0]->photo1_url) }}" alt="">
+                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo1_url) }}" alt="">
                     </div>
                 @endif
                 @if(!empty($bannerData[0]->photo2_url))
                     <div class="item">
-                        <img style="width: 100%;" src="{{ asset($bannerData[0]->photo2_url) }}" alt="">
+                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo2_url) }}" alt="">
                     </div>
                 @endif
                 @if(!empty($bannerData[0]->photo3_url))
                     <div class="item">
-                        <img style="width: 100%;" src="{{ asset($bannerData[0]->photo3_url) }}" alt="">
+                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo3_url) }}" alt="">
                     </div>
                 @endif
                 @if(!empty($bannerData[0]->photo4_url))
                     <div class="item">
-                        <img style="width: 100%;" src="{{ asset($bannerData[0]->photo4_url) }}" alt="">
+                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo4_url) }}" alt="">
                     </div>
                 @endif
                 @if(!empty($bannerData[0]->photo5_url))
                     <div class="item">
-                        <img style="width: 100%;" src="{{ asset($bannerData[0]->photo5_url) }}" alt="">
+                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo5_url) }}" alt="">
                     </div>
                 @endif
             </div>

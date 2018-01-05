@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 use App\{Pregrade,Province,User,City};
-
+use Illuminate\Auth\Events\Registered;
+use App\Jobs\SendAlertaVentaEmail;
 class SuperiorController extends Controller
 {
     public function create() {
@@ -101,7 +102,7 @@ class SuperiorController extends Controller
         }
 
         if($input['plan'] != '3B') {
-            $email=config('MAIL_INFO');
+            $email=env('MAIL_INFO', 'info@expoeducar.com');
             event(new Registered($pregrade = Pregrade::create($input)));
             $this->dispatch(new SendAlertaVentaEmail($request->user(), $pregrade, $email));
         }

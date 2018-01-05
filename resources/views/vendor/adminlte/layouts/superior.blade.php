@@ -40,11 +40,15 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             <!-- Widget: user widget style 1 -->
                             <div class="box box-widget widget-user">
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
-                                <div class="widget-user-header"
+                                <div class="widget-user-header" style="display:table-cell; vertical-align: middle; text-align: center">
                                     @if(!empty($pregrado->pregrade_bg_picture))
-                                        style="background-color: #FFFFFF; background: url('{{ asset($pregrado->pregrade_bg_picture) }}') center center no-repeat;">
+                                        <img style="max-width: 100%; max-height: 100%;"
+                                             src="{{ asset($pregrado->pregrade_bg_picture) }}">
+                                        {{--style="background-color: #FFFFFF; background: url('{{ asset($pregrado->pregrade_bg_picture) }}') center center no-repeat;">--}}
                                     @else
-                                        style="background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">
+                                        <img style="max-width: 100%; max-height: 100%;"
+                                             src="{{ asset('/img/default_image.png') }}">
+                                        {{--style="background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">--}}
                                     @endif
                                 </div>
 

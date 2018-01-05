@@ -35,16 +35,16 @@
             {{--style="width: 30px; margin-right: 10px;"--}}
             <div class="row links-wrapper">
                 <SPAN style="font-size: 14px">
-                    <a class="btn-sm bg-blue-active" data-toggle="collapse" href="{{ url('/register') }}">
+                    <a class="btn-sm bg-blue-active" href="{{ url('/register') }}">
                                     "PUBLICA AQUÍ"
                                 </a>
                 <br>
                 <br>
-                <a href="https://www.facebook.com/Expoeducar-685682501640613"
+                <a href="https://www.facebook.com/Expoeducar-685682501640613" target="_blank"
                    class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/expoeducar" class="btn btn-social-icon btn-twitter"><i
+                <a href="https://twitter.com/expoeducar" target="_blank" class="btn btn-social-icon btn-twitter"><i
                             class="fa fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/expo-educar-547944135" class="btn btn-social-icon btn-linkedin"><i
+                <a href="https://www.linkedin.com/in/expo-educar-547944135" target="_blank" class="btn btn-social-icon btn-linkedin"><i
                             class="fa fa-linkedin"></i></a>
             </div>
         </div>

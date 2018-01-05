@@ -80,7 +80,7 @@
                                             @if(!empty($pregrade->pregrade_bg_picture))
                                                 <br>
                                                 {{--Actual: {{ explode('/',$pregrade->pregrade_bg_picture)[3]}}--}}
-                                                <img src="{{ $pregrade->institution_picture_1 }}" alt="Banner 1" width="40%" height="40%">
+                                                <img src="{{ $pregrade->pregrade_bg_picture }}" alt="Banner 1" width="40%" height="40%">
                                             @endif
                                             {{ Form::file('pregrade_bg_picture', ['onchange' => 'validateBgPicturePregrade()']) }}
                                             <p class="help-block">Las imágenes deben ser de tamaño 410x180 o múltiplo y máximo 500K, formatos: jpeg, bmp, png..</p>

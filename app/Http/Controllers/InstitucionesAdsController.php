@@ -13,6 +13,7 @@ class InstitucionesAdsController extends Controller
     public function getAds(Request $request) {
         $ads = Instituciones_ads::select('id', 'nombre_corto', 'orden_presentacion', 'categoria', 'object_id',
             'fecha_inicio', 'fecha_fin')
+            ->where('fecha_fin', '>', Carbon::now())
             ->orderBy('orden_presentacion');
 
         return DataTables::of($ads)->make(true);
