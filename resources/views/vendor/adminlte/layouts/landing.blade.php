@@ -31,11 +31,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
                                 <div class="widget-user-header" style="display:table-cell; vertical-align: middle; text-align: center">
                                      @if(!empty($institucionview->institution_bg_picture))
-                                        <img style="max-width: 100%; max-height: 100%;"
+                                        <img style="max-width: 100%; max-height: 140px;"
                                              src="{{ asset($institucionview->institution_bg_picture) }}">
                                      {{--style="background-color: #FFFFFF; background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">--}}
                                     @else
-                                        <img style="max-width: 100%; max-height: 100%;"
+                                        <img style="max-width: 100%; max-height: 140px;"
                                              src="{{ asset('/img/default_image.png') }}">
                                         {{--style="background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">--}}
                                     @endif
@@ -43,7 +43,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 
                                 <div class="box-footer">
                                     <h3 style="color:black"
-                                        class="widget-user-username">{{ str_limit($institucionview->nombre_corto, $limit=24, $end="...") }}</h3>
+                                        class="widget-user-username">{{ str_limit($institucionview->nombre_corto, $limit=29, $end="...") }}</h3>
                                     <div class="row">
                                         <div class="col-sm-4 border-right centered">
                                             <div class="description-block">
@@ -145,28 +145,27 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <div class="col-md-4"
                                  onmouseleave="if($('#2collapse{{ $institucionview->id }}').attr('aria-expanded') === 'true'){ $('#2collapse{{ $institucionview->id }}').collapse('toggle');}">
                                 <!-- Widget: user widget style 1 -->
-                                <div class="box box-widget widget-user">
+                                <div class="box box-widget widget-user" >
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                                    <div class="widget-user-header" style="display:table-cell; vertical-align: middle; text-align: center">
+                                    <div class="widget-user-header" style="max-height: 180px; display:table-cell; vertical-align: middle; text-align: center">
                                         @if(!empty($institucionview->institution_bg_picture))
-                                            <img style="max-width: 100%; max-height: 100%;"
+                                            <img style="max-width: 100%; max-height: 140px;"
                                                  src="{{ asset($institucionview->institution_bg_picture) }}">
                                             {{--style="background-color: #FFFFFF; background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">--}}
                                         @else
-                                            <img style="max-width: 100%; max-height: 100%;"
+                                            <img style="max-width: 100%; max-height: 140px;"
                                                  src="{{ asset('/img/default_image.png') }}">
                                             {{--style="background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">--}}
                                         @endif
                                     </div>
-
                                     <div class="box-footer">
                                         <h3 style="color:black"
-                                            class="widget-user-username">{{ str_limit($institucionview->nombre_corto, $limit=24, $end="...") }}</h3>
+                                            class="widget-user-username">{{ str_limit($institucionview->nombre_corto, $limit=29, $end="...") }}</h3>
                                         <div class="row">
                                             <div class="centered">
                                                 <div style="min-height: 15px; max-height: 15px" class="description-block">
                                                     {{--<h5 class="description-header">Carreras</h5>--}}
-                                                    <span class="description-text">{{ str_limit($institucionview->carreras, $limit=24, $end="...") }}</span>
+                                                    <span class="description-text">{{ str_limit($institucionview->carreras_corto, $limit=65, $end="...") }}</span>
                                                 </div>
                                                 <!-- /.description-block -->
                                             </div>
@@ -221,46 +220,61 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <!-- Widget: user widget style 1 -->
                                     <div class="box box-widget widget-user-2">
                                         <!-- Add the bg color to the header using any of the bg-* classes -->
-                                        <div style="padding: 1px" class="widget-user-header bg-blue-active">
+                                        <div style="padding: 13px" class="widget-user-header bg-blue-active">
                                             <!-- /.widget-user-image -->
-                                            <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=24, $end="...") }}</h2>
+                                            <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=23, $end="...") }}</h2>
                                             <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $institucionview->institution }}</h4>
                                         </div>
                                         <div class="box-footer no-padding">
-                                            <div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
+                                            {{--<div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
                                                 {{ str_limit($institucionview->objetivo, $limit=50, $end="...") }}
+                                            </div>--}}
+                                            <div class="col-sm-12 centered" style="min-height: 4.5em;">
+                                                <h5>{{ isset($institucionview->city_name) ? $institucionview->city_name : "ND" }} /
+                                                    {{ isset($institucionview->telefono) ? $institucionview->telefono : "ND" }} /
+                                                    {{ isset($institucionview->email) ? $institucionview->email : "ND" }}</h5>
                                             </div>
-                                            <div class="col-sm-4 centered">
+                                            <div class="col-sm-6 centered">
                                                 <a href="{{ route('posgrado.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                     Más información
                                                 </a>
                                             </div>
+                                            <div class="col-sm-6 centered">
+                                                <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
+                                                   data-email="{{ $institucionview->email }}"
+                                                   href="#meInteresa">
+                                                    Me interesa
+                                                </a>
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <br>
                                             <br>
                                             <hr class="bg-blue-active">
                                             <div class="col-sm-6">
                                                 <div class="description-block pull-left">
-                                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $institucionview->duracion }}</span>
+                                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="padding-bottom: 10px; font-size: 18px" class="description-text">&nbsp; {{ $institucionview->duracion }}</span>
                                                 </div>
                                                 <!-- /.description-block -->
                                             </div>
                                             <!-- /.col -->
                                             <div class="col-sm-6">
                                                 <div class="description-block pull-left">
-                                                    <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $institucionview->fecha_inicio }}</span>
+                                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text">&nbsp;{{ $institucionview->fecha_inicio }}</span>
                                                 </div>
                                                 <!-- /.description-block -->
                                             </div>
                                             <!-- /.col -->
                                             <div class="col-sm-6">
                                                 <div class="description-block pull-left">
-                                                    <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $institucionview->costo }}</span>
+                                                    <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">&nbsp; {{ $institucionview->costo }}</span>
                                                 </div>
                                                 <!-- /.description-block -->
                                             </div>
                                             <!-- /.col -->
                                             <div class="col-sm-6">
                                                 <div class="description-block pull-left">
-                            <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>
+                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-ios-people-outline text-blue"></i><span style="font-size: 18px" class="description-text">
                                 @if($institucionview->presencial)
                                     Presencial</span>
                                                     @elseif($institucionview->semipresencial)
@@ -281,45 +295,60 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user-2">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                                    <div style="padding: 1px" class="widget-user-header bg-blue-active">
+                                    <div style="padding: 13px" class="widget-user-header bg-blue-active">
                                         <!-- /.widget-user-image -->
-                                        <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=24, $end="...") }}</h2>
-                                        <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $institucionview->institucion }}</h4>
+                                        <h2 style="color: white">{{ str_limit($institucionview->nombre, $limit=23, $end="...") }}</h2>
+                                        <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $institucionview->institution }}</h4>
                                     </div>
                                     <div class="box-footer no-padding">
-                                        <div style="font-size: 16px" class="description-block">
+                                        {{--<div style="font-size: 16px" class="description-block">
                                             {{$institucionview->objetivo}}
+                                        </div>--}}
+                                        <div class="col-sm-12 centered">
+                                            <h5>{{ isset($institucionview->city->name) ? $institucionview->city->name : "ND" }} /
+                                                {{ isset($institucionview->telefono) ? $institucionview->telefono : "ND" }} /
+                                                {{ isset($institucionview->email) ? $institucionview->email : "ND" }}</h5>
                                         </div>
-                                        <div class="col-sm-4 centered">
+                                        <div class="col-sm-6 centered">
                                             <a href="{{ route('cursoseminario.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
                                             </a>
                                         </div>
+                                        <div class="col-sm-6 centered">
+                                            <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
+                                               data-email="{{ $institucionview->email }}"
+                                               href="#meInteresa">
+                                                Me interesa
+                                            </a>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <br>
                                         <hr class="bg-blue-active">
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-clock text-blue"></i> {{ $institucionview->duracion }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-clock text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> &nbsp;{{ $institucionview->duracion }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <span style="font-size: 18px;" class="description-text"><i style="font-size: 40px" class="ion ion-android-calendar text-blue"></i> {{ $institucionview->fecha_inicio }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-android-calendar text-blue"></i>&nbsp;<span style="font-size: 18px;" class="description-text"> &nbsp;{{ $institucionview->fecha_inicio }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                                                <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-social-usd text-blue"></i> {{ $institucionview->costo }}</span>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-social-usd text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text"> &nbsp;{{ $institucionview->costo }}</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-sm-6">
                                             <div class="description-block pull-left">
-                        <span style="font-size: 18px" class="description-text"><i style="font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>
+                                                <i style="vertical-align: middle; font-size: 40px" class="ion ion-ios-people-outline text-blue"></i>&nbsp;<span style="font-size: 18px" class="description-text">
                             @if($institucionview->presencial)
                                 Presencial</span>
                                                 @elseif($institucionview->semipresencial)
@@ -344,11 +373,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header" style="display:table-cell; vertical-align: middle; text-align: center">
                                          @if(!empty($institucionview->institution_bg_picture))
-                                            <img style="max-width: 100%; max-height: 100%;"
+                                            <img style="max-width: 100%; max-height: 140px;"
                                                  src="{{ asset($institucionview->institution_bg_picture) }}">
                                             {{--style="background-color: #FFFFFF; background: url('{{ asset($institucionview->institution_bg_picture) }}') center center no-repeat;">--}}
                                         @else
-                                            <img style="max-width: 100%; max-height: 100%;"
+                                            <img style="max-width: 100%; max-height: 140px;"
                                                  src="{{ asset('/img/default_image.png') }}">
                                             {{--style="background-color: #FFFFFF; background: url('{{ asset('/img/ucla_campus_superior_destacado.jpg') }}') center center no-repeat;">--}}
                                         @endif

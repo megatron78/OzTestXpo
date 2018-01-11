@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
-use App\{Pregrade,Province,User,City};
+use App\{Pregrade,Province,User,City,Instituciones_ads};
 use Illuminate\Auth\Events\Registered;
 use App\Jobs\SendAlertaVentaEmail;
 class SuperiorController extends Controller
@@ -264,6 +264,11 @@ class SuperiorController extends Controller
             $pregrade->banner_inst_picture_5 = Storage::url($fileName);
         }
         $pregrade->save();
+
+        $institutionAds = Instituciones_ads::where('object_id', $id)->first();
+        if(!empty($institutionAds)) {
+            $institutionAds->update(['nombre_corto' => $pregrade->nombre_corto]);
+        }
 
         Session::flash('flash_message', 'Registro actualizado correctamente.');
 

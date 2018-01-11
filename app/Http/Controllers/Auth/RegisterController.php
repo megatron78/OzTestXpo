@@ -10,6 +10,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Jobs\SendVerificationEmail;
 
+use App\Catalogo_textos;
+
 /**
  * Class RegisterController
  * @package %%NAMESPACE%%\Http\Controllers\Auth
@@ -36,7 +38,8 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('adminlte::auth.register');
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
+        return view('adminlte::auth.register', compact('terms'));
     }
 
     /**

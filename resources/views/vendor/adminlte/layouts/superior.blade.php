@@ -46,7 +46,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                              src="{{ asset($pregrado->pregrade_bg_picture) }}">
                                         {{--style="background-color: #FFFFFF; background: url('{{ asset($pregrado->pregrade_bg_picture) }}') center center no-repeat;">--}}
                                     @else
-                                        <img style="max-width: 100%; max-height: 100%;"
+                                        <img style="max-width: 100%;"
                                              src="{{ asset('/img/default_image.png') }}">
                                         {{--style="background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">--}}
                                     @endif
@@ -144,7 +144,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             </div>
                         <?php $countFree += 1; ?>
                     @endif
-                            @endforeach
+            @endforeach
                         </div>
                 <div class="row">
                     {{ $superiors->render() }}

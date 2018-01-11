@@ -44,7 +44,7 @@
 						</div>--}}
 					</div>
 					<div class="box-body">
-						{{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.
+						{{--{{ trans('adminlte_lang::message.logged') }}. ExpoEducar 2017.--}}
 					</div>
 					<!-- /.box-body -->
 				</div>

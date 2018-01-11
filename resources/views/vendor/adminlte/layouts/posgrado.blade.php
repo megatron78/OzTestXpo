@@ -48,7 +48,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             {{--<div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
                                 {{ str_limit($posgrado->objetivo, $limit=50, $end="...") }}
                             </div>--}}
-                            <div class="col-sm-12 centered">
+                            <div class="col-sm-12 centered" style="min-height: 4.5em;">
                                 <h5>{{ isset($posgrado->city->name) ? $posgrado->city->name : "ND" }} /
                                     {{ isset($posgrado->telefono) ? $posgrado->telefono : "ND" }} /
                                     {{ isset($posgrado->email) ? $posgrado->email : "ND" }}</h5>
@@ -65,6 +65,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     Me interesa
                                 </a>
                             </div>
+                            <br>
                             <br>
                             <br>
                             <br>

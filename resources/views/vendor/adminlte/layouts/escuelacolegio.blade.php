@@ -51,17 +51,17 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                  src="{{ asset($institucion->institution_bg_picture) }}">
                                             {{--style="background-size: 50px 50px; background-color: #FFFFFF; background: url('{{ asset($institucion->institution_bg_picture) }}') center center no-repeat;">--}}
                                         @else
-                                            <img style="max-width: 100%; max-height: 100%;"
+                                            <img style="max-width: 100%;"
                                                  src="{{ asset('/img/default_image.png') }}">
                                             {{--style="background-size: contain; background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">--}}
                                         @endif
                                     </div>
 
-                                    <div class="box-footer">
+                                    <div class="box-footer" style="border-width: 2px;">
                                         <h3 style="color:black"
                                             class="widget-user-username">{{ str_limit($institucion->nombre_corto, $limit=29, $end="...") }}</h3>
                                         <div class="row">
-                                            <div class="col-sm-4 border-right centered">
+                                            <div class="col-sm-4 border-right centered" style="border-width: 2px;">
                                                 <div class="description-block">
                                                     <h5 class="description-header">Educación</h5>
                                                     <span class="description-text"><i
@@ -77,7 +77,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                 <!-- /.description-block -->
                                             </div>
                                             <!-- /.col -->
-                                            <div class="col-sm-4 border-right centered">
+                                            <div class="col-sm-4 border-right centered" style="border-width: 2px;">
                                                 <div class="description-block">
                                                     <h5 class="description-header">Niveles</h5>
                                                     <span class="description-text">

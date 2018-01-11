@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class ListEscuelaColegioController extends Controller
 {
     public function __invoke(Request $request) {
+        Session::forget('flash_message');
         //dd($request->get('search_province')."-".$request->get('search_city'));
         $instituciones = Institution::where('activo', '=', 1)
             ->where(function($query) {

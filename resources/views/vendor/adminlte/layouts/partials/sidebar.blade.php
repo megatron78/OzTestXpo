@@ -53,6 +53,7 @@
                         <li class="{{ Request::is('admads*') ? 'active' : '' }}"><a href="{{ url('admads') }}">{{ trans('adminlte_lang::message.adm_publicidad') }}</a></li>
                         <li class="{{ Request::is('admbanners*') ? 'active' : '' }}"><a href="{{ url('admbanners') }}">{{ trans('adminlte_lang::message.adm_banners') }}</a></li>
                         <li class="{{ Request::is('admactivation*') ? 'active' : '' }}"><a href="{{ url('admactivation') }}">{{ trans('adminlte_lang::message.adm_activaciones') }}</a></li>
+                        <li class="{{ Request::is('*termscond*') ? 'active' : '' }}"><a href="{{ url('admtermscond') }}">{{ trans('adminlte_lang::message.adm_termsconds') }}</a></li>
                     </ul>
                 </li>
             @endif

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\{Institution,InstitutionsView,Province,City,Sector,User};
+use App\{Institution,InstitutionsView,Province,City,Sector,User,Instituciones_ads};
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
@@ -350,6 +350,16 @@ class InstitutionController extends Controller
         }
         $institution->save();
 
+        $institutionAds = Instituciones_ads::where('object_id', $id)->first();
+        if(!empty($institutionAds)) {
+            $institutionAds->update(['nombre_corto' => $institution->nombre_corto]);
+        }
+
+        $institutionAds = Instituciones_ads::where('object_id', $id)->first();
+        if(!empty($institutionAds)) {
+            $institutionAds->update(['nombre_corto' => $institution->nombre_corto]);
+        }
+
         Session::flash('flash_message', 'Registro actualizado correctamente.');
 
         return redirect()->back();
@@ -635,6 +645,15 @@ class InstitutionController extends Controller
             $institution->banner_inst_picture_5 = Storage::url($fileName);
         }
         $institution->save();
+
+        $institutionAds = Instituciones_ads::where('object_id', $id)->first();
+        if(!empty($institutionAds)) {
+            $institutionAds->update(['nombre_corto' => $institution->nombre_corto]);
+        }
+
+        Session::flash('flash_message', 'Registro actualizado correctamente.');
+
+        return redirect()->back();
 
         Session::flash('flash_message', 'Registro actualizado correctamente.');
 

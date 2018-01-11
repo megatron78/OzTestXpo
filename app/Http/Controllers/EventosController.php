@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Storage;
 use DateTime;
 use Illuminate\Http\Request;
 use App\{Event,User};
+use Yajra\DataTables\DataTables;
+use App\Jobs\SendAlertaVentaEmail;
+use Illuminate\Auth\Events\Registered;
 
 class EventosController extends Controller
 {

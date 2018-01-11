@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class ListPosgradoController extends Controller
 {
     public function __invoke(Request $request) {
+        Session::forget('flash_message');
         //dd($request->get('search_province')."-".$request->get('search_city'));
         $posgrades = PosgradeCourseSeminar::where('activo', '=', 1)
             ->where('clasificacion', 'Posgrado')

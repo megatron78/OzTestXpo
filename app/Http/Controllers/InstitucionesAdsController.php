@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\{Instituciones_ads, InstitutionsView};
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\DataTables;
 
@@ -27,9 +28,8 @@ class InstitucionesAdsController extends Controller
         $adsCombo = InstitutionsView::where('activo','=',1)
             ->where('plan', '<>', '3B')
             ->where('plan_hasta', '>=', Carbon::today())
-            ->select('id', 'nombre_corto', 'tipo')
+            ->select(DB::raw('CONCAT(id, "-", tipo) as id'), 'nombre_corto', 'tipo')
             ->orderBy('nombre_corto');
-
         return view('catalogs.createads', compact('adsCombo'));
     }
 
@@ -55,13 +55,16 @@ class InstitucionesAdsController extends Controller
 
         $input = $request->all();
 
+        //selecciona el id de la clave compuesta
+        $input['object_id'] = explode('-', $input['object_id'])[0];
+
         $adsCombo = InstitutionsView::where('id','=', $input['object_id'])
             ->where('nombre_corto', '=', $input['ads_nombre_corto'])
             ->firstOrFail();
 
         $input['updated_at'] = Carbon::now();
         $input['nombre_corto'] = $input['ads_nombre_corto'];
-        $input['categoria'] = $adsCombo['tipo'];
+        $input['categoria'] = explode('-', $input['object_id'])[1]; //$adsCombo['tipo'];
 
         $ads->fill($input);
         $ads->save();
@@ -81,6 +84,9 @@ class InstitucionesAdsController extends Controller
         ]);
 
         $input = $request->all();
+        //selecciona el id de la clave compuesta
+        $tmpExplode = explode('-', $input['object_id']);
+        $input['object_id'] = $tmpExplode[0];
 
         $adsCombo = InstitutionsView::where('id','=', $input['object_id'])
             ->where('nombre_corto', '=', $input['ads_nombre_corto'])
@@ -88,7 +94,7 @@ class InstitucionesAdsController extends Controller
 
         $input['updated_at'] = Carbon::now();
         $input['nombre_corto'] = $input['ads_nombre_corto'];
-        $input['categoria'] = $adsCombo['tipo'];
+        $input['categoria'] =$tmpExplode[1];//$adsCombo['tipo'];
 
         Instituciones_ads::create($input);
 

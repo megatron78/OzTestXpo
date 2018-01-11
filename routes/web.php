@@ -154,7 +154,6 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'activate.get',
     ]);
 
-
     //Routes User
     Route::get('admuserslist', [
         'uses' => 'ListUserController@listUsers',
@@ -221,6 +220,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admbanners/{ban}/edit', [
         'uses' => 'BannerCategoryController@update',
         'as' => 'banners.update',
+    ]);
+
+    //Route Terms and Conditions
+    Route::get('admtermscond', [
+        'uses' => 'CatalogoTextosController@listTerms',
+        'as' => 'terms.list',
+    ]);
+    Route::get('termscond/{user}/edit', [
+        'uses' => 'CatalogoTextosController@edit',
+        'as' => 'terms.update',
+    ]);
+    Route::post('termscond/{user}/edit', [
+        'uses' => 'CatalogoTextosController@update',
+        'as' => 'terms.update',
     ]);
 
     //Routes Preescolar

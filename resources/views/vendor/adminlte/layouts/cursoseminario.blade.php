@@ -41,14 +41,19 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <div style="padding: 1px" class="widget-user-header bg-blue-active">
                             <!-- /.widget-user-image -->
-                            <h2 style="color: white">{{ str_limit($cursoseminario->nombre, $limit=23, $end="...") }}</h2>
+                            <p style="line-height: 1.5em; height: 3em; overflow: hidden; text-overflow: ellipsis; width: 100%;
+                                    display: block; display: -webkit-box; font-size: 1.5em; margin-top: 0.83em;
+                                    margin-bottom: 0.83em; margin-left: 0; margin-right: 0;">
+                                {{ $cursoseminario->nombre }}
+                                {{--<h2 style="color: white">{{ str_limit($cursoseminario->nombre, $limit=200, $end="...") }}</h2>--}}
+                            </p>
                             <h4 style="color: white;margin-left: 0px" class="widget-user-desc">{{ $cursoseminario->institucion }}</h4>
                         </div>
                         <div class="box-footer no-padding">
                             {{--<div style="min-height: 25px; max-height: 25px; font-size: 16px" class="description-block">
                                 {{ str_limit($cursoseminario->objetivo, $limit=50, $end="...") }}
                             </div>--}}
-                            <div class="col-sm-12 centered">
+                            <div class="col-sm-12 centered" style="min-height: 4.5em;">
                                 <h5>{{ isset($cursoseminario->city->name) ? $cursoseminario->city->name : "ND" }} /
                                     {{ isset($cursoseminario->telefono) ? $cursoseminario->telefono : "ND" }} /
                                     {{ isset($cursoseminario->email) ? $cursoseminario->email : "ND" }}</h5>
@@ -65,6 +70,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     Me interesa
                                 </a>
                             </div>
+                            <br>
                             <br>
                             <br>
                             <br>

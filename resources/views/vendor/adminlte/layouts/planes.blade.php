@@ -15,20 +15,20 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <br>
         <div style="display: block; position: relative; top: -100px;" id="quienes_somos"></div>
         <div id="quienes_somos2" class="row col-lg-12">
-            <img src='{{ asset('/img/quienes_somos3.png') }}' alt="Quiénes somos" height="100%" width="100%">
+            <img src='{{ asset('/img/quienes_somos4.png') }}' alt="Quiénes somos" height="100%" width="100%">
         </div>
         <div style="display: block; position: relative; top: 330px;" id="beneficios_instituciones"></div>
         <div id="beneficios_instituciones2" class="row col-lg-12">
-            <img src='{{ asset('/img/beneficios_instituciones4.png') }}' alt="Beneficios Instituciones" height="100%" width="100%">
+            <img src='{{ asset('/img/beneficios_instituciones5.png') }}' alt="Beneficios Instituciones" height="100%" width="100%">
         </div>
         <div style="display: block; position: relative; top: 660px;" id="beneficios_estudiantes"></div>
         <div id="beneficios_estudiantes2" class="row col-lg-12">
-            <img src='{{ asset('/img/beneficios_estudiantes4.png') }}' alt="Beneficios Estudiantes" height="100%" width="100%">
+            <img src='{{ asset('/img/beneficios_estudiantes5.png') }}' alt="Beneficios Estudiantes" height="100%" width="100%">
         </div>
         {{--<div style="display: block; position: relative; top: 990px;" id="planes_instituciones"></div>--}}
         <div id="planes_instituciones" class="row col-lg-12">
             <br>
-            <img src='{{ asset('/img/planes3.png') }}' alt="Planes" height="100%" width="100%">
+            <img src='{{ asset('/img/planes4.png') }}' alt="Planes" height="100%" width="100%">
         </div>
     </div>
     <div style=" width: 100%" class="container content">

@@ -559,6 +559,9 @@ desired effect
         if(document.getElementsByName("incluye").length > 0) {
             CKEDITOR.replace('incluye');
         }
+        if(document.getElementsByName("texto").length > 0) {
+            CKEDITOR.replace('texto');
+        }
         //bootstrap WYSIHTML5 - text editor
         //$(".textarea").wysihtml5();
     });

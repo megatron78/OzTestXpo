@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
-use App\{PosgradeCourseSeminar,Province,City,Country,User};
+use App\{PosgradeCourseSeminar,Province,City,Country,User,Instituciones_ads};
+use Yajra\DataTables\DataTables;
+use App\Jobs\SendAlertaVentaEmail;
+use Illuminate\Auth\Events\Registered;
 
 class CourseSeminarController extends Controller
 {
@@ -55,8 +58,8 @@ class CourseSeminarController extends Controller
 
         if($input['plan'] != '3B') {
             $email=env('MAIL_INFO', 'info@expoeducar.com');
-            event(new Registered($posgradocm = PosgradeCourseSeminar::create($input)));
-            $this->dispatch(new SendAlertaVentaEmail($request->user(), $posgradocm, $email));
+            event(new Registered($cursosem = PosgradeCourseSeminar::create($input)));
+            $this->dispatch(new SendAlertaVentaEmail($request->user(), $cursosem, $email));
         }
         else
             $cursosem = PosgradeCourseSeminar::create($input);
@@ -125,6 +128,11 @@ class CourseSeminarController extends Controller
 
         $courseseminar->fill($input);
         $courseseminar->save();
+
+        $institutionAds = Instituciones_ads::where('object_id', $id)->first();
+        if(!empty($institutionAds)) {
+            $institutionAds->update(['nombre_corto' => $courseseminar->nombre_corto]);
+        }
 
         Session::flash('flash_message', 'Registro actualizado correctamente.');
 

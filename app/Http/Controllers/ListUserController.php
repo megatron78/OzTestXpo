@@ -19,7 +19,7 @@ class ListUserController extends Controller
 
     public function getUsers(Request $request) {
         $users = User::select('id','name', 'email', 'telephone', 'contact_person', 'verified', 'role')
-            ->orderBy('name');
+            ->orderBy('created_at', 'desc')->orderBy('name');
 
         return DataTables::of($users)->make(true);
     }

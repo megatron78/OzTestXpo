@@ -48,6 +48,7 @@ class Home2Controller extends Controller
                 ,'institutions_views.nombre_corto'
                 ,'institutions_views.slug'
                 ,'institutions_views.carreras'
+                ,'institutions_views.carreras_corto'
                 ,'institutions_views.laico'
                 ,'institutions_views.religioso'
                 ,'institutions_views.masculino'

@@ -14,6 +14,7 @@ use function Sodium\add;
 class ListPreescolarController extends Controller
 {
     public function __invoke(Request $request) {
+        Session::forget('flash_message');
         //dd($request->get('search_province')."-".$request->get('search_city'));
         $instituciones = Institution::where('activo', '=', 1)
             ->where('preescolar', '=', 1)->where('escuela', '=', 0)
