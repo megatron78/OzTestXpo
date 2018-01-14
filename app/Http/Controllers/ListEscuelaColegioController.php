@@ -30,7 +30,7 @@ class ListEscuelaColegioController extends Controller
         $instituciones->load('canton');
 
         $bannerData = BannerCategory::where('category_id','=','3')
-            ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
+            ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url','url1','url2','url3')
             ->get();
 
         $cities=null;

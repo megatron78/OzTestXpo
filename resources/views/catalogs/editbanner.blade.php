@@ -69,18 +69,27 @@
                                     <img src="{{ $banner->photo1_url }}" alt="Banner 1" width="40%" height="40%">
                                 @endif
                                 {{ Form::file('photo1_url', ['onchange' => 'validateAdmBanner()']) }}
+                                <br>
+                                {{ Form::label('web', 'Enlace Web', [ 'class' => 'text text-bold' ]) }}
+                                {{ Form::text('url1', null, ['class' => 'form-control', 'PlaceHolder' => 'Enlace Banner 1']) }}
                                 @if(!empty($banner->photo2_url))
                                     <br>
                                     {{--Actual: {{ explode('/',$banner->photo2_url)[3]}}--}}
                                     <img src="{{ $banner->photo2_url }}" alt="Banner 2" width="40%" height="40%">
                                 @endif
                                 {{ Form::file('photo2_url', ['onchange' => 'validateAdmBanner()']) }}
+                                <br>
+                                {{ Form::label('web', 'Enlace Web', [ 'class' => 'text text-bold' ]) }}
+                                {{ Form::text('url2', null, ['class' => 'form-control', 'PlaceHolder' => 'Enlace Banner 2']) }}
                                 @if(!empty($banner->photo3_url))
                                     <br>
                                     {{--Actual: {{ explode('/',$banner->photo3_url)[3]}}--}}
                                     <img src="{{ $banner->photo3_url }}" alt="Banner 3" width="40%" height="40%">
                                 @endif
                                 {{ Form::file('photo3_url', ['onchange' => 'validateAdmBanner()']) }}
+                                <br>
+                                {{ Form::label('web', 'Enlace Web', [ 'class' => 'text text-bold' ]) }}
+                                {{ Form::text('url3', null, ['class' => 'form-control', 'PlaceHolder' => 'Enlace Banner 3']) }}
                                 {{--{{ Form::file('photo4_url') }}--}}
                                 {{--{{ Form::file('photo5_url') }}--}}
 

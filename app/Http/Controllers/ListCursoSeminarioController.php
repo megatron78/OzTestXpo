@@ -30,7 +30,7 @@ class ListCursoSeminarioController extends Controller
         $cursoseminarios->load('city');
 
         $bannerData = BannerCategory::where('category_id','=','6')
-            ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url')
+            ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url','url1','url2','url3')
             ->get();
 
         $tipo=null;

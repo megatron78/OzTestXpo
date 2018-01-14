@@ -30,17 +30,17 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                 <!-- Widget: user widget style 1 -->
                                 <div class="box box-widget widget-user">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                                    <div class="widget-user-header" style="display:table-cell; vertical-align: middle; text-align: center">
-                                        @if(!empty($evento->evento_bg_picture))
-                                            <img style="max-width: 100%; max-height: 100%;"
-                                                 src="{{ asset($evento->evento_bg_picture) }}">
-                                            {{--style="background-color: #FFFFFF; background: url('{{ asset($evento->evento_bg_picture) }}') center center no-repeat;">--}}
-                                        @else
-                                            <img style="max-width: 100%;"
-                                                 src="{{ asset('/img/default_image.png') }}">
-                                            {{--style="background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">--}}
-                                        @endif
-                                    </div>
+                                    <a href="{{ $evento->web }}" target="_blank">
+                                        <div class="widget-user-header" style="padding: 0px; display: flex; margin: auto;">
+                                            @if(!empty($evento->evento_bg_picture))
+                                                    <img style="max-height: 100%; max-width: 100%; margin: auto; "
+                                                         src="{{ asset($evento->evento_bg_picture) }}">
+                                            @else
+                                                    <img style="max-height: 100%; max-width: 100%; margin: auto;"
+                                                         src="{{ asset('/img/default_image.png') }}">
+                                            @endif
+                                        </div>
+                                    </a>
 
                                     <div style="padding: 0px;height: 121px" class="box-footer">
                                         <ul class="event-list">

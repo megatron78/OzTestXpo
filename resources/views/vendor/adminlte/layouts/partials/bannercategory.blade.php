@@ -24,27 +24,57 @@
             <div style="max-height: 450px;" class="carousel-inner">
                 @if(!empty($bannerData[0]->photo1_url))
                     <div class="item active">
-                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo1_url) }}" alt="">
+                        @if(!empty($bannerData[0]->url1))
+                            <a style="color: #0073B7;" href="{{ $bannerData[0]->url1 }}" target="_blank">
+                                <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo1_url) }}" alt="">
+                            </a>
+                        @else
+                            <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo1_url) }}" alt="">
+                        @endif
                     </div>
                 @endif
                 @if(!empty($bannerData[0]->photo2_url))
                     <div class="item">
-                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo2_url) }}" alt="">
+                        @if(!empty($bannerData[0]->url2))
+                            <a style="color: #0073B7;" href="{{ $bannerData[0]->url2 }}" target="_blank">
+                                <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo2_url) }}" alt="">
+                            </a>
+                        @else
+                            <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo2_url) }}" alt="">
+                        @endif
                     </div>
                 @endif
                 @if(!empty($bannerData[0]->photo3_url))
                     <div class="item">
-                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo3_url) }}" alt="">
+                        @if(!empty($bannerData[0]->url3))
+                            <a style="color: #0073B7;" href="{{ $bannerData[0]->url3 }}" target="_blank">
+                                <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo3_url) }}" alt="">
+                            </a>
+                        @else
+                            <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo3_url) }}" alt="">
+                        @endif
                     </div>
                 @endif
                 @if(!empty($bannerData[0]->photo4_url))
                     <div class="item">
-                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo4_url) }}" alt="">
+                        @if(!empty($bannerData[0]->url4))
+                            <a style="color: #0073B7;" href="{{ $bannerData[0]->url4 }}" target="_blank">
+                                <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo4_url) }}" alt="">
+                            </a>
+                        @else
+                            <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo4_url) }}" alt="">
+                        @endif
                     </div>
                 @endif
                 @if(!empty($bannerData[0]->photo5_url))
                     <div class="item">
-                        <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo5_url) }}" alt="">
+                        @if(!empty($bannerData[0]->url5))
+                            <a style="color: #0073B7;" href="{{ $bannerData[0]->url5 }}" target="_blank">
+                                <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo5_url) }}" alt="">
+                            </a>
+                        @else
+                            <img style="width: 100%; height: auto;" src="{{ asset($bannerData[0]->photo5_url) }}" alt="">
+                        @endif
                     </div>
                 @endif
             </div>

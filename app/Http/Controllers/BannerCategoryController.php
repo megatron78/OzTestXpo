@@ -12,7 +12,7 @@ class BannerCategoryController extends Controller
 {
     public function listBanners(Request $request) {
         $banners = BannerCategory::select('id', 'category_id', 'photo1_url', 'photo2_url', 'photo3_url',
-            'photo4_url', 'photo5_url')->get();
+            'photo4_url', 'photo5_url', 'url1', 'url2', 'url3', 'url4', 'url5')->get();
 
         return view('catalogs.banners', compact('banners'));
     }

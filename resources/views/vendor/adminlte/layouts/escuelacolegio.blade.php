@@ -45,21 +45,21 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <input style="transform: scale(1.5); position: absolute; bottom: 5px; right: 5px;" type="checkbox" class="checkbox"
                                            id="compare-{{ $institucion->id }}" />
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
-                                    <div class="widget-user-header" style="display:table-cell; vertical-align: middle; text-align: center">
-                                        @if(!empty($institucion->institution_bg_picture))
-                                            <img style="max-width: 100%; max-height: 100%;"
-                                                 src="{{ asset($institucion->institution_bg_picture) }}">
-                                            {{--style="background-size: 50px 50px; background-color: #FFFFFF; background: url('{{ asset($institucion->institution_bg_picture) }}') center center no-repeat;">--}}
-                                        @else
-                                            <img style="max-width: 100%;"
-                                                 src="{{ asset('/img/default_image.png') }}">
-                                            {{--style="background-size: contain; background-color: #FFFFFF; background: url('{{ asset('/img/default_image.png') }}') center center no-repeat;">--}}
-                                        @endif
-                                    </div>
+                                    <a href="{{ $institucion->url }}" target="_blank">
+                                        <div class="widget-user-header" style="padding: 0px; display: flex; margin: auto;">
+                                            @if(!empty($institucion->institution_bg_picture))
+                                                    <img style="max-height: 100%; max-width: 100%; margin: auto;"
+                                                         src="{{ asset($institucion->institution_bg_picture) }}">
+                                            @else
+                                                    <img style="max-height: 100%; max-width: 100%; margin: auto;"
+                                                         src="{{ asset('/img/default_image.png') }}">
+                                            @endif
+                                        </div>
+                                    </a>
 
-                                    <div class="box-footer" style="border-width: 2px;">
-                                        <h3 style="color:black"
-                                            class="widget-user-username">{{ str_limit($institucion->nombre_corto, $limit=29, $end="...") }}</h3>
+                                    <div class="box-footer" style="padding: 0px; padding-bottom: 10px; border-width: 2px; border-color: #1A2B51;">
+                                        <p style="background-color: #B5BBC8; overflow:hidden; white-space: nowrap;
+                                        text-overflow: ellipsis;" class="widget-user-username">{{ $institucion->nombre_corto }}</p>
                                         <div class="row">
                                             <div class="col-sm-4 border-right centered" style="border-width: 2px;">
                                                 <div class="description-block">
