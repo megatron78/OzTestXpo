@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Jobs\SendConfirmationEmail;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
@@ -115,6 +116,7 @@ class RegisterController extends Controller
         $user = User::where('email_token', $token)->first();
         $user->verified = 1;
         if($user->save()) {
+            $this->dispatch(new SendConfirmationEmail($user));
             return view('emailconfirm', ['user' => $user]);
         }
     }
