@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\BannerCategory;
 use Illuminate\Support\Facades\Session;
 use App\Institution;
-use App\{Province,City,Sector};
+use App\{Province,City,Sector,Catalogo_textos};
 use Illuminate\Http\Request;
 
 class ListEscuelaColegioController extends Controller
@@ -29,6 +29,7 @@ class ListEscuelaColegioController extends Controller
         $instituciones->load('city');
         $instituciones->load('canton');
 
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
         $bannerData = BannerCategory::where('category_id','=','3')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url','url1','url2','url3')
             ->get();
@@ -120,7 +121,7 @@ class ListEscuelaColegioController extends Controller
         return view('vendor.adminlte.layouts.escuelacolegio', compact('instituciones','provinces', 'bannerData',
             'province_id', 'cities', 'city_id', 'sectors', 'sector_id', 'palabrasClave',
             'chkFiscal', 'chkFiscomisional', 'chkParticular', 'chkLaico', 'chkReligioso', 'chkMujeres', 'chkHombres',
-            'chkMixto', 'chkExtendido', 'advsearch_costo'));
+            'chkMixto', 'chkExtendido', 'advsearch_costo', 'terms'));
     }
 
     protected function getRouteScope(Request $request) {

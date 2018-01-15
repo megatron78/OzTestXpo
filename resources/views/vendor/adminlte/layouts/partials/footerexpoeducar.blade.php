@@ -11,7 +11,10 @@
             <div class="row access-wrapper">
                 <ul class="menu">
                     <li style="font-size: 14px"><a style="color: #555555" href="{{ url('/planes#quienes_somos') }}">¿Quiénes Somos?</a></li>
-                    <li style="font-size: 14px">Términos y Condiciones</li>
+                    <li style="font-size: 14px"><a style="color: #555555" data-target="#termsModal" data-toggle="modal"
+                                                   href="#termsModal">
+                            Términos y Condiciones
+                        </a></li>
                     {{--<li style="font-size: 14px"><a style="color: #555555" href="">Preguntas Frecuentes</a></li>--}}
                     <li style="font-size: 14px"><a style="color: #555555" data-target="#meInteresa" data-toggle="modal"
                                                    data-email="info@expoeducar.com"
@@ -38,9 +41,10 @@
                     <a class="btn-sm bg-blue-active" href="{{ url('/register') }}">
                                     "PUBLICA AQUÍ"
                                 </a>
+                </SPAN>
                 <br>
                 <br>
-                <a href="https://www.facebook.com/Expoeducar-685682501640613" target="_blank"
+                <a href="http://Www.facebook.com/ExpoEducarEcuador/" target="_blank"
                    class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
                 <a href="https://twitter.com/expoeducar" target="_blank" class="btn btn-social-icon btn-twitter"><i
                             class="fa fa-twitter"></i></a>
@@ -48,6 +52,6 @@
                             class="fa fa-linkedin"></i></a>
             </div>
         </div>
-
     </div>
 </footer>
+@include('adminlte::auth.terms')

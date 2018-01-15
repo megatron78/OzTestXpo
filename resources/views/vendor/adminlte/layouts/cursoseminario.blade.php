@@ -194,7 +194,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             @endforeach
                         </div>
             <div class="row">
-                {{ $cursoseminarios->render() }}
+                {{ $cursoseminarios->appends(Request::except('page'))->render() }}
             </div>
             <br>
             <br>

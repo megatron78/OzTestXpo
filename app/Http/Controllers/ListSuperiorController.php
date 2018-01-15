@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use App\Pregrade;
 use App\Province;
 use App\City;
+use App\Catalogo_textos;
 use Illuminate\Http\Request;
 
 class ListSuperiorController extends Controller
@@ -25,6 +26,8 @@ class ListSuperiorController extends Controller
 
         $superiors->load('province');
         $superiors->load('city');
+
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
 
         $bannerData = BannerCategory::where('category_id','=','4')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url','url1','url2','url3')
@@ -87,7 +90,7 @@ class ListSuperiorController extends Controller
 
         return view('vendor.adminlte.layouts.superior', compact('superiors','provinces', 'bannerData',
             'province_id', 'cities', 'city_id', 'palabrasClave', 'chkFiscal', 'chkFiscomisional', 'chkParticular',
-            'chkPresencial', 'chkSemipresencial', 'chkDistancia', 'tipo', 'carrera'));
+            'chkPresencial', 'chkSemipresencial', 'chkDistancia', 'tipo', 'carrera', 'terms'));
     }
 
     protected function getRouteScope(Request $request) {

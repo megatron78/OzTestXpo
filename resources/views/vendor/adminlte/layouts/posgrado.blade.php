@@ -189,7 +189,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             @endforeach
                         </div>
             <div class="row">
-                {{ $posgrades->render() }}
+                {{ $posgrades->appends(Request::except('page'))->render() }}
             </div>
             <br>
             <br>

@@ -229,7 +229,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                             @endforeach
                         </div>
                         <div class="row">
-                            {{ $instituciones->render() }}
+                            {{ $instituciones->appends(Request::except('page'))->render() }}
                         </div>
                         <br>
         </div> <!--/ .container -->

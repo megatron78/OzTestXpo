@@ -159,18 +159,48 @@ class Pregrade extends Model
     }
 
     public function scopeFiscal($query, $foo, $privado, $fiscomisional) {
-        return $query->where(function ($query) use ($privado, $fiscomisional)
-        {$query->where('fiscal', 1)->orWhere('privado', $privado)->orWhere('fiscomisional', $fiscomisional);});
+        if($privado != 0 and $fiscomisional != 0)
+            return $query->where(function ($query) use ($privado, $fiscomisional)
+            {$query->where('fiscal', 1)->orWhere('privado', $privado)->orWhere('fiscomisional', $fiscomisional);});
+        elseif ($privado != 0)
+            return $query->where(function ($query) use ($privado, $fiscomisional)
+            {$query->where('fiscal', 1)->orWhere('privado', $privado);});
+        elseif ($fiscomisional != 0)
+            return $query->where(function ($query) use ($privado, $fiscomisional)
+            {$query->where('fiscal', 1)->orWhere('fiscomisional', $fiscomisional);});
+        else
+            return $query->where(function ($query) use ($privado, $fiscomisional)
+            {$query->where('fiscal', 1);});
     }
 
     public function scopePrivado($query, $foo, $fiscal, $fiscomisional) {
-        return $query->where(function ($query) use ($fiscal, $fiscomisional)
-        {$query->where('privado', 1)->orWhere('fiscal', $fiscal)->orWhere('fiscomisional', $fiscomisional);});
+        if($fiscal != 0 and $fiscomisional != 0)
+            return $query->where(function ($query) use ($fiscal, $fiscomisional)
+            {$query->where('privado', 1)->orWhere('fiscal', $fiscal)->orWhere('fiscomisional', $fiscomisional);});
+        elseif ($fiscal != 0)
+            return $query->where(function ($query) use ($fiscal, $fiscomisional)
+            {$query->where('privado', 1)->orWhere('fiscal', $fiscal);});
+        elseif ($fiscomisional != 0)
+            return $query->where(function ($query) use ($fiscal, $fiscomisional)
+            {$query->where('privado', 1)->orWhere('fiscomisional', $fiscomisional);});
+        else
+            return $query->where(function ($query) use ($fiscal, $fiscomisional)
+            {$query->where('privado', 1);});
     }
 
     public function scopeFiscomisional($query, $foo, $privado, $fiscal) {
-        return $query->where(function ($query) use ($privado, $fiscal)
-        {$query->where('fiscomisional', 1)->orWhere('privado', $privado)->orWhere('fiscal', $fiscal);});
+        if($privado != 0 and $fiscal != 0)
+            return $query->where(function ($query) use ($privado, $fiscal)
+            {$query->where('fiscomisional', 1)->orWhere('privado', $privado)->orWhere('fiscal', $fiscal);});
+        elseif ($privado != 0)
+            return $query->where(function ($query) use ($privado, $fiscal)
+            {$query->where('fiscomisional', 1)->orWhere('privado', $privado);});
+        elseif ($fiscal != 0)
+            return $query->where(function ($query) use ($privado, $fiscal)
+            {$query->where('fiscomisional', 1)->orWhere('fiscal', $fiscal);});
+        else
+            return $query->where(function ($query) use ($privado, $fiscal)
+            {$query->where('fiscomisional', 1);});
     }
 
     public function scopePresencial($query, $foo, $semipresencial, $distancia) {

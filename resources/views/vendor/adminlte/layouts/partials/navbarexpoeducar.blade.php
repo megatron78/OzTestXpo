@@ -63,7 +63,7 @@
                         <input type="submit" value="logout" style="display: none;">
                     </form>
                 @endif
-                <a href="https://www.facebook.com/Expoeducar-685682501640613" target="_blank"
+                <a href="http://Www.facebook.com/ExpoEducarEcuador/" target="_blank"
                        style="font-size: 10px; height: 30px;width: 30px" class="btn btn-social-icon btn-facebook"><i
                                 class="fa fa-facebook"></i></a>
                 <a href="https://twitter.com/expoeducar" style="font-size: 10px; height: 30px;width: 30px" target="_blank"

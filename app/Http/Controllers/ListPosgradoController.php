@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use App\Province;
 use App\Country;
 use App\City;
+use App\Catalogo_textos;
 use App\PosgradeCourseSeminar;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,8 @@ class ListPosgradoController extends Controller
         $posgrades->load('country');
         $posgrades->load('province');
         $posgrades->load('city');
+
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
 
         $bannerData = BannerCategory::where('category_id','=','5')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url','url1','url2','url3')
@@ -83,7 +86,7 @@ class ListPosgradoController extends Controller
         $provinces = Province::all(['name','id']);
         return view('vendor.adminlte.layouts.posgrado', compact('posgrades','provinces', 'bannerData', 'countries',
             'province_id', 'cities', 'city_id', 'palabrasClave',
-            'chkPresencial', 'chkSemipresencial', 'chkDistancia', 'tipo', 'institucion', 'advsearch_costo'));
+            'chkPresencial', 'chkSemipresencial', 'chkDistancia', 'tipo', 'institucion', 'advsearch_costo', 'terms'));
     }
 
     protected function getRouteScope(Request $request) {

@@ -10,7 +10,6 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <div id="app" v-cloak>
     <!-- Fixed navbar -->
     @include('vendor.adminlte.layouts.partials.navbarexpoeducar')
-
     <!-- Banner -->
     @include('vendor.adminlte.layouts.partials.bannercategory')
 

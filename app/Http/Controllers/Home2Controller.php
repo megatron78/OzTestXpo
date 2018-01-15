@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\{
-    BannerCategory, Instituciones_ad, InstitutionsView
+    BannerCategory, Instituciones_ad, InstitutionsView, Catalogo_textos
 };
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -100,9 +100,11 @@ class Home2Controller extends Controller
                 ,'institutions_views.plan_hasta')
             ->get();
 
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
+
         $bannerData = BannerCategory::where('category_id','=','1')
             ->select('id','photo1_url','photo2_url','photo3_url','photo4_url','photo5_url','url1','url2','url3')
             ->get();
-        return view('welcome', compact('bannerData', 'instituciones_view'));
+        return view('welcome', compact('bannerData', 'instituciones_view', 'terms'));
     }
 }

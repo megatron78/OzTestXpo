@@ -8,6 +8,7 @@ use App\Sector;
 use Illuminate\Support\Facades\Session;
 use App\Province;
 use App\Institution;
+use App\Catalogo_textos;
 use Illuminate\Http\Request;
 use function Sodium\add;
 
@@ -115,12 +116,13 @@ class ListPreescolarController extends Controller
             $chkExtendido=1;
 
         $provinces = Province::all(['name','id']);
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
         if(!$instituciones->first())
             Session::flash('flash_message', 'No se encontraron registros.');
         return view('vendor.adminlte.layouts.preescolar', compact('instituciones','provinces',
             'bannerData', 'province_id', 'cities', 'city_id', 'sectors', 'sector_id', 'palabrasClave',
             'chkFiscal', 'chkFiscomisional', 'chkParticular', 'chkLaico', 'chkReligioso', 'chkMujeres', 'chkHombres',
-            'chkMixto', 'chkExtendido', 'advsearch_costo'));
+            'chkMixto', 'chkExtendido', 'advsearch_costo','terms'));
     }
 
     protected function getRouteScope(Request $request) {
