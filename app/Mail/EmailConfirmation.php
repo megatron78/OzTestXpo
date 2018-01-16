@@ -32,8 +32,9 @@ class EmailConfirmation extends Mailable
     public function build()
     {
         //dd($this->user->email_token);
-        return $this->view('emailconfirmation')->with([
+        return $this->subject('Notificación de Activación de Cuenta en EXPOEDUCAR')->view('emailconfirmation')->with([
             'email_token' => $this->user->email_token,
+            'user' => $this->user,
         ]);
     }
 }

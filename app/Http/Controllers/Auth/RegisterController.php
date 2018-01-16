@@ -106,18 +106,20 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function register(Request $request) {
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
         $this->dispatch(new SendVerificationEmail($user));
-        return view('verification');
+        return view('verification', compact('terms'));
     }
 
     public function verify($token) {
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
         $user = User::where('email_token', $token)->first();
         $user->verified = 1;
         if($user->save()) {
             $this->dispatch(new SendConfirmationEmail($user));
-            return view('emailconfirm', ['user' => $user]);
+            return view('emailconfirm', ['user' => $user], compact('terms'));
         }
     }
 }

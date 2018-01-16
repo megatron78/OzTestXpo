@@ -38,7 +38,8 @@ class SendConfirmationEmail implements ShouldQueue
     public function handle()
     {
         $email = new EmailConfirmation($this->user);
-        Mail::to($this->user->email)->subject('Notificación de Activación de Cuenta en EXPOEDUCAR')->send($email);
+        Mail::to($this->user->email)->send($email);
+//        Mail::to($this->user->email)->subject('Notificación de Activación de Cuenta en EXPOEDUCAR')->send($email);
         //Mail::to($this->user)->send(new TokenMail($this));
     }
 }
