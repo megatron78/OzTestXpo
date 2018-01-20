@@ -1,11 +1,8 @@
 <body>
     <h3>Notificación de Activación de Cuenta en EXPOEDUCAR.</h3>
     <p>Estimado (a) {{$user->name}}, gracias por su registro en www.expoeducar.com,</p>
-    <br>
     <p>Su cuenta ya se encuentra activa, ya puede registrar Gratis su Institución, Curso, Seminario, Postgrado o Evento.</p>
-    <br>
     <p>Los datos de tu cuenta son:</p>
-    <br>
     <strong>NOMBRE: </strong>&nbsp;{{$user->name}}
     <br>
     <strong>EMAIL: </strong>&nbsp;{{$user->email}}
@@ -20,5 +17,4 @@
     <br>
         <img src={{ asset('/img/planes4.png') }}>
     <br>
-
 </body>

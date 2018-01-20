@@ -37,7 +37,9 @@ class InstitucionesAdsController extends Controller
         $ads = Instituciones_ads::findOrfail($id);
 
         $adsCombo = InstitutionsView::where('id','=', $ads['object_id'])
-            ->where('nombre_corto', '=', $ads['nombre_corto'])->limit(1);
+            ->where('nombre_corto', '=', $ads['nombre_corto'])
+            ->select(DB::raw('CONCAT(id, "-", tipo) as id'), 'nombre_corto', 'tipo')
+            ->limit(1);
 
         return view('catalogs.editads', compact('ads', 'adsCombo'));
     }
@@ -56,7 +58,8 @@ class InstitucionesAdsController extends Controller
         $input = $request->all();
 
         //selecciona el id de la clave compuesta
-        $input['object_id'] = explode('-', $input['object_id'])[0];
+        $tmpExplode = explode('-', $input['object_id']);
+        $input['object_id'] = $tmpExplode[0];
 
         $adsCombo = InstitutionsView::where('id','=', $input['object_id'])
             ->where('nombre_corto', '=', $input['ads_nombre_corto'])
@@ -64,7 +67,7 @@ class InstitucionesAdsController extends Controller
 
         $input['updated_at'] = Carbon::now();
         $input['nombre_corto'] = $input['ads_nombre_corto'];
-        $input['categoria'] = explode('-', $input['object_id'])[1]; //$adsCombo['tipo'];
+        $input['categoria'] = $tmpExplode[1];; //$adsCombo['tipo'];
 
         $ads->fill($input);
         $ads->save();

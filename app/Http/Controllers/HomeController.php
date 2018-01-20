@@ -7,7 +7,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{InstitutionsView};
+use App\{InstitutionsView, Catalogo_textos};
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 

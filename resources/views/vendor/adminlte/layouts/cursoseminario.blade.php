@@ -65,12 +65,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     {{ isset($cursoseminario->telefono) ? $cursoseminario->telefono : "ND" }} /
                                     {{ isset($cursoseminario->email) ? $cursoseminario->email : "ND" }}</h5>
                             </div>
-                            <div class="col-sm-6 centered">
+                            <div style="padding: 5px;" class="col-sm-6 centered">
                                 <a href="{{ $cursoseminario->url }}" target="_blank" class="btn-sm bg-navy">
                                     Más información
                                 </a>
                             </div>
-                            <div class="col-sm-6 centered">
+                            <div style="padding: 5px;" class="col-sm-6 centered">
                                 <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
                                    data-email="{{ $cursoseminario->email }}"
                                    href="#meInteresa">

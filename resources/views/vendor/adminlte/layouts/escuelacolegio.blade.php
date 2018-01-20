@@ -57,8 +57,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         </div>
                                     </a>
 
-                                    <div class="box-footer" style="padding: 0px; padding-bottom: 10px; border-width: 2px; border-color: #1A2B51;">
-                                        <p style="background-color: #B5BBC8; overflow:hidden; white-space: nowrap;
+                                    <div class="box-footer" style="padding: 0px; padding-bottom: 10px; border-width: 3px; border-color: #018DB7;">
+                                        <p class="box-title" style="font-size: 18px; font-weight: bold; color: #333333; background-color: #B6BBC3; overflow:hidden; white-space: nowrap;
                                         text-overflow: ellipsis;" class="widget-user-username">{{ $institucion->nombre_corto }}</p>
                                         <div class="row">
                                             <div class="col-sm-4 border-right centered" style="border-width: 2px;">

@@ -13,20 +13,20 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 
     <div class="container-fluid">
         <br>
-        <div style="display: block; position: relative; top: -100px;" id="quienes_somos"></div>
+        <div style="display: block; position: relative; top: -75px;" id="quienes_somos"></div>
         <div id="quienes_somos2" class="row col-lg-12">
             <img src='{{ asset('/img/quienes_somos4.png') }}' alt="Quiénes somos" height="100%" width="100%">
         </div>
-        <div style="display: block; position: relative; top: 330px;" id="beneficios_instituciones"></div>
+        <div style="display: block; position: relative; top: -75px;" id="beneficios_instituciones"></div>
         <div id="beneficios_instituciones2" class="row col-lg-12">
             <img src='{{ asset('/img/beneficios_instituciones5.png') }}' alt="Beneficios Instituciones" height="100%" width="100%">
         </div>
-        <div style="display: block; position: relative; top: 660px;" id="beneficios_estudiantes"></div>
+        <div style="display: block; position: relative; top: -80px;" id="beneficios_estudiantes"></div>
         <div id="beneficios_estudiantes2" class="row col-lg-12">
             <img src='{{ asset('/img/beneficios_estudiantes5.png') }}' alt="Beneficios Estudiantes" height="100%" width="100%">
         </div>
-        {{--<div style="display: block; position: relative; top: 990px;" id="planes_instituciones"></div>--}}
-        <div id="planes_instituciones" class="row col-lg-12">
+        <div style="display: block; position: relative; top: -50px;" id="planes_instituciones"></div>
+        <div id="planes_instituciones2" class="row col-lg-12">
             <br>
             <img src='{{ asset('/img/planes4.png') }}' alt="Planes" height="100%" width="100%">
         </div>
@@ -103,6 +103,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 
 <footer>
     @include('vendor.adminlte.layouts.partials.footerexpoeducar')
+    @include('vendor.adminlte.layouts.partials.modalmeinteresa')
 </footer>
 
 </div>

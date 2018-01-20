@@ -260,27 +260,65 @@ class Institution extends Model
     }
 
     public function scopeLaico($query, $foo, $religioso) {
-        return $query->where(function ($query) use ($religioso)
-        {$query->orWhere('laico', 1)->orWhere('religioso', $religioso);});
+        if($religioso != 0)
+            return $query->where(function ($query) use ($religioso)
+            {$query->orWhere('laico', 1)->orWhere('religioso', $religioso);});
+        else
+            return $query->where(function ($query) use ($religioso)
+            {$query->orWhere('laico', 1);});
     }
 
     public function scopeReligioso($query, $foo, $laico) {
-        return $query->where(function ($query) use ($laico)
-        {return $query->orWhere('religioso', 1)->orWhere('laico', $laico);});
+        if($laico != 0)
+            return $query->where(function ($query) use ($laico)
+            {return $query->orWhere('religioso', 1)->orWhere('laico', $laico);});
+        else
+            return $query->where(function ($query) use ($laico)
+            {return $query->orWhere('religioso', 1);});
     }
 
     public function scopeFemenino($query, $foo, $mixto, $masculino) {
-        return $query->where(function ($query) use ($mixto, $masculino)
-        {$query->where('femenino', 1)->orWhere('mixto', $mixto)->orWhere('masculino', $masculino);});
+        if($mixto != 0 and $masculino != 0)
+            return $query->where(function ($query) use ($mixto, $masculino)
+            {$query->where('femenino', 1)->orWhere('mixto', $mixto)->orWhere('masculino', $masculino);});
+        elseif ($mixto != 0)
+            return $query->where(function ($query) use ($mixto, $masculino)
+            {$query->where('femenino', 1)->orWhere('mixto', $mixto);});
+        elseif ($masculino != 0)
+            return $query->where(function ($query) use ($mixto, $masculino)
+            {$query->where('femenino', 1)->orWhere('masculino', $masculino);});
+        else
+            return $query->where(function ($query) use ($mixto, $masculino)
+            {$query->where('femenino', 1);});
     }
 
     public function scopeMixto($query, $foo, $femenino, $masculino) {
-        return $query->where(function ($query) use ($femenino, $masculino)
-        {$query->where('mixto', 1)->orWhere('femenino', $femenino)->orWhere('masculino', $masculino);});
+        if($femenino != 0 and $masculino != 0)
+            return $query->where(function ($query) use ($femenino, $masculino)
+            {$query->where('mixto', 1)->orWhere('femenino', $femenino)->orWhere('masculino', $masculino);});
+        elseif ($femenino != 0)
+            return $query->where(function ($query) use ($femenino, $masculino)
+            {$query->where('mixto', 1)->orWhere('femenino', $femenino);});
+        elseif ($masculino != 0)
+            return $query->where(function ($query) use ($femenino, $masculino)
+            {$query->where('mixto', 1)->orWhere('masculino', $masculino);});
+        else
+            return $query->where(function ($query) use ($femenino, $masculino)
+            {$query->where('mixto', 1);});
     }
 
     public function scopeMasculino($query, $foo, $femenino, $mixto) {
-        return $query->where(function ($query) use ($femenino, $mixto)
-        {$query->where('masculino', 1)->orWhere('femenino', $femenino)->orWhere('mixto', $mixto);});
+        if($femenino != 0 and $mixto != 0)
+            return $query->where(function ($query) use ($femenino, $mixto)
+            {$query->where('masculino', 1)->orWhere('femenino', $femenino)->orWhere('mixto', $mixto);});
+        elseif ($femenino != 0)
+            return $query->where(function ($query) use ($femenino, $mixto)
+            {$query->where('masculino', 1)->orWhere('femenino', $femenino);});
+        elseif ($mixto != 0)
+            return $query->where(function ($query) use ($femenino, $mixto)
+            {$query->where('masculino', 1)->orWhere('mixto', $mixto);});
+        else
+            return $query->where(function ($query) use ($femenino, $mixto)
+            {$query->where('masculino', 1);});
     }
 }

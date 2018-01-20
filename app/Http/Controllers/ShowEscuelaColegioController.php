@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Institution;
+use App\Catalogo_textos;
 
 class ShowEscuelaColegioController extends Controller
 {
@@ -11,6 +12,7 @@ class ShowEscuelaColegioController extends Controller
         if($institution->slug != $slug) {
             return redirect($institution->url, 301);
         }
-        return view('institutions.showegbbgu', compact('institution'));
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
+        return view('institutions.showegbbgu', compact('institution', 'terms'));
     }
 }

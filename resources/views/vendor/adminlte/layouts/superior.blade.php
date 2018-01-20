@@ -52,12 +52,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     </div>
                                 </a>
 
-                                <div class="box-footer" style="padding: 0px; padding-bottom: 10px; border-width: 2px; border-color: #1A2B51;">
+                                <div class="box-footer" style="padding: 0px; padding-bottom: 10px; border-width: 3px; border-color: #018DB7;">
                                     {{--<h3 style="color:black"
                                         class="widget-user-username">{{ str_limit($pregrado->nombre_corto, $limit=29, $end="...") }}</h3>--}}
                                     {{--<h3 style="color:black;"
                                         class="widget-user-username">{{ $pregrado->nombre_corto }}</h3>--}}
-                                    <p style="background-color: #B5BBC8; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;" class="widget-user-username">{{ $pregrado->nombre_corto }}</p>
+                                    <p class="box-title" style="font-size: 18px; font-weight: bold; color: #333333; background-color: #B6BBC3; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;" class="widget-user-username">{{ $pregrado->nombre_corto }}</p>
                                     <div class="row">
                                         <div class="centered">
                                             <div style="min-height: 15px; max-height: 15px" class="description-block">
@@ -121,7 +121,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <div class="col-md-3" onmouseleave="if($('#collapse{{ $pregrado->id }}').attr('aria-expanded') === 'true'){ $('#collapse{{ $pregrado->id }}').collapse('toggle');}">
                                 <div class="box box-primary">
                                     <div class="box-header with-border bg-gray-active">
-                                        <h3 class="box-title"><strong>{{ str_limit($pregrado->nombre_corto, $limit=25, $end="...") }}</strong></h3>
+                                        <h3 class="box-title">{{ str_limit($pregrado->nombre_corto, $limit=25, $end="...") }}</h3>
                                     </div>
                                     <!-- /.box-header -->
                                     <div class="box-body">

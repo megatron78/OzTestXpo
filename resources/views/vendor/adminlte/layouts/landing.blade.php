@@ -39,8 +39,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         @endif
                                     </div>
                                 </a>
-                                <div class="box-footer" style="padding: 0px; padding-bottom: 7px; border-width: 2px; border-color: #1A2B51;">
-                                    <p style="background-color: #B5BBC8; overflow:hidden; white-space: nowrap;
+                                <div class="box-footer" style="padding: 0px; padding-bottom: 7px; border-width: 3px; border-color: #018DB7;">
+                                    <p class="box-title" style="font-size: 18px; font-weight: bold; color: #333333; background-color: #B6BBC3; overflow:hidden; white-space: nowrap;
                                         text-overflow: ellipsis;" class="widget-user-username">{{ $institucionview->nombre_corto }}</p>
                                     <div class="row">
                                         <div class="col-sm-4 border-right centered">
@@ -156,8 +156,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                             @endif
                                         </div>
                                     </a>
-                                    <div class="box-footer" style="padding: 0px; padding-bottom: 10px; border-width: 2px; border-color: #1A2B51;">
-                                        <p style="background-color: #B5BBC8; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;" class="widget-user-username">{{ $institucionview->nombre_corto }}</p>
+                                    <div class="box-footer" style="padding: 0px; padding-bottom: 10px; border-width: 3px; border-color: #018DB7;">
+                                        <p class="box-title" style="font-size: 18px; font-weight: bold; color: #333333; background-color: #B6BBC3; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;" class="widget-user-username"> {{ $institucionview->nombre_corto }} </p>
                                         <div class="row">
                                             <div class="centered">
                                                 <div style="min-height: 15px; max-height: 15px" class="description-block">
@@ -236,12 +236,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                                     {{ isset($institucionview->telefono) ? $institucionview->telefono : "ND" }} /
                                                     {{ isset($institucionview->email) ? $institucionview->email : "ND" }}</h5>
                                             </div>
-                                            <div class="col-sm-6 centered">
+                                            <br>
+                                            <div style="padding: 5px;" class="col-sm-6 centered">
                                                 <a href="{{ route('posgrado.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                     Más información
                                                 </a>
                                             </div>
-                                            <div class="col-sm-6 centered">
+                                            <div style="padding: 5px;" class="col-sm-6 centered">
                                                 <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
                                                    data-email="{{ $institucionview->email }}"
                                                    href="#meInteresa">
@@ -299,7 +300,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div style="padding: 1px" class="widget-user-header bg-blue-active">
                                         <!-- /.widget-user-image -->
-                                        <a style="color: white" href="{{ route('cursoseminario.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" >
+                                        <a style="color: white" href="{{ route('cursoseminario.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank">
                                             <p style="overflow: hidden; height: 2.3em; margin-left: 0px" class="widget-user-username">
                                                 {{ $institucionview->nombre }}
                                             </p>
@@ -311,17 +312,18 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                                         {{--<div style="font-size: 16px" class="description-block">
                                             {{$institucionview->objetivo}}
                                         </div>--}}
-                                        <div class="col-sm-12 centered">
+                                        <div class="col-sm-12 centered" style="min-height: 4.5em;">
                                             <h5>{{ isset($institucionview->city->name) ? $institucionview->city->name : "ND" }} /
                                                 {{ isset($institucionview->telefono) ? $institucionview->telefono : "ND" }} /
                                                 {{ isset($institucionview->email) ? $institucionview->email : "ND" }}</h5>
                                         </div>
-                                        <div class="col-sm-6 centered">
+                                        <br>
+                                        <div style="padding: 5px;" class="col-sm-6 centered">
                                             <a href="{{ route('cursoseminario.show', [isset($institucionview->province_name) ? $institucionview->province_name : "ND", isset($institucionview->city->name) ? $institucionview->city->name : "ND", $institucionview->id, $institucionview->slug]) }}" target="_blank" class="btn-sm bg-navy">
                                                 Más información
                                             </a>
                                         </div>
-                                        <div class="col-sm-6 centered">
+                                        <div style="padding: 5px;" class="col-sm-6 centered">
                                             <a class="btn-sm bg-green" data-target="#meInteresa" data-toggle="modal"
                                                data-email="{{ $institucionview->email }}"
                                                href="#meInteresa">

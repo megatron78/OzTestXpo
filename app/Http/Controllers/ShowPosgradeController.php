@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PosgradeCourseSeminar;
+use App\Catalogo_textos;
 
 class ShowPosgradeController extends Controller
 {
@@ -12,6 +13,7 @@ class ShowPosgradeController extends Controller
         if($posgrado->slug != $slug) {
             return redirect($posgrado->url, 301);
         }
-        return view('institutions.showposgrade', compact('posgrado'));
+        $terms = Catalogo_textos::select('texto')->where('nombre', 'terminos_condiciones')->get();
+        return view('institutions.showposgrade', compact('posgrado', 'terms'));
     }
 }
